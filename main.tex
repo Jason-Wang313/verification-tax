@@ -96,7 +96,7 @@ Independent Researcher \\
 \maketitle
 
 \begin{abstract}
-As AI models become more capable, their error rates decrease --- yet we show that verifying their reliability becomes fundamentally \emph{harder}, not easier. We establish minimax-optimal rates for estimating the Expected Calibration Error (ECE) of classifiers with error rate $\errrate$, revealing a ``verification tax'' that grows as errors become rare. Our Le~Cam lower bound shows that any ECE estimator incurs error $\Omega(\sqrt{\errrate/\nsamples})$, and a reduction to $L_1$ functional estimation yields the nonparametric minimax rate $\Theta((\Lip\errrate/\nsamples)^{1/3})$ up to logarithmic factors, which histogram binning with an $\errrate$-adaptive bin count achieves. A phase transition emerges at $\nsamples \sim 1/\errrate$: below this threshold, even detecting miscalibration is impossible. We prove that white-box model access (inspecting weights, architecture, training data) provides no fundamental advantage unless it identifies a low-dimensional parametric family for the calibration function --- in which case the rate improves to the parametric $O(1/\sqrt{\nsamples})$. We validate these bounds empirically on modern LLMs across standard benchmarks. Our results formalize the tension between AI capability and auditability, with direct implications for regulatory frameworks that mandate calibration verification.
+As AI models become more capable, their error rates decrease --- yet we show that verifying their reliability becomes fundamentally \emph{harder}, not easier. We establish minimax-optimal rates for estimating the Expected Calibration Error (ECE) of classifiers with error rate $\errrate$, revealing a ``verification tax'' that grows as errors become rare. Our Le~Cam lower bound shows that any ECE estimator incurs error $\Omega(\sqrt{\errrate/\nsamples})$, and a reduction to $L_1$ functional estimation yields the nonparametric minimax rate $\Theta((\Lip\errrate/\nsamples)^{1/3})$ up to logarithmic factors, which histogram binning with an $\errrate$-adaptive bin count achieves. A phase transition emerges at $\nsamples \sim 1/\errrate$: below this threshold, even detecting miscalibration is impossible. We prove that white-box model access (inspecting weights, architecture, training data) provides no fundamental advantage unless it identifies a low-dimensional parametric family for the calibration function --- in which case the rate improves to the parametric $O(1/\sqrt{\nsamples})$. We validate these bounds empirically via synthetic experiments with known ground truth, and illustrate the practical implications on representative model configurations. Our results formalize the tension between AI capability and auditability, with direct implications for regulatory frameworks that mandate calibration verification.
 \end{abstract}
 
 % ============================================================
@@ -128,7 +128,7 @@ Our contributions are as follows:
 
 \item \textbf{Temporal decay.} Every verification has a half-life determined by the deployment distribution's drift rate (Theorem~\ref{thm:halflife}), ranging from hours in financial applications to months in healthcare.
 
-\item \textbf{Empirical validation.} We validate the theoretical predictions on 6--14 large language models across two benchmarks, confirming the predicted scaling exponents and phase transition location (Section~\ref{sec:empirics}).
+\item \textbf{Empirical validation.} We validate the theoretical predictions via synthetic experiments with known ground truth, confirming the predicted scaling exponents, phase transition location, and active-passive gap (Section~\ref{sec:empirics}).
 \end{enumerate}
 
 The remainder of this paper is organized as follows. Section~\ref{sec:theory} introduces the formal framework and establishes the core verification tax (Theorems~\ref{thm:lecam}--\ref{thm:upper-bound}) along with its generalization to fairness and robustness verification. Section~\ref{sec:extensions} presents the impossibility results, adaptive and sequential verification strategies, and parametric and transfer reductions. Section~\ref{sec:tools} translates the theory into practical formulas for holdout sizing, stratified evaluation, and verification budgeting. Section~\ref{sec:horizon} derives the verification horizon, dynamics, recalibration trap, and half-life. Section~\ref{sec:compositional} establishes the compositional verification tax for multi-component AI systems. Section~\ref{sec:related} discusses related work, and Section~\ref{sec:conclusion} concludes with limitations and directions for future work.
@@ -646,7 +646,7 @@ Transfer helps when $\ftshift < \delta$ and $\Liph \leq \Lip$. With a gentle fin
 \section{Empirical Study}
 \label{sec:empirics}
 
-Our theoretical results generate several concrete, falsifiable predictions that we are currently validating on large language models via the NVIDIA NIM API. We state these predictions here to facilitate independent replication.
+Our theoretical results generate several concrete, falsifiable predictions. We state these predictions here to facilitate independent replication.
 
 \paragraph{Prediction 1: ECE scaling exponent.} For a model with error rate $\errrate$, the empirical ECE estimated from $\nsamples$ holdout samples should scale as $\widehat{\ECE} \propto \nsamples^{-\confalpha}$ with $\confalpha \in [0.30, 0.36]$ (the theoretical prediction is $\confalpha = 1/3$ from Theorem~\ref{thm:upper-bound}). Deviations toward $\confalpha = 0.5$ would indicate the parametric regime (Proposition~\ref{prop:tempscaling}).
 
@@ -658,7 +658,6 @@ Our theoretical results generate several concrete, falsifiable predictions that 
 
 \paragraph{Prediction 5: Compositional cost.} For a two-stage pipeline (retriever + classifier), end-to-end ECE verification should require measurably more samples than single-model verification, with the gap scaling with the estimated system Lipschitz constant (Theorem~\ref{thm:compositional}).
 
-A comprehensive empirical study validating these predictions across 6--14 LLMs on MMLU and TruthfulQA is in preparation and will appear in the next revision of this manuscript.
 
 \subsection{Synthetic Validation}
 \label{sec:synthetic}
@@ -671,7 +670,7 @@ A comprehensive empirical study validating these predictions across 6--14 LLMs o
 \section{Practical Tools}
 \label{sec:tools}
 
-The theoretical results yield concrete formulas that practitioners can use immediately, without waiting for empirical calibration.
+The theoretical results yield concrete formulas that practitioners can use immediately, without waiting for empirical calibration. The formulas below are parameterized by the Lipschitz constant $\Lip$; practitioners should estimate $\Lip$ from their evaluation data (e.g., via finite-difference approximation of the empirical calibration curve) rather than assuming $\Lip = 1$.
 
 \paragraph{Fix 1: $\errrate$-Adaptive Holdout Sizing.}
 The sharp Le~Cam constants (Table~\ref{tab:sharp-constants}) yield the exact holdout sizing formula:
@@ -1051,7 +1050,7 @@ Two avenues reduce the tax: parametric assumptions compress the calibration func
 
 At scale, the verification tax creates a verification horizon --- a critical model size beyond which the world's supply of labeled data is insufficient to meaningfully verify performance (Theorem~\ref{thm:horizon}). Iterative recalibration hits a ceiling of $\maxround = O(\log \totaldata)$ verifiable rounds (Proposition~\ref{prop:recaltrap}), and compositional AI systems face verification costs that grow exponentially with pipeline depth (Theorem~\ref{thm:compositional}). Every verification has a half-life determined by the deployment distribution's drift rate (Theorem~\ref{thm:halflife}).
 
-\paragraph{Limitations.} Our analysis relies on the Lipschitz assumption for the calibration function, which may not hold for all models. The lower bound (Theorem~\ref{thm:minimax-lb}) inherits a logarithmic gap from the open problem of $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional verification tax (Theorem~\ref{thm:compositional}) uses a Lipschitz composition model that may overestimate the effective system Lipschitz constant for pipelines with discrete components. Sharp constants (Table~\ref{tab:sharp-constants}) are computed for the Le~Cam bound only; constants for the minimax rate remain open. The empirical validation of our theoretical predictions is ongoing.
+\paragraph{Limitations.} Our analysis relies on the Lipschitz assumption for the calibration function, which may not hold for all models. The lower bound (Theorem~\ref{thm:minimax-lb}) inherits a logarithmic gap from the open problem of $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional verification tax (Theorem~\ref{thm:compositional}) uses a Lipschitz composition model that may overestimate the effective system Lipschitz constant for pipelines with discrete components. Sharp constants (Table~\ref{tab:sharp-constants}) are computed for the Le~Cam bound only; constants for the minimax rate remain open.
 
 \paragraph{Open problems.} Three directions warrant further investigation. First, closing the logarithmic gap between the upper and lower bounds for ECE estimation --- a special case of the long-standing open problem for $L_1$ functional estimation. Second, extending the compositional verification tax to pipelines with non-Lipschitz components (e.g., discrete retrieval steps). Third, characterizing the verification tax for multi-class calibration, where the calibration gap becomes a vector-valued function.
 
@@ -1319,22 +1318,5 @@ $\errrate$ & $c_1(\errrate)$ & Required $\nsamples$ for $\ECE \leq 0.01$ \\
 \end{table}
 
 The constant $c_1(\errrate)$ is monotonically decreasing in $\errrate$: smaller error rates yield tighter constants because the Bernoulli variance is smaller and the KL approximation is sharper. All values fall in $[0.28, 0.38]$, consistent with the theoretical prediction $c_1 \geq 1/(2e) \approx 0.184$ from the quadratic KL approximation. The exact constants are roughly $2\times$ larger, reflecting the tightness gained from exact Bernoulli KL computation.
-
-% ----------------------------------------------------------
-\section{Full Experimental Details}
-\label{app:experiments}
-
-A comprehensive empirical study is in preparation. The planned protocol includes:
-
-\begin{enumerate}
-\item \textbf{Models:} 6--14 large language models hosted on NVIDIA NIM, spanning error rates $\errrate \in [0.05, 0.35]$.
-\item \textbf{Benchmarks:} MMLU ($\sim$14{,}000 questions, 4-way MCQ) and TruthfulQA ($\sim$800 questions, binary).
-\item \textbf{Confidence extraction:} Constrained single-token generation with softmax probability as confidence score.
-\item \textbf{Subsampling protocol:} For each model, subsample at $\nsamples \in \{50, 100, 200, 500, 1000, 2000, 5000, 10000\}$ with 1{,}000 bootstrap replicates.
-\item \textbf{Bin selection:} Optimal $B^*(\nsamples, \hat{\errrate}, \hat{\Lip})$ from Theorem~\ref{thm:upper-bound}, with robustness check at fixed $B = 15$.
-\item \textbf{Metrics:} ECE scaling exponent, phase transition location, calibration efficiency, effective Lipschitz constant.
-\end{enumerate}
-
-Results will appear in the next revision.
 
 \end{document}
