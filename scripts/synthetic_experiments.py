@@ -232,8 +232,84 @@ plt.savefig('figures/fig3_active_passive.pdf', dpi=150, bbox_inches='tight')
 plt.savefig('figures/fig3_active_passive.png', dpi=150, bbox_inches='tight')
 plt.close()
 
+# ============================================================
+# Figure 4: Hard instance — high-frequency calibration
+# ============================================================
+print("\n=== Figure 4: Hard Instance ===")
+freq = 8  # 8 full oscillations → 16 zero-crossings in [0.5, 1.0]
+A_hard = 0.015
+L_hard = 2 * np.pi * freq * A_hard  # ≈ 0.754
+
+delta_hard = lambda p: A_hard * np.sin(2 * np.pi * freq * p)
+
+# True ECE for hard instance (large B)
+def compute_true_ece_hard():
+    p = np.linspace(0.5001, 0.9999, 1000000)
+    d = delta_hard(p)
+    B = 1000
+    edges = np.linspace(0.5, 1.0, B + 1)
+    ece = 0.0
+    for b in range(B):
+        mask = (p >= edges[b]) & (p < edges[b + 1])
+        if mask.sum() > 0:
+            ece += (mask.sum() / len(p)) * abs(np.mean(d[mask]))
+    return ece
+
+ECE_TRUE_HARD = compute_true_ece_hard()
+print(f"  True ECE (hard, B=1000): {ECE_TRUE_HARD:.6f}")
+print(f"  L_hard = {L_hard:.4f}")
+
+hard_results = {}
+hard_slopes = {}
+for eps in [0.05, 0.10]:
+    errors = []
+    for m in ms:
+        B_star = max(3, int((L_hard**2 * m / eps) ** (1/3)))
+        boot_errors = []
+        for _ in range(n_boot):
+            p_samp = np.random.uniform(0.5, 1.0, size=m)
+            eta = p_samp + delta_hard(p_samp)
+            eta = np.clip(eta, 1e-10, 1 - 1e-10)
+            y_samp = np.random.binomial(1, eta)
+            ece_hat = empirical_ece(p_samp, y_samp, B_star)
+            boot_errors.append(abs(ece_hat - ECE_TRUE_HARD))
+        mean_err = np.mean(boot_errors)
+        errors.append(mean_err)
+        print(f"  [HARD] eps={eps:.2f}, m={m:6d}, B*={B_star:3d}, err={mean_err:.6f}")
+    hard_results[eps] = errors
+
+fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+for eps in [0.05, 0.10]:
+    log_m_h = np.log10(ms)
+    log_err_h = np.log10(hard_results[eps])
+    mask_h = np.array(ms) >= 1000
+    slope_h, intercept_h = np.polyfit(np.array(log_m_h)[mask_h], np.array(log_err_h)[mask_h], 1)
+    hard_slopes[eps] = slope_h
+    ax.plot(log_m_h, log_err_h, 'o-', markersize=5, linewidth=1.5,
+            label=rf'$\varepsilon = {eps}$ (slope={slope_h:.2f})')
+    print(f"  [HARD] eps={eps:.2f}: slope = {slope_h:.3f} (theory: -0.333)")
+
+# Theory reference
+ref_hard = np.log10(hard_results[0.10][0]) + (-1/3) * (np.array(log_m_h) - log_m_h[0])
+ax.plot(log_m_h, ref_hard, 'k--', alpha=0.5, linewidth=2, label=r'Theory: slope $= -1/3$')
+
+ax.set_xlabel(r'$\log_{10}(m)$', fontsize=12)
+ax.set_ylabel(r'$\log_{10}(\mathrm{mean}\;|\widehat{\mathrm{ECE}} - \mathrm{ECE}|)$', fontsize=12)
+ax.set_title(r'Hard Instance: High-Frequency Calibration ($k=8$, 16 zero-crossings)',
+             fontsize=13, fontweight='bold')
+ax.legend(fontsize=10)
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('figures/fig4_hard_instance.pdf', dpi=150, bbox_inches='tight')
+plt.savefig('figures/fig4_hard_instance.png', dpi=150, bbox_inches='tight')
+plt.close()
+
 print("\nAll figures saved to figures/")
 print(f"\nSummary of slopes:")
+print("  Benign (low-freq):")
 for eps in epsilons:
-    print(f"  Passive eps={eps}: {slopes[eps]:.3f}")
+    print(f"    Passive eps={eps}: {slopes[eps]:.3f}")
 print(f"  Active-passive (eps={eps_ap}): passive={slope_p:.3f}, active={slope_a:.3f}")
+print("  Hard (high-freq):")
+for eps in [0.05, 0.10]:
+    print(f"    Passive eps={eps}: {hard_slopes[eps]:.3f}")
