@@ -265,6 +265,8 @@ Within a window of width $w$ around $p = 1 - \errrate$, where the score distribu
 \textbf{Step 2: Identification with $L_1$ functional estimation in white noise.}
 By the asymptotic equivalence of nonparametric regression and Gaussian white noise \citep{brown1996equivalence, nussbaum1996equivalence}, estimating $\int |\calmap(p)| dp$ from $\nsamples$ observations with per-observation variance $\errrate$ is asymptotically equivalent to estimating $\int |f(t)| dt$ in the white noise model with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$.
 
+\paragraph{Regularity conditions for asymptotic equivalence.} The Brown--Low equivalence~\citep{brown1996equivalence} requires: (i) the score distribution $\scoredist$ has a density bounded away from zero on the window $[1-\errrate-w, 1-\errrate+w]$, i.e., $\inf_{p \in \text{window}} d\scoredist/dp \geq c > 0$; (ii) the number of samples $\nsamples$ is sufficiently large relative to the smoothness class ($\nsamples \geq C(\Lip, w)$ for a constant depending on the Lipschitz constant and window width); and (iii) the Bernoulli noise variance $\errrate(1-\errrate)$ is bounded away from zero, which holds whenever $\errrate \in (\calmapraw_0, 1-\calmapraw_0)$ for any $\calmapraw_0 > 0$. Condition (i) is ensured by the score-mass concentration assumption (stated below Theorem~\ref{thm:minimax-lb}); conditions (ii) and (iii) are mild for the rare-error regime with $\errrate \in (0, 1/2)$ and $\nsamples \to \infty$.
+
 \textbf{Step 3: Application of Lepski, Nemirovski \& Spokoiny (1999).}
 By Theorem~2.2 of \citet{lepski1999estimation}, the minimax rate for estimating the $L_1$ norm of a $\beta$-H\"older function in white noise with sample size $n$ is $R^* \geq c \cdot n^{-\beta/(2\beta+1)} / (\log n)^{c'}$. For $\beta = 1$ (Lipschitz) and $n = \nsamples / \errrate$, incorporating the Lipschitz constant $\Lip$:
 \begin{equation}
@@ -672,15 +674,20 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 
 The theoretical results yield concrete formulas that practitioners can use immediately, without waiting for empirical calibration. The formulas below are parameterized by the Lipschitz constant $\Lip$; practitioners should estimate $\Lip$ from their evaluation data (e.g., via finite-difference approximation of the empirical calibration curve) rather than assuming $\Lip = 1$.
 
-\paragraph{Fix 1: $\errrate$-Adaptive Holdout Sizing.}
-The sharp Le~Cam constants (Table~\ref{tab:sharp-constants}) yield the exact holdout sizing formula:
+\paragraph{Fix 1: $\errrate$-adaptive holdout sizing.}
+For \emph{detection} of miscalibration (testing $\ECE > 0$ vs $\ECE = 0$), the Le~Cam bound (Theorem~\ref{thm:lecam}) gives the minimum sample size:
 \begin{equation}
-\nsamples \geq c_1(\errrate)^2 \cdot \frac{\errrate}{\targetacc^2}
+\nsamples_{\mathrm{detect}} \geq c_1(\errrate)^2 \cdot \frac{\errrate}{\targetacc^2}
 \end{equation}
-where $c_1(\errrate)$ ranges from $0.38$ (at $\errrate = 0.01$) to $0.28$ (at $\errrate = 0.35$). For practitioners who prefer a single conservative formula, use $c_1 = 0.38$ (the maximum across all $\errrate$), giving:
+where $c_1(\errrate)$ is given in Table~\ref{tab:sharp-constants}. This suffices to \emph{detect} miscalibration of magnitude $\targetacc$ but does not guarantee accurate \emph{estimation} of ECE.
+
+For estimation of ECE to accuracy $\targetacc$ (the more demanding goal), Theorem~\ref{thm:upper-bound} gives:
 \begin{equation}
-\nsamples \geq 0.14 \cdot \frac{\errrate}{\targetacc^2}
+\nsamples_{\mathrm{estimate}} \geq \frac{\Lip \errrate}{\targetacc^3}
 \end{equation}
+This is always larger than $\nsamples_{\mathrm{detect}}$ and is the formula practitioners should use for holdout sizing. For example, with $\Lip = 1$, $\errrate = 0.05$, and $\targetacc = 0.02$: $\nsamples_{\mathrm{detect}} \geq 18$ (Le~Cam) but $\nsamples_{\mathrm{estimate}} \geq 6{,}250$ (nonparametric). Using the Le~Cam formula alone would undersize the holdout by over $300\times$.
+
+We recommend practitioners use $\nsamples_{\mathrm{estimate}}$ as the primary sizing formula, with $\nsamples_{\mathrm{detect}}$ serving as a quick feasibility check (if even detection is impossible, estimation certainly is).
 
 \paragraph{Fix 3: Stratified evaluation report.} For multi-domain benchmarks, per-domain verification is essential because error rates vary across domains. For a domain $d$ with $n_d$ samples and error rate $\errrate_d$, the per-domain verification floor is $\delta_{\mathrm{floor},d} = (\Lip \errrate_d / n_d)^{1/3}$. Domains where $\delta_{\mathrm{floor},d} > \errrate_d$ (i.e., $n_d < \Lip / \errrate_d^2$) have insufficient data for meaningful calibration assessment and should be flagged. For MMLU's 57 subjects merged into 10--12 super-categories, this produces a table reporting: ECE estimate, verification floor, data sufficiency flag, and additional samples required per category.
 
@@ -700,17 +707,17 @@ For a model with $\errrate = 0.05$, $\Lip = 1$, and $\nsamples = 10{,}000$: $B^*
 
 \begin{table}[h]
 \centering
-\caption{Verification audit: required holdout sizes and optimal bin counts for representative models, targeting $\ECE$ accuracy $\targetacc = 0.01$.}
+\caption{Verification audit: optimal bin counts and verification floors for representative models ($\Lip = 1$, $\nsamples = 10{,}000$). Required $\nsamples$ uses the nonparametric rate $\nsamples \geq \Lip\errrate/\targetacc^3$ for estimation accuracy $\targetacc = 0.01$.}
 \label{tab:audit}
 \small
 \begin{tabular}{lccccc}
 \toprule
 \textbf{Model class} & $\errrate$ & $c_1(\errrate)$ & Required $\nsamples$ & $B^*$ ($\nsamples = 10$k) & Verification floor \\
 \midrule
-Frontier LLM & 0.05 & 0.347 & 61 & 58 & 0.0017 \\
-Mid-range LLM & 0.15 & 0.321 & 155 & 39 & 0.0025 \\
-Open-source LLM & 0.25 & 0.298 & 223 & 34 & 0.0029 \\
-Smaller model & 0.35 & 0.276 & 267 & 30 & 0.0033 \\
+Frontier LLM & 0.05 & 0.347 & 50{,}000 & 58 & 0.0171 \\
+Mid-range LLM & 0.15 & 0.321 & 150{,}000 & 39 & 0.0247 \\
+Open-source LLM & 0.25 & 0.298 & 250{,}000 & 34 & 0.0292 \\
+Smaller model & 0.35 & 0.276 & 350{,}000 & 30 & 0.0327 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -751,16 +758,16 @@ c_0 \modelsize^{-\scalingexp} > \sqrt{\frac{\Lip}{\totaldata}} \implies \modelsi
 
 \begin{remark}[Quantitative Estimates]
 \label{rem:horizon-numbers}
-Under Chinchilla-type scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$) with $\Lip = 1$ and $\totaldata = 10^7$ (approximate total expert-labeled evaluation data across major benchmarks): $\horizonN = (10^7)^{1/1} = 10^7$. Current frontier models exceed $10^{11}$ parameters --- well past this naive estimate. However, $\totaldata$ grows with benchmark creation, and active verification (Theorem~\ref{thm:active}) shifts the horizon. Under active verification, the condition becomes $\errrate > \Lip / \totaldata$ (from the $\sqrt{\errrate/\nsamples}$ rate), giving $\horizonN_{\mathrm{active}} = (c_0 \totaldata / \Lip)^{1/\scalingexp}$, which is strictly larger. Adaptive evaluation buys time but does not eliminate the horizon.
+Under Chinchilla-type scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$) with $\Lip = 1$ and $\totaldata = 10^7$ (approximate total expert-labeled evaluation data across major benchmarks): $\horizonN = (10^7)^{1/1} = 10^7$. Current frontier models exceed $10^{11}$ parameters --- well past this naive estimate. However, $\totaldata$ grows with benchmark creation, and active verification (Theorem~\ref{thm:active}) shifts the horizon. Under active verification, the condition becomes $\errrate > 1 / \totaldata$ (from the $\sqrt{\errrate/\nsamples}$ rate), giving $\horizonN_{\mathrm{active}} = (c_0 \totaldata)^{1/\scalingexp}$, which is strictly larger. Adaptive evaluation buys time but does not eliminate the horizon.
 \end{remark}
 
 \begin{corollary}[Active Verification Horizon]
 \label{cor:active-horizon}
 Under active verification (Theorem~\ref{thm:active}), the verification floor improves to $\delta_{\mathrm{floor,active}} = \sqrt{\errrate / \totaldata}$, and the active horizon is:
 \begin{equation}
-\horizonN_{\mathrm{active}} = \left(\frac{c_0 \totaldata}{\Lip}\right)^{1/\scalingexp}
+\horizonN_{\mathrm{active}} = (c_0 \totaldata)^{1/\scalingexp}
 \end{equation}
-The ratio $\horizonN_{\mathrm{active}} / \horizonN = (c_0 \totaldata / \Lip)^{1/(2\scalingexp)}$ quantifies how much additional runway adaptive evaluation provides.
+Note that $\Lip$ does not appear: the active rate $\Theta(\sqrt{\errrate/\nsamples})$ is Lipschitz-free. The ratio $\horizonN_{\mathrm{active}} / \horizonN = (c_0 \totaldata)^{1/\scalingexp} / (c_0^2 \totaldata / \Lip)^{1/(2\scalingexp)}$ quantifies how much additional runway adaptive evaluation provides.
 \end{corollary}
 
 \begin{theorem}[Verification Dynamics]
@@ -1298,21 +1305,21 @@ For each $\errrate$, we numerically optimize the Le~Cam lower bound over the sep
 
 \begin{table}[h]
 \centering
-\caption{Sharp Le~Cam constants $c_1(\errrate)$ for the verification tax lower bound $R^* \geq c_1(\errrate) \sqrt{\errrate/\nsamples}$.}
+\caption{Sharp Le~Cam constants $c_1(\errrate)$ and nonparametric estimation sample sizes. The Le~Cam constant governs detection; the estimation column uses $\nsamples \geq \Lip\errrate/\targetacc^3$ with $\Lip = 1$, $\targetacc = 0.01$.}
 \label{tab:sharp-constants}
-\begin{tabular}{ccc}
+\begin{tabular}{cccc}
 \toprule
-$\errrate$ & $c_1(\errrate)$ & Required $\nsamples$ for $\ECE \leq 0.01$ \\
+$\errrate$ & $c_1(\errrate)$ & $\nsamples_{\mathrm{detect}}$ (Le~Cam) & $\nsamples_{\mathrm{estimate}}$ (nonparametric) \\
 \midrule
-0.01 & 0.3780 & 15 \\
-0.02 & 0.3638 & 27 \\
-0.05 & 0.3474 & 61 \\
-0.10 & 0.3326 & 111 \\
-0.15 & 0.3206 & 155 \\
-0.20 & 0.3093 & 192 \\
-0.25 & 0.2982 & 223 \\
-0.30 & 0.2873 & 248 \\
-0.35 & 0.2759 & 267 \\
+0.01 & 0.3780 & 15 & 10{,}000 \\
+0.02 & 0.3638 & 27 & 20{,}000 \\
+0.05 & 0.3474 & 61 & 50{,}000 \\
+0.10 & 0.3326 & 111 & 100{,}000 \\
+0.15 & 0.3206 & 155 & 150{,}000 \\
+0.20 & 0.3093 & 192 & 200{,}000 \\
+0.25 & 0.2982 & 223 & 250{,}000 \\
+0.30 & 0.2873 & 248 & 300{,}000 \\
+0.35 & 0.2759 & 267 & 350{,}000 \\
 \bottomrule
 \end{tabular}
 \end{table}
