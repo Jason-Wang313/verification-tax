@@ -110,7 +110,7 @@ The base rate problem --- that rare conditions are hard to detect --- is among t
 
 We show that AI auditing faces the same fundamental barrier. The ``disease'' is miscalibration --- the gap between a model's stated confidence and its actual accuracy. As models improve and errors become rare, miscalibration becomes a rare condition, and detecting it requires an ever-growing quantity of labeled evaluation data. We call this the \emph{verification tax}: the statistical cost that must be paid to confirm that an AI system is as reliable as it claims to be.
 
-The verification tax is not a limitation of current evaluation methods. It is a law. No algorithm, no amount of compute, no access to model internals can circumvent it. The tax applies universally across calibration, fairness, and robustness verification. It compounds exponentially through multi-component pipelines. And it creates a \emph{verification horizon} --- a critical model capability beyond which the world's supply of labeled data is insufficient to verify performance.
+The verification tax is not a limitation of current evaluation methods. It is a law. Under the stated assumptions, no estimator --- regardless of computational resources or model access --- can circumvent it. The tax applies under the Lipschitz and independence assumptions across calibration, fairness, and robustness verification. It compounds exponentially through multi-component pipelines. And it creates a \emph{verification horizon} --- a critical model capability beyond which the world's supply of labeled data is insufficient to verify performance.
 
 But the tax is not without relief. Adaptive evaluation protocols --- where the auditor chooses which inputs to test --- achieve a strictly faster verification rate, eliminating the dependence on calibration smoothness entirely. Parametric assumptions (e.g., temperature scaling) reduce the tax to the standard parametric rate. And prior verification transfers across model updates proportionally to the magnitude of the update.
 
@@ -685,12 +685,12 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 
 \paragraph{Setup.} We generate synthetic data from a known calibration gap $\calmap(p) = (\Lip / 5\pi) \sin(5\pi p)$, which is $\Lip$-Lipschitz by construction. Scores are drawn uniformly on $[0,1]$, and labels are $Y \sim \Bern(p + \calmap(p))$. The true ECE is computed analytically. We use $B = 15$ fixed bins throughout (matching the standard practice being evaluated) and report mean absolute estimation error over 300 bootstrap replicates.
 
-\paragraph{Experiment 1: ECE scaling exponent.} Figure~\ref{fig:scaling} plots the ECE estimation error against sample size on a log-log scale for two error rates. The empirical convergence is consistent with the theoretical prediction of $\nsamples^{-1/3}$ from Theorem~\ref{thm:upper-bound}, confirming that fixed-bin histogram ECE estimation converges at the nonparametric rate.
+\paragraph{Experiment 1: ECE scaling exponent.} Figure~\ref{fig:scaling} plots the ECE estimation error against sample size on a log-log scale for three error rates, using the optimal bin count $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ from Theorem~\ref{thm:upper-bound}. The fitted slopes range from $-0.52$ to $-0.60$, which are steeper than the worst-case theoretical prediction of $-1/3$. This is expected: the $\nsamples^{-1/3}$ rate is a \emph{minimax} bound over all $\Lip$-Lipschitz calibration functions, while the specific sinusoidal calibration gap used here may admit faster convergence. The key qualitative prediction --- that error decreases polynomially with sample size and that higher $\errrate$ increases estimation difficulty --- is confirmed.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig1_scaling_exponent.pdf}
-\caption{ECE estimation error vs.\ sample size for two error rates ($\errrate = 0.05$ and $\errrate = 0.15$) with $\Lip = 1$ and fixed $B = 15$ bins. The red dashed line shows the theoretical $\nsamples^{-1/3}$ rate from Theorem~\ref{thm:upper-bound}. Error bars represent mean absolute error over 300 replicates.}
+\caption{ECE estimation error vs.\ sample size for three error rates with optimal bin count $B^*$. The dashed line shows the theoretical $\nsamples^{-1/3}$ rate. Fitted slopes ($-0.52$ to $-0.60$) are steeper than the minimax prediction, consistent with the specific calibration function being easier than the worst case. Mean over 500 replicates.}
 \label{fig:scaling}
 \end{figure}
 
@@ -703,12 +703,12 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 \label{fig:phase}
 \end{figure}
 
-\paragraph{Experiment 3: Active vs.\ passive gap.} Figure~\ref{fig:active} compares passive (random) and active (stratified) sampling. Active sampling achieves strictly lower estimation error at every sample size, with the gap widening as $\nsamples$ increases --- consistent with the theoretical prediction that active verification achieves a faster rate (Theorem~\ref{thm:active}).
+\paragraph{Experiment 3: Active vs.\ passive gap.} Figure~\ref{fig:active} compares passive (random) and active (stratified) sampling with optimal bin count $B^*$. Both achieve similar slopes in this setting (passive: $-0.56$, active: $-0.55$), with active sampling achieving comparable or slightly lower error. The modest gap reflects the fact that for smooth sinusoidal calibration functions, passive sampling is already near-efficient; the active advantage is most pronounced for calibration functions with sharp features or narrow zero-crossings, where the Lipschitz constant $\Lip$ strongly penalizes passive estimation. The theoretical gap $(\Lip^2\nsamples/\errrate)^{1/6}$ grows slowly and is most visible at very large sample sizes or large $\Lip$.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/fig3_active_passive.pdf}
-\caption{Active (stratified) vs.\ passive (random) ECE estimation for $\errrate = 0.10$, $\Lip = 1$. Active sampling achieves strictly lower error at all sample sizes. Dashed lines show $\nsamples^{-1/3}$ and $\nsamples^{-1/2}$ reference slopes. The gap between active and passive widens with $\nsamples$, consistent with Theorem~\ref{thm:active}.}
+\caption{Active (stratified) vs.\ passive (random) ECE estimation for $\errrate = 0.10$, $\Lip \approx 0.19$. Both converge at similar rates for this smooth calibration function. Dashed lines show $\nsamples^{-1/3}$ and $\nsamples^{-1/2}$ reference slopes. The active-passive gap is modest here because the small $\Lip$ makes passive estimation already near-efficient; the gap grows with $\Lip$.}
 \label{fig:active}
 \end{figure}
 
