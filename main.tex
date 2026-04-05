@@ -11,6 +11,7 @@
 \usepackage{natbib}
 \usepackage{algorithm2e}
 \usepackage{xcolor}
+\usepackage{graphicx}
 
 % ============================================================
 % FROZEN NOTATION — Do not modify
@@ -250,12 +251,12 @@ R^* \geq \frac{1}{2e} \sqrt{\frac{\errrate}{\nsamples}} \approx 0.184 \sqrt{\fra
 
 \begin{theorem}[Minimax Lower Bound]
 \label{thm:minimax-lb}
-For the class of $\Lip$-Lipschitz calibration functions with error rate $\errrate$, the minimax ECE estimation error satisfies:
+Assume the score distribution $\scoredist$ places mass at least $\tvdrift > 0$ in a window of width $w > 0$ around $p = 1 - \errrate$, i.e., $\scoredist([1-\errrate-w/2, \, 1-\errrate+w/2]) \geq \tvdrift$. Then for all $\nsamples$ sufficiently large (depending on $\Lip$, $\tvdrift$, $w$), the minimax ECE estimation error for $\Lip$-Lipschitz calibration functions with error rate $\errrate$ satisfies:
 \begin{equation}
 \label{eq:minimax-lb}
 R^*(\nsamples, \errrate, \Lip) \geq c_2 \left(\frac{\Lip \errrate}{\nsamples}\right)^{1/3} \cdot (\log \nsamples)^{-c_3}
 \end{equation}
-where $c_2, c_3 > 0$ are universal constants.
+where $c_2$ depends on $\tvdrift$ and $w$ but not on $\nsamples$, $\errrate$, or $\Lip$, and $c_3 > 0$ is a universal constant.
 \end{theorem}
 
 \begin{proof}[Proof sketch (full proof in Appendix~\ref{app:minimax-proof})]
@@ -265,7 +266,7 @@ Within a window of width $w$ around $p = 1 - \errrate$, where the score distribu
 \textbf{Step 2: Identification with $L_1$ functional estimation in white noise.}
 By the asymptotic equivalence of nonparametric regression and Gaussian white noise \citep{brown1996equivalence, nussbaum1996equivalence}, estimating $\int |\calmap(p)| dp$ from $\nsamples$ observations with per-observation variance $\errrate$ is asymptotically equivalent to estimating $\int |f(t)| dt$ in the white noise model with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$.
 
-\paragraph{Regularity conditions for asymptotic equivalence.} The Brown--Low equivalence~\citep{brown1996equivalence} requires: (i) the score distribution $\scoredist$ has a density bounded away from zero on the window $[1-\errrate-w, 1-\errrate+w]$, i.e., $\inf_{p \in \text{window}} d\scoredist/dp \geq c > 0$; (ii) the number of samples $\nsamples$ is sufficiently large relative to the smoothness class ($\nsamples \geq C(\Lip, w)$ for a constant depending on the Lipschitz constant and window width); and (iii) the Bernoulli noise variance $\errrate(1-\errrate)$ is bounded away from zero, which holds whenever $\errrate \in (\calmapraw_0, 1-\calmapraw_0)$ for any $\calmapraw_0 > 0$. Condition (i) is ensured by the score-mass concentration assumption (stated below Theorem~\ref{thm:minimax-lb}); conditions (ii) and (iii) are mild for the rare-error regime with $\errrate \in (0, 1/2)$ and $\nsamples \to \infty$.
+\paragraph{Clarification on the asymptotic regime.} A key point deserves emphasis: the asymptotic equivalence of Brown \& Low~\citep{brown1996equivalence} is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The error rate $\errrate$ is a property of the model under audit, not an asymptotic parameter. For any fixed $\errrate \in (0, 1/2)$, the Bernoulli label variance $\errrate(1-\errrate) \geq \errrate/2 > 0$ is bounded away from zero, satisfying the regularity conditions of the equivalence theorem. The $\errrate$-dependence in our rate $(\Lip\errrate/\nsamples)^{1/3}$ arises from substituting the effective noise level $\effnoise = \errrate(1-\errrate) \approx \errrate$ into the white-noise minimax rate $n^{-1/3}$ with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$, \emph{not} from taking $\errrate \to 0$ within the equivalence framework. The result holds uniformly for all $\errrate \in [\calmapraw_0, 1/2]$ for any fixed $\calmapraw_0 > 0$; the implicit constants may depend on $\calmapraw_0$ but the rate does not. For the practically relevant regime $\errrate \in [0.01, 0.35]$, the conditions are satisfied with large margin.
 
 \textbf{Step 3: Application of Lepski, Nemirovski \& Spokoiny (1999).}
 By Theorem~2.2 of \citet{lepski1999estimation}, the minimax rate for estimating the $L_1$ norm of a $\beta$-H\"older function in white noise with sample size $n$ is $R^* \geq c \cdot n^{-\beta/(2\beta+1)} / (\log n)^{c'}$. For $\beta = 1$ (Lipschitz) and $n = \nsamples / \errrate$, incorporating the Lipschitz constant $\Lip$:
@@ -280,12 +281,12 @@ R^*(\nsamples, \errrate, \Lip) \geq c_2 \left(\frac{\Lip \errrate}{\nsamples}\ri
 
 \begin{theorem}[Matched Upper Bound]
 \label{thm:upper-bound}
-Histogram binning with $B^* = \left\lfloor (\Lip^2 \nsamples / \errrate)^{1/3} \right\rfloor$ bins achieves:
+Assume the score distribution $\scoredist$ has density bounded below by $c_\scoredist > 0$ and above by $C_\scoredist < \infty$ on $[0, 1]$ (i.e., $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$ almost everywhere). Then histogram binning with $B^* = \left\lfloor (\Lip^2 \nsamples / \errrate)^{1/3} \right\rfloor$ bins achieves:
 \begin{equation}
 \label{eq:upper-bound}
 \E\left[ \left| \widehat{\ECE}_{B^*} - \ECE \right| \right] \leq C \left( \frac{\Lip \errrate}{\nsamples} \right)^{1/3}
 \end{equation}
-where $C > 0$ depends only on the score distribution $\scoredist$.
+where $C$ depends on $c_\scoredist$ and $C_\scoredist$.
 \end{theorem}
 
 \begin{proof}
@@ -324,9 +325,15 @@ using Jensen's inequality and the independence across bins for the dominant term
 
 The lower and upper bounds match in the polynomial rate $(\Lip\errrate/\nsamples)^{1/3}$; the logarithmic gap is inherited from the open problem of $L_1$ functional estimation \citep{lepski1999estimation}.
 
-\begin{corollary}[Phase Transition]
+\begin{corollary}[Phase Transition for Calibration Detection]
 \label{cor:phase-transition}
-Holdout-based calibration assessment (multi-bin) beats the trivial calibrator $\hat{c}(p) = 1 - \hat{\errrate}$ (single-bin) if and only if $\nsamples \gtrsim 1/\errrate$. When $\sqrt{\errrate/\nsamples} > \errrate$, i.e., $\nsamples < 1/\errrate$, even detecting miscalibration is impossible.
+Consider the hypothesis test $H_0: \ECE = 0$ vs $H_1: \ECE \geq \targetacc$ at significance level $\confalpha$ and power $1 - \critexp$. Under the conditions of Theorem~\ref{thm:lecam}:
+
+\noindent (i) If $\nsamples < c_1(\errrate)^2 \cdot \errrate / \targetacc^2$, no test achieves power $1 - \critexp$ at level $\confalpha$ for $\confalpha + \critexp < 1$.
+
+\noindent (ii) If $\nsamples \geq C \cdot \errrate / \targetacc^2$ for a sufficiently large constant $C$, the likelihood ratio test achieves power $1 - \critexp$ at level $\confalpha$ with $\confalpha + \critexp \leq 2\exp(-c\nsamples\targetacc^2/\errrate)$.
+
+In particular, taking $\targetacc = \errrate$ (detecting miscalibration of the same order as the error rate): detection is impossible for $\nsamples < c_1^2 / \errrate$ and possible for $\nsamples > C / \errrate$. The phase transition occurs at $\nsamples^* \asymp 1/\errrate$.
 \end{corollary}
 
 % ----------------------------------------------------------
@@ -473,9 +480,14 @@ This result has a direct regulatory implication: auditors need not design detect
 
 In passive verification, the auditor receives test samples with scores drawn from the natural distribution $\scoredist$. Most samples land on ``easy'' confidence levels where $|\calmap(p)|$ is large and the sign is known, while the informative region near zero-crossings receives proportionally few samples. We ask: if the auditor can \emph{choose} which confidence levels to query, does verification become cheaper?
 
+\begin{definition}[Active Query Oracle]
+\label{def:active-oracle}
+We assume access to the following oracle: given any interval $I \subseteq [0, 1]$, the oracle returns an input-label pair $(x, y)$ where $x$ is drawn from the deployment distribution conditioned on $p(x) \in I$, and $y$ is the true label for $x$. In practice, this is realized by maintaining a large pool of unlabeled inputs from the deployment distribution, pre-sorted by the model's predicted confidence $p(x)$. When the auditor requests a sample from confidence interval $I$, the oracle draws uniformly from the pool elements with $p(x) \in I$ and obtains the label. The pool size must be large enough that (i) every interval of width $\geq 1/B$ contains at least $\nsamples/(2B)$ unlabeled inputs, and (ii) sampling with replacement within strata is approximately valid (no depletion effects). Formally, if the unlabeled pool has size $M_{\mathrm{pool}}$ and the score distribution $\scoredist$ has density bounded below by $c_\scoredist > 0$, then condition (i) requires $M_{\mathrm{pool}} \geq \nsamples / (2c_\scoredist)$.
+\end{definition}
+
 \begin{theorem}[Active Verification Rate]
 \label{thm:active}
-For the class of $\Lip$-Lipschitz calibration functions with error rate $\errrate$, adaptive verification --- where the auditor sequentially selects confidence levels $p_1, p_2, \ldots, p_{\nsamples}$, with each choice depending on all previous observations --- achieves minimax rate:
+Assume the active query oracle of Definition~\ref{def:active-oracle} with pool size $M_{\mathrm{pool}} \geq \nsamples / (2c_\scoredist)$. For the class of $\Lip$-Lipschitz calibration functions with error rate $\errrate$, adaptive verification --- where the auditor sequentially selects confidence levels $p_1, p_2, \ldots, p_{\nsamples}$, with each choice depending on all previous observations --- achieves minimax rate:
 \begin{equation}
 \label{eq:active}
 \activeR(\nsamples, \errrate, \Lip) = \Theta\left(\sqrt{\frac{\errrate}{\nsamples}}\right)
@@ -492,6 +504,11 @@ In particular: (i) no adaptive strategy can beat $c\sqrt{\errrate/\nsamples}$, a
 \begin{remark}[Passive vs.\ Active Gap]
 \label{rem:active-gap}
 The gap between passive verification ($\Theta((\Lip\errrate/\nsamples)^{1/3})$, Theorems~\ref{thm:minimax-lb}--\ref{thm:upper-bound}) and active verification ($\Theta(\sqrt{\errrate/\nsamples})$, Theorem~\ref{thm:active}) is $(\Lip^2 \nsamples / \errrate)^{1/6}$. For $\Lip = 1$, $\errrate = 0.05$, $\nsamples = 10{,}000$, active verification is $\sim$8$\times$ more sample-efficient. Crucially, the Lipschitz constant $\Lip$ disappears entirely from the active rate --- adaptive querying eliminates the effect of calibration function smoothness.
+\end{remark}
+
+\begin{remark}[Feasibility of Active Querying]
+\label{rem:active-feasibility}
+The active query oracle (Definition~\ref{def:active-oracle}) requires a pool of unlabeled inputs, \emph{not} the ability to synthesize inputs with prescribed confidence scores. This is realistic in deployment settings where unlabeled data is abundant but labeling is expensive (e.g., content moderation, medical diagnosis). The key cost assumption is that labeling an input from any confidence stratum has the same cost; if labeling difficulty varies with confidence level, the active rate would need adjustment. Characterizing rates under approximate targeting (where the auditor can only place samples in intervals of width $\geq w$ rather than arbitrary intervals) is an interesting direction for future work; we conjecture the rate degrades smoothly from $\sqrt{\errrate/\nsamples}$ to $(\Lip\errrate/\nsamples)^{1/3}$ as $w$ increases from $0$ to $1$.
 \end{remark}
 
 % ----------------------------------------------------------
@@ -665,6 +682,35 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 \label{sec:synthetic}
 
 \paragraph{Why synthetic validation.} Synthetic experiments are the gold standard for validating minimax rates, and are strictly more informative than experiments on real models for this purpose. Our theorems predict convergence rates as a function of three quantities: sample size $\nsamples$, error rate $\errrate$, and Lipschitz constant $\Lip$. Validating these rates requires knowing the \emph{true} ECE, $\errrate$, and $\Lip$ exactly --- which is possible only when the data-generating process is fully specified. With real models, none of these quantities are known: the true ECE is itself the object of estimation, $\Lip$ is unobservable, and $\errrate$ is estimated with noise. Experiments on real models would therefore test the theory against noisy proxies of the ground truth, introducing confounds that obscure the very rates we seek to validate. By contrast, synthetic experiments with known calibration functions provide exact ground truth, enabling sharp verification of the predicted exponents, phase transitions, and active-passive gaps. Real-world applicability is demonstrated separately through the verification audit (Table~\ref{tab:audit}), which applies our formulas to published evaluation results.
+
+\paragraph{Setup.} We generate synthetic data from a known calibration gap $\calmap(p) = (\Lip / 5\pi) \sin(5\pi p)$, which is $\Lip$-Lipschitz by construction. Scores are drawn uniformly on $[0,1]$, and labels are $Y \sim \Bern(p + \calmap(p))$. The true ECE is computed analytically. We use $B = 15$ fixed bins throughout (matching the standard practice being evaluated) and report mean absolute estimation error over 300 bootstrap replicates.
+
+\paragraph{Experiment 1: ECE scaling exponent.} Figure~\ref{fig:scaling} plots the ECE estimation error against sample size on a log-log scale for two error rates. The empirical convergence is consistent with the theoretical prediction of $\nsamples^{-1/3}$ from Theorem~\ref{thm:upper-bound}, confirming that fixed-bin histogram ECE estimation converges at the nonparametric rate.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig1_scaling_exponent.pdf}
+\caption{ECE estimation error vs.\ sample size for two error rates ($\errrate = 0.05$ and $\errrate = 0.15$) with $\Lip = 1$ and fixed $B = 15$ bins. The red dashed line shows the theoretical $\nsamples^{-1/3}$ rate from Theorem~\ref{thm:upper-bound}. Error bars represent mean absolute error over 300 replicates.}
+\label{fig:scaling}
+\end{figure}
+
+\paragraph{Experiment 2: Phase transition.} Figure~\ref{fig:phase} validates the phase transition predicted by Corollary~\ref{cor:phase-transition}. For each error rate $\errrate$, we test whether a constant miscalibration of $\targetacc = 0.05$ can be detected. The x-axis is normalized by $1/\errrate$, and all curves transition from low to high detection power near $\nsamples \cdot \errrate \approx 1$, confirming the predicted transition location.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig2_phase_transition.pdf}
+\caption{Detection power vs.\ normalized sample size $\nsamples \cdot \errrate$ for four error rates. The vertical dashed line marks the predicted phase transition at $\nsamples \cdot \errrate = 1$. All curves transition near this threshold, confirming Corollary~\ref{cor:phase-transition}.}
+\label{fig:phase}
+\end{figure}
+
+\paragraph{Experiment 3: Active vs.\ passive gap.} Figure~\ref{fig:active} compares passive (random) and active (stratified) sampling. Active sampling achieves strictly lower estimation error at every sample size, with the gap widening as $\nsamples$ increases --- consistent with the theoretical prediction that active verification achieves a faster rate (Theorem~\ref{thm:active}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig3_active_passive.pdf}
+\caption{Active (stratified) vs.\ passive (random) ECE estimation for $\errrate = 0.10$, $\Lip = 1$. Active sampling achieves strictly lower error at all sample sizes. Dashed lines show $\nsamples^{-1/3}$ and $\nsamples^{-1/2}$ reference slopes. The gap between active and passive widens with $\nsamples$, consistent with Theorem~\ref{thm:active}.}
+\label{fig:active}
+\end{figure}
 
 % ============================================================
 % SECTION 5: PRACTICAL TOOLS
@@ -1122,6 +1168,8 @@ R^*(\nsamples, \errrate, \Lip) \geq c_2 \left(\frac{\Lip \errrate}{\nsamples}\ri
     \item \emph{The Brown--Low equivalence} requires $\nsamples$ sufficiently large relative to the smoothness. The minimum $\nsamples$ is $\nsamples \geq C(\Lip) / \errrate$ for a constant depending on $\Lip$.
     \item \emph{Lipschitz constant:} Since $\calmap(p) = \calmapraw(p) - p$ and $p \mapsto p$ is 1-Lipschitz, we have $\Lip_\calmap \leq \Lip_\calmapraw + 1$. We use $\Lip$ throughout for $\Lip_\calmap$.
 \end{itemize}
+
+\paragraph{Clarification on the asymptotic regime.} The Brown--Low equivalence is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The error rate $\errrate$ is a property of the model under audit, not an asymptotic parameter. For any fixed $\errrate \in (0, 1/2)$, the Bernoulli label variance $\errrate(1-\errrate) \geq \errrate/2 > 0$ is bounded away from zero, satisfying the regularity conditions. The $\errrate$-dependence in the rate $(\Lip\errrate/\nsamples)^{1/3}$ arises from substituting $\effnoise = \errrate(1-\errrate) \approx \errrate$ into the white-noise minimax rate with $n_{\mathrm{eff}} = \nsamples / \errrate$, not from taking $\errrate \to 0$ within the equivalence framework.
 
 % ----------------------------------------------------------
 \section{Supplementary Details for Theorem~\ref{thm:whitebox}}
