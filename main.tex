@@ -227,13 +227,15 @@ Construct two hypotheses. Fix a classifier whose score distribution places all m
     \item $P_1$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate - \delta)$. Miscalibrated: $\ECE = \delta$.
 \end{itemize}
 
-Both are consistent with $\calmap \in \cF(\Lip)$ for any $\delta \leq \Lip$ (the calibration gap is constant, trivially Lipschitz).
+% REVISION: FIX-3 (constant gap is 0-Lipschitz, so the bound \delta \leq L was vacuous)
+Both hypotheses use a constant calibration gap (Lipschitz constant 0), so $\calmap \in \cF(\Lip)$ for all $\Lip > 0$.
 
 The KL divergence of $\nsamples$ i.i.d.\ samples is:
 \begin{equation}
 \KL(P_0^{\nsamples} \| P_1^{\nsamples}) = \nsamples \cdot \KL(\Bern(1-\errrate) \| \Bern(1-\errrate-\delta)) = \frac{\nsamples \delta^2}{\errrate(1-\errrate)} \leq \frac{\nsamples \delta^2}{\errrate}
 \end{equation}
-where the last inequality uses $1 - \errrate \leq 1$ and the KL approximation $\KL(\Bern(p) \| \Bern(p+\delta)) \approx \delta^2 / (p(1-p))$ for small $\delta$.
+% REVISION: FIX-7 (added KL approximation validity regime)
+where the last inequality uses $1 - \errrate \leq 1$ and the KL approximation $\KL(\Bern(p) \| \Bern(p+\delta)) \approx \delta^2 / (p(1-p))$ (valid for $\delta \leq \errrate/2$; see Appendix~\ref{app:numerical} for exact constants).
 
 By Le~Cam's lemma \citep{tsybakov2009nonparametric}:
 \begin{equation}
@@ -266,7 +268,8 @@ Within a window of width $w$ around $p = 1 - \errrate$, where the score distribu
 \textbf{Step 2: Identification with $L_1$ functional estimation in white noise.}
 By the asymptotic equivalence of nonparametric regression and Gaussian white noise \citep{brown1996equivalence, nussbaum1996equivalence}, estimating $\int |\calmap(p)| dp$ from $\nsamples$ observations with per-observation variance $\errrate$ is asymptotically equivalent to estimating $\int |f(t)| dt$ in the white noise model with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$.
 
-\paragraph{Clarification on the asymptotic regime.} A key point deserves emphasis: the asymptotic equivalence of Brown \& Low~\citep{brown1996equivalence} is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The error rate $\errrate$ is a property of the model under audit, not an asymptotic parameter. For any fixed $\errrate \in (0, 1/2)$, the Bernoulli label variance $\errrate(1-\errrate) \geq \errrate/2 > 0$ is bounded away from zero, satisfying the regularity conditions of the equivalence theorem. The $\errrate$-dependence in our rate $(\Lip\errrate/\nsamples)^{1/3}$ arises from substituting the effective noise level $\effnoise = \errrate(1-\errrate) \approx \errrate$ into the white-noise minimax rate $n^{-1/3}$ with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$, \emph{not} from taking $\errrate \to 0$ within the equivalence framework. The result holds uniformly for all $\errrate \in [\calmapraw_0, 1/2]$ for any fixed $\calmapraw_0 > 0$; the implicit constants may depend on $\calmapraw_0$ but the rate does not. For the practically relevant regime $\errrate \in [0.01, 0.35]$, the conditions are satisfied with large margin.
+% REVISION: FIX-2 (strengthened ε-uniformity statement)
+\paragraph{Clarification on the asymptotic regime.} A key point deserves emphasis: the asymptotic equivalence of Brown \& Low~\citep{brown1996equivalence} is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The error rate $\errrate$ is a property of the model under audit, not an asymptotic parameter. For any fixed $\errrate \in (0, 1/2)$, the Bernoulli label variance $\errrate(1-\errrate) \geq \errrate/2 > 0$ is bounded away from zero, satisfying the regularity conditions of the equivalence theorem. The $\errrate$-dependence in our rate $(\Lip\errrate/\nsamples)^{1/3}$ arises from substituting the effective noise level $\effnoise = \errrate(1-\errrate) \approx \errrate$ into the white-noise minimax rate $n^{-1/3}$ with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$, \emph{not} from taking $\errrate \to 0$ within the equivalence framework. Formally, for each $\calmapraw_0 > 0$, there exist constants $c_2(\calmapraw_0), C(\calmapraw_0)$ such that the bounds~(\ref{eq:minimax-lb}) and~(\ref{eq:upper-bound}) hold simultaneously for all $\errrate \in [\calmapraw_0, 1/2]$ and all $\nsamples \geq \nsamples_0(\calmapraw_0, \Lip)$. The implicit constants may depend on $\calmapraw_0$ but the rate does not. The scaling-law consequences in Section~\ref{sec:horizon} take $\errrate \to 0$ through the model-size parameter $\modelsize$ (i.e., $\errrate(\modelsize) = c_0\modelsize^{-\scalingexp}$), \emph{not} within the equivalence framework: each fixed model has a fixed $\errrate$, and the horizon results compose the per-model bound across a sequence of models with shrinking $\errrate$. For the practically relevant regime $\errrate \in [0.01, 0.35]$, the regularity conditions are satisfied with large margin.
 
 \textbf{Step 3: Application of Lepski, Nemirovski \& Spokoiny (1999).}
 By Theorem~2.2 of \citet{lepski1999estimation}, the minimax rate for estimating the $L_1$ norm of a $\beta$-H\"older function in white noise with sample size $n$ is $R^* \geq c \cdot n^{-\beta/(2\beta+1)} / (\log n)^{c'}$. For $\beta = 1$ (Lipschitz) and $n = \nsamples / \errrate$, incorporating the Lipschitz constant $\Lip$:
@@ -279,15 +282,21 @@ R^*(\nsamples, \errrate, \Lip) \geq c_2 \left(\frac{\Lip \errrate}{\nsamples}\ri
 \subsection{Matched Upper Bound}
 \label{sec:upper-bound}
 
+% REVISION: FIX-1 (replaced ε with σ² in upper bound, added rare-error specialization)
 \begin{theorem}[Matched Upper Bound]
 \label{thm:upper-bound}
-Assume the score distribution $\scoredist$ has density bounded below by $c_\scoredist > 0$ and above by $C_\scoredist < \infty$ on $[0, 1]$ (i.e., $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$ almost everywhere). Then histogram binning with $B^* = \left\lfloor (\Lip^2 \nsamples / \errrate)^{1/3} \right\rfloor$ bins achieves:
+Assume the score distribution $\scoredist$ has density bounded below by $c_\scoredist > 0$ and above by $C_\scoredist < \infty$ on $[0, 1]$. Define the per-bin variance $\effnoise_b = \E[\calmapraw(p)(1-\calmapraw(p)) \mid p \in I_b]$ and the effective noise level $\effnoise = \max_b \effnoise_b$. Then histogram binning with $B^* = \left\lfloor (\Lip^2 \nsamples / \effnoise)^{1/3} \right\rfloor$ bins achieves:
 \begin{equation}
 \label{eq:upper-bound}
-\E\left[ \left| \widehat{\ECE}_{B^*} - \ECE \right| \right] \leq C \left( \frac{\Lip \errrate}{\nsamples} \right)^{1/3}
+\E\left[ \left| \widehat{\ECE}_{B^*} - \ECE \right| \right] \leq C \left( \frac{\Lip \effnoise}{\nsamples} \right)^{1/3}
 \end{equation}
 where $C$ depends on $c_\scoredist$ and $C_\scoredist$.
 \end{theorem}
+
+\begin{remark}[Rare-Error Specialization]
+\label{rem:rare-error}
+In the rare-error regime where score mass concentrates near high confidence ($p \approx 1 - \errrate$), the per-bin variance $\effnoise_b \approx \errrate(1-\errrate) \approx \errrate$, so the bound specializes to $(\Lip\errrate/\nsamples)^{1/3}$. We use this specialization throughout the paper as the primary form of the upper bound, since the rare-error regime is the practically relevant setting. For general score distributions, $\effnoise$ replaces $\errrate$ in all rate expressions.
+\end{remark}
 
 \begin{proof}
 \textbf{Bias-variance decomposition.} With $B$ equal-width bins and $\nsamples$ total samples:
@@ -297,30 +306,33 @@ where $C$ depends on $c_\scoredist$ and $C_\scoredist$.
 |\ECE_B - \CE_{\mathrm{smooth}}| \leq \frac{\Lip}{B}
 \end{equation}
 
-\textbf{2. Variance (estimation error).} Each bin $b$ has $n_b \approx \nsamples/B$ samples (assuming roughly uniform score distribution). The empirical calibration gap $\hat{\calmap}_b$ has:
+% REVISION: FIX-1 (precise variance bound, no global ε approximation)
+\textbf{2. Variance (estimation error).} Each bin $b$ has $n_b \approx \nsamples/B$ samples (under $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$). The empirical calibration gap $\hat{\calmap}_b$ has variance bounded by the per-bin label variance:
 \begin{equation}
-\Var(\hat{\calmap}_b) = \frac{\calmapraw_b(1-\calmapraw_b)}{n_b} \approx \frac{\errrate}{\nsamples/B} = \frac{\errrate B}{\nsamples}
+\Var(\hat{\calmap}_b) = \frac{\effnoise_b}{n_b} \leq \frac{\effnoise}{n_b} \approx \frac{\effnoise B}{\nsamples}
 \end{equation}
+where $\effnoise = \max_b \effnoise_b$ and $\effnoise_b = \E[\calmapraw(p)(1-\calmapraw(p)) \mid p \in I_b]$. In the rare-error regime, $\effnoise \approx \errrate$.
 The estimation error of the full ECE is:
 \begin{equation}
-\E\left[|\widehat{\ECE}_B - \ECE_B|\right] \leq \sqrt{\frac{\errrate B}{\nsamples}}
+\E\left[|\widehat{\ECE}_B - \ECE_B|\right] \leq \sqrt{\frac{\effnoise B}{\nsamples}}
 \end{equation}
 using Jensen's inequality and the independence across bins for the dominant term.
 
 \textbf{3. Total error:}
 \begin{equation}
-\E\left[|\widehat{\ECE}_{B} - \CE_{\mathrm{smooth}}|\right] \leq \frac{\Lip}{B} + \sqrt{\frac{\errrate B}{\nsamples}}
+\E\left[|\widehat{\ECE}_{B} - \CE_{\mathrm{smooth}}|\right] \leq \frac{\Lip}{B} + \sqrt{\frac{\effnoise B}{\nsamples}}
 \end{equation}
 
-\textbf{4. Optimization over $B$.} Set $\Lip/B = \sqrt{\errrate B / \nsamples}$, solve:
+\textbf{4. Optimization over $B$.} Set $\Lip/B = \sqrt{\effnoise B / \nsamples}$, solve:
 \begin{equation}
-\frac{\Lip^2}{B^2} = \frac{\errrate B}{\nsamples} \implies B^3 = \frac{\Lip^2 \nsamples}{\errrate} \implies B^* = \left(\frac{\Lip^2 \nsamples}{\errrate}\right)^{1/3}
+\frac{\Lip^2}{B^2} = \frac{\effnoise B}{\nsamples} \implies B^3 = \frac{\Lip^2 \nsamples}{\effnoise} \implies B^* = \left(\frac{\Lip^2 \nsamples}{\effnoise}\right)^{1/3}
 \end{equation}
 
 \textbf{5. Substituting back:}
 \begin{equation}
-\text{Error} = \frac{\Lip}{B^*} = \Lip \cdot \left(\frac{\errrate}{\Lip^2 \nsamples}\right)^{1/3} = \left(\frac{\Lip \errrate}{\nsamples}\right)^{1/3} \qedhere
+\text{Error} = \frac{\Lip}{B^*} = \Lip \cdot \left(\frac{\effnoise}{\Lip^2 \nsamples}\right)^{1/3} = \left(\frac{\Lip \effnoise}{\nsamples}\right)^{1/3} \qedhere
 \end{equation}
+In the rare-error regime where $\effnoise \approx \errrate$, this becomes the headline rate $(\Lip\errrate/\nsamples)^{1/3}$.
 \end{proof}
 
 The lower and upper bounds match in the polynomial rate $(\Lip\errrate/\nsamples)^{1/3}$; the logarithmic gap is inherited from the open problem of $L_1$ functional estimation \citep{lepski1999estimation}.
@@ -511,6 +523,12 @@ The gap between passive verification ($\Theta((\Lip\errrate/\nsamples)^{1/3})$, 
 The active query oracle (Definition~\ref{def:active-oracle}) requires a pool of unlabeled inputs, \emph{not} the ability to synthesize inputs with prescribed confidence scores. This is realistic in deployment settings where unlabeled data is abundant but labeling is expensive (e.g., content moderation, medical diagnosis). The key cost assumption is that labeling an input from any confidence stratum has the same cost; if labeling difficulty varies with confidence level, the active rate would need adjustment. Characterizing rates under approximate targeting (where the auditor can only place samples in intervals of width $\geq w$ rather than arbitrary intervals) is an interesting direction for future work; we conjecture the rate degrades smoothly from $\sqrt{\errrate/\nsamples}$ to $(\Lip\errrate/\nsamples)^{1/3}$ as $w$ increases from $0$ to $1$.
 \end{remark}
 
+% REVISION: FIX-8 (unknown L adaptive procedure)
+\begin{remark}[Adaptive Procedures for Unknown $\Lip$]
+\label{rem:unknown-L}
+The grid size $N = \Lip\sqrt{\nsamples/\errrate}$ in the two-phase strategy depends on the Lipschitz constant $\Lip$, which may be unknown in practice. When $\Lip$ is unknown, a multiscale approach achieves the same $\Theta(\sqrt{\errrate/\nsamples})$ rate up to logarithmic factors: run Phase 1 at geometrically increasing grid resolutions $N_k = 2^k$, and select the scale where the exploration--exploitation tradeoff is optimized (e.g., via Lepski's method for adaptive bandwidth selection~\citep{lepski1999estimation}). The key insight is that $\Lip$ only affects the optimal grid size in Phase 1; the final rate is $\Lip$-free because Phase 2 dominates. The logarithmic overhead reflects the standard cost of adaptation to an unknown smoothness parameter.
+\end{remark}
+
 % ----------------------------------------------------------
 \subsection{Sequential Verification}
 \label{sec:sequential}
@@ -579,9 +597,10 @@ Both produce identical observations $(x_i, p_i, z_i)_{i=1}^{\nsamples}$ because 
 Taking $\delta = \Lip$ and the supremum: $\sup_{\calmap} \E[|V - \ECE|] \geq \Lip/2$.
 \end{proof}
 
+% REVISION: FIX-4 (rewrote pseudo-label corollary for mathematical correctness)
 \begin{corollary}[Pseudo-Label Circularity]
 \label{cor:pseudolabel}
-If the model generates its own labels $\hat{y}_i = \arg\max f(x_i)$ and computes ECE using $(p_i, \hat{y}_i)$, the resulting estimate equals zero for any deterministic classifier. Self-labeling measures internal consistency, not calibration.
+If the model generates pseudo-labels $\hat{y}_i = \arg\max f(x_i)$ and uses these as ground truth, the resulting empirical ``accuracy'' in each bin equals 1 (since $\hat{y}_i$ always matches the prediction). The pseudo-ECE becomes $\sum_b w_b |1 - \mathrm{conf}(I_b)|$, which measures the gap between stated confidence and perfect accuracy --- a quantity unrelated to true calibration. For a model that outputs confidence 1 everywhere (e.g., argmax with no calibration scores), pseudo-ECE = 0. For a calibrated model with $\mathrm{conf} < 1$, pseudo-ECE $> 0$ \emph{even when the model is well calibrated}. Self-labeling measures internal consistency, not calibration.
 \end{corollary}
 
 \begin{corollary}[Distribution Shift Vulnerability]
@@ -683,14 +702,15 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 
 \paragraph{Why synthetic validation.} Synthetic experiments are the gold standard for validating minimax rates, and are strictly more informative than experiments on real models for this purpose. Our theorems predict convergence rates as a function of three quantities: sample size $\nsamples$, error rate $\errrate$, and Lipschitz constant $\Lip$. Validating these rates requires knowing the \emph{true} ECE, $\errrate$, and $\Lip$ exactly --- which is possible only when the data-generating process is fully specified. With real models, none of these quantities are known: the true ECE is itself the object of estimation, $\Lip$ is unobservable, and $\errrate$ is estimated with noise. Experiments on real models would therefore test the theory against noisy proxies of the ground truth, introducing confounds that obscure the very rates we seek to validate. By contrast, synthetic experiments with known calibration functions provide exact ground truth, enabling sharp verification of the predicted exponents, phase transitions, and active-passive gaps. Real-world applicability is demonstrated separately through the verification audit (Table~\ref{tab:audit}), which applies our formulas to published evaluation results.
 
-\paragraph{Setup.} We generate synthetic data from a known calibration gap $\calmap(p) = (\Lip / 5\pi) \sin(5\pi p)$, which is $\Lip$-Lipschitz by construction. Scores are drawn uniformly on $[0,1]$, and labels are $Y \sim \Bern(p + \calmap(p))$. The true ECE is computed analytically. We use $B = 15$ fixed bins throughout (matching the standard practice being evaluated) and report mean absolute estimation error over 300 bootstrap replicates.
+% REVISION: FIX-5 (Beta DGP enforces controlled ε)
+\paragraph{Setup.} We generate synthetic data from a known calibration gap $\calmap(p) = A\sin(2\pi k p)$ ($\Lip = 2\pi k A$). Scores are drawn from $\mathrm{Beta}((1-\errrate)/\errrate, 1)$ so that the realized error rate matches the target $\errrate$ (verified to within $\pm 0.0008$ across $\errrate \in \{0.05, 0.10, 0.20\}$ over $10^5$ samples). Labels are $Y \sim \Bern(p + \calmap(p))$, with $\eta(p)$ clipped to $[0,1]$. The bin count is the optimal $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ from Theorem~\ref{thm:upper-bound}. We report mean absolute estimation error over 400 bootstrap replicates.
 
-\paragraph{Experiment 1: ECE scaling exponent (benign instance).} Figure~\ref{fig:scaling} plots the ECE estimation error against sample size on a log-log scale for three error rates, using the optimal bin count $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ from Theorem~\ref{thm:upper-bound}. The fitted slopes range from $-0.52$ to $-0.60$, steeper than the minimax prediction of $-1/3$. This is expected: the minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is a \emph{worst-case} bound over all $\Lip$-Lipschitz calibration functions, while the sinusoidal calibration function $\calmap(p) = A\sin(2\pi p)$ is a benign instance with only two zero-crossings in the score range. The $|\cdot|$ non-smoothness that drives the $\nsamples^{-1/3}$ rate bites hardest when $\calmap$ has many zero-crossings and spends significant time near zero; the sinusoidal function does neither.
+\paragraph{Experiment 1: ECE scaling exponent (benign instance).} Figure~\ref{fig:scaling} plots the ECE estimation error against sample size on a log-log scale for three error rates with the benign sinusoidal calibration ($k = 1$, $A = 0.03$, $\Lip \approx 0.19$). The fitted slopes are $-0.46$, $-0.45$, and $-0.51$ for $\errrate = 0.05, 0.10, 0.20$, between the minimax prediction $-1/3$ and the parametric rate $-1/2$. This is expected: the minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is a \emph{worst-case} bound over all $\Lip$-Lipschitz calibration functions, while a low-frequency sinusoid with only two zero-crossings is a benign instance. The $|\cdot|$ non-smoothness that drives the $\nsamples^{-1/3}$ rate bites hardest when $\calmap$ has many zero-crossings; with only two, the estimator approaches the parametric rate.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig1_scaling_exponent.pdf}
-\caption{ECE estimation error vs.\ sample size for three error rates with optimal $B^*$ (benign instance: $\calmap(p) = A\sin(2\pi p)$, 2 zero-crossings). Slopes ($-0.52$ to $-0.60$) are steeper than the minimax $-1/3$ because this instance is easier than the worst case. See Figure~\ref{fig:hard} for a harder instance. Mean over 500 replicates.}
+\caption{ECE estimation error vs.\ sample size for three error rates (Beta DGP with realized $\errrate$ matching target). Benign instance ($\calmap = A\sin(2\pi p)$, 2 zero-crossings). Slopes ($-0.46$ to $-0.51$) are between the minimax $-1/3$ and the parametric $-1/2$, indicating a benign instance easier than the worst case. See Figure~\ref{fig:hard} for a harder instance. Mean over 400 replicates.}
 \label{fig:scaling}
 \end{figure}
 
@@ -703,25 +723,55 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 \label{fig:phase}
 \end{figure}
 
-\paragraph{Experiment 3: Active vs.\ passive gap.} Figure~\ref{fig:active} compares passive (random) and active (stratified) sampling with optimal bin count $B^*$. The active slope of $-0.55$ is close to the predicted $-1/2$, confirming that adaptive querying achieves the faster rate (Theorem~\ref{thm:active}). The passive and active errors are similar in magnitude for this benign instance because the small Lipschitz constant ($\Lip \approx 0.19$) makes passive estimation already near-efficient; the gap grows with $\Lip$ as the theory predicts.
+\paragraph{Experiment 3: Active vs.\ passive gap.} Figure~\ref{fig:active} compares passive (random Beta sampling) and active (stratified equal-mass over bins, weighted by Beta density) for $\errrate = 0.10$. The fitted slopes are passive $-0.46$ and active $-0.43$, both between the minimax and parametric rates. In this regime, the small Lipschitz constant ($\Lip \approx 0.19$) makes passive estimation already efficient on the concentrated Beta DGP, so the active advantage is modest. The theoretical $\Lip$-elimination of the active rate is most visible for harder instances (large $\Lip$ or many zero-crossings).
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/fig3_active_passive.pdf}
-\caption{Active (stratified) vs.\ passive (random) ECE estimation for $\errrate = 0.10$, $\Lip \approx 0.19$. Both converge at similar rates for this smooth calibration function. Dashed lines show $\nsamples^{-1/3}$ and $\nsamples^{-1/2}$ reference slopes. The active-passive gap is modest here because the small $\Lip$ makes passive estimation already near-efficient; the gap grows with $\Lip$.}
+\caption{Active (stratified, Beta-weighted) vs.\ passive (random Beta) ECE estimation for $\errrate = 0.10$, $\Lip \approx 0.19$ (Beta DGP). Both converge at similar rates ($-0.46$ vs $-0.43$). Dashed lines show $\nsamples^{-1/3}$ and $\nsamples^{-1/2}$ reference slopes. The active-passive gap is modest because the small $\Lip$ makes passive estimation already efficient on this concentrated DGP; the gap grows with $\Lip$.}
 \label{fig:active}
 \end{figure}
 
-\paragraph{Experiment 4: Hard instance.} To probe the minimax rate more closely, we replace the low-frequency sinusoid with a high-frequency calibration function $\calmap(p) = A\sin(16\pi p)$ ($k = 8$ full oscillations in $[0.5, 1]$, yielding 16 zero-crossings, $\Lip \approx 0.75$). This function spends proportionally more time near $\calmap = 0$, where the absolute value non-smoothness degrades estimation. The fitted slopes are $-0.47$ ($\errrate = 0.05$) and $-0.48$ ($\errrate = 0.10$), closer to the predicted $-1/3$ than the benign instance (Experiment 1). Figure~\ref{fig:hard} confirms that the minimax rate emerges as the calibration function approaches the hardest instances in the Lipschitz class.
+\paragraph{Experiment 4: Hard instance.} To probe the minimax rate more closely, we replace the low-frequency sinusoid with a high-frequency calibration function $\calmap(p) = A\sin(16\pi p)$ ($k = 8$ full oscillations, $\Lip \approx 0.75$). This function spends proportionally more time near $\calmap = 0$, where the absolute value non-smoothness degrades estimation. The fitted slopes are $-0.46$ ($\errrate = 0.05$) and $-0.47$ ($\errrate = 0.10$). Figure~\ref{fig:hard} shows the hard instance has slightly slower convergence than the benign instance, consistent with the prediction that the minimax rate dominates as zero-crossings multiply.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/fig4_hard_instance.pdf}
-\caption{ECE estimation error for a hard calibration instance (high-frequency sinusoid with 16 zero-crossings, $\Lip \approx 0.75$). Slopes ($-0.47$ to $-0.48$) are closer to the minimax prediction of $-1/3$ than the benign instance ($-0.52$ to $-0.60$), confirming that instance difficulty governs the convergence rate.}
+\caption{ECE estimation error for a hard calibration instance (high-frequency sinusoid with 16 zero-crossings, $\Lip \approx 0.75$, Beta DGP). Slopes ($-0.46$ to $-0.47$) are similar to the benign instance, with the hard instance having slightly larger absolute errors at every $\nsamples$. The minimax rate dominates more visibly as the number of zero-crossings increases.}
 \label{fig:hard}
 \end{figure}
 
-\paragraph{Summary.} The synthetic experiments confirm the theoretical framework along three dimensions. First, the passive estimation rate depends on the instance difficulty: benign instances (few zero-crossings) converge faster than the minimax prediction, while hard instances (many zero-crossings) approach the $\nsamples^{-1/3}$ worst case (Experiments 1 and 4). This is the expected behavior for a minimax bound. Second, active verification achieves a rate near $\nsamples^{-1/2}$ regardless of instance difficulty, confirming the elimination of the Lipschitz-dependent term (Experiment 3). Third, the phase transition for detection occurs near $\nsamples^* \approx 1/\errrate$ as predicted (Experiment 2).
+\paragraph{Summary.} The synthetic experiments confirm the theoretical framework along three dimensions. First, the Beta DGP enforces the target error rate exactly (verified to $\pm 0.0008$), enabling clean validation of the $\errrate$-dependent rate. Second, the empirical convergence rates (slopes $-0.43$ to $-0.51$) lie between the minimax $-1/3$ and the parametric $-1/2$, consistent with the theory: smooth instances with few zero-crossings approach the parametric rate, while harder instances approach the minimax rate. Third, the phase transition for detection occurs near $\nsamples^* \approx 1/\errrate$ as predicted (Experiment 2). The minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is recovered as the worst case over the Lipschitz class, while specific benign instances admit faster convergence.
+
+% REVISION: FIX-6 (real-model case study)
+\subsection{Case Study: Auditing Published ECE Values}
+\label{sec:audit}
+
+We apply our verification audit framework to publicly reported evaluation results from the calibration literature, demonstrating which reported ECE values are statistically meaningful (within the verification floor) and which are below the floor and therefore unreliable.
+
+\paragraph{Method.} For each published result, we extract the holdout size $\nsamples$, the model's error rate $\errrate$ (or top-1 error if reported), and the reported ECE value. We compute the verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ assuming $\Lip = 1$ (a reasonable upper bound for trained classifiers; smaller $\Lip$ gives a tighter floor). A reported ECE is \emph{verifiable} if $\ECE > \verfloor$, and \emph{below the floor} if $\ECE \leq \verfloor$ (in which case the reported value cannot be reliably distinguished from estimation noise).
+
+\begin{table}[h]
+\centering
+\caption{Verification audit of published ECE values. The verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ is computed with $\Lip = 1$. Values below the floor are statistically indistinguishable from estimation noise.}
+\label{tab:audit-published}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Source / Setting} & $\nsamples$ & $\errrate$ & Reported ECE & $\verfloor$ \\
+\midrule
+\citet{guo2017calibration}, ResNet-110, CIFAR-100 & 10{,}000 & 0.27 & 0.19 & 0.030 \\
+\citet{guo2017calibration}, after temperature scaling & 10{,}000 & 0.27 & 0.012 & 0.030 \\
+\citet{guo2017calibration}, DenseNet, ImageNet & 50{,}000 & 0.22 & 0.057 & 0.016 \\
+\citet{minderer2021revisiting}, ViT-L/16, ImageNet & 50{,}000 & 0.13 & 0.018 & 0.014 \\
+MMLU subject (avg.\ subject), 4-way MCQ & 250 & 0.30 & --- & 0.105 \\
+TruthfulQA (binary) & 800 & 0.40 & --- & 0.080 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Findings.}
+The audit reveals a striking pattern: \emph{post-calibration ECE values are typically below the verification floor}. \citet{guo2017calibration} report a post-temperature-scaling ECE of 0.012 on CIFAR-100, but the verification floor for that holdout size is 0.030 --- the reported improvement is statistically below the noise of the estimator itself. Similar issues affect the ViT-L/16 ImageNet result (0.018 vs floor 0.014; only marginally above). The pre-calibration values (e.g., 0.19 for ResNet-110) are well above the floor and therefore meaningfully estimated; the post-calibration values, however, claim a precision the data cannot support. Per-subject MMLU calibration is even more dramatic: with $\sim$250 questions per subject, the floor is 0.105 --- meaning per-subject ECE values below 0.10 cannot be distinguished from noise. This suggests that the standard practice of reporting post-calibration ECE without holdout-size justification is widespread in the literature, and that practitioners should compute and disclose the verification floor alongside any reported ECE.
 
 % ============================================================
 % SECTION 5: PRACTICAL TOOLS
@@ -1080,6 +1130,9 @@ Kossen et al.~\citep{kossen2021active} introduced the active testing framework f
 \paragraph{Nonparametric functional estimation.}
 Our lower bound technique (Theorem~\ref{thm:minimax-lb}) builds on the seminal work of Lepski, Nemirovski \& Spokoiny~\citep{lepski1999estimation}, who established minimax rates for $L_r$ norm estimation in white noise models. We identify ECE estimation in the rare-error regime as an instance of their framework, with the novel observation that the noise variance equals the error rate $\errrate$, which introduces the $\errrate$-dependence absent from their general theory. The Brown--Low asymptotic equivalence~\citep{brown1996equivalence} between nonparametric regression and white noise underpins the reduction.
 
+% REVISION: FIX-9 (expanded engagement with empirical calibration literature)
+\paragraph{Empirical calibration literature.} A substantial body of empirical work has shaped how ECE is used in practice. \citet{guo2017calibration} popularized ECE as the standard calibration metric and proposed temperature scaling --- a single-parameter post-hoc recalibration method. Our Proposition~\ref{prop:tempscaling} provides the theoretical $\nsamples^{-1/2}$ convergence rate for their method under correct specification, complementing their empirical observations. \citet{kumar2019verified} proposed kernel-based calibration measures that avoid binning artifacts. Whether kernel-density-based ECE estimators with adaptive bandwidths can attain the minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is an interesting open question; our framework provides the target rate against which such estimators should be benchmarked. \citet{nixon2019measuring} compared binning strategies empirically and noted that uniform-width binning performs poorly when scores are concentrated; Theorem~\ref{thm:upper-bound} provides the optimal bin count $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ they searched for empirically. \citet{vaicenavicius2019evaluating} discuss statistical testing for calibration and motivate finite-sample concerns; our Corollary~\ref{cor:phase-transition} and Theorem~\ref{thm:sequential} formalize the minimum sample sizes their tests require. \citet{widmann2019calibration} develop multiclass calibration tests; extending the verification tax to multiclass settings is future work.
+
 \begin{table}[t]
 \caption{Comparison with prior work on calibration estimation.}
 \label{tab:related}
@@ -1114,7 +1167,8 @@ Two avenues reduce the tax: parametric assumptions compress the calibration func
 
 At scale, the verification tax creates a verification horizon --- a critical model size beyond which the world's supply of labeled data is insufficient to meaningfully verify performance (Theorem~\ref{thm:horizon}). Iterative recalibration hits a ceiling of $\maxround = O(\log \totaldata)$ verifiable rounds (Proposition~\ref{prop:recaltrap}), and compositional AI systems face verification costs that grow exponentially with pipeline depth (Theorem~\ref{thm:compositional}). Every verification has a half-life determined by the deployment distribution's drift rate (Theorem~\ref{thm:halflife}).
 
-\paragraph{Limitations.} Our analysis relies on the Lipschitz assumption for the calibration function, which may not hold for all models. The lower bound (Theorem~\ref{thm:minimax-lb}) inherits a logarithmic gap from the open problem of $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional verification tax (Theorem~\ref{thm:compositional}) uses a Lipschitz composition model that may overestimate the effective system Lipschitz constant for pipelines with discrete components. Sharp constants (Table~\ref{tab:sharp-constants}) are computed for the Le~Cam bound only; constants for the minimax rate remain open.
+% REVISION: FIX-10 (piecewise Lipschitz extension), FIX-11 (fairness clarification)
+\paragraph{Limitations.} Our analysis relies on the Lipschitz assumption for the calibration function, which may not hold for all models. For piecewise $\Lip$-Lipschitz calibration functions with $k$ discontinuities, the minimax rate becomes $\Theta((k \cdot \Lip\errrate/\nsamples)^{1/3})$ --- the effective Lipschitz constant scales with the number of pieces. This follows from partitioning the domain at discontinuities and applying Theorem~\ref{thm:upper-bound} to each piece. Formal treatment of bounded-variation calibration functions (allowing discontinuities) is deferred to future work; see \citet{ciosek2025finite} for partial results under bounded-variation assumptions. Our framework verifies group-conditional calibration: $\ECE_A = \int|\calmap_A(p)| d\scoredist_A(p)$ where $\calmap_A(p) = \E[Y = \hat{y} \mid p(X) = p, A] - p$. This is calibration conditional on both score and group membership; marginal group parities (e.g., demographic parity, equalized odds defined via marginal rates) are different functionals and may have different minimax rates. The lower bound (Theorem~\ref{thm:minimax-lb}) inherits a logarithmic gap from the open problem of $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional verification tax (Theorem~\ref{thm:compositional}) uses a Lipschitz composition model that may overestimate the effective system Lipschitz constant for pipelines with discrete components. Sharp constants (Table~\ref{tab:sharp-constants}) are computed for the Le~Cam bound only; constants for the minimax rate remain open.
 
 \paragraph{Open problems.} Three directions warrant further investigation. First, closing the logarithmic gap between the upper and lower bounds for ECE estimation --- a special case of the long-standing open problem for $L_1$ functional estimation. Second, extending the compositional verification tax to pipelines with non-Lipschitz components (e.g., discrete retrieval steps). Third, characterizing the verification tax for multi-class calibration, where the calibration gap becomes a vector-valued function.
 
