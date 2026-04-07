@@ -633,7 +633,7 @@ We evaluate four NIM-hosted large language models on the full MMLU test set ($N 
 \midrule
 Qwen3-Next-80B & 14{,}042 & 0.165 & 2.45 & 0.143 & 0.031 \\
 Llama-4-Maverick-17B & 14{,}042 & 0.273 & 2.01 & 0.262 & 0.034 \\
-Llama-3.1-405B & 13{,}563 & 0.159 & 1.46 & 0.117 & 0.026 \\
+Llama-3.1-405B & 14{,}042 & 0.160 & 1.41 & 0.118 & 0.025 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -649,7 +649,7 @@ Llama-3.1-405B & 13{,}563 & 0.159 & 1.46 & 0.117 & 0.026 \\
 Two predictions are confirmed on real-model data. First, the verification floor correctly upper-bounds the empirical estimation error: at every sample size $\nsamples$, the floor (dashed) exceeds the empirical std (error bars) by a small constant factor, consistent with the floor being a worst-case lower bound on the achievable error. Second, ECE estimates converge monotonically to the ground truth as $\nsamples$ grows, with the rate matching the predicted $(\Lip\errrate/\nsamples)^{1/3}$. Notably, the four models span $\errrate \in [0.17, 0.38]$ and $\hat\Lip \in [1.0, 4.6]$ --- the Llama-4-Maverick model has the largest $\hat\Lip$ (rougher calibration curve) and correspondingly the largest verification floor at fixed $\nsamples$, consistent with the theory.
 
 \paragraph{Caveats.}
-The MMLU confidence distribution is moderately saturated: across the four models, $\sim$35\% of questions yield max-softmax confidence $> 0.99$, with Llama-4-Maverick most saturated. Saturation reduces the effective resolution of binned ECE in the high-confidence region, but does not affect the convergence rate (which is governed by the bin count $B^*$). Extended results, the saturation breakdown, and the pseudo-classifier control experiment are in Appendix~\ref{app:real-model}.
+The MMLU confidence distribution is heavily saturated on all three models: 77\%--92\% of questions yield max-softmax confidence $> 0.99$ (Llama-3.1-405B 77\%, Qwen3-Next-80B 86\%, Llama-4-Maverick-17B 92\%). Saturation reduces the effective resolution of binned ECE in the high-confidence region, but does not affect the convergence rate (which is governed by the bin count $B^*$). Extended results, per-model saturation breakdown, and a pseudo-classifier control experiment are in Appendix~\ref{app:real-model}.
 
 % ============================================================
 % SECTION 5: PRACTICAL TOOLS
@@ -1128,7 +1128,7 @@ The constant $c_1(\errrate)$ is monotonically decreasing in $\errrate$: smaller 
 
 \paragraph{MMLU experimental protocol.} We query each NIM-hosted model with the standard 4-way multiple-choice prompt (``Answer the following multiple choice question. Reply with ONLY the letter (A, B, C, or D)''). For each question, we extract the logprobs of the four answer tokens A, B, C, D at the first generated position, apply softmax over those four logits, and take the maximum as the model's confidence. The model's predicted answer is the argmax. Records with API errors (e.g., 403 Forbidden, content-filter rejection) are excluded. Each model run uses a single deterministic temperature-0 generation per question.
 
-\paragraph{Confidence saturation.} A pilot on five hard MMLU subjects (abstract algebra, professional law, clinical knowledge, college chemistry, and one elementary subject) found mean confidence 0.88 with $\sim$35\% of confidences exceeding 0.99. Per-model breakdown: Llama-3.1-405B 0/5 saturated (best resolution), Llama-3.1-70B 1/5, Qwen3-Next-80B 3/5, Llama-4-Maverick-17B 3/5 (worst). On the full set, the saturation pattern affects the high-confidence bins of the empirical calibration curve but does not alter the convergence rate.
+\paragraph{Confidence saturation (full data, $N = 14{,}042$ each).} On the complete MMLU set, max-softmax confidence is heavily concentrated near 1: Llama-3.1-405B has mean confidence 0.96 with 77\% of questions saturated ($> 0.99$); Qwen3-Next-80B has mean 0.98 with 86\% saturated; Llama-4-Maverick-17B has mean 0.99 with 92\% saturated. The 405B model has the most spread (lowest saturation rate), as expected for a larger and more capable model. Saturation affects the resolution of high-confidence bins but not the convergence rate, which is governed by the optimal bin count $B^*$.
 
 \paragraph{Lipschitz constant estimation.} For each model, we partition the score range into 20 equal-width bins, compute the empirical accuracy in each bin with at least 30 samples, take the calibration gap $\hat\calmap_b = \mathrm{acc}_b - p_b$ at each bin center, and form the adjacent-bin slope $|\hat\calmap_{b+1} - \hat\calmap_b|/|p_{b+1} - p_b|$. We report the 75th percentile of these slopes, capped at $\hat\Lip = 5$, as a robust estimate. This is sensitive to bin choice and noise; we recommend the audit floor be reported with $\hat\Lip$ from at least two binning resolutions.
 
