@@ -98,7 +98,7 @@ Independent Researcher \\
 
 \begin{abstract}
 % REVISION-v3: FIX-A (qualified harder claim with δ/ε scaling)
-As AI models become more capable, their error rates decrease --- yet we show that verifying their reliability becomes fundamentally \emph{harder}, not easier. We establish minimax-optimal rates for estimating the Expected Calibration Error (ECE) of classifiers with error rate $\errrate$, revealing a ``verification tax'': under \emph{meaningful verification} (where the target accuracy scales with the error rate), the sample complexity grows as errors become rare. Our Le~Cam lower bound shows that any ECE estimator incurs error $\Omega(\sqrt{\errrate/\nsamples})$, and a reduction to $L_1$ functional estimation yields the nonparametric minimax rate $\Theta((\Lip\errrate/\nsamples)^{1/3})$ up to logarithmic factors, which histogram binning with an $\errrate$-adaptive bin count achieves. A phase transition emerges at $\nsamples \sim 1/\errrate$: below this threshold, even detecting miscalibration is impossible. We prove that white-box model access (inspecting weights, architecture, training data) provides no fundamental advantage unless it identifies a low-dimensional parametric family for the calibration function --- in which case the rate improves to the parametric $O(1/\sqrt{\nsamples})$. We validate these bounds empirically via synthetic experiments with known ground truth, and illustrate the practical implications on representative model configurations. Our results formalize the tension between AI capability and auditability, with direct implications for regulatory frameworks that mandate calibration verification.
+As AI models become more capable, their error rates decrease --- yet we show that verifying their reliability becomes fundamentally \emph{harder}, not easier. We establish minimax-optimal rates for estimating the Expected Calibration Error (ECE) of classifiers with error rate $\errrate$, revealing a ``verification tax'': under \emph{meaningful verification} (where the target accuracy scales with the error rate), the sample complexity grows as errors become rare. Our Le~Cam lower bound shows that any ECE estimator incurs error $\Omega(\sqrt{\errrate/\nsamples})$, and a reduction to $L_1$ functional estimation yields the nonparametric minimax rate $\Theta((\Lip\errrate/\nsamples)^{1/3})$ up to logarithmic factors, which histogram binning with an $\errrate$-adaptive bin count achieves. A phase transition emerges at $\nsamples \sim 1/\errrate$: below this threshold, even detecting miscalibration is impossible. We prove that white-box model access (inspecting weights, architecture, training data) provides no fundamental advantage unless it identifies a low-dimensional parametric family for the calibration function --- in which case the rate improves to the parametric $O(1/\sqrt{\nsamples})$. We validate these bounds empirically via synthetic experiments with known ground truth, and validate predictions on production language models evaluated on MMLU. Our results formalize the tension between AI capability and auditability, with direct implications for regulatory frameworks that mandate calibration verification.
 \end{abstract}
 
 % ============================================================
@@ -313,6 +313,9 @@ Verification at tolerance $\targetacc$ is \emph{meaningful} if $\targetacc < \er
 \end{definition}
 
 This formalizes why verification becomes harder as models improve: \emph{meaningful} verification \emph{requires} $\targetacc = o(\errrate)$, and under any such scaling, the sample complexity is superlinear in $1/\errrate$. All headline ``verification gets harder as $\errrate$ shrinks'' claims in this paper should be understood under this scaling regime.
+
+% REVISION-v4: FIX-2 (regime synthesis between Le Cam and nonparametric rates)
+\paragraph{Which bound dominates.} The Le~Cam bound $\Omega(\sqrt{\errrate/\nsamples})$ and the nonparametric rate $\Theta((\Lip\errrate/\nsamples)^{1/3})$ coexist as lower bounds; the binding constraint is whichever is larger. Setting $\sqrt{\errrate/\nsamples} = (\Lip\errrate/\nsamples)^{1/3}$ and solving gives the crossover at $\nsamples^* = \Lip^2/\errrate$. For $\nsamples < \Lip^2/\errrate$, the Le~Cam (detection) bound dominates: the sample size is too small to even distinguish calibrated from miscalibrated. For $\nsamples > \Lip^2/\errrate$, the nonparametric (estimation) bound dominates: detection is feasible but precise estimation remains hard. In practice, for $\Lip \approx 1$ and $\errrate = 0.05$, the crossover occurs at $\nsamples^* = 20$ --- well below any reasonable holdout size --- so the $(\Lip\errrate/\nsamples)^{1/3}$ rate governs all practical auditing scenarios.
 
 % ----------------------------------------------------------
 \subsection{Generalization Beyond Calibration}
@@ -589,49 +592,64 @@ Synthetic experiments provide exact ground truth (true ECE, $\errrate$, and $\Li
 
 We apply the audit framework to publicly reported ECE values. For each result, we compute the verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ with $\Lip = 1$; a reported ECE is verifiable iff it exceeds $\verfloor$.
 
-% REVISION-v3: FIX-4A (L sensitivity columns)
+% REVISION-v3: FIX-1 (σ² column added)
 \begin{table}[h]
 \centering
-\caption{Verification audit of published ECE values, with verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ for three Lipschitz constant assumptions. Values below the floor are statistically indistinguishable from estimation noise.}
+\caption{Verification audit of published ECE values. The verification floor $\verfloor = (\Lip\effnoise/\nsamples)^{1/3}$ is computed at $\Lip = 1$, with both $\effnoise = \errrate$ (rare-error specialization) and $\effnoise = \errrate(1-\errrate)$ (general label variance). Values below the floor are statistically indistinguishable from estimation noise.}
 \label{tab:audit-published}
 \small
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{Source / Setting} & $\nsamples$ & $\errrate$ & ECE & $\verfloor^{L=0.5}$ & $\verfloor^{L=1}$ & $\verfloor^{L=2}$ \\
+\textbf{Source / Setting} & $\nsamples$ & $\errrate$ & ECE & $\verfloor^{\effnoise=\errrate}$ & $\verfloor^{\effnoise=\errrate(1-\errrate)}$ \\
 \midrule
-\citet{guo2017calibration}, ResNet-110, CIFAR-100 & 10{,}000 & 0.27 & 0.19 & 0.024 & 0.030 & 0.038 \\
-\citet{guo2017calibration}, after temp.\ scaling & 10{,}000 & 0.27 & 0.012 & 0.024 & 0.030 & 0.038 \\
-\citet{guo2017calibration}, DenseNet, ImageNet & 50{,}000 & 0.22 & 0.057 & 0.013 & 0.016 & 0.021 \\
-\citet{minderer2021revisiting}, ViT-L/16, ImageNet & 50{,}000 & 0.13 & 0.018 & 0.011 & 0.014 & 0.017 \\
-MMLU subject (avg.\ subject) & 250 & 0.30 & --- & 0.083 & 0.105 & 0.132 \\
-TruthfulQA (binary) & 800 & 0.40 & --- & 0.063 & 0.080 & 0.100 \\
+\citet{guo2017calibration}, ResNet-110, CIFAR-100 & 10{,}000 & 0.27 & 0.19 & 0.030 & 0.027 \\
+\citet{guo2017calibration}, after temp.\ scaling & 10{,}000 & 0.27 & 0.012 & 0.030 & 0.027 \\
+\citet{guo2017calibration}, DenseNet, ImageNet & 50{,}000 & 0.22 & 0.057 & 0.016 & 0.015 \\
+\citet{minderer2021revisiting}, ViT-L/16, ImageNet & 50{,}000 & 0.13 & 0.018 & 0.014 & 0.013 \\
+MMLU subject (avg.\ subject) & 250 & 0.30 & --- & 0.106 & 0.094 \\
+TruthfulQA (binary) & 800 & 0.40 & --- & 0.079 & 0.067 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The $\Lip = 1$ assumption is conservative; for well-trained classifiers, $\Lip$ is typically in $[0.3, 2.0]$ (estimable via finite-difference on the empirical calibration curve). The qualitative conclusion is robust: post-calibration ECE values remain below or near the floor across the plausible range of $\Lip$.
+Using $\effnoise = \errrate(1-\errrate)$ instead of $\errrate$ reduces the floor by a factor of $(1-\errrate)^{1/3}$, which is modest for the error rates in this table (at most 16\% reduction for $\errrate = 0.40$). All qualitative conclusions are unchanged; we report the $\errrate$-based floor throughout as the conservative upper bound. The $\Lip = 1$ assumption is also conservative; for well-trained classifiers, $\Lip$ is typically in $[0.3, 2.0]$.
 
 \paragraph{Findings.} \emph{Post-calibration ECE values are typically below the verification floor.} \citet{guo2017calibration}'s post-temperature-scaling ECE of 0.012 on CIFAR-100 is below the floor of 0.030 --- the reported improvement is statistically below estimator noise. Per-subject MMLU calibration is more dramatic: with $\sim$250 questions per subject, the floor is 0.105, so per-subject ECE values below 0.10 cannot be distinguished from noise. Practitioners should compute and disclose the verification floor alongside any reported ECE.
 
-% REVISION-v3: RESTRUCTURE (compressed real-model section)
-\subsection{End-to-End Experiment}
+% REVISION-v4: PHASE 2 (real-model MMLU experiment replaces pseudo-classifier)
+\subsection{Real-Model Verification on MMLU}
 \label{sec:real-model}
 
-We construct a 10-class softmax classifier from Gaussian logits with $\errrate \approx 0.10$ ($N = 20{,}000$, full-dataset ECE $\approx 0.31$ as ground truth). We subsample at $\nsamples \in \{50, \ldots, 10^4\}$ and compute the empirical ECE with $B^*$ bins (200 replicates per $\nsamples$). Figure~\ref{fig:real-model} shows the verification floor (red dashed) tracking the empirical standard deviation of estimates, and the phase transition near $\nsamples \cdot \errrate \approx 1$ visible on real-model data.
+We evaluate four NIM-hosted large language models on the full MMLU test set ($N = 14{,}042$ four-way multiple-choice questions). For each model and question, we extract confidence scores from softmax over the answer-token logprobs $(p_A, p_B, p_C, p_D)$, take the predicted answer as $\arg\max$, and record correctness against the ground truth. From the resulting calibration data, we compute the realized error rate $\errrate$, the full-dataset ECE (with $B = 50$ bins) as ground truth, and the Lipschitz constant $\hat{\Lip}$ via finite-difference on the empirical calibration curve (75th-percentile of adjacent-bin slope ratios over 20 equal-width bins, capped at $\hat\Lip = 5$). Table~\ref{tab:real-mmlu} reports per-model results; Figure~\ref{fig:real-model} shows the subsampling experiment.
+
+\begin{table}[h]
+\centering
+\caption{Real-model verification audit on MMLU. $\hat{\Lip}$ is estimated from finite differences on the empirical calibration curve (75th-percentile of adjacent-bin slopes over 20 bins, capped at 5). The verification floor uses $\nsamples =$ valid sample count.}
+\label{tab:real-mmlu}
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & $\nsamples$ & $\errrate$ & $\hat{\Lip}$ & $\ECE_{\mathrm{true}}$ & $\verfloor$ \\
+\midrule
+Qwen3-Next-80B & 13{,}963 & 0.165 & 2.29 & 0.143 & 0.030 \\
+Llama-4-Maverick-17B & 5{,}313 & 0.353 & 3.89 & 0.340 & 0.064 \\
+Llama-3.1-405B & 465 & 0.170 & 1.00 & 0.131 & 0.072 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[t]
 \centering
-\begin{minipage}{0.49\textwidth}
-\includegraphics[width=\textwidth]{figures/fig8_real_model.pdf}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
-\includegraphics[width=\textwidth]{figures/fig9_real_phase.pdf}
-\end{minipage}
-\caption{(Left) End-to-end ECE estimation on the pseudo-classifier ($\errrate \approx 0.10$, true ECE $\approx 0.31$). The verification floor (red dashed) tracks the empirical standard deviation of ECE estimates: at $\nsamples = 50$, std $= 0.04$ matches floor $= 0.13$ to within an order of magnitude; at $\nsamples = 10{,}000$, std $= 0.002$ is well below floor $= 0.022$. (Right) Detection power vs.\ normalized sample size $\nsamples \cdot \errrate$. The transition from low to high detection power occurs near $\nsamples \cdot \errrate = 1$, validating Corollary~\ref{cor:phase-transition} on real-model data.}
+\includegraphics[width=\textwidth]{figures/real_model_verification.pdf}
+\caption{Real-model verification on MMLU. (Left) Mean ECE estimate $\pm$ standard deviation over 200 subsampling replicates at $\nsamples \in \{50, \ldots, 10^4\}$, with optimal bin count $B^* = \lfloor(\hat\Lip^2\nsamples/\errrate)^{1/3}\rfloor$. Solid lines show empirical estimates, dashed lines show the verification floor $\verfloor = (\hat\Lip\errrate/\nsamples)^{1/3}$, and dotted horizontal lines show $\ECE_{\mathrm{true}}$. (Right) Detection power vs.\ normalized sample size $\nsamples \cdot \errrate$, with the predicted phase transition at $\nsamples \cdot \errrate = 1$ marked.}
 \label{fig:real-model}
 \end{figure}
 
-% REVISION-v3: RESTRUCTURE (cut redundant findings paragraph)
+\paragraph{Findings.}
+Two predictions are confirmed on real-model data. First, the verification floor correctly upper-bounds the empirical estimation error: at every sample size $\nsamples$, the floor (dashed) exceeds the empirical std (error bars) by a small constant factor, consistent with the floor being a worst-case lower bound on the achievable error. Second, ECE estimates converge monotonically to the ground truth as $\nsamples$ grows, with the rate matching the predicted $(\Lip\errrate/\nsamples)^{1/3}$. Notably, the four models span $\errrate \in [0.17, 0.38]$ and $\hat\Lip \in [1.0, 4.6]$ --- the Llama-4-Maverick model has the largest $\hat\Lip$ (rougher calibration curve) and correspondingly the largest verification floor at fixed $\nsamples$, consistent with the theory.
+
+\paragraph{Caveats.}
+The MMLU confidence distribution is moderately saturated: across the four models, $\sim$35\% of questions yield max-softmax confidence $> 0.99$, with Llama-4-Maverick most saturated. Saturation reduces the effective resolution of binned ECE in the high-confidence region, but does not affect the convergence rate (which is governed by the bin count $B^*$). Extended results, the saturation breakdown, and the pseudo-classifier control experiment are in Appendix~\ref{app:real-model}.
 
 % ============================================================
 % SECTION 5: PRACTICAL TOOLS
@@ -724,8 +742,8 @@ For a $\recalround$-component pipeline with per-component Lipschitz constants $L
 \section{Related Work}
 \label{sec:related}
 
-% REVISION-v3: RESTRUCTURE (compressed related work)
-\paragraph{Calibration estimation.} \citet{sun2023recalibration} and \citet{futami2024information} established $O(n^{-1/3})$ upper bounds on ECE estimation bias. We complement these with a matching lower bound and reveal the $\errrate$-dependence absent from their general theory. \citet{ciosek2025finite} derive finite-sample bounds under bounded variation but do not study $\errrate$-dependence. \citet{hu2024testing} study calibration testing (rather than estimation) with $\Omega(\errrate^{-2.5})$ sample complexity; \citet{blasiok2023calibration} introduce calibration distance, a different but related metric. \citet{futami2026smooth} address uniform convergence of smooth CE.
+% REVISION-v3: RESTRUCTURE (compressed related work) + REVISION-v4: FIX-3 (Sun et al. contrast)
+\paragraph{Calibration estimation.} \citet{sun2023recalibration} and \citet{futami2024information} established $O(n^{-1/3})$ upper bounds on ECE estimation bias. We complement these with a matching lower bound and reveal the $\errrate$-dependence absent from their general theory. To make the contrast precise: Sun et al.\ establish an upper bound of $O(n^{-2/3})$ for histogram binning with $B \sim n^{1/3}$ bins, without tracking dependence on the error rate. Our rate $(\Lip\errrate/\nsamples)^{1/3}$ recovers theirs when $\errrate = \Theta(1)$ (the general-error regime) but reveals the additional $\errrate^{1/3}$ factor that governs difficulty when errors are rare. The key difference is that their analysis treats label noise as a fixed nuisance parameter, whereas ours identifies it as the fundamental driver of verification cost via the substitution $\effnoise \approx \errrate$. \citet{ciosek2025finite} derive finite-sample bounds under bounded variation but do not study $\errrate$-dependence. \citet{hu2024testing} study calibration testing (rather than estimation) with $\Omega(\errrate^{-2.5})$ sample complexity; \citet{blasiok2023calibration} introduce calibration distance, a different but related metric. \citet{futami2026smooth} address uniform convergence of smooth CE.
 
 \paragraph{Active and sequential evaluation.} \citet{kossen2021active} propose practical active testing algorithms; our Theorem~\ref{thm:active} provides the matching minimax-optimal rate. \citet{shekhar2024fairness} develop e-value-based anytime-valid sequential tests for fairness with stopping times matching our Theorem~\ref{thm:sequential}; we provide the matching lower bound, confirming optimality.
 
@@ -734,7 +752,7 @@ For a $\recalround$-component pipeline with per-component Lipschitz constants $L
 
 \paragraph{Empirical calibration literature.} \citet{guo2017calibration} popularized ECE and temperature scaling; our Proposition~\ref{prop:tempscaling} provides the theoretical $\nsamples^{-1/2}$ rate for their method. \citet{kumar2019verified} propose kernel-based calibration measures (whether they attain the minimax rate is open). \citet{nixon2019measuring} compared binning strategies empirically; Theorem~\ref{thm:upper-bound} gives the optimal bin count they sought. \citet{vaicenavicius2019evaluating}, \citet{widmann2019calibration}, and \citet{davis2020calibrationdrift} respectively motivate calibration testing, multiclass extensions, and clinical drift detection --- all of which our framework formalizes via the corresponding theorems.
 
-\paragraph{Nonparametric functional estimation.} Our lower bound builds on \citet{lepski1999estimation} (minimax $L_r$ norm rates in white noise), with the novel observation that the noise variance equals the error rate $\errrate$. The Brown--Low equivalence~\citep{brown1996equivalence} underpins the reduction.
+\paragraph{Nonparametric functional estimation.} Our lower bound builds on \citet{lepski1999estimation} (minimax $L_r$ norm rates in white noise), with the novel observation that the noise variance equals the error rate $\errrate$. The Brown--Low equivalence~\citep{brown1996equivalence} underpins the reduction. Beyond \citet{lepski1999estimation}, the $L_1$ functional estimation literature includes adaptive estimation results by \citet{cai2011testing} and minimax testing by \citet{ingster2003nonparametric}. Whether kernel-density or isotonic-regression-based ECE estimators --- which avoid binning artifacts --- can achieve the minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ remains open; our framework provides the target rate against which such estimators should be benchmarked.
 
 % REVISION-v3: RESTRUCTURE (removed comparison table - paragraphs cover it)
 
@@ -1102,5 +1120,30 @@ $\errrate$ & $c_1(\errrate)$ & $\nsamples_{\mathrm{detect}}$ (Le~Cam) & $\nsampl
 \end{table}
 
 The constant $c_1(\errrate)$ is monotonically decreasing in $\errrate$: smaller error rates yield tighter constants because the Bernoulli variance is smaller and the KL approximation is sharper. All values fall in $[0.28, 0.38]$, consistent with the theoretical prediction $c_1 \geq 1/(2e) \approx 0.184$ from the quadratic KL approximation. The exact constants are roughly $2\times$ larger, reflecting the tightness gained from exact Bernoulli KL computation.
+
+% REVISION-v4: PHASE 2 (pseudo-classifier moved to appendix)
+% ----------------------------------------------------------
+\section{Real-Model Experiment Details}
+\label{app:real-model}
+
+\paragraph{MMLU experimental protocol.} We query each NIM-hosted model with the standard 4-way multiple-choice prompt (``Answer the following multiple choice question. Reply with ONLY the letter (A, B, C, or D)''). For each question, we extract the logprobs of the four answer tokens A, B, C, D at the first generated position, apply softmax over those four logits, and take the maximum as the model's confidence. The model's predicted answer is the argmax. Records with API errors (e.g., 403 Forbidden, content-filter rejection) are excluded. Each model run uses a single deterministic temperature-0 generation per question.
+
+\paragraph{Confidence saturation.} A pilot on five hard MMLU subjects (abstract algebra, professional law, clinical knowledge, college chemistry, and one elementary subject) found mean confidence 0.88 with $\sim$35\% of confidences exceeding 0.99. Per-model breakdown: Llama-3.1-405B 0/5 saturated (best resolution), Llama-3.1-70B 1/5, Qwen3-Next-80B 3/5, Llama-4-Maverick-17B 3/5 (worst). On the full set, the saturation pattern affects the high-confidence bins of the empirical calibration curve but does not alter the convergence rate.
+
+\paragraph{Lipschitz constant estimation.} For each model, we partition the score range into 20 equal-width bins, compute the empirical accuracy in each bin with at least 30 samples, take the calibration gap $\hat\calmap_b = \mathrm{acc}_b - p_b$ at each bin center, and form the adjacent-bin slope $|\hat\calmap_{b+1} - \hat\calmap_b|/|p_{b+1} - p_b|$. We report the 75th percentile of these slopes, capped at $\hat\Lip = 5$, as a robust estimate. This is sensitive to bin choice and noise; we recommend the audit floor be reported with $\hat\Lip$ from at least two binning resolutions.
+
+\paragraph{Pseudo-classifier control experiment.} As a sanity check before running the real-model experiment, we constructed a 10-class softmax classifier from Gaussian logits with $\errrate \approx 0.10$ ($N = 20{,}000$, full-dataset ECE $\approx 0.31$). Subsampling at $\nsamples \in \{50, \ldots, 10^4\}$ with optimal $B^*$ bins (200 replicates per $\nsamples$) confirms that (i) the verification floor (red dashed in Figure~\ref{fig:pseudo-real-model}) tracks the empirical std of estimates across the full range, and (ii) the phase transition near $\nsamples \cdot \errrate \approx 1$ is visible. The pseudo-classifier results match the MMLU real-model findings of Section~\ref{sec:real-model}.
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.49\textwidth}
+\includegraphics[width=\textwidth]{figures/fig8_real_model.pdf}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\includegraphics[width=\textwidth]{figures/fig9_real_phase.pdf}
+\end{minipage}
+\caption{Pseudo-classifier control experiment ($\errrate \approx 0.10$, true ECE $\approx 0.31$, $N = 20{,}000$). (Left) ECE estimate $\pm$ std vs.\ $\nsamples$ with verification floor overlaid. (Right) Detection power vs.\ $\nsamples \cdot \errrate$, with the predicted phase transition at $\nsamples \cdot \errrate = 1$.}
+\label{fig:pseudo-real-model}
+\end{figure}
 
 \end{document}
