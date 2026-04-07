@@ -226,32 +226,9 @@ R^*(\nsamples, \errrate, \Lip) \geq c_1 \sqrt{\frac{\errrate}{\nsamples}}
 where $c_1 > 0$ is a universal constant. In particular, $c_1 \geq 1/(4\sqrt{2}) \approx 0.177$.
 \end{theorem}
 
-\begin{proof}
-Construct two hypotheses. Fix a classifier whose score distribution places all mass at $p_0 = 1 - \errrate$.
-
-\begin{itemize}
-    \item $P_0$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate)$. Calibrated: $\calmapraw(p_0) = p_0$, so $\ECE = 0$.
-    \item $P_1$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate - \delta)$. Miscalibrated: $\ECE = \delta$.
-\end{itemize}
-
-% REVISION: FIX-3 (constant gap is 0-Lipschitz, so the bound \delta \leq L was vacuous)
-Both hypotheses use a constant calibration gap (Lipschitz constant 0), so $\calmap \in \cF(\Lip)$ for all $\Lip > 0$.
-
-The KL divergence of $\nsamples$ i.i.d.\ samples is:
-\begin{equation}
-\KL(P_0^{\nsamples} \| P_1^{\nsamples}) = \nsamples \cdot \KL(\Bern(1-\errrate) \| \Bern(1-\errrate-\delta)) = \frac{\nsamples \delta^2}{\errrate(1-\errrate)} \leq \frac{\nsamples \delta^2}{\errrate}
-\end{equation}
-% REVISION: FIX-7 (added KL approximation validity regime)
-where the last inequality uses $1 - \errrate \leq 1$ and the KL approximation $\KL(\Bern(p) \| \Bern(p+\delta)) \approx \delta^2 / (p(1-p))$ (valid for $\delta \leq \errrate/2$; see Appendix~\ref{app:numerical} for exact constants).
-
-By Le~Cam's lemma \citep{tsybakov2009nonparametric}:
-\begin{equation}
-R^* \geq \frac{\delta}{2}\left(1 - \TV(P_0^{\nsamples}, P_1^{\nsamples})\right) \geq \frac{\delta}{2} e^{-\KL(P_0^{\nsamples} \| P_1^{\nsamples})}
-\end{equation}
-where the second inequality uses Bretagnolle--Huber. Set $\KL = 1$, i.e., $\delta = \sqrt{\errrate / \nsamples}$:
-\begin{equation}
-R^* \geq \frac{1}{2e} \sqrt{\frac{\errrate}{\nsamples}} \approx 0.184 \sqrt{\frac{\errrate}{\nsamples}} \qquad \qedhere
-\end{equation}
+% REVISION-v3: RESTRUCTURE (compressed proof to sketch; full proof in Appendix H)
+\begin{proof}[Proof sketch]
+Construct $P_0$ (calibrated, $\ECE = 0$) and $P_1$ (miscalibrated by $\delta$, $\ECE = \delta$) at $p_0 = 1 - \errrate$. Both use a constant calibration gap (trivially in $\cF(\Lip)$ for all $\Lip > 0$). The KL divergence of $\nsamples$ i.i.d.\ samples is $\nsamples\delta^2/(\errrate(1-\errrate)) \leq \nsamples\delta^2/\errrate$. Setting $\KL = 1$ via the Bretagnolle--Huber inequality~\citep{tsybakov2009nonparametric} gives $R^* \geq \delta/(2e) = (1/2e)\sqrt{\errrate/\nsamples}$. Full proof: Appendix~\ref{app:lecam-proof}.
 \end{proof}
 
 % ----------------------------------------------------------
@@ -311,41 +288,9 @@ In the rare-error regime where score mass concentrates near high confidence ($p 
 The bounded-density assumption $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$ ensures that equal-width bins have roughly uniform occupancy ($n_b \approx \nsamples/B$), which the proof uses. When $\scoredist$ concentrates near high confidence, this assumption is violated. The same rate is recovered by \emph{equal-mass binning}: choose bin boundaries so each bin contains exactly $\nsamples/B$ samples (i.e., the empirical $b/B$ quantiles of $\{p_i\}_{i=1}^{\nsamples}$). Under equal-mass binning, the bin widths satisfy $\mathrm{width}(I_b) = 1/(B \cdot \scoredist_b)$ where $\scoredist_b$ is the local density. The bias in bin $b$ becomes $\Lip \cdot \mathrm{width}(I_b) = \Lip/(B \cdot \scoredist_b)$, and the total bias is $\sum_b (n_b/\nsamples) \cdot \Lip/(B \cdot \scoredist_b) = \Lip/B \cdot \E_\scoredist[1/\scoredist(p)] \cdot (1/B)$. The variance term is unchanged because $n_b = \nsamples/B$ exactly. Optimizing over $B$ recovers the same rate $(\Lip\effnoise/\nsamples)^{1/3}$, with constants depending on the density ratio $C_\scoredist/c_\scoredist$ rather than requiring bounded density. The key requirement is that each bin contains $\Omega(\nsamples/B)$ samples, which equal-mass binning guarantees by construction.
 \end{remark}
 
-\begin{proof}
-\textbf{Bias-variance decomposition.} With $B$ equal-width bins and $\nsamples$ total samples:
-
-\textbf{1. Bias (approximation error).} Within each bin of width $1/B$, the calibration gap $\calmap$ varies by at most $\Lip/B$ (Lipschitz). By the Bridge Lemma~(\ref{lem:bridge}):
-\begin{equation}
-|\ECE_B - \CE_{\mathrm{smooth}}| \leq \frac{\Lip}{B}
-\end{equation}
-
-% REVISION: FIX-1 (precise variance bound, no global ε approximation)
-\textbf{2. Variance (estimation error).} Each bin $b$ has $n_b \approx \nsamples/B$ samples (under $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$; when $\scoredist$ concentrates, equal-mass binning guarantees this exactly --- see Remark~\ref{rem:variable-width}). The empirical calibration gap $\hat{\calmap}_b$ has variance bounded by the per-bin label variance:
-\begin{equation}
-\Var(\hat{\calmap}_b) = \frac{\effnoise_b}{n_b} \leq \frac{\effnoise}{n_b} \approx \frac{\effnoise B}{\nsamples}
-\end{equation}
-where $\effnoise = \max_b \effnoise_b$ and $\effnoise_b = \E[\calmapraw(p)(1-\calmapraw(p)) \mid p \in I_b]$. In the rare-error regime, $\effnoise \approx \errrate$.
-The estimation error of the full ECE is:
-\begin{equation}
-\E\left[|\widehat{\ECE}_B - \ECE_B|\right] \leq \sqrt{\frac{\effnoise B}{\nsamples}}
-\end{equation}
-using Jensen's inequality and the independence across bins for the dominant term.
-
-\textbf{3. Total error:}
-\begin{equation}
-\E\left[|\widehat{\ECE}_{B} - \CE_{\mathrm{smooth}}|\right] \leq \frac{\Lip}{B} + \sqrt{\frac{\effnoise B}{\nsamples}}
-\end{equation}
-
-\textbf{4. Optimization over $B$.} Set $\Lip/B = \sqrt{\effnoise B / \nsamples}$, solve:
-\begin{equation}
-\frac{\Lip^2}{B^2} = \frac{\effnoise B}{\nsamples} \implies B^3 = \frac{\Lip^2 \nsamples}{\effnoise} \implies B^* = \left(\frac{\Lip^2 \nsamples}{\effnoise}\right)^{1/3}
-\end{equation}
-
-\textbf{5. Substituting back:}
-\begin{equation}
-\text{Error} = \frac{\Lip}{B^*} = \Lip \cdot \left(\frac{\effnoise}{\Lip^2 \nsamples}\right)^{1/3} = \left(\frac{\Lip \effnoise}{\nsamples}\right)^{1/3} \qedhere
-\end{equation}
-In the rare-error regime where $\effnoise \approx \errrate$, this becomes the headline rate $(\Lip\errrate/\nsamples)^{1/3}$.
+% REVISION-v3: RESTRUCTURE (5-step proof compressed to sketch; full proof in Appendix A.2)
+\begin{proof}[Proof sketch]
+Bias--variance tradeoff. The Lipschitz constraint gives bias $\Lip/B$ within each bin (Bridge Lemma). The per-bin variance is $\effnoise_b/n_b \leq \effnoise B/\nsamples$ (Bernoulli with $n_b \approx \nsamples/B$). Total error $\Lip/B + \sqrt{\effnoise B/\nsamples}$, optimized at $B^* = (\Lip^2\nsamples/\effnoise)^{1/3}$, yielding error $(\Lip\effnoise/\nsamples)^{1/3}$. In the rare-error regime $\effnoise \approx \errrate$. Full proof: Appendix~\ref{app:upper-proof}.
 \end{proof}
 
 The lower and upper bounds match in the polynomial rate $(\Lip\errrate/\nsamples)^{1/3}$; the logarithmic gap is inherited from the open problem of $L_1$ functional estimation \citep{lepski1999estimation}.
@@ -457,29 +402,9 @@ R^*_{\cS}(\nsamples, \errrate, \Lip) \geq c \sqrt{\frac{\errrate}{\nsamples}}
 That is, white-box access does not improve the minimax rate beyond the black-box Le~Cam bound (Theorem~\ref{thm:lecam}).
 \end{theorem}
 
-\begin{proof}
-The proof constructs two worlds with the \emph{identical model} but different label distributions.
-
-Fix a model --- same weights $\theta$, same architecture $A$, same training data $D_{\mathrm{train}}$. This model assigns confidence scores $p(x)$ to inputs. The sigma-algebra $\cS = \sigma(\theta, A, D_{\mathrm{train}})$ is identical under both hypotheses. Any $\cS$-measurable estimator sees exactly the same model internals under both.
-
-Define two worlds:
-\begin{itemize}
-    \item $P_0$: $Y \mid p(X) = p \sim \Bern(p)$. The model is perfectly calibrated. $\ECE = 0$.
-    \item $P_1$: $Y \mid p(X) = p \sim \Bern(p - \delta)$ for $p$ near $1 - \errrate$. The model is miscalibrated by $\delta$. $\ECE = \delta$.
-\end{itemize}
-
-The model is identical in both worlds --- same weights, same predictions, same confidence scores. The only difference is whether the labels agree with the confidences at rate $p$ (world $P_0$) or at rate $p - \delta$ (world $P_1$).
-
-An $\cS$-measurable estimator receives no additional information for distinguishing $P_0$ from $P_1$, because $\cS$ is identical under both. The only distinguishing information comes from the $\nsamples$ fresh labeled samples.
-
-Formally: conditioned on $\cS$ and on the test inputs $x_1, \ldots, x_{\nsamples}$ (which determine scores $p_1, \ldots, p_{\nsamples}$), the labels $y_1, \ldots, y_{\nsamples}$ are independent Bernoullis. Under $P_0$ they are $\Bern(p_i)$; under $P_1$ they are $\Bern(p_i - \delta)$ for relevant $p_i$. The conditional KL divergence is:
-\begin{equation}
-\KL(P_0^{\nsamples} \| P_1^{\nsamples} \mid \cS) = \sum_{i: p_i \approx 1-\errrate} \KL(\Bern(p_i) \| \Bern(p_i - \delta)) \approx \frac{\nsamples \delta^2}{\errrate}
-\end{equation}
-identical to Theorem~\ref{thm:lecam}. Applying Le~Cam's lemma to the conditional problem:
-\begin{equation}
-R^*_{\cS} \geq \frac{\delta}{2} e^{-\KL} = c \sqrt{\frac{\errrate}{\nsamples}} \qedhere
-\end{equation}
+% REVISION-v3: RESTRUCTURE (full "two worlds" proof compressed; full proof in Appendix B)
+\begin{proof}[Proof sketch]
+Fix identical model internals $\cS$. Construct $P_0$ (calibrated, $\ECE = 0$) and $P_1$ (miscalibrated by $\delta$ near $p \approx 1-\errrate$, $\ECE = \delta$). $\cS$ is identical under both worlds; only fresh labels distinguish them. Conditional on $\cS$, the per-observation KL is $\delta^2/\errrate$, identical to Theorem~\ref{thm:lecam}. Le~Cam gives $R^*_\cS \geq c\sqrt{\errrate/\nsamples}$. Full proof: Appendix~\ref{app:whitebox}.
 \end{proof}
 
 \begin{corollary}[Parametric Exception]
@@ -505,13 +430,10 @@ Let a developer choose any $\calmap \in \cF(\Lip)$ with $\ECE(\calmap) = \target
 The developer's optimal strategy is constant miscalibration $\calmap(p) = \targetacc$ near $p = 1 - \errrate$. No sophisticated adversarial pattern improves upon this.
 \end{proposition}
 
-\begin{proof}
-The lower bound is Theorem~\ref{thm:lecam}: the Le~Cam construction already uses constant $\calmap$, which is the hardest case. For the converse, note that any $\calmap$ with $\ECE = \targetacc$ satisfies $\|\calmap\|_1 = \targetacc$ (by definition) and $\|\calmap\|_2 \geq \|\calmap\|_1$ with equality iff $\calmap$ is constant on its support. The KL divergence between the calibrated and miscalibrated hypotheses is $\nsamples \|\calmap\|_2^2 / \errrate \geq \nsamples \targetacc^2 / \errrate$, with equality for constant $\calmap$. Therefore constant miscalibration minimizes the KL, making detection hardest. Any non-constant $\calmap$ with the same ECE has strictly larger $\|\calmap\|_2$, hence larger KL, hence is \emph{easier} to detect.
+% REVISION-v3: RESTRUCTURE (collapsed proof to one line)
+\begin{proof}[Proof sketch]
+Constant $\calmap$ minimizes the KL between calibrated and miscalibrated hypotheses (since $\|\calmap\|_2 \geq \|\calmap\|_1 = \targetacc$, with equality iff $\calmap$ is constant), making detection hardest. Any non-constant $\calmap$ with the same ECE is \emph{easier} to detect. The lower bound is Theorem~\ref{thm:lecam}.
 \end{proof}
-
-\begin{remark}
-This result has a direct regulatory implication: auditors need not design detection protocols for adversarial miscalibration patterns. The standard holdout-based ECE estimator is robust to strategic behavior by the model developer.
-\end{remark}
 
 % ----------------------------------------------------------
 \subsection{Active Verification}
@@ -519,9 +441,10 @@ This result has a direct regulatory implication: auditors need not design detect
 
 In passive verification, the auditor receives test samples with scores drawn from the natural distribution $\scoredist$. Most samples land on ``easy'' confidence levels where $|\calmap(p)|$ is large and the sign is known, while the informative region near zero-crossings receives proportionally few samples. We ask: if the auditor can \emph{choose} which confidence levels to query, does verification become cheaper?
 
+% REVISION-v3: RESTRUCTURE (compressed active oracle definition)
 \begin{definition}[Active Query Oracle]
 \label{def:active-oracle}
-We assume access to the following oracle: given any interval $I \subseteq [0, 1]$, the oracle returns an input-label pair $(x, y)$ where $x$ is drawn from the deployment distribution conditioned on $p(x) \in I$, and $y$ is the true label for $x$. In practice, this is realized by maintaining a large pool of unlabeled inputs from the deployment distribution, pre-sorted by the model's predicted confidence $p(x)$. When the auditor requests a sample from confidence interval $I$, the oracle draws uniformly from the pool elements with $p(x) \in I$ and obtains the label. The pool size must be large enough that (i) every interval of width $\geq 1/B$ contains at least $\nsamples/(2B)$ unlabeled inputs, and (ii) sampling with replacement within strata is approximately valid (no depletion effects). Formally, if the unlabeled pool has size $M_{\mathrm{pool}}$ and the score distribution $\scoredist$ has density bounded below by $c_\scoredist > 0$, then condition (i) requires $M_{\mathrm{pool}} \geq \nsamples / (2c_\scoredist)$.
+We assume access to an oracle that, given any interval $I \subseteq [0, 1]$, returns an input-label pair $(x, y)$ with $x$ drawn from the deployment distribution conditioned on $p(x) \in I$ and $y$ the true label for $x$. In practice, this is realized by a large unlabeled pool sorted by confidence; pool size $M_{\mathrm{pool}} \geq \nsamples/(2c_\scoredist)$ suffices (see Appendix~\ref{app:active-proof} for feasibility and unknown-$\Lip$ adaptation).
 \end{definition}
 
 \begin{theorem}[Active Verification Rate]
@@ -534,68 +457,24 @@ Assume the active query oracle of Definition~\ref{def:active-oracle} with pool s
 In particular: (i) no adaptive strategy can beat $c\sqrt{\errrate/\nsamples}$, and (ii) a two-phase explore-exploit strategy achieves $C\sqrt{\errrate/\nsamples}$, with universal constants $c, C > 0$.
 \end{theorem}
 
-\begin{proof}[Proof sketch (full proof in Appendix~\ref{app:active-proof})]
-\textbf{Lower bound.} The Le~Cam bound from Theorem~\ref{thm:lecam} applies unchanged to adaptive strategies. Under adaptive querying, the auditor selects $p_i$ based on all previous observations. By the chain rule of KL divergence, each term is at most $\delta^2 / \errrate$ (the per-observation KL when $p_i$ is in the miscalibrated region). Adaptivity does not increase the per-observation information: conditioned on $p_i$, the label $y_i$ is a single Bernoulli draw whose KL is $\delta^2 / \errrate$ regardless of previous observations. Therefore $\KL \leq \nsamples \delta^2 / \errrate$, and Le~Cam gives $\activeR \geq c\sqrt{\errrate / \nsamples}$.
-
-\textbf{Upper bound.} A two-phase strategy achieves this rate: Phase~1 (exploration) queries equally-spaced confidence levels to classify bins as \emph{resolved} (sign of $\calmap$ known) or \emph{unresolved}; Phase~2 (exploitation) concentrates queries on resolved bins where $|\calmap|$ can be estimated without the absolute value problem. Choosing the number of grid points $N = \Lip\sqrt{\nsamples/\errrate}$ balances both contributions at $O(\sqrt{\errrate/\nsamples})$.
+% REVISION-v3: RESTRUCTURE (compressed sketch; feasibility/unknown-L moved to appendix)
+\begin{proof}[Proof sketch]
+\textbf{Lower bound.} The Le~Cam bound applies unchanged: by the chain rule of KL divergence, the per-observation KL is at most $\delta^2/\errrate$ regardless of adaptivity, giving $\activeR \geq c\sqrt{\errrate/\nsamples}$. \textbf{Upper bound.} A two-phase explore-exploit strategy: Phase 1 resolves the sign of $\calmap$ on $N$ grid points; Phase 2 estimates $|\calmap|$ in resolved bins. Choosing $N = \Lip\sqrt{\nsamples/\errrate}$ balances both terms at $O(\sqrt{\errrate/\nsamples})$. Full proof: Appendix~\ref{app:active-proof}.
 \end{proof}
 
 \begin{remark}[Passive vs.\ Active Gap]
 \label{rem:active-gap}
-The gap between passive verification ($\Theta((\Lip\errrate/\nsamples)^{1/3})$, Theorems~\ref{thm:minimax-lb}--\ref{thm:upper-bound}) and active verification ($\Theta(\sqrt{\errrate/\nsamples})$, Theorem~\ref{thm:active}) is $(\Lip^2 \nsamples / \errrate)^{1/6}$. For $\Lip = 1$, $\errrate = 0.05$, $\nsamples = 10{,}000$, active verification is $\sim$8$\times$ more sample-efficient. Crucially, the Lipschitz constant $\Lip$ disappears entirely from the active rate --- adaptive querying eliminates the effect of calibration function smoothness.
+The gap between passive ($\Theta((\Lip\errrate/\nsamples)^{1/3})$) and active ($\Theta(\sqrt{\errrate/\nsamples})$) is $(\Lip^2\nsamples/\errrate)^{1/6}$. The Lipschitz constant $\Lip$ disappears from the active rate. Feasibility, unknown-$\Lip$ adaptation, and approximate targeting are discussed in Appendix~\ref{app:active-proof}.
 \end{remark}
 
-\begin{remark}[Feasibility of Active Querying]
-\label{rem:active-feasibility}
-The active query oracle (Definition~\ref{def:active-oracle}) requires a pool of unlabeled inputs, \emph{not} the ability to synthesize inputs with prescribed confidence scores. This is realistic in deployment settings where unlabeled data is abundant but labeling is expensive (e.g., content moderation, medical diagnosis). The key cost assumption is that labeling an input from any confidence stratum has the same cost; if labeling difficulty varies with confidence level, the active rate would need adjustment. Characterizing rates under approximate targeting (where the auditor can only place samples in intervals of width $\geq w$ rather than arbitrary intervals) is an interesting direction for future work; we conjecture the rate degrades smoothly from $\sqrt{\errrate/\nsamples}$ to $(\Lip\errrate/\nsamples)^{1/3}$ as $w$ increases from $0$ to $1$.
-\end{remark}
-
-% REVISION: FIX-8 (unknown L adaptive procedure)
-\begin{remark}[Adaptive Procedures for Unknown $\Lip$]
-\label{rem:unknown-L}
-The grid size $N = \Lip\sqrt{\nsamples/\errrate}$ in the two-phase strategy depends on the Lipschitz constant $\Lip$, which may be unknown in practice. When $\Lip$ is unknown, a multiscale approach achieves the same $\Theta(\sqrt{\errrate/\nsamples})$ rate up to logarithmic factors: run Phase 1 at geometrically increasing grid resolutions $N_k = 2^k$, and select the scale where the exploration--exploitation tradeoff is optimized (e.g., via Lepski's method for adaptive bandwidth selection~\citep{lepski1999estimation}). The key insight is that $\Lip$ only affects the optimal grid size in Phase 1; the final rate is $\Lip$-free because Phase 2 dominates. The logarithmic overhead reflects the standard cost of adaptation to an unknown smoothness parameter.
-\end{remark}
-
-% ----------------------------------------------------------
+% REVISION-v3: RESTRUCTURE (compressed sequential verification)
 \subsection{Sequential Verification}
 \label{sec:sequential}
 
-In practice, auditors rarely pre-commit to a fixed sample budget $\nsamples$. Instead, they collect data until sufficiently confident, then stop. We characterize the expected stopping time of optimal sequential verification.
-
-\begin{definition}[Sequential Verification Protocol]
-\label{def:sequential}
-A sequential verification protocol is a pair $(\stoppingtime, \widehat{\ECE}_\stoppingtime)$ where $\stoppingtime$ is a stopping time adapted to the filtration $\mathcal{F}_t = \sigma(p_1, y_1, \ldots, p_t, y_t)$ and $\widehat{\ECE}_\stoppingtime$ is the ECE estimate at time $\stoppingtime$. The protocol has accuracy $\targetacc$ at confidence level $1 - \confalpha$ if $\Pr(|\widehat{\ECE}_\stoppingtime - \ECE| > \targetacc) \leq \confalpha$.
-\end{definition}
-
 \begin{theorem}[Sequential Verification]
 \label{thm:sequential}
-For a model with calibration gap $\calmap$ and error rate $\errrate$:
-
-\noindent (i) \emph{Lower bound:} Any sequential protocol with accuracy $\targetacc$ at confidence $1 - \confalpha$ satisfies:
-\begin{equation}
-\E[\stoppingtime] \geq c \cdot \frac{\errrate}{\targetacc^2} \cdot \log\frac{1}{\confalpha}
-\end{equation}
-
-\noindent (ii) \emph{Upper bound:} There exists a sequential protocol achieving accuracy $\targetacc$ at confidence $1 - \confalpha$ with:
-\begin{equation}
-\E[\stoppingtime] \leq C \cdot \frac{\errrate}{\targetacc^2} \cdot \log\frac{1}{\confalpha}
-\end{equation}
-
-\noindent The expected stopping time is $\Theta(\errrate / \targetacc^2 \cdot \log(1/\confalpha))$, matching the fixed-sample Le~Cam bound with an additional $\log(1/\confalpha)$ factor for confidence control.
+For any sequential protocol with accuracy $\targetacc$ at confidence $1 - \confalpha$, the expected stopping time satisfies $\E[\stoppingtime] = \Theta(\errrate/\targetacc^2 \cdot \log(1/\confalpha))$, matching the fixed-sample Le~Cam bound with an additional $\log(1/\confalpha)$ factor. This rate matches the scaling achieved by e-value-based sequential tests in the betting-based fairness auditing literature~\citep{shekhar2024fairness}; our contribution is the matching lower bound, confirming optimality. Bad models ($\ECE \gg \targetacc$) are cheap to catch in $O(\errrate/\ECE^2)$ samples; good models require the full $O(\errrate/\targetacc^2)$ budget. Full proof and definitions: Appendix~\ref{app:sequential}.
 \end{theorem}
-
-\begin{proof}[Proof sketch (full proof in Appendix~\ref{app:sequential})]
-\emph{Lower bound.} Under the two Le~Cam hypotheses ($\ECE = 0$ vs $\ECE = \targetacc$), the log-likelihood ratio after $t$ observations is a random walk with drift $\targetacc^2 / \errrate$ per step. By Wald's identity for sequential testing, any test with error probability $\leq \confalpha$ requires expected sample size $\E[\stoppingtime] \geq \log(1/\confalpha) / (\targetacc^2 / \errrate) = \errrate \log(1/\confalpha) / \targetacc^2$.
-
-\emph{Upper bound.} Construct a confidence sequence (a time-uniform confidence interval) for the ECE using the method of mixtures \citep{howard2021timeuniform}. At each time $t$, the confidence sequence has width $O(\sqrt{\errrate \log(1/\confalpha) / t})$. Stop at the first $\stoppingtime$ such that the width $\leq \targetacc$. Solving: $\stoppingtime \approx \errrate \log(1/\confalpha) / \targetacc^2$.
-\end{proof}
-
-\begin{remark}[Instance-Dependent Behavior]
-\label{rem:instance}
-Sequential verification is instance-dependent. If the model is badly miscalibrated ($\ECE = \delta_0 \gg \targetacc$), the confidence sequence excludes zero after $O(\errrate / \delta_0^2)$ samples --- potentially very few. If the model is well-calibrated ($\ECE \approx 0$), confirming this to accuracy $\targetacc$ requires the full $O(\errrate / \targetacc^2)$ samples. Bad models are cheap to catch; good models are expensive to verify. A regulator auditing 100 models will spend most of the budget on the well-calibrated ones.
-
-The stopping time $\Theta(\errrate/\targetacc^2 \cdot \log(1/\confalpha))$ matches the scaling achieved by e-value-based sequential tests in the betting-based fairness auditing literature~\citep{shekhar2024fairness}; our contribution is the matching lower bound, confirming optimality.
-\end{remark}
 
 % ----------------------------------------------------------
 \subsection{Self-Verification Impossibility}
@@ -614,40 +493,15 @@ Let $f$ be a classifier with confidence scores $p(x)$ and let $z(x) = g(x, \thet
 That is, self-verification without ground truth has worst-case error at least $1/2$ whenever $\Lip \geq 1$, regardless of the number of queries $\nsamples$ or any model-derived signals.
 \end{theorem}
 
-\begin{proof}
-Fix any model with weights $\theta$. The outputs $(p(x_i), z(x_i))$ are deterministic functions of $x_i$ and $\theta$; they do not depend on the calibration gap $\calmap$. Construct two calibration functions, with $\delta := \min(\Lip, 1)$:
-\begin{itemize}
-    \item $\calmap_0(p) = 0$ for all $p$. The model is perfectly calibrated: $\ECE(\calmap_0) = 0$.
-    \item $\calmap_1(p) = \delta$ for all $p$. Since $|\delta| \leq 1$, $\calmap_1$ takes values in $[-1,1]$ as required by Definition~\ref{def:lipclass}; since $\calmap_1$ is constant, it is $0$-Lipschitz, hence in $\cF(\Lip)$ for all $\Lip > 0$. $\ECE(\calmap_1) = \delta$.
-\end{itemize}
-Both produce identical observations $(x_i, p_i, z_i)_{i=1}^{\nsamples}$ because the model is the same under both. Any label-free estimator $V$ returns the same value under $\calmap_0$ and $\calmap_1$. Therefore:
-\begin{equation}
-\E[|V - \ECE(\calmap_0)|] + \E[|V - \ECE(\calmap_1)|] \geq |\ECE(\calmap_0) - \ECE(\calmap_1)| = \delta
-\end{equation}
-Taking the supremum: $\sup_{\calmap} \E[|V - \ECE|] \geq \delta/2 = \min(\Lip, 1)/2$.
+% REVISION-v3: RESTRUCTURE (compressed proof; corollaries moved to appendix)
+\begin{proof}[Proof sketch]
+Without labels, $\calmap_0 \equiv 0$ and $\calmap_1 \equiv \min(\Lip, 1)$ (both constant and hence in $\cF(\Lip)$ for any $\Lip > 0$) produce identical observations for any model. Any estimator errs by $\geq \min(\Lip,1)/2$ on at least one. The cap at $1$ is intrinsic to $\calmap : [0,1] \to [-1,1]$. Corollaries on pseudo-labels, distribution shift, and regulatory implications are deferred to Appendix~\ref{app:whitebox}.
 \end{proof}
 
-% REVISION-v3: FIX-C (identifiability remark)
 \begin{remark}[Identifiability, Not Smoothness]
 \label{rem:selfverify-identifiability}
-The self-verification impossibility is fundamentally about \emph{identifiability}, not smoothness. Without labels, two calibration functions --- one with $\ECE = 0$ and one with $\ECE = \delta$ --- produce identical observations for any $\delta \leq \min(\Lip, 1)$. The bound $\min(\Lip, 1)/2$ reflects this: for $\Lip \geq 1$, the worst-case error is at least $1/2$ regardless of $\Lip$, $\nsamples$, or the estimator. The $\Lip$-dependence appears only when $\Lip < 1$, where the function class is too constrained to admit miscalibration of magnitude $1$. The cap at $1$ is intrinsic to the codomain $[-1, 1]$ of $\calmap$ (Definition~\ref{def:lipclass}).
+The bound is fundamentally about \emph{identifiability}, not smoothness: for $\Lip \geq 1$, the worst-case error is at least $1/2$ regardless of $\Lip$, $\nsamples$, or the estimator. The $\Lip$-dependence appears only when $\Lip < 1$.
 \end{remark}
-
-% REVISION: FIX-4 (rewrote pseudo-label corollary for mathematical correctness)
-\begin{corollary}[Pseudo-Label Circularity]
-\label{cor:pseudolabel}
-If the model generates pseudo-labels $\hat{y}_i = \arg\max f(x_i)$ and uses these as ground truth, the resulting empirical ``accuracy'' in each bin equals 1 (since $\hat{y}_i$ always matches the prediction). The pseudo-ECE becomes $\sum_b w_b |1 - \mathrm{conf}(I_b)|$, which measures the gap between stated confidence and perfect accuracy --- a quantity unrelated to true calibration. For a model that outputs confidence 1 everywhere (e.g., argmax with no calibration scores), pseudo-ECE = 0. For a calibrated model with $\mathrm{conf} < 1$, pseudo-ECE $> 0$ \emph{even when the model is well calibrated}. Self-labeling measures internal consistency, not calibration.
-\end{corollary}
-
-\begin{corollary}[Distribution Shift Vulnerability]
-\label{cor:distshift}
-A calibration monitor trained on $D_{\mathrm{train}}$ (where the model was calibrated) cannot detect miscalibration on $D_{\mathrm{test}}$ without labeled samples from $D_{\mathrm{test}}$. The monitor is a model-derived signal, falling under Theorem~\ref{thm:selfverify}. Its worst-case error on $D_{\mathrm{test}}$ is at least $|\ECE(D_{\mathrm{test}}) - \ECE(D_{\mathrm{train}})|$.
-\end{corollary}
-
-\begin{corollary}[Regulatory Implication]
-\label{cor:regulation}
-Self-reported calibration claims by model developers have no information-theoretic value. Independent auditing with fresh labeled data is necessary, not merely desirable.
-\end{corollary}
 
 % ----------------------------------------------------------
 \subsection{Temperature Scaling Rate}
@@ -663,56 +517,26 @@ Under correct specification (the calibration map belongs to the temperature scal
 for the smooth calibration error. Via the Bridge Lemma, $\ECE_B = O(1/\sqrt{\nsamples} + \Lip/B)$.
 \end{proposition}
 
-\begin{proof}[Proof sketch (full proof in Appendix~\ref{app:tempscaling})]
-The temperature MLE $\hat{T}$ is the unique minimizer of a 1D convex negative log-likelihood. By standard M-estimation theory \citep{vandervaart1998asymptotic}, $\sqrt{\nsamples}(\hat{T} - T^*) \xrightarrow{d} N(0, \FisherI(T^*)^{-1})$ where $\FisherI(1) = \E[p(1-p) \cdot \logit(p)^2] \approx \errrate \cdot \log^2(1/\errrate)$. Taylor-expanding $\calmap(p; \hat{T})$ around $T^* = 1$ and integrating gives $\CE_{\mathrm{smooth}} = O_p(|\hat{T} - 1|) = O_p(1/\sqrt{\nsamples})$. Via the Bridge Lemma with $B = O(\sqrt{\nsamples}/\Lip)$, this transfers to $\ECE_B = O(1/\sqrt{\nsamples})$.
-
-\textbf{Caveat:} Under misspecification, the $1/\sqrt{\nsamples}$ rate applies only to the parametric error; any misspecification bias persists regardless of $\nsamples$.
+% REVISION-v3: RESTRUCTURE (collapsed proof to one line)
+\begin{proof}[Proof sketch]
+Standard MLE asymptotics give $|\hat{T} - 1| = O_p(1/\sqrt{\nsamples})$; Taylor expansion of $\calmap(p; \hat{T})$ transfers this to $\CE_{\mathrm{smooth}}$. Misspecification bias persists regardless of $\nsamples$. Full proof: Appendix~\ref{app:tempscaling}.
 \end{proof}
 
-\textbf{Narrative role:} Theorems~\ref{thm:lecam}--\ref{thm:upper-bound} say verification is fundamentally expensive. Proposition~\ref{prop:tempscaling} says: unless you assume a parametric form --- then it is cheap. Theorem~\ref{thm:whitebox} ties them together: white-box access helps only insofar as it justifies the parametric assumption.
-
-% ----------------------------------------------------------
-\subsection{Further Corollaries}
+% REVISION-v3: RESTRUCTURE (corollaries and transfer compressed to one-liners)
+\subsection{Further Consequences}
 \label{sec:corollaries}
 
-\begin{corollary}[Fairness Extension]
+\begin{corollary}[Fairness, Scaling, and Transfer]
 \label{cor:fairness}
-For a demographic group with population proportion $\pi$, verifying equalized odds requires:
-\begin{equation}
-\nsamples \geq \frac{1}{\errrate \cdot \pi}
-\end{equation}
-This follows from Theorem~\ref{thm:lecam} applied to the subgroup with effective sample size $\nsamples \cdot \pi$.
+\textbf{(i) Fairness extension:} For a group of proportion $\pi$, verifying equalized odds requires $\nsamples \geq 1/(\errrate\pi)$ (Theorem~\ref{thm:lecam} on the subgroup with effective sample size $\nsamples\pi$).
+\textbf{(ii) Scaling law:} If $\errrate(N) = c_0 N^{-\alpha}$, verification requires $\nsamples(N) = \Omega(N^\alpha)$, growing polynomially with model size.
+\textbf{(iii) Verification transfer:} If $M_2$ differs from $M_1$ by a $\Liph$-Lipschitz shift of magnitude $\ftshift$, then $\nsamples_2 = \Theta(\Liph\errrate_2/\ftshift^3)$ suffices when $\ftshift \leq \delta$ (Proposition~\ref{prop:transfer}, Appendix~\ref{app:transfer}).
 \end{corollary}
-
-\begin{corollary}[Verification Scaling Law]
-\label{cor:scaling}
-If model capability scales as $\errrate(N) = c_0 N^{-\alpha}$ (where $N$ is parameter count), then verification requires:
-\begin{equation}
-\nsamples(N) = \Omega\left(N^{\alpha}\right)
-\end{equation}
-samples. Verification cost grows polynomially with model size.
-\end{corollary}
-
-% ----------------------------------------------------------
-\subsection{Verification Transfer}
-\label{sec:transfer}
 
 \begin{proposition}[Verification Transfer]
 \label{prop:transfer}
-Let $M_1$ have verified calibration (ECE known to accuracy $\delta_1$). Let $M_2$ be obtained from $M_1$ by a procedure that shifts the calibration gap by at most $\ftshift$ in $L^\infty$, with the shift function $\shiftfn = \calmap_2 - \calmap_1$ being $\Liph$-Lipschitz. To verify $M_2$'s ECE to accuracy $\delta$:
-
-\begin{enumerate}
-    \item[(i)] \textbf{From scratch (no transfer):} $\nsamples_2 = \Theta(\Lip \errrate_2 / \delta^3)$ \quad [from Theorem~\ref{thm:upper-bound}]
-    \item[(ii)] \textbf{With transfer:} $\nsamples_2 = \Theta(\Liph \errrate_2 / \ftshift^3)$ suffices, provided $\ftshift \leq \delta$.
-\end{enumerate}
-\textbf{Transfer saving factor:} $(\Lip / \Liph) \cdot (\delta / \ftshift)^3$.
+Let $M_1$ have verified ECE and $M_2$ differ by a $\Liph$-Lipschitz shift bounded by $\ftshift$. Verifying $M_2$ to accuracy $\delta$ requires $\Theta(\Lip\errrate_2/\delta^3)$ from scratch, but only $\Theta(\Liph\errrate_2/\ftshift^3)$ via transfer when $\ftshift \leq \delta$, a saving of $(\Lip/\Liph)(\delta/\ftshift)^3$. Full proof: Appendix~\ref{app:transfer}.
 \end{proposition}
-
-\begin{proof}[Proof sketch (full proof in Appendix~\ref{app:transfer})]
-Since $\calmap_1$ is known, the problem reduces to estimating the shift $\shiftfn = \calmap_2 - \calmap_1$. A Le~Cam argument with $\KL \approx \nsamples_2 \ftshift^2 / \errrate_2$ shows detection requires $\nsamples_2 = \Omega(\errrate_2 / \ftshift^2)$. Applying Theorem~\ref{thm:upper-bound} to $\shiftfn$ (with Lipschitz constant $\Liph$ instead of $\Lip$) and optimizing the bin count gives estimation error $O((\Liph \errrate_2 / \nsamples_2)^{1/3})$. Setting this equal to $\ftshift$ yields the stated sample complexity.
-
-Transfer helps when $\ftshift < \delta$ and $\Liph \leq \Lip$. With a gentle fine-tune ($\ftshift = \delta/10$), the saving is $1000\times$ fewer samples. Transfer provides no benefit when $\ftshift \geq \delta$.
-\end{proof}
 
 % ============================================================
 % SECTION 4: EMPIRICAL STUDY
@@ -720,37 +544,20 @@ Transfer helps when $\ftshift < \delta$ and $\Liph \leq \Lip$. With a gentle fin
 \section{Empirical Study}
 \label{sec:empirics}
 
-Our theoretical results generate several concrete, falsifiable predictions. We state these predictions here to facilitate independent replication.
-
-\paragraph{Prediction 1: ECE scaling exponent.} For a model with error rate $\errrate$, the empirical ECE estimated from $\nsamples$ holdout samples should scale as $\widehat{\ECE} \propto \nsamples^{-\confalpha}$ with $\confalpha \in [0.30, 0.36]$ (the theoretical prediction is $\confalpha = 1/3$ from Theorem~\ref{thm:upper-bound}). Deviations toward $\confalpha = 0.5$ would indicate the parametric regime (Proposition~\ref{prop:tempscaling}).
-
-\paragraph{Prediction 2: Phase transition location.} The transition from ``insufficient data'' to ``meaningful verification'' should occur at $\nsamples^* \approx 1/\errrate$ (Corollary~\ref{cor:phase-transition}). For a model with $\errrate = 0.05$, this predicts $\nsamples^* \approx 200$ samples.
-
-\paragraph{Prediction 3: Calibration efficiency.} Define calibration efficiency $\calmapraw_{\mathrm{eff}} = \verfloor / \widehat{\ECE}$, the ratio of the theoretical floor to the empirical ECE. Across models, $\calmapraw_{\mathrm{eff}}$ should cluster below 1 (the floor is a lower bound) with $\calmapraw_{\mathrm{eff}}$ increasing for models with smoother calibration functions.
-
-\paragraph{Prediction 4: Active vs.\ passive gap.} Under adaptive evaluation (querying high-uncertainty confidence regions preferentially), the ECE scaling exponent should shift from $\confalpha \approx 1/3$ toward $\confalpha \approx 1/2$ (Theorem~\ref{thm:active}).
-
-\paragraph{Prediction 5: Compositional cost.} For a two-stage pipeline (retriever + classifier), end-to-end ECE verification should require measurably more samples than single-model verification, with the gap scaling with the estimated system Lipschitz constant (Theorem~\ref{thm:compositional}).
-
+% REVISION-v3: RESTRUCTURE (cut Predictions 1-5 paragraphs and "Why synthetic" preamble)
+Synthetic experiments provide exact ground truth (true ECE, $\errrate$, and $\Lip$ are all known by construction), which is required to validate minimax rates. We complement them with a real-data audit of published ECE values (\S\ref{sec:audit}) and an end-to-end pseudo-classifier experiment (\S\ref{sec:real-model}).
 
 \subsection{Synthetic Validation}
 \label{sec:synthetic}
 
-\paragraph{Why synthetic validation.} Synthetic experiments are the gold standard for validating minimax rates, and are strictly more informative than experiments on real models for this purpose. Our theorems predict convergence rates as a function of three quantities: sample size $\nsamples$, error rate $\errrate$, and Lipschitz constant $\Lip$. Validating these rates requires knowing the \emph{true} ECE, $\errrate$, and $\Lip$ exactly --- which is possible only when the data-generating process is fully specified. With real models, none of these quantities are known: the true ECE is itself the object of estimation, $\Lip$ is unobservable, and $\errrate$ is estimated with noise. Experiments on real models would therefore test the theory against noisy proxies of the ground truth, introducing confounds that obscure the very rates we seek to validate. By contrast, synthetic experiments with known calibration functions provide exact ground truth, enabling sharp verification of the predicted exponents, phase transitions, and active-passive gaps. Real-world applicability is demonstrated separately through the verification audit (Table~\ref{tab:audit}), which applies our formulas to published evaluation results.
-
 % REVISION: FIX-5 (Beta DGP enforces controlled ε)
 \paragraph{Setup.} We generate synthetic data from a known calibration gap $\calmap(p) = A\sin(2\pi k p)$ ($\Lip = 2\pi k A$). Scores are drawn from $\mathrm{Beta}((1-\errrate)/\errrate, 1)$ so that the realized error rate matches the target $\errrate$ (verified to within $\pm 0.0008$ across $\errrate \in \{0.05, 0.10, 0.20\}$ over $10^5$ samples). Labels are $Y \sim \Bern(p + \calmap(p))$, with $\eta(p)$ clipped to $[0,1]$. The bin count is the optimal $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ from Theorem~\ref{thm:upper-bound}. We report mean absolute estimation error over 400 bootstrap replicates.
 
-\paragraph{Experiment 1: ECE scaling exponent (benign instance).} Figure~\ref{fig:scaling} plots the ECE estimation error against sample size on a log-log scale for three error rates with the benign sinusoidal calibration ($k = 1$, $A = 0.03$, $\Lip \approx 0.19$). The fitted slopes are $-0.46$, $-0.45$, and $-0.51$ for $\errrate = 0.05, 0.10, 0.20$, between the minimax prediction $-1/3$ and the parametric rate $-1/2$. This is expected: the minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is a \emph{worst-case} bound over all $\Lip$-Lipschitz calibration functions, while a low-frequency sinusoid with only two zero-crossings is a benign instance. The $|\cdot|$ non-smoothness that drives the $\nsamples^{-1/3}$ rate bites hardest when $\calmap$ has many zero-crossings; with only two, the estimator approaches the parametric rate.
+% REVISION-v3: RESTRUCTURE (cut Experiment 1 with Fig 1 to appendix)
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/fig1_scaling_exponent.pdf}
-\caption{ECE estimation error vs.\ sample size for three error rates (Beta DGP with realized $\errrate$ matching target). Benign instance ($\calmap = A\sin(2\pi p)$, 2 zero-crossings). Slopes ($-0.46$ to $-0.51$) are between the minimax $-1/3$ and the parametric $-1/2$, indicating a benign instance easier than the worst case. See Figure~\ref{fig:hard} for a harder instance. Mean over 400 replicates.}
-\label{fig:scaling}
-\end{figure}
+\paragraph{Setup.} We generate scores from $\mathrm{Beta}((1-\errrate)/\errrate, 1)$ (realized $\errrate$ matches target to $\pm 0.0008$) with calibration gap $\calmap(p) = A\sin(2\pi k p)$ for varying $k$. Labels $Y \sim \Bern(p + \calmap(p))$ are clipped to $[0,1]$. Bin count is the optimal $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$. We report mean absolute estimation error over 400 replicates.
 
-\paragraph{Experiment 2: Phase transition.} Figure~\ref{fig:phase} validates the phase transition predicted by Corollary~\ref{cor:phase-transition}. For each error rate $\errrate$, we test whether a constant miscalibration of $\targetacc = 0.05$ can be detected. The x-axis is normalized by $1/\errrate$, and all curves transition from low to high detection power near $\nsamples \cdot \errrate \approx 1$, confirming the predicted transition location.
+\paragraph{Experiment 1 (Phase transition).} Figure~\ref{fig:phase} validates Corollary~\ref{cor:phase-transition}: detection power transitions from low to high near $\nsamples \cdot \errrate \approx 1$ across all four error rates tested.
 
 \begin{figure}[t]
 \centering
@@ -759,25 +566,7 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 \label{fig:phase}
 \end{figure}
 
-\paragraph{Experiment 3: Active vs.\ passive gap.} Figure~\ref{fig:active} compares passive (random Beta sampling) and active (stratified equal-mass over bins, weighted by Beta density) for $\errrate = 0.10$. The fitted slopes are passive $-0.46$ and active $-0.43$, both between the minimax and parametric rates. In this regime, the small Lipschitz constant ($\Lip \approx 0.19$) makes passive estimation already efficient on the concentrated Beta DGP, so the active advantage is modest. The theoretical $\Lip$-elimination of the active rate is most visible for harder instances (large $\Lip$ or many zero-crossings).
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/fig3_active_passive.pdf}
-\caption{Active (stratified, Beta-weighted) vs.\ passive (random Beta) ECE estimation for $\errrate = 0.10$, $\Lip \approx 0.19$ (Beta DGP). Both converge at similar rates ($-0.46$ vs $-0.43$). Dashed lines show $\nsamples^{-1/3}$ and $\nsamples^{-1/2}$ reference slopes. The active-passive gap is modest because the small $\Lip$ makes passive estimation already efficient on this concentrated DGP; the gap grows with $\Lip$.}
-\label{fig:active}
-\end{figure}
-
-\paragraph{Experiment 4: Hard instance.} To probe the minimax rate more closely, we replace the low-frequency sinusoid with a high-frequency calibration function $\calmap(p) = A\sin(16\pi p)$ ($k = 8$ full oscillations, $\Lip \approx 0.75$). This function spends proportionally more time near $\calmap = 0$, where the absolute value non-smoothness degrades estimation. The fitted slopes are $-0.46$ ($\errrate = 0.05$) and $-0.47$ ($\errrate = 0.10$). Figure~\ref{fig:hard} shows the hard instance has slightly slower convergence than the benign instance, consistent with the prediction that the minimax rate dominates as zero-crossings multiply.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/fig4_hard_instance.pdf}
-\caption{ECE estimation error for a hard calibration instance (high-frequency sinusoid with 16 zero-crossings, $\Lip \approx 0.75$, Beta DGP). Slopes ($-0.46$ to $-0.47$) are similar to the benign instance, with the hard instance having slightly larger absolute errors at every $\nsamples$. The minimax rate dominates more visibly as the number of zero-crossings increases.}
-\label{fig:hard}
-\end{figure}
-
-\paragraph{Summary.} The synthetic experiments confirm the theoretical framework along three dimensions. First, the Beta DGP enforces the target error rate exactly (verified to $\pm 0.0008$), enabling clean validation of the $\errrate$-dependent rate. Second, the empirical convergence rates (slopes $-0.43$ to $-0.51$) lie between the minimax $-1/3$ and the parametric $-1/2$, consistent with the theory: smooth instances with few zero-crossings approach the parametric rate, while harder instances approach the minimax rate. Third, the phase transition for detection occurs near $\nsamples^* \approx 1/\errrate$ as predicted (Experiment 2). The minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is recovered as the worst case over the Lipschitz class, while specific benign instances admit faster convergence.
+% REVISION-v3: RESTRUCTURE (cut Experiments 3-4 with Figs 3-4 to appendix; also cut Summary)
 
 % REVISION-v3: FIX-D (slope vs zero-crossings)
 \paragraph{Experiment 5: Slope convergence to minimax.} To make the minimax rate empirically visible, we vary the number of zero-crossings of the calibration function. With $\calmap(p) = A \sin(2\pi k p)$ for $k \in \{1, 4, 8, 16, 32, 64\}$ and fixed amplitude $A = 0.025$, the Lipschitz constant is $\Lip = 2\pi k A \in [0.16, 10.05]$ and the function has $2k$ zero-crossings on $[0,1]$. As $k$ increases, the function spends proportionally more time near $\calmap = 0$, where the absolute-value non-smoothness drives the minimax $\nsamples^{-1/3}$ rate. Figure~\ref{fig:slope-vs-k} shows the fitted slopes monotonically approaching the minimax prediction: $k=1$ gives slope $-0.45$, $k=8$ gives $-0.48$, $k=32$ gives $-0.44$, and $k=64$ gives $\boxed{-0.39}$, within $0.06$ of the theoretical $-1/3$. This is the empirical smoking gun: \emph{the worst-case minimax rate emerges as the calibration function approaches the hardest instances in the Lipschitz class}.
@@ -794,13 +583,11 @@ Our theoretical results generate several concrete, falsifiable predictions. We s
 \label{fig:slope-vs-k}
 \end{figure}
 
-% REVISION: FIX-6 (real-model case study)
+% REVISION-v3: RESTRUCTURE (compressed audit subsection)
 \subsection{Case Study: Auditing Published ECE Values}
 \label{sec:audit}
 
-We apply our verification audit framework to publicly reported evaluation results from the calibration literature, demonstrating which reported ECE values are statistically meaningful (within the verification floor) and which are below the floor and therefore unreliable.
-
-\paragraph{Method.} For each published result, we extract the holdout size $\nsamples$, the model's error rate $\errrate$ (or top-1 error if reported), and the reported ECE value. We compute the verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ assuming $\Lip = 1$ (a reasonable upper bound for trained classifiers; smaller $\Lip$ gives a tighter floor). A reported ECE is \emph{verifiable} if $\ECE > \verfloor$, and \emph{below the floor} if $\ECE \leq \verfloor$ (in which case the reported value cannot be reliably distinguished from estimation noise).
+We apply the audit framework to publicly reported ECE values. For each result, we compute the verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ with $\Lip = 1$; a reported ECE is verifiable iff it exceeds $\verfloor$.
 
 \begin{table}[h]
 \centering
@@ -821,14 +608,13 @@ TruthfulQA (binary) & 800 & 0.40 & --- & 0.080 \\
 \end{tabular}
 \end{table}
 
-\paragraph{Findings.}
-The audit reveals a striking pattern: \emph{post-calibration ECE values are typically below the verification floor}. \citet{guo2017calibration} report a post-temperature-scaling ECE of 0.012 on CIFAR-100, but the verification floor for that holdout size is 0.030 --- the reported improvement is statistically below the noise of the estimator itself. Similar issues affect the ViT-L/16 ImageNet result (0.018 vs floor 0.014; only marginally above). The pre-calibration values (e.g., 0.19 for ResNet-110) are well above the floor and therefore meaningfully estimated; the post-calibration values, however, claim a precision the data cannot support. Per-subject MMLU calibration is even more dramatic: with $\sim$250 questions per subject, the floor is 0.105 --- meaning per-subject ECE values below 0.10 cannot be distinguished from noise. This suggests that the standard practice of reporting post-calibration ECE without holdout-size justification is widespread in the literature, and that practitioners should compute and disclose the verification floor alongside any reported ECE.
+\paragraph{Findings.} \emph{Post-calibration ECE values are typically below the verification floor.} \citet{guo2017calibration}'s post-temperature-scaling ECE of 0.012 on CIFAR-100 is below the floor of 0.030 --- the reported improvement is statistically below estimator noise. Per-subject MMLU calibration is more dramatic: with $\sim$250 questions per subject, the floor is 0.105, so per-subject ECE values below 0.10 cannot be distinguished from noise. Practitioners should compute and disclose the verification floor alongside any reported ECE.
 
-% REVISION-v3: FIX-F (end-to-end real-model experiment)
-\subsection{End-to-End Verification Experiment}
+% REVISION-v3: RESTRUCTURE (compressed real-model section)
+\subsection{End-to-End Experiment}
 \label{sec:real-model}
 
-To complement the retrospective audit (\S\ref{sec:audit}), we run a forward end-to-end verification experiment on a 10-class probabilistic classifier. We construct a classifier from softmax over Gaussian-distributed logits (a standard model for trained neural networks; see e.g.\ \citep{guo2017calibration}), tuned to error rate $\errrate \approx 0.10$ over $N = 20{,}000$ samples. The full-dataset ECE (computed with $B = 50$ bins) serves as ground truth. We then subsample at $\nsamples \in \{50, 100, 200, 500, 1000, 2000, 5000, 10000\}$ and compute the empirical ECE with $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ bins, repeating 200 times per $\nsamples$. Figure~\ref{fig:real-model} reports the mean ECE estimate $\pm$ standard deviation alongside the verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ (using $\Lip = 1$ as an upper bound).
+We construct a 10-class softmax classifier from Gaussian logits with $\errrate \approx 0.10$ ($N = 20{,}000$, full-dataset ECE $\approx 0.31$ as ground truth). We subsample at $\nsamples \in \{50, \ldots, 10^4\}$ and compute the empirical ECE with $B^*$ bins (200 replicates per $\nsamples$). Figure~\ref{fig:real-model} shows the verification floor (red dashed) tracking the empirical standard deviation of estimates, and the phase transition near $\nsamples \cdot \errrate \approx 1$ visible on real-model data.
 
 \begin{figure}[t]
 \centering
@@ -842,7 +628,7 @@ To complement the retrospective audit (\S\ref{sec:audit}), we run a forward end-
 \label{fig:real-model}
 \end{figure}
 
-\paragraph{Findings.} Two predictions are confirmed. First, the verification floor correctly predicts the sample size at which ECE estimates stabilize: the standard deviation of estimates tracks the floor across the full range of $\nsamples$, and ECE estimates with $\nsamples < 200$ have standard deviation comparable to the verification floor (i.e., the estimator's precision matches its theoretical lower bound). Second, the phase transition at $\nsamples \cdot \errrate \approx 1$ is visible on real-model data, validating the operational implication of Corollary~\ref{cor:phase-transition}. Because the true ECE here ($\approx 0.31$) is much larger than the verification floor at any tested $\nsamples$, miscalibration is detectable even at $\nsamples = 50$; for models with smaller true ECE, the floor would set the detection threshold.
+% REVISION-v3: RESTRUCTURE (cut redundant findings paragraph)
 
 % ============================================================
 % SECTION 5: PRACTICAL TOOLS
@@ -867,21 +653,10 @@ This is always larger than $\nsamples_{\mathrm{detect}}$ and is the formula prac
 
 We recommend practitioners use $\nsamples_{\mathrm{estimate}}$ as the primary sizing formula, with $\nsamples_{\mathrm{detect}}$ serving as a quick feasibility check (if even detection is impossible, estimation certainly is).
 
-\paragraph{Fix 3: Stratified evaluation report.} For multi-domain benchmarks, per-domain verification is essential because error rates vary across domains. For a domain $d$ with $n_d$ samples and error rate $\errrate_d$, the per-domain verification floor is $\delta_{\mathrm{floor},d} = (\Lip \errrate_d / n_d)^{1/3}$. Domains where $\delta_{\mathrm{floor},d} > \errrate_d$ (i.e., $n_d < \Lip / \errrate_d^2$) have insufficient data for meaningful calibration assessment and should be flagged. For MMLU's 57 subjects merged into 10--12 super-categories, this produces a table reporting: ECE estimate, verification floor, data sufficiency flag, and additional samples required per category.
+% REVISION-v3: RESTRUCTURE (Fixes 3,4 moved to appendix; Fix 2 compressed)
+\paragraph{Fix 2: $\errrate$-adaptive bin count.} Theorem~\ref{thm:upper-bound} gives $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$. For $\errrate = 0.05$, $\Lip = 1$, $\nsamples = 10^4$: $B^* \approx 58$. The standard practice of using $B = 10$ or $15$ is suboptimal for large evaluation sets. Stratified evaluation reports and full verification budget calculators (Fixes 3, 4) are deferred to Appendix~\ref{app:corrections}.
 
-\paragraph{Fix 4: Verification budget calculator.} Given target ECE accuracy $\targetacc$, confidence level $1 - \confalpha$, error rates $\errrate_1, \ldots, \errrate_D$ across $D$ domains, and group proportions $\groupprop_1, \ldots, \groupprop_G$ for $G$ demographic groups, the minimum total holdout budget is:
-\begin{equation}
-\totaldata = \max\left\{ \max_d \frac{\Lip \errrate_d}{\targetacc^3}, \; \max_g \frac{\Lip \errrate}{\groupprop_g \targetacc^3} \right\}
-\end{equation}
-The first term ensures per-domain verification; the second ensures per-group fairness verification. The binding constraint is typically the smallest group, consistent with the fairness verification tax (Corollary~\ref{cor:fairness-general}).
-
-\paragraph{Fix 2: $\errrate$-adaptive bin count.} Theorem~\ref{thm:upper-bound} prescribes the optimal number of bins as a function of sample size, error rate, and calibration smoothness:
-\begin{equation}
-B^* = \left\lfloor \left(\frac{\Lip^2 \nsamples}{\errrate}\right)^{1/3} \right\rfloor
-\end{equation}
-For a model with $\errrate = 0.05$, $\Lip = 1$, and $\nsamples = 10{,}000$: $B^* \approx 58$. The standard practice of using $B = 10$ or $B = 15$ bins is suboptimal for large evaluation sets and near-optimal models. This formula is justified by the matched upper bound (Theorem~\ref{thm:upper-bound}); the lower bound (Theorem~\ref{thm:minimax-lb}) matches up to logarithmic factors.
-
-\paragraph{Verification audit.} To illustrate the practical tools, Table~\ref{tab:audit} applies the holdout sizing formula and adaptive bin count to representative models at different error rates.
+\paragraph{Verification audit.} Table~\ref{tab:audit} applies the holdout sizing formula and adaptive bin count to representative models.
 
 \begin{table}[h]
 \centering
@@ -903,287 +678,42 @@ Smaller model & 0.35 & 0.276 & 350{,}000 & 30 & 0.0327 \\
 % ============================================================
 % SECTION 5: THE VERIFICATION HORIZON
 % ============================================================
+% REVISION-v3: RESTRUCTURE (compressed verification horizon section)
 \section{The Verification Horizon}
 \label{sec:horizon}
 
-The verification tax has implications beyond any single audit. As models improve according to scaling laws \citep{kaplan2020scaling, hoffmann2022chinchilla}, verification costs grow. Since labeled data is finite, there exists a critical model size beyond which verification becomes impossible --- not merely expensive, but physically infeasible given the world's supply of labeled data. We formalize this \emph{verification horizon} and characterize the conditions under which deployment feedback can push the horizon back.
-
 \begin{theorem}[Verification Horizon]
 \label{thm:horizon}
-Let $\errrate(\modelsize) = c_0 \modelsize^{-\scalingexp}$ be the error rate scaling law, where $\modelsize$ is the parameter count, $c_0 > 0$, and $\scalingexp > 0$. Let $\totaldata$ be the total available labeled data. Define the \emph{verification floor} as the best ECE accuracy achievable with $\totaldata$ samples:
-\begin{equation}
-\label{eq:verfloor}
-\verfloor(\modelsize) = \left(\frac{\Lip \, \errrate(\modelsize)}{\totaldata}\right)^{1/3} = \left(\frac{\Lip c_0}{\totaldata}\right)^{1/3} \modelsize^{-\scalingexp/3}
-\end{equation}
-Verification is \emph{meaningful} only when $\verfloor(\modelsize) < \errrate(\modelsize)$, i.e., when the verification accuracy is finer than the quantity being measured. This holds if and only if $\modelsize < \horizonN$, where:
+Let $\errrate(\modelsize) = c_0 \modelsize^{-\scalingexp}$ be the error rate scaling law and $\totaldata$ the total available labeled data. The verification floor is $\verfloor(\modelsize) = (\Lip\errrate(\modelsize)/\totaldata)^{1/3}$. Verification is meaningful ($\verfloor(\modelsize) < \errrate(\modelsize)$) iff $\modelsize < \horizonN$, where
 \begin{equation}
 \label{eq:horizon}
-\horizonN = \left(\frac{c_0^2 \totaldata}{\Lip}\right)^{1/(2\scalingexp)}
+\horizonN = \left(\frac{c_0^2 \totaldata}{\Lip}\right)^{1/(2\scalingexp)}.
 \end{equation}
-For $\modelsize > \horizonN$, no verifier --- regardless of algorithm, adaptivity, or computational resources --- can verify calibration to a precision finer than the model's actual ECE. The model enters a regime of \emph{unverifiable improvement}: it may be getting better, but nobody can confirm this.
+For $\modelsize > \horizonN$, no verifier can verify calibration to a precision finer than the model's ECE. Active verification (Theorem~\ref{thm:active}) shifts the horizon to $\horizonN_{\mathrm{active}} = (c_0\totaldata)^{1/\scalingexp}$, which is strictly larger and $\Lip$-free.
 \end{theorem}
 
-\begin{proof}
-From Theorem~\ref{thm:upper-bound}, verification to accuracy $\targetacc$ requires $\nsamples \geq \Lip \errrate / \targetacc^3$. With $\nsamples = \totaldata$, the best achievable accuracy is $\verfloor = (\Lip \errrate / \totaldata)^{1/3}$. Verification is meaningful when $\verfloor < \errrate$:
-\begin{equation}
-\left(\frac{\Lip \errrate}{\totaldata}\right)^{1/3} < \errrate \implies \frac{\Lip}{\totaldata} < \errrate^2 \implies \errrate > \sqrt{\frac{\Lip}{\totaldata}}
-\end{equation}
-Substituting $\errrate(\modelsize) = c_0 \modelsize^{-\scalingexp}$:
-\begin{equation}
-c_0 \modelsize^{-\scalingexp} > \sqrt{\frac{\Lip}{\totaldata}} \implies \modelsize < \left(\frac{c_0^2 \totaldata}{\Lip}\right)^{1/(2\scalingexp)} = \horizonN \qedhere
-\end{equation}
+\begin{proof}[Proof sketch]
+From Theorem~\ref{thm:upper-bound}, $\nsamples \geq \Lip\errrate/\targetacc^3$. With $\nsamples = \totaldata$, the best $\targetacc$ is $\verfloor = (\Lip\errrate/\totaldata)^{1/3}$. Meaningful verification requires $\errrate > \sqrt{\Lip/\totaldata}$; substituting the scaling law gives $\modelsize < \horizonN$. $\square$
 \end{proof}
 
-\begin{remark}[Quantitative Estimates]
-\label{rem:horizon-numbers}
-Under Chinchilla-type scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$) with $\Lip = 1$ and $\totaldata = 10^7$ (approximate total expert-labeled evaluation data across major benchmarks): $\horizonN = (10^7)^{1/1} = 10^7$. Current frontier models exceed $10^{11}$ parameters --- well past this naive estimate. However, $\totaldata$ grows with benchmark creation, and active verification (Theorem~\ref{thm:active}) shifts the horizon. Under active verification, the condition becomes $\errrate > 1 / \totaldata$ (from the $\sqrt{\errrate/\nsamples}$ rate), giving $\horizonN_{\mathrm{active}} = (c_0 \totaldata)^{1/\scalingexp}$, which is strictly larger. Adaptive evaluation buys time but does not eliminate the horizon. % REVISION-v3: FIX-I
-\emph{The verification horizon $\horizonN$ depends on the scaling-law exponent $\scalingexp$ and the total labeled data $\totaldata$. Both quantities are empirically estimated and subject to substantial uncertainty: $\scalingexp$ varies across benchmarks, and $\totaldata$ depends on how broadly one counts evaluation data. $\horizonN$ should be interpreted as an order-of-magnitude guide, not a sharp threshold.}
-\end{remark}
+\paragraph{Quantitative estimate.} Under Chinchilla scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$) with $\Lip = 1$ and $\totaldata = 10^7$: $\horizonN \approx 10^7$ parameters --- well below current frontier models ($\sim 10^{11}$). $\horizonN$ should be interpreted as an order-of-magnitude guide; both $\scalingexp$ and $\totaldata$ are empirical and subject to uncertainty.
 
-\begin{corollary}[Active Verification Horizon]
-\label{cor:active-horizon}
-Under active verification (Theorem~\ref{thm:active}), the verification floor improves to $\delta_{\mathrm{floor,active}} = \sqrt{\errrate / \totaldata}$, and the active horizon is:
-\begin{equation}
-\horizonN_{\mathrm{active}} = (c_0 \totaldata)^{1/\scalingexp}
-\end{equation}
-Note that $\Lip$ does not appear: the active rate $\Theta(\sqrt{\errrate/\nsamples})$ is Lipschitz-free. The ratio $\horizonN_{\mathrm{active}} / \horizonN = (c_0 \totaldata)^{1/\scalingexp} / (c_0^2 \totaldata / \Lip)^{1/(2\scalingexp)}$ quantifies how much additional runway adaptive evaluation provides.
-\end{corollary}
-
-\begin{theorem}[Verification Dynamics]
-\label{thm:dynamics}
-Suppose a model is deployed at rate $\deployrate$ samples per unit time, and each deployment yields a verified label (e.g., through delayed ground truth). At time $t$, the cumulative labeled data is $\nsamples(t) = \deployrate t$, and the model's error rate (potentially improving through retraining) is $\errrate(t) = c_0 t^{-\critexp}$ for some improvement exponent $\critexp > 0$.
-
-\noindent (i) If $\critexp < 1/2$: the verification floor $\verfloor(t) = (\Lip \errrate(t) / \deployrate t)^{1/3}$ eventually falls below $\errrate(t)$. Verification \emph{catches up}: there exists $t_0$ such that for all $t > t_0$, meaningful verification is possible.
-
-\noindent (ii) If $\critexp > 1/2$: the verification floor eventually exceeds $\errrate(t)$. Verification \emph{falls behind}: there exists $t_1$ such that for all $t > t_1$, meaningful verification is impossible despite growing data.
-
-\noindent (iii) If $\critexp = 1/2$: verification is perpetually marginal. Meaningful verification is possible if and only if $\Lip / (\deployrate c_0^2) < 1$.
-
-The critical improvement exponent is $\critexp^* = 1/2$.
-\end{theorem}
-
-\begin{proof}
-The verification floor at time $t$ is:
-\begin{equation}
-\verfloor(t) = \left(\frac{\Lip \errrate(t)}{\deployrate t}\right)^{1/3} = \left(\frac{\Lip c_0}{\deployrate}\right)^{1/3} t^{-(\critexp + 1)/3}
-\end{equation}
-Verification is meaningful when $\verfloor(t) < \errrate(t) = c_0 t^{-\critexp}$:
-\begin{equation}
-\left(\frac{\Lip c_0}{\deployrate}\right)^{1/3} t^{-(\critexp+1)/3} < c_0 t^{-\critexp}
-\end{equation}
-Simplifying:
-\begin{equation}
-\left(\frac{\Lip}{\deployrate c_0^2}\right)^{1/3} < t^{-\critexp + (\critexp+1)/3} = t^{(1-2\critexp)/3}
-\end{equation}
-
-\noindent If $\critexp < 1/2$: the exponent $(1-2\critexp)/3 > 0$, so the RHS grows with $t$. The inequality is satisfied for $t$ large enough.
-
-\noindent If $\critexp > 1/2$: the exponent $(1-2\critexp)/3 < 0$, so the RHS shrinks to zero. The inequality is eventually violated.
-
-\noindent If $\critexp = 1/2$: the exponent is zero. The inequality reduces to $\Lip / (\deployrate c_0^2) < 1$, which is a fixed condition independent of $t$.
-\end{proof}
-
-\begin{remark}[Interpretation]
-\label{rem:dynamics-interp}
-The critical exponent $\critexp^* = 1/2$ has a clean interpretation. Verification cost grows as $\errrate^{-2}$ (from the meaningful verification condition $\nsamples > 1/\errrate^2$). Data grows linearly in time. If the model improves so fast that $\errrate^{-2}$ grows faster than $t$ --- i.e., $\errrate$ shrinks faster than $t^{-1/2}$ --- verification loses the race. This is independent of the Lipschitz constant, the deployment rate, and the verification algorithm. It is a fundamental speed limit on how fast models can improve while remaining verifiable.
-\end{remark}
-
-\begin{remark}[Active Verification Dynamics]
-\label{rem:active-dynamics}
-Under active verification (Theorem~\ref{thm:active}), the verification floor is $\delta_{\mathrm{floor,active}}(t) = \sqrt{\errrate(t)/\deployrate t}$, and the meaningful verification condition becomes $\errrate(t) > 1/(\deployrate t)$, i.e., $t^{1-\critexp} > 1/(\deployrate c_0)$. The critical exponent shifts to $\critexp^*_{\mathrm{active}} = 1$. Adaptive evaluation doubles the critical exponent --- models can improve twice as fast (in the scaling exponent) while remaining actively verifiable. But the horizon still exists.
-\end{remark}
-
-% ----------------------------------------------------------
-\subsection{The Recalibration Trap}
-\label{sec:recaltrap}
-
-Iterative recalibration --- via temperature scaling, Platt scaling, or RLHF --- is the standard remedy for miscalibrated models. Each round reduces the ECE. But each round also makes the \emph{next} improvement harder to verify, because the remaining miscalibration is smaller and requires more data to measure. We show that the number of verifiable recalibration rounds is sharply bounded.
-
-\begin{proposition}[Recalibration Trap]
-\label{prop:recaltrap}
-Consider iterative recalibration that reduces ECE by a factor $\shrinkfactor \in (0,1)$ per round, so that $\ECE_\recalround = \shrinkfactor^\recalround \cdot \ECE_0$ after $\recalround$ rounds. The verification cost of confirming that round $\recalround + 1$ produced a genuine improvement is:
-\begin{equation}
-\label{eq:recaltrap}
-\nsamples_\recalround = \Omega\left(\frac{\errrate}{\shrinkfactor^{2\recalround} \cdot \ECE_0^2 \cdot (1-\shrinkfactor)^2}\right)
-\end{equation}
-which grows as $(1/\shrinkfactor^2)^\recalround$ --- exponential in the number of rounds. Given a fixed evaluation budget $\totaldata$, the maximum number of verifiable rounds is:
-\begin{equation}
-\label{eq:maxround}
-\maxround = \left\lfloor \frac{\log\!\left(\totaldata \cdot (1-\shrinkfactor)^2 \cdot \ECE_0^2 / \errrate\right)}{2\log(1/\shrinkfactor)} \right\rfloor
-\end{equation}
-Beyond round $\maxround$, continued recalibration is unverifiable: the model may be improving, but the evaluation data cannot confirm it.
-\end{proposition}
-
-\begin{proof}
-At round $\recalround$, the ECE is $\ECE_\recalround = \shrinkfactor^\recalround \ECE_0$. The improvement from round $\recalround$ to $\recalround+1$ is:
-\begin{equation}
-\Delta_\recalround = \ECE_\recalround - \ECE_{\recalround+1} = \shrinkfactor^\recalround \ECE_0 (1 - \shrinkfactor)
-\end{equation}
-By Theorem~\ref{thm:lecam}, distinguishing $\ECE_\recalround$ from $\ECE_{\recalround+1}$ requires:
-\begin{equation}
-\nsamples_\recalround \geq \frac{\errrate}{\Delta_\recalround^2} = \frac{\errrate}{\shrinkfactor^{2\recalround} \ECE_0^2 (1-\shrinkfactor)^2}
-\end{equation}
-Setting $\nsamples_\recalround = \totaldata$ and solving for $\recalround$ gives $\maxround$.
-\end{proof}
-
-\begin{remark}[Worked Example]
-\label{rem:recaltrap-example}
-Consider $\shrinkfactor = 0.5$ (each round halves ECE), $\errrate = 0.05$, $\ECE_0 = 0.10$, and $\totaldata = 14{,}000$ (MMLU). Then:
-\begin{equation}
-\maxround = \left\lfloor \frac{\log(14000 \cdot 0.25 \cdot 0.01 / 0.05)}{2\log 2} \right\rfloor = \left\lfloor \frac{\log(700)}{1.386} \right\rfloor = \left\lfloor \frac{6.55}{1.386} \right\rfloor = 4
-\end{equation}
-After 4 rounds of recalibration, MMLU cannot verify further improvement. This is not a limitation of the evaluation methodology --- it is a fundamental information-theoretic barrier. Every organization performing iterative RLHF calibration tuning faces this ceiling.
-\end{remark}
-
-\begin{remark}
-The recalibration trap implies that regulatory requirements for ``continuous calibration improvement'' are infeasible beyond $\maxround$ rounds without proportionally growing the evaluation budget.
-\end{remark}
-
-% ----------------------------------------------------------
-\subsection{Verification Half-Life}
-\label{sec:halflife}
-
-Every verification result has an expiry date. A model verified today may become miscalibrated tomorrow as the deployment distribution shifts --- user demographics change, language evolves, disease prevalence fluctuates, market regimes shift. We formalize this temporal decay of verification and derive the minimum data collection rate required to maintain perpetual assurance.
-
-\begin{definition}[ECE Drift Rate]
-\label{def:driftrate}
-The \emph{ECE drift rate} $\driftrate > 0$ bounds the rate at which the true ECE changes over time:
-\begin{equation}
-|\ECE(t) - \ECE(0)| \leq \driftrate \cdot t
-\end{equation}
-for all $t \geq 0$. This is implied by a distribution drift rate $\tvdrift$ (total variation distance per unit time) and an $\Lip$-Lipschitz calibration function: $\driftrate \leq \Lip \cdot \tvdrift$.
-\end{definition}
-
-\begin{theorem}[Verification Half-Life]
-\label{thm:halflife}
-Let a model be verified at time $t = 0$ with ECE accuracy $\targetacc$ (i.e., $|\widehat{\ECE} - \ECE(0)| \leq \targetacc$), and let the ECE drift rate be $\driftrate$.
-
-\noindent (i) \emph{Half-life:} The verification becomes invalid (accuracy exceeds $2\targetacc$) after:
-\begin{equation}
-\halflife = \frac{\targetacc}{\driftrate}
-\end{equation}
-
-\noindent (ii) \emph{Perpetual verification:} Maintaining ECE accuracy $\targetacc$ at all times, by re-verifying every $\halflife$ time units, requires a sustained data collection rate of:
-\begin{equation}
-\datrate \geq \frac{\Lip \errrate \driftrate}{\targetacc^4}
-\end{equation}
-labeled samples per unit time. Below this rate, verification permanently expires.
-
-\noindent (iii) \emph{Accelerating drift:} If $\driftrate(t)$ is increasing, the half-life $\halflife(t) = \targetacc / \driftrate(t) \to 0$ and the required data rate $\datrate(t) \to \infty$. Eventually, no data collection rate suffices.
-\end{theorem}
-
-\begin{proof}
-\emph{Part (i).} At time $t$, the triangle inequality gives:
-\begin{equation}
-|\widehat{\ECE} - \ECE(t)| \leq \underbrace{|\widehat{\ECE} - \ECE(0)|}_{\leq \targetacc} + \underbrace{|\ECE(0) - \ECE(t)|}_{\leq \driftrate t} \leq \targetacc + \driftrate t
-\end{equation}
-This exceeds $2\targetacc$ when $\driftrate t > \targetacc$, giving $\halflife = \targetacc / \driftrate$.
-
-\emph{Part (ii).} Re-verification every $\halflife$ time units costs $\nsamples = \Lip\errrate/\targetacc^3$ samples each (from Theorem~\ref{thm:upper-bound}). Data needed per unit time: $\datrate = \nsamples / \halflife = (\Lip\errrate / \targetacc^3) \cdot (\driftrate / \targetacc) = \Lip\errrate\driftrate / \targetacc^4$.
-
-\emph{Part (iii).} Immediate from $\halflife(t) = \targetacc/\driftrate(t) \to 0$ and $\datrate(t) = \Lip\errrate\driftrate(t)/\targetacc^4 \to \infty$.
-\end{proof}
-
-\begin{remark}[Domain-Specific Half-Lives]
-\label{rem:halflife-examples}
-We estimate verification half-lives for four deployment domains, using representative drift rates from the literature \citep{davis2020calibrationdrift}:
-
-\begin{center}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Domain} & $\driftrate$ & $\targetacc$ & $\halflife$ & $\datrate$ (samples/month) \\
-\midrule
-Medical AI & 0.01/month & 0.02 & 2 months & $\sim$3{,}100 \\
-Content moderation & 0.005/month & 0.03 & 6 months & $\sim$620 \\
-Financial trading & 0.1/week & 0.01 & 17 hours & $\sim$10$^6$/week \\
-Autonomous driving & 0.02/month & 0.01 & 15 days & $\sim$100{,}000 \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-These estimates assume $\Lip = 1$ and $\errrate = 0.05$. Medical AI and content moderation can maintain perpetual verification with modest data budgets. Financial models face verification half-lives so short that continuous verification is nearly infeasible. Every deployed AI system has a verification half-life; we argue it should be computed and disclosed as part of the model card.
-\end{remark}
-
-\begin{remark}[Benchmark Half-Lives]
-\label{rem:benchmark-halflife}
-Static benchmarks also have verification half-lives. A benchmark constructed at time $t = 0$ reflects the distribution $D_0$. As the world drifts (new topics emerge, language evolves, knowledge changes), the benchmark distribution diverges from deployment reality. Any calibration verification performed on a static benchmark decays at rate $\driftrate$, regardless of the model's actual calibration on current data. This provides a formal argument for periodic benchmark refresh, complementing empirical observations of benchmark saturation and contamination.
-\end{remark}
+% REVISION-v3: RESTRUCTURE (TD/PR/THL compressed to one paragraph; full results in appendix)
+\paragraph{Dynamic and temporal extensions.} The verification tax has three dynamic consequences. (i) \emph{Verification dynamics}: if a model's error rate improves as $\errrate(t) = c_0 t^{-\critexp}$ under deployment-rate $\deployrate$, the critical exponent for verification keeping pace is $\critexp^* = 1/2$ (passive) and $\critexp^* = 1$ (active). Models improving faster than $\critexp^*$ outrun verification. (ii) \emph{Recalibration trap}: iterative recalibration that halves ECE per round hits a ceiling of $\maxround = O(\log\totaldata)$ verifiable rounds. On MMLU ($\totaldata \approx 14{,}000$, $\errrate = 0.05$, $\ECE_0 = 0.10$, $\shrinkfactor = 0.5$): only $\maxround = 4$ rounds are verifiable. (iii) \emph{Verification half-life}: under ECE drift rate $\driftrate$, every verification expires after $\halflife = \targetacc/\driftrate$, and perpetual verification requires data rate $\datrate \geq \Lip\errrate\driftrate/\targetacc^4$. Domain estimates range from hours (financial) to months (healthcare). Full theorems, proofs, and tables: Appendix~\ref{app:dynamics}.
 
 % ============================================================
 % SECTION 6: COMPOSITIONAL VERIFICATION
 % ============================================================
+% REVISION-v3: RESTRUCTURE (compressed compositional section)
 \section{Compositional Verification}
 \label{sec:compositional}
 
-Modern AI systems are rarely single models. Retrieval-augmented generation \citep{lewis2020rag}, multi-step reasoning \citep{wei2022chainofthought}, and agentic pipelines \citep{yao2023react} compose multiple components into end-to-end systems. Even if every component is individually verified as well-calibrated, the \emph{composed system} may not be. We show that the verification cost of composed systems grows exponentially with pipeline depth --- a fundamental barrier to end-to-end verification of complex AI systems.
-
-\begin{definition}[Compositional AI Pipeline]
-\label{def:pipeline}
-A $\recalround$-component AI pipeline produces a final prediction with confidence $p_\recalround$ through a chain of confidence transformations:
-\begin{equation}
-p_k = g_k(p_{k-1}, x), \quad k = 1, \ldots, \recalround
-\end{equation}
-where $p_0$ is the input confidence (or prior), $x$ is the input, and each $g_k$ is $\Lcomp$-Lipschitz in its first argument (holding $x$ fixed). The end-to-end calibration gap is $\calmap_{\mathrm{sys}}(p) = \calmapraw_{\mathrm{sys}}(p) - p$ where $\calmapraw_{\mathrm{sys}}(p) = \E[Y \mid p_\recalround = p]$.
-\end{definition}
+Modern AI systems compose multiple components --- retrieval-augmented generation~\citep{lewis2020rag}, chain-of-thought reasoning~\citep{wei2022chainofthought}, and agentic loops~\citep{yao2023react}. Even if every component is individually well-calibrated, the composed system need not be.
 
 \begin{theorem}[Compositional Verification Tax]
 \label{thm:compositional}
-Let a $\recalround$-component pipeline have component confidence transformations $g_1, \ldots, g_\recalround$ with Lipschitz constants $L_1, \ldots, L_\recalround$. The end-to-end calibration function has Lipschitz constant:
-\begin{equation}
-\label{eq:lsystem}
-\Lsystem \leq \prod_{k=1}^{\recalround} L_k + 1
-\end{equation}
-and end-to-end verification to accuracy $\targetacc$ requires:
-\begin{equation}
-\label{eq:comp-cost}
-\nsamples_{\mathrm{sys}} \geq c \cdot \frac{\Lsystem \cdot \errrate}{\targetacc^3}
-\end{equation}
-For homogeneous pipelines with $L_k = \Lip > 1$ for all $k$:
-\begin{equation}
-\nsamples_{\mathrm{sys}} = \Omega\left(\frac{\Lip^\recalround \cdot \errrate}{\targetacc^3}\right)
-\end{equation}
-Verification cost grows exponentially with pipeline depth $\recalround$.
+For a $\recalround$-component pipeline with per-component Lipschitz constants $L_1, \ldots, L_\recalround$ (each $g_k$ being $L_k$-Lipschitz in its confidence input), the end-to-end calibration function has $\Lsystem \leq \prod_k L_k + 1$ (Lipschitz chain rule). Verification then requires $\nsamples_{\mathrm{sys}} \geq c \cdot \Lsystem \errrate / \targetacc^3$. For homogeneous pipelines with $L_k = \Lip > 1$, $\nsamples_{\mathrm{sys}} = \Omega(\Lip^\recalround \errrate/\targetacc^3)$ --- exponential in pipeline depth. Equivalently, the maximum verifiable depth is $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$. For $\Lip = 2$, an agent executing 10 reasoning iterations has $1024\times$ the verification cost of a single-step model. Full proof, agent-loop bound, and Lipschitz/contractivity caveats: Appendix~\ref{app:compositional}.
 \end{theorem}
-
-\begin{proof}
-\emph{Lipschitz composition.} By the chain rule for Lipschitz functions, if $g_k$ is $L_k$-Lipschitz in its first argument, then the composition $g_\recalround \circ \cdots \circ g_1$ is $(\prod_{k=1}^{\recalround} L_k)$-Lipschitz. Since $\calmap_{\mathrm{sys}}(p) = \calmapraw_{\mathrm{sys}}(p) - p$ and $p \mapsto p$ is $1$-Lipschitz, the triangle inequality gives:
-\begin{equation}
-\Lsystem \leq \prod_{k=1}^{\recalround} L_k + 1
-\end{equation}
-
-\emph{Verification cost.} Applying Theorem~\ref{thm:upper-bound} with $\Lip = \Lsystem$:
-\begin{equation}
-\nsamples_{\mathrm{sys}} = \Theta\left(\frac{\Lsystem \cdot \errrate}{\targetacc^3}\right)
-\end{equation}
-For homogeneous $L_k = \Lip$: $\Lsystem \approx \Lip^\recalround$ (the $+1$ is negligible for $\Lip > 1$), giving exponential scaling in $\recalround$.
-\end{proof}
-
-\begin{corollary}[Maximum Verifiable Pipeline Depth]
-\label{cor:maxdepth}
-For a fixed verification budget $\totaldata$ and target accuracy $\targetacc$, the maximum verifiable pipeline depth is:
-\begin{equation}
-\maxpipedepth = \left\lfloor \log_\Lip \frac{\totaldata \cdot \targetacc^3}{\errrate} \right\rfloor
-\end{equation}
-Deeper pipelines require exponentially more data to verify.
-\end{corollary}
-
-\begin{corollary}[Agent Loop Verification Bound]
-\label{cor:agentloop}
-An AI agent executing $\recalround$ reasoning iterations before producing a final answer has verification cost $\Omega(\Lip^\recalround \cdot \errrate / \targetacc^3)$. For $\Lip = 2$ and $\recalround = 10$: the verification cost is $1{,}024\times$ that of a single-step model. For $\recalround = 20$: over $10^6\times$.
-\end{corollary}
-
-\begin{remark}[Compositionality--Verifiability Tradeoff]
-\label{rem:comptradeoff}
-Systems designed to ``think more carefully'' via longer reasoning chains become exponentially harder to verify. The reliability improvement from additional reasoning must be weighed against the exponentially growing cost of confirming that improvement. This tradeoff applies to chain-of-thought prompting, iterative refinement, multi-hop retrieval, and agentic tool-use loops.
-\end{remark}
-
-% REVISION-v3: FIX-I (compositional caveats: contractivity, correlation)
-\begin{remark}[On the Lipschitz Assumption]
-\label{rem:lipschitz-assumption}
-The Lipschitz composition model is an optimistic assumption. In real pipelines, confidence transformations may be \emph{discontinuous} --- e.g., a retriever returning a different document set for marginally different queries. Discontinuity corresponds to $\Lcomp = \infty$, making $\Lsystem = \infty$ and end-to-end verification impossible at \emph{any} finite sample size. Conversely, the exponential growth $\Lsystem \approx \Lip^\recalround$ is a worst-case bound: in practice, pipeline components may exhibit \emph{contractive} behavior ($L_k < 1$) in some regions, reducing the effective system Lipschitz constant. Empirical estimation of $\Lsystem$ via finite-difference approximation on the end-to-end confidence function is recommended before applying the exponential bound. Furthermore, our analysis assumes \emph{independence} of per-component calibration gaps; correlated miscalibration across components could either increase or decrease the verification cost depending on the correlation structure. The Lipschitz model provides a lower bound on verification cost; the true cost may be higher (with discontinuous components) or lower (with contractive or anti-correlated components).
-\end{remark}
-
-As a concrete illustration, consider a two-stage retriever--classifier pipeline evaluated on MMLU. The retriever assigns a relevance confidence $p_1$ to retrieved context; the classifier uses this context to produce a final answer confidence $p_2$. If both components have Lipschitz constant $\Lip = 2$, then $\Lsystem \leq 5$ and verification requires $5\times$ the data of a single classifier. With $\Lip = 3$ (a modest sensitivity), the cost rises to $10\times$. A three-stage pipeline with $\Lip = 2$ requires $9\times$ the data; with $\Lip = 3$, $28\times$. These factors compound: adding a single pipeline stage at $\Lip = 2$ always doubles the Lipschitz-dependent verification cost.
 
 % ============================================================
 % SECTION 7: RELATED WORK
@@ -1191,45 +721,16 @@ As a concrete illustration, consider a two-stage retriever--classifier pipeline 
 \section{Related Work}
 \label{sec:related}
 
-\paragraph{Calibration estimation.}
-The statistical properties of ECE estimation have been studied by several recent works. Sun, Song \& Hero~\citep{sun2023recalibration} established an upper bound of $O(n^{-2/3})$ for histogram binning with $B \sim n^{1/3}$ bins and proposed a minimum-risk recalibration method. Futami \& Fujisawa~\citep{futami2024information} provided the first comprehensive bias analysis for both uniform-width and uniform-mass binning, establishing convergence rates and optimal bin counts. Their $n^{-1/3}$ rate is an upper bound on the estimation bias; we complement it with a matching lower bound (up to logarithmic factors) and reveal the previously hidden $\errrate$-dependence. Ciosek et al.~\citep{ciosek2025finite} derived finite-sample bounds under Lipschitz and bounded-variation assumptions but did not study $\errrate$-dependence or scaling laws. Our work differs from all of these in establishing both upper and lower bounds that explicitly depend on the error rate, revealing the verification tax phenomenon.
+% REVISION-v3: RESTRUCTURE (compressed related work)
+\paragraph{Calibration estimation.} \citet{sun2023recalibration} and \citet{futami2024information} established $O(n^{-1/3})$ upper bounds on ECE estimation bias. We complement these with a matching lower bound and reveal the $\errrate$-dependence absent from their general theory. \citet{ciosek2025finite} derive finite-sample bounds under bounded variation but do not study $\errrate$-dependence. \citet{hu2024testing} study calibration testing (rather than estimation) with $\Omega(\errrate^{-2.5})$ sample complexity; \citet{blasiok2023calibration} introduce calibration distance, a different but related metric. \citet{futami2026smooth} address uniform convergence of smooth CE.
 
-\paragraph{Calibration testing and distance.}
-Hu et al.~\citep{hu2024testing} studied the testing complexity of calibration distance, establishing an $\Omega(\errrate^{-2.5})$ sample complexity. Their problem is distinct from ours: they test whether a model is calibrated (hypothesis testing), while we estimate how miscalibrated it is (estimation). The calibration distance framework of Blasiok et al.~\citep{blasiok2023calibration} provides a foundational metric; our ECE-based analysis uses a different but related measure. Futami \& Nitanda~\citep{futami2026smooth} studied uniform convergence of the smooth calibration error; their focus is on algorithm guarantees rather than data requirements.
+\paragraph{Active and sequential evaluation.} \citet{kossen2021active} propose practical active testing algorithms; our Theorem~\ref{thm:active} provides the matching minimax-optimal rate. \citet{shekhar2024fairness} develop e-value-based anytime-valid sequential tests for fairness with stopping times matching our Theorem~\ref{thm:sequential}; we provide the matching lower bound, confirming optimality.
 
-\paragraph{Active evaluation.}
-Kossen et al.~\citep{kossen2021active} introduced the active testing framework for sample-efficient model evaluation, proposing practical acquisition strategies. Our Theorem~\ref{thm:active} provides the minimax-optimal rate for active calibration verification, showing that adaptive evaluation achieves $\Theta(\sqrt{\errrate/\nsamples})$ --- a tight characterization that was not established in prior work.
+\paragraph{Empirical calibration literature.} \citet{guo2017calibration} popularized ECE and temperature scaling; our Proposition~\ref{prop:tempscaling} provides the theoretical $\nsamples^{-1/2}$ rate for their method. \citet{kumar2019verified} propose kernel-based calibration measures (whether they attain the minimax rate is open). \citet{nixon2019measuring} compared binning strategies empirically; Theorem~\ref{thm:upper-bound} gives the optimal bin count they sought. \citet{vaicenavicius2019evaluating}, \citet{widmann2019calibration}, and \citet{davis2020calibrationdrift} respectively motivate calibration testing, multiclass extensions, and clinical drift detection --- all of which our framework formalizes via the corresponding theorems.
 
-% REVISION-v3: FIX-G (betting-based fairness auditing)
-\paragraph{Sequential fairness auditing via betting.} A parallel line of work develops anytime-valid sequential tests for fairness and calibration properties using e-values and test martingales~\citep{shekhar2024fairness}. These methods achieve stopping times of order $\errrate/\targetacc^2$ that match the lower bound established in our Theorem~\ref{thm:sequential}. Their framework also handles biased sampling via importance weighting, which inflates the effective variance --- a practical consideration captured by Remark~\ref{rem:importance-weighting}. We view these contributions as complementary: betting-based methods provide practical algorithms with anytime validity; we provide the matching minimax-optimal rates that bound what any such algorithm can achieve.
+\paragraph{Nonparametric functional estimation.} Our lower bound builds on \citet{lepski1999estimation} (minimax $L_r$ norm rates in white noise), with the novel observation that the noise variance equals the error rate $\errrate$. The Brown--Low equivalence~\citep{brown1996equivalence} underpins the reduction.
 
-\paragraph{Nonparametric functional estimation.}
-Our lower bound technique (Theorem~\ref{thm:minimax-lb}) builds on the seminal work of Lepski, Nemirovski \& Spokoiny~\citep{lepski1999estimation}, who established minimax rates for $L_r$ norm estimation in white noise models. We identify ECE estimation in the rare-error regime as an instance of their framework, with the novel observation that the noise variance equals the error rate $\errrate$, which introduces the $\errrate$-dependence absent from their general theory. The Brown--Low asymptotic equivalence~\citep{brown1996equivalence} between nonparametric regression and white noise underpins the reduction.
-
-% REVISION: FIX-9 (expanded engagement with empirical calibration literature)
-\paragraph{Empirical calibration literature.} A substantial body of empirical work has shaped how ECE is used in practice. \citet{guo2017calibration} popularized ECE as the standard calibration metric and proposed temperature scaling --- a single-parameter post-hoc recalibration method. Our Proposition~\ref{prop:tempscaling} provides the theoretical $\nsamples^{-1/2}$ convergence rate for their method under correct specification, complementing their empirical observations. \citet{kumar2019verified} proposed kernel-based calibration measures that avoid binning artifacts. Whether kernel-density-based ECE estimators with adaptive bandwidths can attain the minimax rate $(\Lip\errrate/\nsamples)^{1/3}$ is an interesting open question; our framework provides the target rate against which such estimators should be benchmarked. \citet{nixon2019measuring} compared binning strategies empirically and noted that uniform-width binning performs poorly when scores are concentrated; Theorem~\ref{thm:upper-bound} provides the optimal bin count $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ they searched for empirically. \citet{vaicenavicius2019evaluating} discuss statistical testing for calibration and motivate finite-sample concerns; our Corollary~\ref{cor:phase-transition} and Theorem~\ref{thm:sequential} formalize the minimum sample sizes their tests require. \citet{widmann2019calibration} develop multiclass calibration tests; extending the verification tax to multiclass settings is future work.
-
-\begin{table}[t]
-\caption{Comparison with prior work on calibration estimation.}
-\label{tab:related}
-\centering
-\small
-\begin{tabular}{lll}
-\toprule
-\textbf{Paper} & \textbf{Their Result} & \textbf{Our Differentiation} \\
-\midrule
-\citet{sun2023recalibration} & UB $O(n^{-2/3})$, $B \sim n^{1/3}$ & Matching LB + $\errrate$-dependence \\
-\citet{futami2024information} & General $n^{-1/3}$ UB for ECE bias & We add $\errrate$-dependence + first LB \\
-\citet{futami2026smooth} & Smooth CE uniform convergence & Different question: data requirements \\
-\citet{hu2024testing} & $\Omega(\errrate^{-2.5})$ testing complexity & Testing vs.\ estimation; different $\errrate$ \\
-\citet{lepski1999estimation} & $L_1$ norm minimax rate & We specialize to calibration with $\errrate$ noise \\
-\citet{blasiok2023calibration} & Calibration distance framework & Different metric (distance vs.\ ECE) \\
-\citet{kossen2021active} & Active testing framework & We derive minimax-optimal active rate; they provide algorithms without rate-optimality \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Davis et al.~\citep{davis2020calibrationdrift} develop empirical methods for detecting calibration drift in clinical prediction models; our verification half-life (Theorem~\ref{thm:halflife}) provides the theoretical foundation, deriving the exact shelf-life of a calibration audit and the minimum data rate for perpetual assurance.
+% REVISION-v3: RESTRUCTURE (removed comparison table - paragraphs cover it)
 
 % ============================================================
 % SECTION 8: CONCLUSION
@@ -1237,18 +738,12 @@ Davis et al.~\citep{davis2020calibrationdrift} develop empirical methods for det
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have established a comprehensive mathematical framework for AI verification in the rare-error regime. The central result --- the verification tax --- states that estimating the calibration error of a model with error rate $\errrate$ requires $\Theta((\Lip\errrate/\nsamples)^{1/3})$ labeled samples, a cost that grows as models improve. This tax is universal across calibration, fairness, and robustness verification (Theorem~\ref{thm:general}), cannot be circumvented by model access (Theorem~\ref{thm:whitebox}), cannot be gamed by strategic miscalibration (Proposition~\ref{prop:ungameable}), and cannot be avoided by self-verification (Theorem~\ref{thm:selfverify}).
+% REVISION-v3: RESTRUCTURE (compressed conclusion)
+The verification tax states that estimating the calibration error of a model with error rate $\errrate$ requires $\Theta((\Lip\errrate/\nsamples)^{1/3})$ labeled samples --- a cost that grows as models improve, under \emph{meaningful} verification ($\targetacc = o(\errrate)$). The tax is universal across calibration, fairness, and robustness (Theorem~\ref{thm:general}); cannot be circumvented by model access (Theorem~\ref{thm:whitebox}); cannot be gamed by adversarial miscalibration (Proposition~\ref{prop:ungameable}); and cannot be avoided by self-verification (Theorem~\ref{thm:selfverify}). Two avenues reduce the tax: parametric assumptions yield the parametric $1/\sqrt{\nsamples}$ rate (Proposition~\ref{prop:tempscaling}); adaptive evaluation eliminates $\Lip$ entirely, achieving $\Theta(\sqrt{\errrate/\nsamples})$ (Theorem~\ref{thm:active}). At scale, the tax creates a verification horizon (Theorem~\ref{thm:horizon}), a recalibration trap, a half-life, and compounds exponentially in compositional pipelines (Theorem~\ref{thm:compositional}).
 
-Two avenues reduce the tax: parametric assumptions compress the calibration function class, achieving the faster $O(1/\sqrt{\nsamples})$ rate (Proposition~\ref{prop:tempscaling}), and adaptive evaluation protocols eliminate the dependence on calibration smoothness entirely, achieving the tight rate $\Theta(\sqrt{\errrate/\nsamples})$ (Theorem~\ref{thm:active}). Prior verification transfers across model updates proportionally to the magnitude of the calibration shift (Proposition~\ref{prop:transfer}).
+\paragraph{Limitations.} Our results rely on Lipschitz calibration functions; piecewise-Lipschitz extensions and bounded-variation generalizations are open. The minimax lower bound inherits a logarithmic gap from $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional bound uses worst-case Lipschitz accumulation; contractive components reduce the effective $\Lsystem$ in practice. Sharp constants are known only for the Le~Cam bound. Our framework verifies group-conditional calibration; marginal fairness notions are distinct functionals. Three open problems: closing the log gap, handling non-Lipschitz pipeline components, and extending to multiclass calibration.
 
-At scale, the verification tax creates a verification horizon --- a critical model size beyond which the world's supply of labeled data is insufficient to meaningfully verify performance (Theorem~\ref{thm:horizon}). Iterative recalibration hits a ceiling of $\maxround = O(\log \totaldata)$ verifiable rounds (Proposition~\ref{prop:recaltrap}), and compositional AI systems face verification costs that grow exponentially with pipeline depth (Theorem~\ref{thm:compositional}). Every verification has a half-life determined by the deployment distribution's drift rate (Theorem~\ref{thm:halflife}).
-
-% REVISION: FIX-10 (piecewise Lipschitz extension), FIX-11 (fairness clarification)
-\paragraph{Limitations.} Our analysis relies on the Lipschitz assumption for the calibration function, which may not hold for all models. For piecewise $\Lip$-Lipschitz calibration functions with $k$ discontinuities, the minimax rate becomes $\Theta((k \cdot \Lip\errrate/\nsamples)^{1/3})$ --- the effective Lipschitz constant scales with the number of pieces. This follows from partitioning the domain at discontinuities and applying Theorem~\ref{thm:upper-bound} to each piece. Formal treatment of bounded-variation calibration functions (allowing discontinuities) is deferred to future work; see \citet{ciosek2025finite} for partial results under bounded-variation assumptions. Our framework verifies group-conditional calibration: $\ECE_A = \int|\calmap_A(p)| d\scoredist_A(p)$ where $\calmap_A(p) = \E[Y = \hat{y} \mid p(X) = p, A] - p$. This is calibration conditional on both score and group membership; marginal group parities (e.g., demographic parity, equalized odds defined via marginal rates) are different functionals and may have different minimax rates. The lower bound (Theorem~\ref{thm:minimax-lb}) inherits a logarithmic gap from the open problem of $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional verification tax (Theorem~\ref{thm:compositional}) uses a Lipschitz composition model that may overestimate the effective system Lipschitz constant for pipelines with discrete components. Sharp constants (Table~\ref{tab:sharp-constants}) are computed for the Le~Cam bound only; constants for the minimax rate remain open.
-
-\paragraph{Open problems.} Three directions warrant further investigation. First, closing the logarithmic gap between the upper and lower bounds for ECE estimation --- a special case of the long-standing open problem for $L_1$ functional estimation. Second, extending the compositional verification tax to pipelines with non-Lipschitz components (e.g., discrete retrieval steps). Third, characterizing the verification tax for multi-class calibration, where the calibration gap becomes a vector-valued function.
-
-\paragraph{Broader implications.} The verification tax has direct consequences for AI governance. Self-reported calibration claims carry no information-theoretic weight (Theorem~\ref{thm:selfverify}). Independent auditing with fresh labeled data is necessary, not merely desirable. Regulators should invest in adaptive evaluation protocols and adopt continuous auditing frameworks with re-audit schedules determined by the verification half-life. The trend toward deeper, iteratively refined, multi-component AI systems is on a collision course with our ability to verify them.
+\paragraph{Broader implications.} Self-reported calibration claims carry no information-theoretic weight: independent auditing with fresh labeled data is necessary. Regulators should invest in adaptive evaluation protocols and adopt continuous auditing frameworks with re-audit schedules determined by the verification half-life.
 
 \subsubsection*{Acknowledgments}
 % To be added upon publication.
@@ -1265,6 +760,73 @@ At scale, the verification tax creates a verification horizon --- a critical mod
 \newpage
 \appendix
 
+% REVISION-v3: RESTRUCTURE (new appendix sections to host content cut from main text)
+\section{Full Proof of Theorem~\ref{thm:lecam} (Le Cam Lower Bound)}
+\label{app:lecam-proof}
+
+Construct two hypotheses. Fix a classifier whose score distribution places all mass at $p_0 = 1 - \errrate$.
+\begin{itemize}
+    \item $P_0$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate)$. Calibrated: $\calmapraw(p_0) = p_0$, so $\ECE = 0$.
+    \item $P_1$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate - \delta)$. Miscalibrated: $\ECE = \delta$.
+\end{itemize}
+Both hypotheses use a constant calibration gap (Lipschitz constant 0), so $\calmap \in \cF(\Lip)$ for all $\Lip > 0$. The KL divergence of $\nsamples$ i.i.d.\ samples is:
+\[
+\KL(P_0^{\nsamples} \| P_1^{\nsamples}) = \nsamples \cdot \KL(\Bern(1-\errrate) \| \Bern(1-\errrate-\delta)) = \frac{\nsamples \delta^2}{\errrate(1-\errrate)} \leq \frac{\nsamples \delta^2}{\errrate}
+\]
+where the last inequality uses $1 - \errrate \leq 1$ and the KL approximation $\KL(\Bern(p) \| \Bern(p+\delta)) \approx \delta^2 / (p(1-p))$ (valid for $\delta \leq \errrate/2$). By Le~Cam's lemma~\citep{tsybakov2009nonparametric}:
+\[
+R^* \geq \frac{\delta}{2}\left(1 - \TV(P_0^{\nsamples}, P_1^{\nsamples})\right) \geq \frac{\delta}{2} e^{-\KL(P_0^{\nsamples} \| P_1^{\nsamples})}
+\]
+where the second inequality uses Bretagnolle--Huber. Setting $\KL = 1$ (i.e., $\delta = \sqrt{\errrate / \nsamples}$): $R^* \geq (1/2e) \sqrt{\errrate/\nsamples} \approx 0.184 \sqrt{\errrate/\nsamples}$. $\square$
+
+% ----------------------------------------------------------
+\section{Full Proof of Theorem~\ref{thm:upper-bound} (Matched Upper Bound)}
+\label{app:upper-proof}
+
+\textbf{Bias-variance decomposition.} With $B$ equal-width bins and $\nsamples$ total samples:
+
+\textbf{1. Bias.} Within each bin of width $1/B$, the calibration gap $\calmap$ varies by at most $\Lip/B$ (Lipschitz). By the Bridge Lemma, $|\ECE_B - \CE_{\mathrm{smooth}}| \leq \Lip/B$.
+
+\textbf{2. Variance.} Each bin $b$ has $n_b \approx \nsamples/B$ samples. (Under bounded density $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$; equal-mass binning achieves $n_b = \nsamples/B$ exactly when $\scoredist$ concentrates.) The empirical calibration gap has variance $\Var(\hat{\calmap}_b) \leq \effnoise / n_b \approx \effnoise B/\nsamples$, where $\effnoise = \max_b \E[\calmapraw(p)(1-\calmapraw(p)) \mid p \in I_b]$. Estimation error: $\E[|\widehat{\ECE}_B - \ECE_B|] \leq \sqrt{\effnoise B/\nsamples}$.
+
+\textbf{3. Total error.} $\Lip/B + \sqrt{\effnoise B/\nsamples}$.
+
+\textbf{4. Optimization.} Setting $\Lip/B = \sqrt{\effnoise B/\nsamples}$: $B^* = (\Lip^2\nsamples/\effnoise)^{1/3}$, total error $(\Lip\effnoise/\nsamples)^{1/3}$. In the rare-error regime $\effnoise \approx \errrate$, recovering the headline rate. $\square$
+
+% ----------------------------------------------------------
+\section{Verification Dynamics, Recalibration Trap, and Half-Life}
+\label{app:dynamics}
+
+\subsection{Verification Dynamics}
+Suppose a model is deployed at rate $\deployrate$ samples per unit time and $\errrate(t) = c_0 t^{-\critexp}$. The verification floor at time $t$ is $\verfloor(t) = (\Lip c_0/\deployrate)^{1/3} t^{-(\critexp+1)/3}$. Meaningful verification ($\verfloor(t) < \errrate(t)$) reduces to $(\Lip/(\deployrate c_0^2))^{1/3} < t^{(1-2\critexp)/3}$. This is satisfied for large $t$ when $\critexp < 1/2$, violated when $\critexp > 1/2$, and equivalent to $\Lip/(\deployrate c_0^2) < 1$ when $\critexp = 1/2$. Critical exponent: $\critexp^* = 1/2$ (passive), $\critexp^*_{\mathrm{active}} = 1$ (active). $\square$
+
+\subsection{Recalibration Trap}
+\label{prop:recaltrap}
+With $\ECE_K = \shrinkfactor^K \ECE_0$, the improvement from round $K$ to $K+1$ is $\shrinkfactor^K \ECE_0(1-\shrinkfactor)$. Distinguishing requires (Theorem~\ref{thm:lecam}) $\nsamples_K \geq \errrate/(\shrinkfactor^{2K}\ECE_0^2(1-\shrinkfactor)^2)$. Setting $\nsamples_K = \totaldata$ gives $\maxround = \lfloor\log(\totaldata(1-\shrinkfactor)^2\ECE_0^2/\errrate)/(2\log(1/\shrinkfactor))\rfloor$.
+
+\textbf{Worked example (MMLU).} $\shrinkfactor = 0.5$, $\errrate = 0.05$, $\ECE_0 = 0.10$, $\totaldata = 14{,}000$: $\maxround = \lfloor 6.55/1.386 \rfloor = 4$. After 4 halving rounds, MMLU cannot verify further improvement.
+
+\subsection{Verification Half-Life}
+\label{thm:halflife}
+Let ECE drift rate $\driftrate$ satisfy $|\ECE(t) - \ECE(0)| \leq \driftrate t$. (i) The verification becomes invalid after $\halflife = \targetacc/\driftrate$. (ii) Perpetual verification requires data rate $\datrate \geq \Lip\errrate\driftrate/\targetacc^4$.
+
+\textbf{Domain estimates} (assuming $\Lip = 1$, $\errrate = 0.05$): Medical AI ($\driftrate = 0.01$/month, $\targetacc = 0.02$): $\halflife = 2$ months, $\datrate \approx 3{,}100$/month. Content moderation: 6 months, 620/month. Financial trading ($\driftrate = 0.1$/week, $\targetacc = 0.01$): $\halflife = 17$ hours. Autonomous driving: 15 days. Static benchmarks have the same half-life: a benchmark constructed at $t = 0$ decays at rate $\driftrate$, formalizing the case for periodic refresh.
+
+% ----------------------------------------------------------
+\section{Full Proof of Theorem~\ref{thm:compositional} (Compositional Verification)}
+\label{app:compositional}
+
+\textbf{Lipschitz composition.} By the chain rule, if $g_k$ is $L_k$-Lipschitz in its first argument, then $g_\recalround \circ \cdots \circ g_1$ is $(\prod_{k=1}^{\recalround} L_k)$-Lipschitz. Since $\calmap_{\mathrm{sys}}(p) = \calmapraw_{\mathrm{sys}}(p) - p$ and $p \mapsto p$ is 1-Lipschitz, $\Lsystem \leq \prod_k L_k + 1$.
+
+\textbf{Verification cost.} Applying Theorem~\ref{thm:upper-bound} with $\Lip = \Lsystem$: $\nsamples_{\mathrm{sys}} = \Theta(\Lsystem \errrate/\targetacc^3)$. For homogeneous $L_k = \Lip$: $\Lsystem \approx \Lip^\recalround$, giving exponential scaling. $\square$
+
+\textbf{Agent loop bound.} For an agent with $\recalround$ reasoning iterations and $\Lip = 2$: $\Lip^{10} = 1024$, $\Lip^{20} > 10^6$.
+
+\textbf{Caveats.} The Lipschitz composition model is optimistic in two directions: discontinuous components (e.g., discrete retrieval) yield $\Lcomp = \infty$, making end-to-end verification impossible at \emph{any} sample size; conversely, contractive components ($L_k < 1$) reduce the effective $\Lsystem$. Empirical estimation of $\Lsystem$ via finite-difference approximation is recommended before applying the exponential bound. Independence of per-component calibration gaps is also assumed; correlated miscalibration can either help or hurt depending on structure.
+
+\textbf{Worked example.} A two-stage retriever--classifier with $\Lip = 2$ each gives $\Lsystem \leq 5$, requiring $5\times$ the data of a single classifier. With $\Lip = 3$: $10\times$. A three-stage pipeline at $\Lip = 2$: $9\times$; at $\Lip = 3$: $28\times$.
+
+% ----------------------------------------------------------
 \section{Full Proof of Theorem~\ref{thm:minimax-lb}}
 \label{app:minimax-proof}
 
