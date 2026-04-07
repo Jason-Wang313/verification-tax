@@ -21,7 +21,7 @@ except FileNotFoundError:
 ")
   echo "[$(date +%H:%M:%S)] 405B valid: $VALID/14042"
 
-  if [ "$VALID" -ge 13500 ]; then
+  if [ "$VALID" -ge 14042 ]; then
     echo "[$(date +%H:%M:%S)] 405B reached $VALID valid, target met. Stopping watchdog."
     break
   fi
