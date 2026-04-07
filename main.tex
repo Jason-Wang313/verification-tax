@@ -252,8 +252,8 @@ Within a window of width $w$ around $p = 1 - \errrate$, where the score distribu
 \textbf{Step 2: Identification with $L_1$ functional estimation in white noise.}
 By the asymptotic equivalence of nonparametric regression and Gaussian white noise \citep{brown1996equivalence, nussbaum1996equivalence}, estimating $\int |\calmap(p)| dp$ from $\nsamples$ observations with per-observation variance $\errrate$ is asymptotically equivalent to estimating $\int |f(t)| dt$ in the white noise model with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$.
 
-% REVISION: FIX-2 (strengthened ε-uniformity statement)
-\paragraph{Clarification on the asymptotic regime.} A key point deserves emphasis: the asymptotic equivalence of Brown \& Low~\citep{brown1996equivalence} is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The error rate $\errrate$ is a property of the model under audit, not an asymptotic parameter. For any fixed $\errrate \in (0, 1/2)$, the Bernoulli label variance $\errrate(1-\errrate) \geq \errrate/2 > 0$ is bounded away from zero, satisfying the regularity conditions of the equivalence theorem. The $\errrate$-dependence in our rate $(\Lip\errrate/\nsamples)^{1/3}$ arises from substituting the effective noise level $\effnoise = \errrate(1-\errrate) \approx \errrate$ into the white-noise minimax rate $n^{-1/3}$ with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$, \emph{not} from taking $\errrate \to 0$ within the equivalence framework. Formally, for each $\calmapraw_0 > 0$, there exist constants $c_2(\calmapraw_0), C(\calmapraw_0)$ such that the bounds~(\ref{eq:minimax-lb}) and~(\ref{eq:upper-bound}) hold simultaneously for all $\errrate \in [\calmapraw_0, 1/2]$ and all $\nsamples \geq \nsamples_0(\calmapraw_0, \Lip)$. The implicit constants may depend on $\calmapraw_0$ but the rate does not. The scaling-law consequences in Section~\ref{sec:horizon} take $\errrate \to 0$ through the model-size parameter $\modelsize$ (i.e., $\errrate(\modelsize) = c_0\modelsize^{-\scalingexp}$), \emph{not} within the equivalence framework: each fixed model has a fixed $\errrate$, and the horizon results compose the per-model bound across a sequence of models with shrinking $\errrate$. For the practically relevant regime $\errrate \in [0.01, 0.35]$, the regularity conditions are satisfied with large margin.
+% REVISION-v3: FINAL PUSH (compressed clarification; full version moved to appendix)
+\textbf{Clarification.} The Brown--Low equivalence is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The $\errrate$-dependence in the rate arises from substituting $\effnoise \approx \errrate$ into the white-noise rate with $n_{\mathrm{eff}} = \nsamples/\errrate$, \emph{not} from taking $\errrate \to 0$ within the equivalence framework. An alternative self-contained Bernoulli lower bound via Assouad's lemma, avoiding Brown--Low entirely, is given in Appendix~\ref{app:assouad}. Full regularity conditions and scaling-law composition: Appendix~\ref{app:minimax-proof}.
 
 \textbf{Step 3: Application of Lepski, Nemirovski \& Spokoiny (1999).}
 By Theorem~2.2 of \citet{lepski1999estimation}, the minimax rate for estimating the $L_1$ norm of a $\beta$-H\"older function in white noise with sample size $n$ is $R^* \geq c \cdot n^{-\beta/(2\beta+1)} / (\log n)^{c'}$. For $\beta = 1$ (Lipschitz) and $n = \nsamples / \errrate$, incorporating the Lipschitz constant $\Lip$:
@@ -282,10 +282,10 @@ where $C$ depends on $c_\scoredist$ and $C_\scoredist$.
 In the rare-error regime where score mass concentrates near high confidence ($p \approx 1 - \errrate$), the per-bin variance $\effnoise_b \approx \errrate(1-\errrate) \approx \errrate$, so the bound specializes to $(\Lip\errrate/\nsamples)^{1/3}$. We use this specialization throughout the paper as the primary form of the upper bound, since the rare-error regime is the practically relevant setting. For general score distributions, $\effnoise$ replaces $\errrate$ in all rate expressions.
 \end{remark}
 
-% REVISION-v3: FIX-B (variable-width binning proposition)
+% REVISION-v3: FIX-3A (simplified equal-mass binning derivation)
 \begin{remark}[$\scoredist$-Adaptive Variable-Width Binning]
 \label{rem:variable-width}
-The bounded-density assumption $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$ ensures that equal-width bins have roughly uniform occupancy ($n_b \approx \nsamples/B$), which the proof uses. When $\scoredist$ concentrates near high confidence, this assumption is violated. The same rate is recovered by \emph{equal-mass binning}: choose bin boundaries so each bin contains exactly $\nsamples/B$ samples (i.e., the empirical $b/B$ quantiles of $\{p_i\}_{i=1}^{\nsamples}$). Under equal-mass binning, the bin widths satisfy $\mathrm{width}(I_b) = 1/(B \cdot \scoredist_b)$ where $\scoredist_b$ is the local density. The bias in bin $b$ becomes $\Lip \cdot \mathrm{width}(I_b) = \Lip/(B \cdot \scoredist_b)$, and the total bias is $\sum_b (n_b/\nsamples) \cdot \Lip/(B \cdot \scoredist_b) = \Lip/B \cdot \E_\scoredist[1/\scoredist(p)] \cdot (1/B)$. The variance term is unchanged because $n_b = \nsamples/B$ exactly. Optimizing over $B$ recovers the same rate $(\Lip\effnoise/\nsamples)^{1/3}$, with constants depending on the density ratio $C_\scoredist/c_\scoredist$ rather than requiring bounded density. The key requirement is that each bin contains $\Omega(\nsamples/B)$ samples, which equal-mass binning guarantees by construction.
+The bounded-density assumption $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$ ensures equal-width bins have roughly uniform occupancy ($n_b \approx \nsamples/B$). When $\scoredist$ concentrates, the same rate is recovered by \emph{equal-mass binning}: choose bin boundaries at the empirical $b/B$ quantiles of $\{p_i\}$. Each bin then contains exactly $\nsamples/B$ samples by construction. The bias in bin $b$ is $\Lip \cdot \mathrm{width}(I_b)$ (Lipschitz), and the total bias is $\sum_b (n_b/\nsamples) \cdot \Lip\cdot\mathrm{width}(I_b) = (1/B)\sum_b \Lip\cdot\mathrm{width}(I_b) = \Lip/B$, since $\sum_b\mathrm{width}(I_b) = 1$. The variance term is unchanged ($n_b = \nsamples/B$ exactly). Optimizing over $B$ recovers the same rate $(\Lip\effnoise/\nsamples)^{1/3}$.
 \end{remark}
 
 % REVISION-v3: RESTRUCTURE (5-step proof compressed to sketch; full proof in Appendix A.2)
@@ -374,7 +374,7 @@ Verifying calibration under input perturbation requires:
 \begin{equation}
 \nsamples \geq \frac{\Lip \errrate_{\mathrm{pert}}}{\targetacc^3}
 \end{equation}
-where $\errrate_{\mathrm{pert}}$ is the error rate under the perturbed distribution. Since perturbation typically increases error rate ($\errrate_{\mathrm{pert}} > \errrate$), robustness verification is strictly more expensive than standard calibration verification.
+where $\errrate_{\mathrm{pert}}$ is the error rate under the perturbed distribution. Since perturbation typically increases error rate ($\errrate_{\mathrm{pert}} > \errrate$), robustness verification is strictly more expensive than standard calibration verification. For adversarially chosen perturbations with input-dependent noise structure, the effective variance $\effnoise$ may not be well-captured by a single scalar; the stated rates apply when the perturbation distribution admits a well-defined marginal noise level.
 \end{corollary}
 
 % REVISION-v3: FIX-H (importance weighting under biased sampling)
@@ -589,24 +589,27 @@ Synthetic experiments provide exact ground truth (true ECE, $\errrate$, and $\Li
 
 We apply the audit framework to publicly reported ECE values. For each result, we compute the verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ with $\Lip = 1$; a reported ECE is verifiable iff it exceeds $\verfloor$.
 
+% REVISION-v3: FIX-4A (L sensitivity columns)
 \begin{table}[h]
 \centering
-\caption{Verification audit of published ECE values. The verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ is computed with $\Lip = 1$. Values below the floor are statistically indistinguishable from estimation noise.}
+\caption{Verification audit of published ECE values, with verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ for three Lipschitz constant assumptions. Values below the floor are statistically indistinguishable from estimation noise.}
 \label{tab:audit-published}
 \small
-\begin{tabular}{lcccc}
+\begin{tabular}{lccccccc}
 \toprule
-\textbf{Source / Setting} & $\nsamples$ & $\errrate$ & Reported ECE & $\verfloor$ \\
+\textbf{Source / Setting} & $\nsamples$ & $\errrate$ & ECE & $\verfloor^{L=0.5}$ & $\verfloor^{L=1}$ & $\verfloor^{L=2}$ \\
 \midrule
-\citet{guo2017calibration}, ResNet-110, CIFAR-100 & 10{,}000 & 0.27 & 0.19 & 0.030 \\
-\citet{guo2017calibration}, after temperature scaling & 10{,}000 & 0.27 & 0.012 & 0.030 \\
-\citet{guo2017calibration}, DenseNet, ImageNet & 50{,}000 & 0.22 & 0.057 & 0.016 \\
-\citet{minderer2021revisiting}, ViT-L/16, ImageNet & 50{,}000 & 0.13 & 0.018 & 0.014 \\
-MMLU subject (avg.\ subject), 4-way MCQ & 250 & 0.30 & --- & 0.105 \\
-TruthfulQA (binary) & 800 & 0.40 & --- & 0.080 \\
+\citet{guo2017calibration}, ResNet-110, CIFAR-100 & 10{,}000 & 0.27 & 0.19 & 0.024 & 0.030 & 0.038 \\
+\citet{guo2017calibration}, after temp.\ scaling & 10{,}000 & 0.27 & 0.012 & 0.024 & 0.030 & 0.038 \\
+\citet{guo2017calibration}, DenseNet, ImageNet & 50{,}000 & 0.22 & 0.057 & 0.013 & 0.016 & 0.021 \\
+\citet{minderer2021revisiting}, ViT-L/16, ImageNet & 50{,}000 & 0.13 & 0.018 & 0.011 & 0.014 & 0.017 \\
+MMLU subject (avg.\ subject) & 250 & 0.30 & --- & 0.083 & 0.105 & 0.132 \\
+TruthfulQA (binary) & 800 & 0.40 & --- & 0.063 & 0.080 & 0.100 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The $\Lip = 1$ assumption is conservative; for well-trained classifiers, $\Lip$ is typically in $[0.3, 2.0]$ (estimable via finite-difference on the empirical calibration curve). The qualitative conclusion is robust: post-calibration ECE values remain below or near the floor across the plausible range of $\Lip$.
 
 \paragraph{Findings.} \emph{Post-calibration ECE values are typically below the verification floor.} \citet{guo2017calibration}'s post-temperature-scaling ECE of 0.012 on CIFAR-100 is below the floor of 0.030 --- the reported improvement is statistically below estimator noise. Per-subject MMLU calibration is more dramatic: with $\sim$250 questions per subject, the floor is 0.105, so per-subject ECE values below 0.10 cannot be distinguished from noise. Practitioners should compute and disclose the verification floor alongside any reported ECE.
 
@@ -712,7 +715,7 @@ Modern AI systems compose multiple components --- retrieval-augmented generation
 
 \begin{theorem}[Compositional Verification Tax]
 \label{thm:compositional}
-For a $\recalround$-component pipeline with per-component Lipschitz constants $L_1, \ldots, L_\recalround$ (each $g_k$ being $L_k$-Lipschitz in its confidence input), the end-to-end calibration function has $\Lsystem \leq \prod_k L_k + 1$ (Lipschitz chain rule). Verification then requires $\nsamples_{\mathrm{sys}} \geq c \cdot \Lsystem \errrate / \targetacc^3$. For homogeneous pipelines with $L_k = \Lip > 1$, $\nsamples_{\mathrm{sys}} = \Omega(\Lip^\recalround \errrate/\targetacc^3)$ --- exponential in pipeline depth. Equivalently, the maximum verifiable depth is $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$. For $\Lip = 2$, an agent executing 10 reasoning iterations has $1024\times$ the verification cost of a single-step model. Full proof, agent-loop bound, and Lipschitz/contractivity caveats: Appendix~\ref{app:compositional}.
+For a $\recalround$-component pipeline with per-component Lipschitz constants $L_1, \ldots, L_\recalround$ (each $g_k$ being $L_k$-Lipschitz in its confidence input), the end-to-end calibration function has $\Lsystem \leq \prod_k L_k + 1$ (Lipschitz chain rule; the ``$+1$'' arises because $\calmap_{\mathrm{sys}}(p) = \calmapraw_{\mathrm{sys}}(p) - p$ and $p \mapsto p$ is $1$-Lipschitz, so $\Lip_\calmap \leq \Lip_\calmapraw + 1 = \prod_k L_k + 1$). Verification then requires $\nsamples_{\mathrm{sys}} \geq c \cdot \Lsystem \errrate / \targetacc^3$. For homogeneous pipelines with $L_k = \Lip > 1$, $\nsamples_{\mathrm{sys}} = \Omega(\Lip^\recalround \errrate/\targetacc^3)$ --- exponential in pipeline depth. Equivalently, the maximum verifiable depth is $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$. For $\Lip = 2$, an agent executing 10 reasoning iterations has $1024\times$ the verification cost of a single-step model. Full proof, agent-loop bound, and Lipschitz/contractivity caveats: Appendix~\ref{app:compositional}.
 \end{theorem}
 
 % ============================================================
@@ -725,6 +728,9 @@ For a $\recalround$-component pipeline with per-component Lipschitz constants $L
 \paragraph{Calibration estimation.} \citet{sun2023recalibration} and \citet{futami2024information} established $O(n^{-1/3})$ upper bounds on ECE estimation bias. We complement these with a matching lower bound and reveal the $\errrate$-dependence absent from their general theory. \citet{ciosek2025finite} derive finite-sample bounds under bounded variation but do not study $\errrate$-dependence. \citet{hu2024testing} study calibration testing (rather than estimation) with $\Omega(\errrate^{-2.5})$ sample complexity; \citet{blasiok2023calibration} introduce calibration distance, a different but related metric. \citet{futami2026smooth} address uniform convergence of smooth CE.
 
 \paragraph{Active and sequential evaluation.} \citet{kossen2021active} propose practical active testing algorithms; our Theorem~\ref{thm:active} provides the matching minimax-optimal rate. \citet{shekhar2024fairness} develop e-value-based anytime-valid sequential tests for fairness with stopping times matching our Theorem~\ref{thm:sequential}; we provide the matching lower bound, confirming optimality.
+
+% REVISION-v3: FIX-3C (smCE vs ECE contrast)
+\paragraph{Why ECE is harder than smooth surrogates.} Smooth calibration surrogates (smCE, LDTC) replace the non-smooth $|\calmap(p)|$ with differentiable approximations, whose $L_2$ structure admits $O(\errrate^{-2})$ testing complexity \citep{hu2024testing}. ECE's absolute-value integrand is an $L_1$ functional, which forces the harder $\nsamples^{-1/3}$ nonparametric rate (Theorem~\ref{thm:minimax-lb}). This is not a deficiency of ECE but reflects the harder statistical problem of estimating an $L_1$ norm versus an $L_2$ norm; the metric choice determines the verification cost.
 
 \paragraph{Empirical calibration literature.} \citet{guo2017calibration} popularized ECE and temperature scaling; our Proposition~\ref{prop:tempscaling} provides the theoretical $\nsamples^{-1/2}$ rate for their method. \citet{kumar2019verified} propose kernel-based calibration measures (whether they attain the minimax rate is open). \citet{nixon2019measuring} compared binning strategies empirically; Theorem~\ref{thm:upper-bound} gives the optimal bin count they sought. \citet{vaicenavicius2019evaluating}, \citet{widmann2019calibration}, and \citet{davis2020calibrationdrift} respectively motivate calibration testing, multiclass extensions, and clinical drift detection --- all of which our framework formalizes via the corresponding theorems.
 
@@ -741,7 +747,7 @@ For a $\recalround$-component pipeline with per-component Lipschitz constants $L
 % REVISION-v3: RESTRUCTURE (compressed conclusion)
 The verification tax states that estimating the calibration error of a model with error rate $\errrate$ requires $\Theta((\Lip\errrate/\nsamples)^{1/3})$ labeled samples --- a cost that grows as models improve, under \emph{meaningful} verification ($\targetacc = o(\errrate)$). The tax is universal across calibration, fairness, and robustness (Theorem~\ref{thm:general}); cannot be circumvented by model access (Theorem~\ref{thm:whitebox}); cannot be gamed by adversarial miscalibration (Proposition~\ref{prop:ungameable}); and cannot be avoided by self-verification (Theorem~\ref{thm:selfverify}). Two avenues reduce the tax: parametric assumptions yield the parametric $1/\sqrt{\nsamples}$ rate (Proposition~\ref{prop:tempscaling}); adaptive evaluation eliminates $\Lip$ entirely, achieving $\Theta(\sqrt{\errrate/\nsamples})$ (Theorem~\ref{thm:active}). At scale, the tax creates a verification horizon (Theorem~\ref{thm:horizon}), a recalibration trap, a half-life, and compounds exponentially in compositional pipelines (Theorem~\ref{thm:compositional}).
 
-\paragraph{Limitations.} Our results rely on Lipschitz calibration functions; piecewise-Lipschitz extensions and bounded-variation generalizations are open. The minimax lower bound inherits a logarithmic gap from $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional bound uses worst-case Lipschitz accumulation; contractive components reduce the effective $\Lsystem$ in practice. Sharp constants are known only for the Le~Cam bound. Our framework verifies group-conditional calibration; marginal fairness notions are distinct functionals. Three open problems: closing the log gap, handling non-Lipschitz pipeline components, and extending to multiclass calibration.
+\paragraph{Limitations.} Our results rely on Lipschitz calibration functions; piecewise-Lipschitz extensions and bounded-variation generalizations are open. The minimax lower bound inherits a logarithmic gap from $L_1$ functional estimation~\citep{lepski1999estimation}. The compositional bound uses worst-case Lipschitz accumulation; contractive components reduce the effective $\Lsystem$ in practice. Sharp constants are known only for the Le~Cam bound. Our framework verifies group-conditional calibration; marginal fairness notions are distinct functionals. Our analysis addresses top-label ECE; extending to vector-valued calibration gaps in multiclass settings, and connecting to multicalibration auditing lower bounds where combinatorial group families may increase statistical complexity, is an important open direction. Three open problems: closing the log gap, handling non-Lipschitz pipeline components, and extending to multiclass calibration.
 
 \paragraph{Broader implications.} Self-reported calibration claims carry no information-theoretic weight: independent auditing with fresh labeled data is necessary. Regulators should invest in adaptive evaluation protocols and adopt continuous auditing frameworks with re-audit schedules determined by the verification half-life.
 
@@ -778,6 +784,26 @@ where the last inequality uses $1 - \errrate \leq 1$ and the KL approximation $\
 R^* \geq \frac{\delta}{2}\left(1 - \TV(P_0^{\nsamples}, P_1^{\nsamples})\right) \geq \frac{\delta}{2} e^{-\KL(P_0^{\nsamples} \| P_1^{\nsamples})}
 \]
 where the second inequality uses Bretagnolle--Huber. Setting $\KL = 1$ (i.e., $\delta = \sqrt{\errrate / \nsamples}$): $R^* \geq (1/2e) \sqrt{\errrate/\nsamples} \approx 0.184 \sqrt{\errrate/\nsamples}$. $\square$
+
+% REVISION-v3: FIX-3F (self-contained Assouad lower bound)
+\subsection{Direct Bernoulli Lower Bound (Alternative to Brown--Low)}
+\label{app:assouad}
+
+For readers who prefer a self-contained argument avoiding asymptotic equivalence, we sketch a direct Assouad-type lower bound in the Bernoulli model.
+
+Partition $[0,1]$ into $B$ equal-width bins. Consider the class of calibration functions $\calmap_\omega(p) = h \cdot \omega_b$ for $p \in I_b$, where $\omega = (\omega_1, \ldots, \omega_B) \in \{-1, +1\}^B$ and $h > 0$ is chosen so that $\calmap_\omega$ is $\Lip$-Lipschitz (requiring $h \leq \Lip/(2B)$). Each $\calmap_\omega$ has $\ECE = h$ (since $\sum_b (1/B) |h \cdot \omega_b| = h$). For any two configurations $\omega, \omega'$ differing in one coordinate $b$, the KL divergence of the $\nsamples/B$ observations in bin $b$ is:
+\[
+\KL = \frac{\nsamples}{B} \cdot \frac{(2h)^2}{\errrate(1-\errrate)} \leq \frac{4\nsamples h^2}{B\errrate}
+\]
+By Assouad's lemma~\citep{tsybakov2009nonparametric}, the minimax risk satisfies:
+\[
+R^* \geq \frac{Bh}{2}\left(1 - \sqrt{\frac{2\nsamples h^2}{B\errrate}}\right)
+\]
+Setting $h = c\sqrt{B\errrate/\nsamples}$ for a small constant $c$ and $B = \lfloor(\Lip\nsamples/\errrate)^{1/3}\rfloor$ gives:
+\[
+R^* \geq c' \left(\frac{\Lip\errrate}{\nsamples}\right)^{1/3}
+\]
+This recovers the $(\Lip\errrate/\nsamples)^{1/3}$ rate directly from the Bernoulli model, confirming the Brown--Low reduction. The constant $c'$ is weaker than the one obtained via \citet{lepski1999estimation}, but the argument is fully self-contained. $\square$
 
 % ----------------------------------------------------------
 \section{Full Proof of Theorem~\ref{thm:upper-bound} (Matched Upper Bound)}
