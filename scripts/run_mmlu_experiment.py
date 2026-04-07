@@ -28,15 +28,17 @@ MODELS = [
     ("llama-3.1-405b-instruct", "meta/llama-3.1-405b-instruct"),
     ("llama-4-maverick", "meta/llama-4-maverick-17b-128e-instruct"),
     ("qwen3-next-80b", "qwen/qwen3-next-80b-a3b-instruct"),
-    ("llama-3.1-70b-instruct", "meta/llama-3.1-70b-instruct"),
+    # llama-3.1-70b dropped: NIM model-level quota produced ~80% 429s,
+    # effective rate <12 valid/min on a 14k-item set. Not feasible.
 ]
 
-# Per-model concurrency: keep low enough to avoid 429 storms.
-# With 4 models running in parallel and ~16 concurrent calls each = 64 total.
-PER_MODEL_CONCURRENCY = 16
-NUM_WORKERS_PER_MODEL = 24
+# Per-model concurrency: 64 with FAST-FAIL retry (max 3 attempts, 15s timeout).
+# At very high concurrency NIM produces 90% 429s. With fast-fail, workers don't
+# get stuck on doomed requests; failed items are re-tried on script restart.
+PER_MODEL_CONCURRENCY = 64
+NUM_WORKERS_PER_MODEL = 96
 MAX_TOKENS = 5
-TIMEOUT_S = 60
+TIMEOUT_S = 15
 
 
 def _load_keys(prefix: str) -> list[str]:
@@ -50,9 +52,10 @@ def _load_keys(prefix: str) -> list[str]:
 
 
 # --- NIM client pool with round-robin ---
+# Lock removed: asyncio is single-threaded, integer increment is atomic.
+# Eliminating the lock removes a critical-section bottleneck at high concurrency.
 _NIM_CLIENTS: list = []
 _NIM_IDX = [0]
-_NIM_LOCK: asyncio.Lock | None = None
 
 
 def _init_clients() -> None:
@@ -69,12 +72,9 @@ def _init_clients() -> None:
 
 
 async def _next_nim_client():
-    global _NIM_LOCK
-    if _NIM_LOCK is None:
-        _NIM_LOCK = asyncio.Lock()
-    async with _NIM_LOCK:
-        idx = _NIM_IDX[0] % len(_NIM_CLIENTS)
-        _NIM_IDX[0] += 1
+    # Atomic in single-threaded asyncio; no lock needed.
+    idx = _NIM_IDX[0] % len(_NIM_CLIENTS)
+    _NIM_IDX[0] += 1
     return _NIM_CLIENTS[idx]
 
 
@@ -127,8 +127,8 @@ async def _score_one(model_id: str, item: dict) -> dict:
     prompt = _build_prompt(item)
     correct_letter = chr(65 + item["answer"])
 
-    delay = 15
-    for attempt in range(5):
+    delay = 1
+    for attempt in range(3):
         try:
             r = await asyncio.wait_for(
                 client.chat.completions.create(
@@ -162,19 +162,17 @@ async def _score_one(model_id: str, item: dict) -> dict:
             }
         except asyncio.TimeoutError:
             if attempt < 2:
-                await asyncio.sleep(5)
                 continue
             return {"error": f"timeout_{TIMEOUT_S}s"}
         except Exception as exc:
             msg = str(exc).lower()
             if "429" in msg or "rate limit" in msg:
-                if attempt < 4:
-                    await asyncio.sleep(min(delay, 90))
-                    delay = min(delay * 2, 90)
+                if attempt < 2:
+                    await asyncio.sleep(0.5)
                     continue
             if any(t in msg for t in ("500", "502", "503")):
-                if attempt < 3:
-                    await asyncio.sleep(10)
+                if attempt < 2:
+                    await asyncio.sleep(0.5)
                     continue
             return {"error": str(exc)[:120]}
     return {"error": "max_retries"}
