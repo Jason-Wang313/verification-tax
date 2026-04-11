@@ -1,0 +1,3508 @@
+{
+  "metadata": {
+    "description": "Per-subject MMLU leaderboard noise analysis",
+    "models": [
+      "Llama-3.1-405B",
+      "Llama-4-Maverick",
+      "Qwen3-Next-80B"
+    ],
+    "n_bootstrap": 200,
+    "subsample_frac": 0.8,
+    "seed": 42,
+    "L": 1,
+    "n_subj": 57
+  },
+  "summary": {
+    "total_subjects": 57,
+    "completely_unranked": 37,
+    "partially_unranked": 56,
+    "fully_verifiable": 1,
+    "mean_instability": 0.2907017543859649,
+    "median_delta_floor": 0.13687111262774154,
+    "total_pairwise_comparisons": 171,
+    "verifiable_pairs": 39,
+    "noise_pairs": 132,
+    "noise_fraction": 0.7719298245614035
+  },
+  "subjects": {
+    "abstract_algebra": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.5399999999999999,
+      "delta_floor": 0.21159543863984934,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.64,
+          "delta_floor": 0.21159543863984934,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.09999999999999998,
+          "delta_floor": 0.21159543863984934,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.74,
+          "delta_floor": 0.21159543863984934,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.64,
+        "Llama-4-Maverick": 0.0,
+        "Qwen3-Next-80B": 0.74
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.36,
+        "Llama-4-Maverick": 1.0,
+        "Qwen3-Next-80B": 0.26
+      }
+    },
+    "anatomy": {
+      "n_items_min": 135,
+      "n_items_max": 135,
+      "n_items_avg": 135.0,
+      "eps_avg": 0.1802469135802469,
+      "delta_floor": 0.1467791360458223,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Llama-4-Maverick": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.03703703703703698,
+          "delta_floor": 0.1467791360458223,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.03703703703703698,
+          "delta_floor": 0.1467791360458223,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.1467791360458223,
+          "verifiable": false
+        }
+      },
+      "instability": 0.48,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8444444444444444,
+        "Llama-4-Maverick": 0.8074074074074075,
+        "Qwen3-Next-80B": 0.8074074074074075
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.15555555555555556,
+        "Llama-4-Maverick": 0.19259259259259254,
+        "Qwen3-Next-80B": 0.19259259259259254
+      }
+    },
+    "astronomy": {
+      "n_items_min": 152,
+      "n_items_max": 152,
+      "n_items_avg": 152.0,
+      "eps_avg": 0.10964912280701755,
+      "delta_floor": 0.12436841570330626,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.09868421052631582,
+          "delta_floor": 0.12436841570330626,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.006578947368421129,
+          "delta_floor": 0.12436841570330626,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.10526315789473695,
+          "delta_floor": 0.12436841570330626,
+          "verifiable": false
+        }
+      },
+      "instability": 0.455,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9210526315789473,
+        "Llama-4-Maverick": 0.8223684210526315,
+        "Qwen3-Next-80B": 0.9276315789473685
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.07894736842105265,
+        "Llama-4-Maverick": 0.17763157894736847,
+        "Qwen3-Next-80B": 0.07236842105263153
+      }
+    },
+    "business_ethics": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.22333333333333336,
+      "delta_floor": 0.1576496088116334,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.1200000000000001,
+          "delta_floor": 0.1576496088116334,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.019999999999999907,
+          "delta_floor": 0.1576496088116334,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.14,
+          "delta_floor": 0.1576496088116334,
+          "verifiable": false
+        }
+      },
+      "instability": 0.285,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.81,
+        "Llama-4-Maverick": 0.69,
+        "Qwen3-Next-80B": 0.83
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.18999999999999995,
+        "Llama-4-Maverick": 0.31000000000000005,
+        "Qwen3-Next-80B": 0.17000000000000004
+      }
+    },
+    "clinical_knowledge": {
+      "n_items_min": 265,
+      "n_items_max": 265,
+      "n_items_avg": 265.0,
+      "eps_avg": 0.12201257861635217,
+      "delta_floor": 0.1288773458019314,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.060377358490566024,
+          "delta_floor": 0.1288773458019314,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.1288773458019314,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.060377358490566024,
+          "delta_floor": 0.1288773458019314,
+          "verifiable": false
+        }
+      },
+      "instability": 0.365,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8981132075471698,
+        "Llama-4-Maverick": 0.8377358490566038,
+        "Qwen3-Next-80B": 0.8981132075471698
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.10188679245283017,
+        "Llama-4-Maverick": 0.1622641509433962,
+        "Qwen3-Next-80B": 0.10188679245283017
+      }
+    },
+    "college_biology": {
+      "n_items_min": 144,
+      "n_items_max": 144,
+      "n_items_avg": 144.0,
+      "eps_avg": 0.0925925925925926,
+      "delta_floor": 0.11755302146658299,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.1875,
+          "delta_floor": 0.11755302146658299,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.00694444444444442,
+          "delta_floor": 0.11755302146658299,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.18055555555555558,
+          "delta_floor": 0.11755302146658299,
+          "verifiable": true
+        }
+      },
+      "instability": 0.125,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9722222222222222,
+        "Llama-4-Maverick": 0.7847222222222222,
+        "Qwen3-Next-80B": 0.9652777777777778
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.02777777777777779,
+        "Llama-4-Maverick": 0.2152777777777778,
+        "Qwen3-Next-80B": 0.03472222222222221
+      }
+    },
+    "college_chemistry": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.5266666666666667,
+      "delta_floor": 0.20983937893095014,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.38,
+          "delta_floor": 0.20983937893095014,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.09000000000000008,
+          "delta_floor": 0.20983937893095014,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.4700000000000001,
+          "delta_floor": 0.20983937893095014,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.57,
+        "Llama-4-Maverick": 0.19,
+        "Qwen3-Next-80B": 0.66
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.43000000000000005,
+        "Llama-4-Maverick": 0.81,
+        "Qwen3-Next-80B": 0.33999999999999997
+      }
+    },
+    "college_computer_science": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.3666666666666667,
+      "delta_floor": 0.18597969233341172,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.41999999999999993,
+          "delta_floor": 0.18597969233341172,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.09999999999999998,
+          "delta_floor": 0.18597969233341172,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.5199999999999999,
+          "delta_floor": 0.18597969233341172,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.74,
+        "Llama-4-Maverick": 0.32,
+        "Qwen3-Next-80B": 0.84
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.26,
+        "Llama-4-Maverick": 0.6799999999999999,
+        "Qwen3-Next-80B": 0.16000000000000003
+      }
+    },
+    "college_mathematics": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.5866666666666667,
+      "delta_floor": 0.2175231677321069,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.53,
+          "delta_floor": 0.2175231677321069,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.1499999999999999,
+          "delta_floor": 0.2175231677321069,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.6799999999999999,
+          "delta_floor": 0.2175231677321069,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.54,
+        "Llama-4-Maverick": 0.01,
+        "Qwen3-Next-80B": 0.69
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.45999999999999996,
+        "Llama-4-Maverick": 0.99,
+        "Qwen3-Next-80B": 0.31000000000000005
+      }
+    },
+    "college_medicine": {
+      "n_items_min": 173,
+      "n_items_max": 173,
+      "n_items_avg": 173.0,
+      "eps_avg": 0.23121387283236994,
+      "delta_floor": 0.15948249116024005,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.2543352601156069,
+          "delta_floor": 0.15948249116024005,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.028901734104046173,
+          "delta_floor": 0.15948249116024005,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.2832369942196531,
+          "delta_floor": 0.15948249116024005,
+          "verifiable": true
+        }
+      },
+      "instability": 0.12,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8439306358381503,
+        "Llama-4-Maverick": 0.5895953757225434,
+        "Qwen3-Next-80B": 0.8728323699421965
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.1560693641618497,
+        "Llama-4-Maverick": 0.4104046242774566,
+        "Qwen3-Next-80B": 0.12716763005780352
+      }
+    },
+    "college_physics": {
+      "n_items_min": 102,
+      "n_items_max": 102,
+      "n_items_avg": 102.0,
+      "eps_avg": 0.45751633986928103,
+      "delta_floor": 0.2002214418424546,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.47058823529411775,
+          "delta_floor": 0.2002214418424546,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.06862745098039214,
+          "delta_floor": 0.2002214418424546,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.5392156862745099,
+          "delta_floor": 0.2002214418424546,
+          "verifiable": true
+        }
+      },
+      "instability": 0.025,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.6764705882352942,
+        "Llama-4-Maverick": 0.20588235294117646,
+        "Qwen3-Next-80B": 0.7450980392156863
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.32352941176470584,
+        "Llama-4-Maverick": 0.7941176470588236,
+        "Qwen3-Next-80B": 0.2549019607843137
+      }
+    },
+    "computer_security": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.17,
+      "delta_floor": 0.14394326694446338,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.039999999999999925,
+          "delta_floor": 0.14394326694446338,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.07000000000000006,
+          "delta_floor": 0.14394326694446338,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.10999999999999999,
+          "delta_floor": 0.14394326694446338,
+          "verifiable": false
+        }
+      },
+      "instability": 0.045,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.82,
+        "Llama-4-Maverick": 0.78,
+        "Qwen3-Next-80B": 0.89
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.18000000000000005,
+        "Llama-4-Maverick": 0.21999999999999997,
+        "Qwen3-Next-80B": 0.10999999999999999
+      }
+    },
+    "conceptual_physics": {
+      "n_items_min": 235,
+      "n_items_max": 235,
+      "n_items_avg": 235.0,
+      "eps_avg": 0.19999999999999998,
+      "delta_floor": 0.15195618441940142,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.21702127659574466,
+          "delta_floor": 0.15195618441940142,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.038297872340425476,
+          "delta_floor": 0.15195618441940142,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.25531914893617014,
+          "delta_floor": 0.15195618441940142,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8595744680851064,
+        "Llama-4-Maverick": 0.6425531914893617,
+        "Qwen3-Next-80B": 0.8978723404255319
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.1404255319148936,
+        "Llama-4-Maverick": 0.35744680851063826,
+        "Qwen3-Next-80B": 0.10212765957446812
+      }
+    },
+    "econometrics": {
+      "n_items_min": 114,
+      "n_items_max": 114,
+      "n_items_avg": 114.0,
+      "eps_avg": 0.3538011695906433,
+      "delta_floor": 0.18377854247280556,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.3157894736842105,
+          "delta_floor": 0.18377854247280556,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.03508771929824561,
+          "delta_floor": 0.18377854247280556,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.2807017543859649,
+          "delta_floor": 0.18377854247280556,
+          "verifiable": true
+        }
+      },
+      "instability": 0.08,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7631578947368421,
+        "Llama-4-Maverick": 0.4473684210526316,
+        "Qwen3-Next-80B": 0.7280701754385965
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.23684210526315785,
+        "Llama-4-Maverick": 0.5526315789473684,
+        "Qwen3-Next-80B": 0.27192982456140347
+      }
+    },
+    "electrical_engineering": {
+      "n_items_min": 145,
+      "n_items_max": 145,
+      "n_items_avg": 145.0,
+      "eps_avg": 0.2390804597701149,
+      "delta_floor": 0.16127104826847427,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.1586206896551724,
+          "delta_floor": 0.16127104826847427,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.06206896551724139,
+          "delta_floor": 0.16127104826847427,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.2206896551724138,
+          "delta_floor": 0.16127104826847427,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7931034482758621,
+        "Llama-4-Maverick": 0.6344827586206897,
+        "Qwen3-Next-80B": 0.8551724137931035
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.2068965517241379,
+        "Llama-4-Maverick": 0.3655172413793103,
+        "Qwen3-Next-80B": 0.1448275862068965
+      }
+    },
+    "elementary_mathematics": {
+      "n_items_min": 378,
+      "n_items_max": 378,
+      "n_items_avg": 378.0,
+      "eps_avg": 0.21252204585537923,
+      "delta_floor": 0.15506354584627033,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.1164021164021164,
+          "delta_floor": 0.15506354584627033,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0978835978835979,
+          "delta_floor": 0.15506354584627033,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.2142857142857143,
+          "delta_floor": 0.15506354584627033,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7936507936507936,
+        "Llama-4-Maverick": 0.6772486772486772,
+        "Qwen3-Next-80B": 0.8915343915343915
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.2063492063492064,
+        "Llama-4-Maverick": 0.3227513227513228,
+        "Qwen3-Next-80B": 0.10846560846560849
+      }
+    },
+    "formal_logic": {
+      "n_items_min": 126,
+      "n_items_max": 126,
+      "n_items_avg": 126.0,
+      "eps_avg": 0.3888888888888889,
+      "delta_floor": 0.1896634122609231,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.23015873015873023,
+          "delta_floor": 0.1896634122609231,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.007936507936507908,
+          "delta_floor": 0.1896634122609231,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.22222222222222232,
+          "delta_floor": 0.1896634122609231,
+          "verifiable": true
+        }
+      },
+      "instability": 0.305,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.6904761904761905,
+        "Llama-4-Maverick": 0.4603174603174603,
+        "Qwen3-Next-80B": 0.6825396825396826
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.30952380952380953,
+        "Llama-4-Maverick": 0.5396825396825398,
+        "Qwen3-Next-80B": 0.31746031746031744
+      }
+    },
+    "global_facts": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.38333333333333336,
+      "delta_floor": 0.18875591793575386,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-4-Maverick": 2,
+        "Llama-3.1-405B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.020000000000000018,
+          "delta_floor": 0.18875591793575386,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.12,
+          "delta_floor": 0.18875591793575386,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.09999999999999998,
+          "delta_floor": 0.18875591793575386,
+          "verifiable": false
+        }
+      },
+      "instability": 0.325,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.57,
+        "Llama-4-Maverick": 0.59,
+        "Qwen3-Next-80B": 0.69
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.43000000000000005,
+        "Llama-4-Maverick": 0.41000000000000003,
+        "Qwen3-Next-80B": 0.31000000000000005
+      }
+    },
+    "high_school_biology": {
+      "n_items_min": 310,
+      "n_items_max": 310,
+      "n_items_avg": 310.0,
+      "eps_avg": 0.1010752688172043,
+      "delta_floor": 0.12103844895473037,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.15483870967741942,
+          "delta_floor": 0.12103844895473037,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.003225806451612967,
+          "delta_floor": 0.12103844895473037,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.15161290322580645,
+          "delta_floor": 0.12103844895473037,
+          "verifiable": true
+        }
+      },
+      "instability": 0.285,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9516129032258065,
+        "Llama-4-Maverick": 0.7967741935483871,
+        "Qwen3-Next-80B": 0.9483870967741935
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.048387096774193505,
+        "Llama-4-Maverick": 0.20322580645161292,
+        "Qwen3-Next-80B": 0.05161290322580647
+      }
+    },
+    "high_school_chemistry": {
+      "n_items_min": 203,
+      "n_items_max": 203,
+      "n_items_avg": 203.0,
+      "eps_avg": 0.33169129720853857,
+      "delta_floor": 0.179867655444817,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.40394088669950734,
+          "delta_floor": 0.179867655444817,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.029556650246305383,
+          "delta_floor": 0.179867655444817,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.4334975369458127,
+          "delta_floor": 0.179867655444817,
+          "verifiable": true
+        }
+      },
+      "instability": 0.08,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7931034482758621,
+        "Llama-4-Maverick": 0.3891625615763547,
+        "Qwen3-Next-80B": 0.8226600985221675
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.2068965517241379,
+        "Llama-4-Maverick": 0.6108374384236452,
+        "Qwen3-Next-80B": 0.17733990147783252
+      }
+    },
+    "high_school_computer_science": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.13666666666666663,
+      "delta_floor": 0.1338430779594156,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.18000000000000005,
+          "delta_floor": 0.1338430779594156,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.020000000000000018,
+          "delta_floor": 0.1338430779594156,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.16000000000000003,
+          "delta_floor": 0.1338430779594156,
+          "verifiable": true
+        }
+      },
+      "instability": 0.085,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.93,
+        "Llama-4-Maverick": 0.75,
+        "Qwen3-Next-80B": 0.91
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.06999999999999995,
+        "Llama-4-Maverick": 0.25,
+        "Qwen3-Next-80B": 0.08999999999999997
+      }
+    },
+    "high_school_european_history": {
+      "n_items_min": 165,
+      "n_items_max": 165,
+      "n_items_avg": 165.0,
+      "eps_avg": 0.13333333333333333,
+      "delta_floor": 0.13274595420465546,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.036363636363636376,
+          "delta_floor": 0.13274595420465546,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.13274595420465546,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.036363636363636376,
+          "delta_floor": 0.13274595420465546,
+          "verifiable": false
+        }
+      },
+      "instability": 0.445,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8787878787878788,
+        "Llama-4-Maverick": 0.8424242424242424,
+        "Qwen3-Next-80B": 0.8787878787878788
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.12121212121212122,
+        "Llama-4-Maverick": 0.1575757575757576,
+        "Qwen3-Next-80B": 0.12121212121212122
+      }
+    },
+    "high_school_geography": {
+      "n_items_min": 198,
+      "n_items_max": 198,
+      "n_items_avg": 198.0,
+      "eps_avg": 0.06397306397306397,
+      "delta_floor": 0.10392198462729067,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Llama-3.1-405B": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.015151515151515138,
+          "delta_floor": 0.10392198462729067,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.010101010101010166,
+          "delta_floor": 0.10392198462729067,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.025252525252525304,
+          "delta_floor": 0.10392198462729067,
+          "verifiable": false
+        }
+      },
+      "instability": 0.275,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9343434343434344,
+        "Llama-4-Maverick": 0.9494949494949495,
+        "Qwen3-Next-80B": 0.9242424242424242
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.06565656565656564,
+        "Llama-4-Maverick": 0.0505050505050505,
+        "Qwen3-Next-80B": 0.0757575757575758
+      }
+    },
+    "high_school_government_and_politics": {
+      "n_items_min": 193,
+      "n_items_max": 193,
+      "n_items_avg": 193.0,
+      "eps_avg": 0.029360967184801374,
+      "delta_floor": 0.08016137672202461,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Llama-4-Maverick": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.005181347150259086,
+          "delta_floor": 0.08016137672202461,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.005181347150259086,
+          "delta_floor": 0.08016137672202461,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.08016137672202461,
+          "verifiable": false
+        }
+      },
+      "instability": 0.53,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9740932642487047,
+        "Llama-4-Maverick": 0.9689119170984456,
+        "Qwen3-Next-80B": 0.9689119170984456
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.025906735751295318,
+        "Llama-4-Maverick": 0.031088082901554404,
+        "Qwen3-Next-80B": 0.031088082901554404
+      }
+    },
+    "high_school_macroeconomics": {
+      "n_items_min": 390,
+      "n_items_max": 390,
+      "n_items_avg": 390.0,
+      "eps_avg": 0.14615384615384616,
+      "delta_floor": 0.13687111262774154,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.09999999999999998,
+          "delta_floor": 0.13687111262774154,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.007692307692307776,
+          "delta_floor": 0.13687111262774154,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.10769230769230775,
+          "delta_floor": 0.13687111262774154,
+          "verifiable": false
+        }
+      },
+      "instability": 0.27,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8846153846153846,
+        "Llama-4-Maverick": 0.7846153846153846,
+        "Qwen3-Next-80B": 0.8923076923076924
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.11538461538461542,
+        "Llama-4-Maverick": 0.2153846153846154,
+        "Qwen3-Next-80B": 0.10769230769230764
+      }
+    },
+    "high_school_mathematics": {
+      "n_items_min": 270,
+      "n_items_max": 270,
+      "n_items_avg": 270.0,
+      "eps_avg": 0.5679012345679012,
+      "delta_floor": 0.21517871964201307,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.5037037037037037,
+          "delta_floor": 0.21517871964201307,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.07777777777777783,
+          "delta_floor": 0.21517871964201307,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.5814814814814815,
+          "delta_floor": 0.21517871964201307,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.5740740740740741,
+        "Llama-4-Maverick": 0.07037037037037037,
+        "Qwen3-Next-80B": 0.6518518518518519
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.42592592592592593,
+        "Llama-4-Maverick": 0.9296296296296296,
+        "Qwen3-Next-80B": 0.3481481481481481
+      }
+    },
+    "high_school_microeconomics": {
+      "n_items_min": 238,
+      "n_items_max": 238,
+      "n_items_avg": 238.0,
+      "eps_avg": 0.07002801120448177,
+      "delta_floor": 0.10710234479593103,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.06302521008403361,
+          "delta_floor": 0.10710234479593103,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.008403361344537896,
+          "delta_floor": 0.10710234479593103,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.054621848739495715,
+          "delta_floor": 0.10710234479593103,
+          "verifiable": false
+        }
+      },
+      "instability": 0.1,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9537815126050421,
+        "Llama-4-Maverick": 0.8907563025210085,
+        "Qwen3-Next-80B": 0.9453781512605042
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.04621848739495793,
+        "Llama-4-Maverick": 0.10924369747899154,
+        "Qwen3-Next-80B": 0.054621848739495826
+      }
+    },
+    "high_school_physics": {
+      "n_items_min": 151,
+      "n_items_max": 151,
+      "n_items_avg": 151.0,
+      "eps_avg": 0.4216335540838852,
+      "delta_floor": 0.19484388026817304,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.5364238410596026,
+          "delta_floor": 0.19484388026817304,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.08609271523178819,
+          "delta_floor": 0.19484388026817304,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.6225165562913908,
+          "delta_floor": 0.19484388026817304,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7284768211920529,
+        "Llama-4-Maverick": 0.19205298013245034,
+        "Qwen3-Next-80B": 0.8145695364238411
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.2715231788079471,
+        "Llama-4-Maverick": 0.8079470198675497,
+        "Qwen3-Next-80B": 0.1854304635761589
+      }
+    },
+    "high_school_psychology": {
+      "n_items_min": 545,
+      "n_items_max": 545,
+      "n_items_avg": 545.0,
+      "eps_avg": 0.0636085626911315,
+      "delta_floor": 0.10372423542043328,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.014678899082568808,
+          "delta_floor": 0.10372423542043328,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.022018348623853212,
+          "delta_floor": 0.10372423542043328,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.03669724770642202,
+          "delta_floor": 0.10372423542043328,
+          "verifiable": false
+        }
+      },
+      "instability": 0.02,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9339449541284404,
+        "Llama-4-Maverick": 0.9192660550458716,
+        "Qwen3-Next-80B": 0.9559633027522936
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.06605504587155964,
+        "Llama-4-Maverick": 0.08073394495412844,
+        "Qwen3-Next-80B": 0.044036697247706424
+      }
+    },
+    "high_school_statistics": {
+      "n_items_min": 216,
+      "n_items_max": 216,
+      "n_items_avg": 216.0,
+      "eps_avg": 0.30864197530864196,
+      "delta_floor": 0.17560088945749375,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.3657407407407407,
+          "delta_floor": 0.17560088945749375,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.02314814814814814,
+          "delta_floor": 0.17560088945749375,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.38888888888888884,
+          "delta_floor": 0.17560088945749375,
+          "verifiable": true
+        }
+      },
+      "instability": 0.12,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8055555555555556,
+        "Llama-4-Maverick": 0.4398148148148148,
+        "Qwen3-Next-80B": 0.8287037037037037
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.19444444444444442,
+        "Llama-4-Maverick": 0.5601851851851851,
+        "Qwen3-Next-80B": 0.17129629629629628
+      }
+    },
+    "high_school_us_history": {
+      "n_items_min": 204,
+      "n_items_max": 204,
+      "n_items_avg": 204.0,
+      "eps_avg": 0.07843137254901962,
+      "delta_floor": 0.11122565872945905,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.0,
+          "delta_floor": 0.11122565872945905,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.014705882352941235,
+          "delta_floor": 0.11122565872945905,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.014705882352941235,
+          "delta_floor": 0.11122565872945905,
+          "verifiable": false
+        }
+      },
+      "instability": 0.54,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9166666666666666,
+        "Llama-4-Maverick": 0.9166666666666666,
+        "Qwen3-Next-80B": 0.9313725490196079
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.08333333333333337,
+        "Llama-4-Maverick": 0.08333333333333337,
+        "Qwen3-Next-80B": 0.06862745098039214
+      }
+    },
+    "high_school_world_history": {
+      "n_items_min": 237,
+      "n_items_max": 237,
+      "n_items_avg": 237.0,
+      "eps_avg": 0.07172995780590714,
+      "delta_floor": 0.10796307357799038,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-4-Maverick": 2,
+        "Llama-3.1-405B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.00421940928270037,
+          "delta_floor": 0.10796307357799038,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.008438818565400852,
+          "delta_floor": 0.10796307357799038,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.0042194092827004814,
+          "delta_floor": 0.10796307357799038,
+          "verifiable": false
+        }
+      },
+      "instability": 0.8,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9240506329113924,
+        "Llama-4-Maverick": 0.9282700421940928,
+        "Qwen3-Next-80B": 0.9324894514767933
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.07594936708860756,
+        "Llama-4-Maverick": 0.07172995780590719,
+        "Qwen3-Next-80B": 0.0675105485232067
+      }
+    },
+    "human_aging": {
+      "n_items_min": 223,
+      "n_items_max": 223,
+      "n_items_avg": 223.0,
+      "eps_avg": 0.1733931240657698,
+      "delta_floor": 0.1448946461458284,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Llama-4-Maverick": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.022421524663677084,
+          "delta_floor": 0.1448946461458284,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.026905829596412523,
+          "delta_floor": 0.1448946461458284,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.004484304932735439,
+          "delta_floor": 0.1448946461458284,
+          "verifiable": false
+        }
+      },
+      "instability": 0.43,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8430493273542601,
+        "Llama-4-Maverick": 0.820627802690583,
+        "Qwen3-Next-80B": 0.8161434977578476
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.15695067264573992,
+        "Llama-4-Maverick": 0.179372197309417,
+        "Qwen3-Next-80B": 0.18385650224215244
+      }
+    },
+    "human_sexuality": {
+      "n_items_min": 131,
+      "n_items_max": 131,
+      "n_items_avg": 131.0,
+      "eps_avg": 0.12213740458015265,
+      "delta_floor": 0.12892128049604185,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.022900763358778664,
+          "delta_floor": 0.12892128049604185,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.12892128049604185,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.022900763358778664,
+          "delta_floor": 0.12892128049604185,
+          "verifiable": false
+        }
+      },
+      "instability": 0.505,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8854961832061069,
+        "Llama-4-Maverick": 0.8625954198473282,
+        "Qwen3-Next-80B": 0.8854961832061069
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.1145038167938931,
+        "Llama-4-Maverick": 0.13740458015267176,
+        "Qwen3-Next-80B": 0.1145038167938931
+      }
+    },
+    "international_law": {
+      "n_items_min": 121,
+      "n_items_max": 121,
+      "n_items_avg": 121.0,
+      "eps_avg": 0.09917355371900827,
+      "delta_floor": 0.12027453135124254,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.04132231404958686,
+          "delta_floor": 0.12027453135124254,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.008264462809917439,
+          "delta_floor": 0.12027453135124254,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.03305785123966942,
+          "delta_floor": 0.12027453135124254,
+          "verifiable": false
+        }
+      },
+      "instability": 0.375,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9173553719008265,
+        "Llama-4-Maverick": 0.8760330578512396,
+        "Qwen3-Next-80B": 0.9090909090909091
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.0826446280991735,
+        "Llama-4-Maverick": 0.12396694214876036,
+        "Qwen3-Next-80B": 0.09090909090909094
+      }
+    },
+    "jurisprudence": {
+      "n_items_min": 108,
+      "n_items_max": 108,
+      "n_items_avg": 108.0,
+      "eps_avg": 0.10802469135802473,
+      "delta_floor": 0.1237511925623263,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.04629629629629628,
+          "delta_floor": 0.1237511925623263,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.02777777777777779,
+          "delta_floor": 0.1237511925623263,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.01851851851851849,
+          "delta_floor": 0.1237511925623263,
+          "verifiable": false
+        }
+      },
+      "instability": 0.32,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9166666666666666,
+        "Llama-4-Maverick": 0.8703703703703703,
+        "Qwen3-Next-80B": 0.8888888888888888
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.08333333333333337,
+        "Llama-4-Maverick": 0.12962962962962965,
+        "Qwen3-Next-80B": 0.11111111111111116
+      }
+    },
+    "logical_fallacies": {
+      "n_items_min": 163,
+      "n_items_max": 163,
+      "n_items_avg": 163.0,
+      "eps_avg": 0.10633946830265846,
+      "delta_floor": 0.12310429620945727,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.012269938650306789,
+          "delta_floor": 0.12310429620945727,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.006134969325153339,
+          "delta_floor": 0.12310429620945727,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.018404907975460127,
+          "delta_floor": 0.12310429620945727,
+          "verifiable": false
+        }
+      },
+      "instability": 0.62,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8957055214723927,
+        "Llama-4-Maverick": 0.8834355828220859,
+        "Qwen3-Next-80B": 0.901840490797546
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.10429447852760731,
+        "Llama-4-Maverick": 0.1165644171779141,
+        "Qwen3-Next-80B": 0.09815950920245398
+      }
+    },
+    "machine_learning": {
+      "n_items_min": 112,
+      "n_items_max": 112,
+      "n_items_avg": 112.0,
+      "eps_avg": 0.3422619047619048,
+      "delta_floor": 0.18175843268503966,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.4464285714285714,
+          "delta_floor": 0.18175843268503966,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.017857142857142905,
+          "delta_floor": 0.18175843268503966,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.4285714285714285,
+          "delta_floor": 0.18175843268503966,
+          "verifiable": true
+        }
+      },
+      "instability": 0.145,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8125,
+        "Llama-4-Maverick": 0.36607142857142855,
+        "Qwen3-Next-80B": 0.7946428571428571
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.1875,
+        "Llama-4-Maverick": 0.6339285714285714,
+        "Qwen3-Next-80B": 0.2053571428571429
+      }
+    },
+    "management": {
+      "n_items_min": 103,
+      "n_items_max": 103,
+      "n_items_avg": 103.0,
+      "eps_avg": 0.12297734627831718,
+      "delta_floor": 0.1292161371356949,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-3.1-405B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.029126213592233108,
+          "delta_floor": 0.1292161371356949,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.009708737864077666,
+          "delta_floor": 0.1292161371356949,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.019417475728155442,
+          "delta_floor": 0.1292161371356949,
+          "verifiable": false
+        }
+      },
+      "instability": 0.56,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8640776699029126,
+        "Llama-4-Maverick": 0.8932038834951457,
+        "Qwen3-Next-80B": 0.8737864077669902
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.13592233009708743,
+        "Llama-4-Maverick": 0.10679611650485432,
+        "Qwen3-Next-80B": 0.12621359223300976
+      }
+    },
+    "marketing": {
+      "n_items_min": 234,
+      "n_items_max": 234,
+      "n_items_avg": 234.0,
+      "eps_avg": 0.06125356125356126,
+      "delta_floor": 0.10242803218271365,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-3.1-405B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.012820512820512775,
+          "delta_floor": 0.10242803218271365,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.008547008547008517,
+          "delta_floor": 0.10242803218271365,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.004273504273504258,
+          "delta_floor": 0.10242803218271365,
+          "verifiable": false
+        }
+      },
+      "instability": 0.49,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9316239316239316,
+        "Llama-4-Maverick": 0.9444444444444444,
+        "Qwen3-Next-80B": 0.9401709401709402
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.06837606837606836,
+        "Llama-4-Maverick": 0.05555555555555558,
+        "Qwen3-Next-80B": 0.05982905982905984
+      }
+    },
+    "medical_genetics": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.0766666666666667,
+      "delta_floor": 0.11038513044735929,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.10999999999999999,
+          "delta_floor": 0.11038513044735929,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.11038513044735929,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.10999999999999999,
+          "delta_floor": 0.11038513044735929,
+          "verifiable": false
+        }
+      },
+      "instability": 0.31,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.96,
+        "Llama-4-Maverick": 0.85,
+        "Qwen3-Next-80B": 0.96
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.040000000000000036,
+        "Llama-4-Maverick": 0.15000000000000002,
+        "Qwen3-Next-80B": 0.040000000000000036
+      }
+    },
+    "miscellaneous": {
+      "n_items_min": 783,
+      "n_items_max": 783,
+      "n_items_avg": 783.0,
+      "eps_avg": 0.0715197956577267,
+      "delta_floor": 0.10785752982320276,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.0012771392081737387,
+          "delta_floor": 0.10785752982320276,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.016602809706257937,
+          "delta_floor": 0.10785752982320276,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.017879948914431676,
+          "delta_floor": 0.10785752982320276,
+          "verifiable": false
+        }
+      },
+      "instability": 0.44,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9233716475095786,
+        "Llama-4-Maverick": 0.9220945083014048,
+        "Qwen3-Next-80B": 0.9399744572158365
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.07662835249042144,
+        "Llama-4-Maverick": 0.07790549169859518,
+        "Qwen3-Next-80B": 0.0600255427841635
+      }
+    },
+    "moral_disputes": {
+      "n_items_min": 346,
+      "n_items_max": 346,
+      "n_items_avg": 346.0,
+      "eps_avg": 0.1464354527938343,
+      "delta_floor": 0.13695896317344555,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Llama-3.1-405B": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.0028901734104046506,
+          "delta_floor": 0.13695896317344555,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.13695896317344555,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.0028901734104046506,
+          "delta_floor": 0.13695896317344555,
+          "verifiable": false
+        }
+      },
+      "instability": 0.8,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8526011560693642,
+        "Llama-4-Maverick": 0.8554913294797688,
+        "Qwen3-Next-80B": 0.8526011560693642
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.14739884393063585,
+        "Llama-4-Maverick": 0.1445086705202312,
+        "Qwen3-Next-80B": 0.14739884393063585
+      }
+    },
+    "moral_scenarios": {
+      "n_items_min": 895,
+      "n_items_max": 895,
+      "n_items_avg": 895.0,
+      "eps_avg": 0.32625698324022345,
+      "delta_floor": 0.17887994533458354,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.4022346368715084,
+          "delta_floor": 0.17887994533458354,
+          "verifiable": true
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.2011173184357542,
+          "delta_floor": 0.17887994533458354,
+          "verifiable": true
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.2011173184357542,
+          "delta_floor": 0.17887994533458354,
+          "verifiable": true
+        }
+      },
+      "instability": 0.0,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8748603351955307,
+        "Llama-4-Maverick": 0.47262569832402235,
+        "Qwen3-Next-80B": 0.6737430167597765
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.12513966480446925,
+        "Llama-4-Maverick": 0.5273743016759777,
+        "Qwen3-Next-80B": 0.32625698324022345
+      }
+    },
+    "nutrition": {
+      "n_items_min": 306,
+      "n_items_max": 306,
+      "n_items_avg": 306.0,
+      "eps_avg": 0.11328976034858389,
+      "delta_floor": 0.12572990888004335,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.04575163398692805,
+          "delta_floor": 0.12572990888004335,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.039215686274509776,
+          "delta_floor": 0.12572990888004335,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.006535947712418277,
+          "delta_floor": 0.12572990888004335,
+          "verifiable": false
+        }
+      },
+      "instability": 0.43,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9150326797385621,
+        "Llama-4-Maverick": 0.869281045751634,
+        "Qwen3-Next-80B": 0.8758169934640523
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.08496732026143794,
+        "Llama-4-Maverick": 0.130718954248366,
+        "Qwen3-Next-80B": 0.12418300653594772
+      }
+    },
+    "philosophy": {
+      "n_items_min": 311,
+      "n_items_max": 311,
+      "n_items_avg": 311.0,
+      "eps_avg": 0.14469453376205788,
+      "delta_floor": 0.13641404585272981,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.016077170418006492,
+          "delta_floor": 0.13641404585272981,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.012861736334405127,
+          "delta_floor": 0.13641404585272981,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.003215434083601365,
+          "delta_floor": 0.13641404585272981,
+          "verifiable": false
+        }
+      },
+      "instability": 0.53,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.864951768488746,
+        "Llama-4-Maverick": 0.8488745980707395,
+        "Qwen3-Next-80B": 0.8520900321543409
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.135048231511254,
+        "Llama-4-Maverick": 0.1511254019292605,
+        "Qwen3-Next-80B": 0.14790996784565913
+      }
+    },
+    "prehistory": {
+      "n_items_min": 324,
+      "n_items_max": 324,
+      "n_items_avg": 324.0,
+      "eps_avg": 0.08847736625514406,
+      "delta_floor": 0.11578503827448063,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.012345679012345623,
+          "delta_floor": 0.11578503827448063,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.006172839506172867,
+          "delta_floor": 0.11578503827448063,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.01851851851851849,
+          "delta_floor": 0.11578503827448063,
+          "verifiable": false
+        }
+      },
+      "instability": 0.46,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9135802469135802,
+        "Llama-4-Maverick": 0.9012345679012346,
+        "Qwen3-Next-80B": 0.9197530864197531
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.0864197530864198,
+        "Llama-4-Maverick": 0.09876543209876543,
+        "Qwen3-Next-80B": 0.08024691358024694
+      }
+    },
+    "professional_accounting": {
+      "n_items_min": 282,
+      "n_items_max": 282,
+      "n_items_avg": 282.0,
+      "eps_avg": 0.27068557919621755,
+      "delta_floor": 0.16808543710894416,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.046099290780141855,
+          "delta_floor": 0.16808543710894416,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.16808543710894416,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.046099290780141855,
+          "delta_floor": 0.16808543710894416,
+          "verifiable": false
+        }
+      },
+      "instability": 0.485,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7446808510638298,
+        "Llama-4-Maverick": 0.6985815602836879,
+        "Qwen3-Next-80B": 0.7446808510638298
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.25531914893617025,
+        "Llama-4-Maverick": 0.3014184397163121,
+        "Qwen3-Next-80B": 0.25531914893617025
+      }
+    },
+    "professional_law": {
+      "n_items_min": 1534,
+      "n_items_max": 1534,
+      "n_items_avg": 1534.0,
+      "eps_avg": 0.3070404172099087,
+      "delta_floor": 0.17529662874576404,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Llama-4-Maverick": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.03389830508474578,
+          "delta_floor": 0.17529662874576404,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.04041720990873532,
+          "delta_floor": 0.17529662874576404,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.006518904823989535,
+          "delta_floor": 0.17529662874576404,
+          "verifiable": false
+        }
+      },
+      "instability": 0.15,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7177314211212517,
+        "Llama-4-Maverick": 0.6838331160365059,
+        "Qwen3-Next-80B": 0.6773142112125163
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.28226857887874834,
+        "Llama-4-Maverick": 0.3161668839634941,
+        "Qwen3-Next-80B": 0.32268578878748366
+      }
+    },
+    "professional_medicine": {
+      "n_items_min": 272,
+      "n_items_max": 272,
+      "n_items_avg": 272.0,
+      "eps_avg": 0.09436274509803921,
+      "delta_floor": 0.11829741016722466,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.044117647058823484,
+          "delta_floor": 0.11829741016722466,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.003676470588235392,
+          "delta_floor": 0.11829741016722466,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.047794117647058876,
+          "delta_floor": 0.11829741016722466,
+          "verifiable": false
+        }
+      },
+      "instability": 0.475,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9191176470588235,
+        "Llama-4-Maverick": 0.875,
+        "Qwen3-Next-80B": 0.9227941176470589
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.08088235294117652,
+        "Llama-4-Maverick": 0.125,
+        "Qwen3-Next-80B": 0.07720588235294112
+      }
+    },
+    "professional_psychology": {
+      "n_items_min": 612,
+      "n_items_max": 612,
+      "n_items_avg": 612.0,
+      "eps_avg": 0.13453159041394333,
+      "delta_floor": 0.13314242832007658,
+      "ranking": {
+        "Qwen3-Next-80B": 1,
+        "Llama-3.1-405B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.0032679738562091387,
+          "delta_floor": 0.13314242832007658,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.0016339869281045694,
+          "delta_floor": 0.13314242832007658,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.004901960784313708,
+          "delta_floor": 0.13314242832007658,
+          "verifiable": false
+        }
+      },
+      "instability": 0.73,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.8660130718954249,
+        "Llama-4-Maverick": 0.8627450980392157,
+        "Qwen3-Next-80B": 0.8676470588235294
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.13398692810457513,
+        "Llama-4-Maverick": 0.13725490196078427,
+        "Qwen3-Next-80B": 0.13235294117647056
+      }
+    },
+    "public_relations": {
+      "n_items_min": 110,
+      "n_items_max": 110,
+      "n_items_avg": 110.0,
+      "eps_avg": 0.2333333333333333,
+      "delta_floor": 0.15996831731345484,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-3.1-405B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.045454545454545414,
+          "delta_floor": 0.15996831731345484,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.018181818181818188,
+          "delta_floor": 0.15996831731345484,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.027272727272727226,
+          "delta_floor": 0.15996831731345484,
+          "verifiable": false
+        }
+      },
+      "instability": 0.47,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7454545454545455,
+        "Llama-4-Maverick": 0.7909090909090909,
+        "Qwen3-Next-80B": 0.7636363636363637
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.2545454545454545,
+        "Llama-4-Maverick": 0.2090909090909091,
+        "Qwen3-Next-80B": 0.23636363636363633
+      }
+    },
+    "security_studies": {
+      "n_items_min": 245,
+      "n_items_max": 245,
+      "n_items_avg": 245.0,
+      "eps_avg": 0.19455782312925174,
+      "delta_floor": 0.15056520307451599,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-3.1-405B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.020408163265306145,
+          "delta_floor": 0.15056520307451599,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.020408163265306145,
+          "delta_floor": 0.15056520307451599,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.0,
+          "delta_floor": 0.15056520307451599,
+          "verifiable": false
+        }
+      },
+      "instability": 0.545,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.7918367346938775,
+        "Llama-4-Maverick": 0.8122448979591836,
+        "Qwen3-Next-80B": 0.8122448979591836
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.2081632653061225,
+        "Llama-4-Maverick": 0.18775510204081636,
+        "Qwen3-Next-80B": 0.18775510204081636
+      }
+    },
+    "sociology": {
+      "n_items_min": 201,
+      "n_items_max": 201,
+      "n_items_avg": 201.0,
+      "eps_avg": 0.06965174129353235,
+      "delta_floor": 0.10691017510417719,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Llama-3.1-405B": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.00497512437810943,
+          "delta_floor": 0.10691017510417719,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.00497512437810943,
+          "delta_floor": 0.10691017510417719,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.00995024875621886,
+          "delta_floor": 0.10691017510417719,
+          "verifiable": false
+        }
+      },
+      "instability": 0.62,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9303482587064676,
+        "Llama-4-Maverick": 0.9353233830845771,
+        "Qwen3-Next-80B": 0.9253731343283582
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.06965174129353235,
+        "Llama-4-Maverick": 0.06467661691542292,
+        "Qwen3-Next-80B": 0.07462686567164178
+      }
+    },
+    "us_foreign_policy": {
+      "n_items_min": 100,
+      "n_items_max": 100,
+      "n_items_avg": 100.0,
+      "eps_avg": 0.06666666666666665,
+      "delta_floor": 0.10536053367449624,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Llama-4-Maverick": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.019999999999999907,
+          "delta_floor": 0.10536053367449624,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.029999999999999916,
+          "delta_floor": 0.10536053367449624,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.010000000000000009,
+          "delta_floor": 0.10536053367449624,
+          "verifiable": false
+        }
+      },
+      "instability": 0.275,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.95,
+        "Llama-4-Maverick": 0.93,
+        "Qwen3-Next-80B": 0.92
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.050000000000000044,
+        "Llama-4-Maverick": 0.06999999999999995,
+        "Qwen3-Next-80B": 0.07999999999999996
+      }
+    },
+    "virology": {
+      "n_items_min": 166,
+      "n_items_max": 166,
+      "n_items_avg": 166.0,
+      "eps_avg": 0.4497991967871486,
+      "delta_floor": 0.1990893093292615,
+      "ranking": {
+        "Llama-3.1-405B": 1,
+        "Qwen3-Next-80B": 2,
+        "Llama-4-Maverick": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.09036144578313254,
+          "delta_floor": 0.1990893093292615,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.030120481927710885,
+          "delta_floor": 0.1990893093292615,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.06024096385542166,
+          "delta_floor": 0.1990893093292615,
+          "verifiable": false
+        }
+      },
+      "instability": 0.095,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.5903614457831325,
+        "Llama-4-Maverick": 0.5,
+        "Qwen3-Next-80B": 0.5602409638554217
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.40963855421686746,
+        "Llama-4-Maverick": 0.5,
+        "Qwen3-Next-80B": 0.43975903614457834
+      }
+    },
+    "world_religions": {
+      "n_items_min": 171,
+      "n_items_max": 171,
+      "n_items_avg": 171.0,
+      "eps_avg": 0.09356725146198834,
+      "delta_floor": 0.11796404936136716,
+      "ranking": {
+        "Llama-4-Maverick": 1,
+        "Llama-3.1-405B": 2,
+        "Qwen3-Next-80B": 3
+      },
+      "pairwise": {
+        "Llama-3.1-405B vs Llama-4-Maverick": {
+          "gap": 0.03508771929824561,
+          "delta_floor": 0.11796404936136716,
+          "verifiable": false
+        },
+        "Llama-3.1-405B vs Qwen3-Next-80B": {
+          "gap": 0.01754385964912275,
+          "delta_floor": 0.11796404936136716,
+          "verifiable": false
+        },
+        "Llama-4-Maverick vs Qwen3-Next-80B": {
+          "gap": 0.05263157894736836,
+          "delta_floor": 0.11796404936136716,
+          "verifiable": false
+        }
+      },
+      "instability": 0.15,
+      "model_accuracy": {
+        "Llama-3.1-405B": 0.9005847953216374,
+        "Llama-4-Maverick": 0.935672514619883,
+        "Qwen3-Next-80B": 0.8830409356725146
+      },
+      "model_error_rate": {
+        "Llama-3.1-405B": 0.09941520467836262,
+        "Llama-4-Maverick": 0.06432748538011701,
+        "Qwen3-Next-80B": 0.11695906432748537
+      }
+    }
+  },
+  "all_pairwise_gaps": [
+    {
+      "subject": "abstract_algebra",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.64,
+      "delta_floor": 0.21159543863984934,
+      "verifiable": true
+    },
+    {
+      "subject": "abstract_algebra",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.09999999999999998,
+      "delta_floor": 0.21159543863984934,
+      "verifiable": false
+    },
+    {
+      "subject": "abstract_algebra",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.74,
+      "delta_floor": 0.21159543863984934,
+      "verifiable": true
+    },
+    {
+      "subject": "anatomy",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.03703703703703698,
+      "delta_floor": 0.1467791360458223,
+      "verifiable": false
+    },
+    {
+      "subject": "anatomy",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.03703703703703698,
+      "delta_floor": 0.1467791360458223,
+      "verifiable": false
+    },
+    {
+      "subject": "anatomy",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.1467791360458223,
+      "verifiable": false
+    },
+    {
+      "subject": "astronomy",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.09868421052631582,
+      "delta_floor": 0.12436841570330626,
+      "verifiable": false
+    },
+    {
+      "subject": "astronomy",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.006578947368421129,
+      "delta_floor": 0.12436841570330626,
+      "verifiable": false
+    },
+    {
+      "subject": "astronomy",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.10526315789473695,
+      "delta_floor": 0.12436841570330626,
+      "verifiable": false
+    },
+    {
+      "subject": "business_ethics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.1200000000000001,
+      "delta_floor": 0.1576496088116334,
+      "verifiable": false
+    },
+    {
+      "subject": "business_ethics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.019999999999999907,
+      "delta_floor": 0.1576496088116334,
+      "verifiable": false
+    },
+    {
+      "subject": "business_ethics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.14,
+      "delta_floor": 0.1576496088116334,
+      "verifiable": false
+    },
+    {
+      "subject": "clinical_knowledge",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.060377358490566024,
+      "delta_floor": 0.1288773458019314,
+      "verifiable": false
+    },
+    {
+      "subject": "clinical_knowledge",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.1288773458019314,
+      "verifiable": false
+    },
+    {
+      "subject": "clinical_knowledge",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.060377358490566024,
+      "delta_floor": 0.1288773458019314,
+      "verifiable": false
+    },
+    {
+      "subject": "college_biology",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.1875,
+      "delta_floor": 0.11755302146658299,
+      "verifiable": true
+    },
+    {
+      "subject": "college_biology",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.00694444444444442,
+      "delta_floor": 0.11755302146658299,
+      "verifiable": false
+    },
+    {
+      "subject": "college_biology",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.18055555555555558,
+      "delta_floor": 0.11755302146658299,
+      "verifiable": true
+    },
+    {
+      "subject": "college_chemistry",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.38,
+      "delta_floor": 0.20983937893095014,
+      "verifiable": true
+    },
+    {
+      "subject": "college_chemistry",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.09000000000000008,
+      "delta_floor": 0.20983937893095014,
+      "verifiable": false
+    },
+    {
+      "subject": "college_chemistry",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.4700000000000001,
+      "delta_floor": 0.20983937893095014,
+      "verifiable": true
+    },
+    {
+      "subject": "college_computer_science",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.41999999999999993,
+      "delta_floor": 0.18597969233341172,
+      "verifiable": true
+    },
+    {
+      "subject": "college_computer_science",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.09999999999999998,
+      "delta_floor": 0.18597969233341172,
+      "verifiable": false
+    },
+    {
+      "subject": "college_computer_science",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.5199999999999999,
+      "delta_floor": 0.18597969233341172,
+      "verifiable": true
+    },
+    {
+      "subject": "college_mathematics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.53,
+      "delta_floor": 0.2175231677321069,
+      "verifiable": true
+    },
+    {
+      "subject": "college_mathematics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.1499999999999999,
+      "delta_floor": 0.2175231677321069,
+      "verifiable": false
+    },
+    {
+      "subject": "college_mathematics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.6799999999999999,
+      "delta_floor": 0.2175231677321069,
+      "verifiable": true
+    },
+    {
+      "subject": "college_medicine",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.2543352601156069,
+      "delta_floor": 0.15948249116024005,
+      "verifiable": true
+    },
+    {
+      "subject": "college_medicine",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.028901734104046173,
+      "delta_floor": 0.15948249116024005,
+      "verifiable": false
+    },
+    {
+      "subject": "college_medicine",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.2832369942196531,
+      "delta_floor": 0.15948249116024005,
+      "verifiable": true
+    },
+    {
+      "subject": "college_physics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.47058823529411775,
+      "delta_floor": 0.2002214418424546,
+      "verifiable": true
+    },
+    {
+      "subject": "college_physics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.06862745098039214,
+      "delta_floor": 0.2002214418424546,
+      "verifiable": false
+    },
+    {
+      "subject": "college_physics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.5392156862745099,
+      "delta_floor": 0.2002214418424546,
+      "verifiable": true
+    },
+    {
+      "subject": "computer_security",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.039999999999999925,
+      "delta_floor": 0.14394326694446338,
+      "verifiable": false
+    },
+    {
+      "subject": "computer_security",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.07000000000000006,
+      "delta_floor": 0.14394326694446338,
+      "verifiable": false
+    },
+    {
+      "subject": "computer_security",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.10999999999999999,
+      "delta_floor": 0.14394326694446338,
+      "verifiable": false
+    },
+    {
+      "subject": "conceptual_physics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.21702127659574466,
+      "delta_floor": 0.15195618441940142,
+      "verifiable": true
+    },
+    {
+      "subject": "conceptual_physics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.038297872340425476,
+      "delta_floor": 0.15195618441940142,
+      "verifiable": false
+    },
+    {
+      "subject": "conceptual_physics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.25531914893617014,
+      "delta_floor": 0.15195618441940142,
+      "verifiable": true
+    },
+    {
+      "subject": "econometrics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.3157894736842105,
+      "delta_floor": 0.18377854247280556,
+      "verifiable": true
+    },
+    {
+      "subject": "econometrics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.03508771929824561,
+      "delta_floor": 0.18377854247280556,
+      "verifiable": false
+    },
+    {
+      "subject": "econometrics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.2807017543859649,
+      "delta_floor": 0.18377854247280556,
+      "verifiable": true
+    },
+    {
+      "subject": "electrical_engineering",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.1586206896551724,
+      "delta_floor": 0.16127104826847427,
+      "verifiable": false
+    },
+    {
+      "subject": "electrical_engineering",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.06206896551724139,
+      "delta_floor": 0.16127104826847427,
+      "verifiable": false
+    },
+    {
+      "subject": "electrical_engineering",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.2206896551724138,
+      "delta_floor": 0.16127104826847427,
+      "verifiable": true
+    },
+    {
+      "subject": "elementary_mathematics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.1164021164021164,
+      "delta_floor": 0.15506354584627033,
+      "verifiable": false
+    },
+    {
+      "subject": "elementary_mathematics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0978835978835979,
+      "delta_floor": 0.15506354584627033,
+      "verifiable": false
+    },
+    {
+      "subject": "elementary_mathematics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.2142857142857143,
+      "delta_floor": 0.15506354584627033,
+      "verifiable": true
+    },
+    {
+      "subject": "formal_logic",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.23015873015873023,
+      "delta_floor": 0.1896634122609231,
+      "verifiable": true
+    },
+    {
+      "subject": "formal_logic",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.007936507936507908,
+      "delta_floor": 0.1896634122609231,
+      "verifiable": false
+    },
+    {
+      "subject": "formal_logic",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.22222222222222232,
+      "delta_floor": 0.1896634122609231,
+      "verifiable": true
+    },
+    {
+      "subject": "global_facts",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.020000000000000018,
+      "delta_floor": 0.18875591793575386,
+      "verifiable": false
+    },
+    {
+      "subject": "global_facts",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.12,
+      "delta_floor": 0.18875591793575386,
+      "verifiable": false
+    },
+    {
+      "subject": "global_facts",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.09999999999999998,
+      "delta_floor": 0.18875591793575386,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_biology",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.15483870967741942,
+      "delta_floor": 0.12103844895473037,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_biology",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.003225806451612967,
+      "delta_floor": 0.12103844895473037,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_biology",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.15161290322580645,
+      "delta_floor": 0.12103844895473037,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_chemistry",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.40394088669950734,
+      "delta_floor": 0.179867655444817,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_chemistry",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.029556650246305383,
+      "delta_floor": 0.179867655444817,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_chemistry",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.4334975369458127,
+      "delta_floor": 0.179867655444817,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_computer_science",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.18000000000000005,
+      "delta_floor": 0.1338430779594156,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_computer_science",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.020000000000000018,
+      "delta_floor": 0.1338430779594156,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_computer_science",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.16000000000000003,
+      "delta_floor": 0.1338430779594156,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_european_history",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.036363636363636376,
+      "delta_floor": 0.13274595420465546,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_european_history",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.13274595420465546,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_european_history",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.036363636363636376,
+      "delta_floor": 0.13274595420465546,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_geography",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.015151515151515138,
+      "delta_floor": 0.10392198462729067,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_geography",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.010101010101010166,
+      "delta_floor": 0.10392198462729067,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_geography",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.025252525252525304,
+      "delta_floor": 0.10392198462729067,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_government_and_politics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.005181347150259086,
+      "delta_floor": 0.08016137672202461,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_government_and_politics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.005181347150259086,
+      "delta_floor": 0.08016137672202461,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_government_and_politics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.08016137672202461,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_macroeconomics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.09999999999999998,
+      "delta_floor": 0.13687111262774154,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_macroeconomics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.007692307692307776,
+      "delta_floor": 0.13687111262774154,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_macroeconomics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.10769230769230775,
+      "delta_floor": 0.13687111262774154,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_mathematics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.5037037037037037,
+      "delta_floor": 0.21517871964201307,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_mathematics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.07777777777777783,
+      "delta_floor": 0.21517871964201307,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_mathematics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.5814814814814815,
+      "delta_floor": 0.21517871964201307,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_microeconomics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.06302521008403361,
+      "delta_floor": 0.10710234479593103,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_microeconomics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.008403361344537896,
+      "delta_floor": 0.10710234479593103,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_microeconomics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.054621848739495715,
+      "delta_floor": 0.10710234479593103,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_physics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.5364238410596026,
+      "delta_floor": 0.19484388026817304,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_physics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.08609271523178819,
+      "delta_floor": 0.19484388026817304,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_physics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.6225165562913908,
+      "delta_floor": 0.19484388026817304,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_psychology",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.014678899082568808,
+      "delta_floor": 0.10372423542043328,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_psychology",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.022018348623853212,
+      "delta_floor": 0.10372423542043328,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_psychology",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.03669724770642202,
+      "delta_floor": 0.10372423542043328,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_statistics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.3657407407407407,
+      "delta_floor": 0.17560088945749375,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_statistics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.02314814814814814,
+      "delta_floor": 0.17560088945749375,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_statistics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.38888888888888884,
+      "delta_floor": 0.17560088945749375,
+      "verifiable": true
+    },
+    {
+      "subject": "high_school_us_history",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.0,
+      "delta_floor": 0.11122565872945905,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_us_history",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.014705882352941235,
+      "delta_floor": 0.11122565872945905,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_us_history",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.014705882352941235,
+      "delta_floor": 0.11122565872945905,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_world_history",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.00421940928270037,
+      "delta_floor": 0.10796307357799038,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_world_history",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.008438818565400852,
+      "delta_floor": 0.10796307357799038,
+      "verifiable": false
+    },
+    {
+      "subject": "high_school_world_history",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.0042194092827004814,
+      "delta_floor": 0.10796307357799038,
+      "verifiable": false
+    },
+    {
+      "subject": "human_aging",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.022421524663677084,
+      "delta_floor": 0.1448946461458284,
+      "verifiable": false
+    },
+    {
+      "subject": "human_aging",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.026905829596412523,
+      "delta_floor": 0.1448946461458284,
+      "verifiable": false
+    },
+    {
+      "subject": "human_aging",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.004484304932735439,
+      "delta_floor": 0.1448946461458284,
+      "verifiable": false
+    },
+    {
+      "subject": "human_sexuality",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.022900763358778664,
+      "delta_floor": 0.12892128049604185,
+      "verifiable": false
+    },
+    {
+      "subject": "human_sexuality",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.12892128049604185,
+      "verifiable": false
+    },
+    {
+      "subject": "human_sexuality",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.022900763358778664,
+      "delta_floor": 0.12892128049604185,
+      "verifiable": false
+    },
+    {
+      "subject": "international_law",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.04132231404958686,
+      "delta_floor": 0.12027453135124254,
+      "verifiable": false
+    },
+    {
+      "subject": "international_law",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.008264462809917439,
+      "delta_floor": 0.12027453135124254,
+      "verifiable": false
+    },
+    {
+      "subject": "international_law",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.03305785123966942,
+      "delta_floor": 0.12027453135124254,
+      "verifiable": false
+    },
+    {
+      "subject": "jurisprudence",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.04629629629629628,
+      "delta_floor": 0.1237511925623263,
+      "verifiable": false
+    },
+    {
+      "subject": "jurisprudence",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.02777777777777779,
+      "delta_floor": 0.1237511925623263,
+      "verifiable": false
+    },
+    {
+      "subject": "jurisprudence",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.01851851851851849,
+      "delta_floor": 0.1237511925623263,
+      "verifiable": false
+    },
+    {
+      "subject": "logical_fallacies",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.012269938650306789,
+      "delta_floor": 0.12310429620945727,
+      "verifiable": false
+    },
+    {
+      "subject": "logical_fallacies",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.006134969325153339,
+      "delta_floor": 0.12310429620945727,
+      "verifiable": false
+    },
+    {
+      "subject": "logical_fallacies",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.018404907975460127,
+      "delta_floor": 0.12310429620945727,
+      "verifiable": false
+    },
+    {
+      "subject": "machine_learning",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.4464285714285714,
+      "delta_floor": 0.18175843268503966,
+      "verifiable": true
+    },
+    {
+      "subject": "machine_learning",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.017857142857142905,
+      "delta_floor": 0.18175843268503966,
+      "verifiable": false
+    },
+    {
+      "subject": "machine_learning",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.4285714285714285,
+      "delta_floor": 0.18175843268503966,
+      "verifiable": true
+    },
+    {
+      "subject": "management",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.029126213592233108,
+      "delta_floor": 0.1292161371356949,
+      "verifiable": false
+    },
+    {
+      "subject": "management",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.009708737864077666,
+      "delta_floor": 0.1292161371356949,
+      "verifiable": false
+    },
+    {
+      "subject": "management",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.019417475728155442,
+      "delta_floor": 0.1292161371356949,
+      "verifiable": false
+    },
+    {
+      "subject": "marketing",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.012820512820512775,
+      "delta_floor": 0.10242803218271365,
+      "verifiable": false
+    },
+    {
+      "subject": "marketing",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.008547008547008517,
+      "delta_floor": 0.10242803218271365,
+      "verifiable": false
+    },
+    {
+      "subject": "marketing",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.004273504273504258,
+      "delta_floor": 0.10242803218271365,
+      "verifiable": false
+    },
+    {
+      "subject": "medical_genetics",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.10999999999999999,
+      "delta_floor": 0.11038513044735929,
+      "verifiable": false
+    },
+    {
+      "subject": "medical_genetics",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.11038513044735929,
+      "verifiable": false
+    },
+    {
+      "subject": "medical_genetics",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.10999999999999999,
+      "delta_floor": 0.11038513044735929,
+      "verifiable": false
+    },
+    {
+      "subject": "miscellaneous",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.0012771392081737387,
+      "delta_floor": 0.10785752982320276,
+      "verifiable": false
+    },
+    {
+      "subject": "miscellaneous",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.016602809706257937,
+      "delta_floor": 0.10785752982320276,
+      "verifiable": false
+    },
+    {
+      "subject": "miscellaneous",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.017879948914431676,
+      "delta_floor": 0.10785752982320276,
+      "verifiable": false
+    },
+    {
+      "subject": "moral_disputes",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.0028901734104046506,
+      "delta_floor": 0.13695896317344555,
+      "verifiable": false
+    },
+    {
+      "subject": "moral_disputes",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.13695896317344555,
+      "verifiable": false
+    },
+    {
+      "subject": "moral_disputes",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.0028901734104046506,
+      "delta_floor": 0.13695896317344555,
+      "verifiable": false
+    },
+    {
+      "subject": "moral_scenarios",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.4022346368715084,
+      "delta_floor": 0.17887994533458354,
+      "verifiable": true
+    },
+    {
+      "subject": "moral_scenarios",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.2011173184357542,
+      "delta_floor": 0.17887994533458354,
+      "verifiable": true
+    },
+    {
+      "subject": "moral_scenarios",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.2011173184357542,
+      "delta_floor": 0.17887994533458354,
+      "verifiable": true
+    },
+    {
+      "subject": "nutrition",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.04575163398692805,
+      "delta_floor": 0.12572990888004335,
+      "verifiable": false
+    },
+    {
+      "subject": "nutrition",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.039215686274509776,
+      "delta_floor": 0.12572990888004335,
+      "verifiable": false
+    },
+    {
+      "subject": "nutrition",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.006535947712418277,
+      "delta_floor": 0.12572990888004335,
+      "verifiable": false
+    },
+    {
+      "subject": "philosophy",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.016077170418006492,
+      "delta_floor": 0.13641404585272981,
+      "verifiable": false
+    },
+    {
+      "subject": "philosophy",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.012861736334405127,
+      "delta_floor": 0.13641404585272981,
+      "verifiable": false
+    },
+    {
+      "subject": "philosophy",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.003215434083601365,
+      "delta_floor": 0.13641404585272981,
+      "verifiable": false
+    },
+    {
+      "subject": "prehistory",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.012345679012345623,
+      "delta_floor": 0.11578503827448063,
+      "verifiable": false
+    },
+    {
+      "subject": "prehistory",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.006172839506172867,
+      "delta_floor": 0.11578503827448063,
+      "verifiable": false
+    },
+    {
+      "subject": "prehistory",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.01851851851851849,
+      "delta_floor": 0.11578503827448063,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_accounting",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.046099290780141855,
+      "delta_floor": 0.16808543710894416,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_accounting",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.16808543710894416,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_accounting",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.046099290780141855,
+      "delta_floor": 0.16808543710894416,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_law",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.03389830508474578,
+      "delta_floor": 0.17529662874576404,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_law",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.04041720990873532,
+      "delta_floor": 0.17529662874576404,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_law",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.006518904823989535,
+      "delta_floor": 0.17529662874576404,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_medicine",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.044117647058823484,
+      "delta_floor": 0.11829741016722466,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_medicine",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.003676470588235392,
+      "delta_floor": 0.11829741016722466,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_medicine",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.047794117647058876,
+      "delta_floor": 0.11829741016722466,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_psychology",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.0032679738562091387,
+      "delta_floor": 0.13314242832007658,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_psychology",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.0016339869281045694,
+      "delta_floor": 0.13314242832007658,
+      "verifiable": false
+    },
+    {
+      "subject": "professional_psychology",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.004901960784313708,
+      "delta_floor": 0.13314242832007658,
+      "verifiable": false
+    },
+    {
+      "subject": "public_relations",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.045454545454545414,
+      "delta_floor": 0.15996831731345484,
+      "verifiable": false
+    },
+    {
+      "subject": "public_relations",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.018181818181818188,
+      "delta_floor": 0.15996831731345484,
+      "verifiable": false
+    },
+    {
+      "subject": "public_relations",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.027272727272727226,
+      "delta_floor": 0.15996831731345484,
+      "verifiable": false
+    },
+    {
+      "subject": "security_studies",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.020408163265306145,
+      "delta_floor": 0.15056520307451599,
+      "verifiable": false
+    },
+    {
+      "subject": "security_studies",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.020408163265306145,
+      "delta_floor": 0.15056520307451599,
+      "verifiable": false
+    },
+    {
+      "subject": "security_studies",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.0,
+      "delta_floor": 0.15056520307451599,
+      "verifiable": false
+    },
+    {
+      "subject": "sociology",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.00497512437810943,
+      "delta_floor": 0.10691017510417719,
+      "verifiable": false
+    },
+    {
+      "subject": "sociology",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.00497512437810943,
+      "delta_floor": 0.10691017510417719,
+      "verifiable": false
+    },
+    {
+      "subject": "sociology",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.00995024875621886,
+      "delta_floor": 0.10691017510417719,
+      "verifiable": false
+    },
+    {
+      "subject": "us_foreign_policy",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.019999999999999907,
+      "delta_floor": 0.10536053367449624,
+      "verifiable": false
+    },
+    {
+      "subject": "us_foreign_policy",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.029999999999999916,
+      "delta_floor": 0.10536053367449624,
+      "verifiable": false
+    },
+    {
+      "subject": "us_foreign_policy",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.010000000000000009,
+      "delta_floor": 0.10536053367449624,
+      "verifiable": false
+    },
+    {
+      "subject": "virology",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.09036144578313254,
+      "delta_floor": 0.1990893093292615,
+      "verifiable": false
+    },
+    {
+      "subject": "virology",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.030120481927710885,
+      "delta_floor": 0.1990893093292615,
+      "verifiable": false
+    },
+    {
+      "subject": "virology",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.06024096385542166,
+      "delta_floor": 0.1990893093292615,
+      "verifiable": false
+    },
+    {
+      "subject": "world_religions",
+      "pair": "Llama-3.1-405B vs Llama-4-Maverick",
+      "gap": 0.03508771929824561,
+      "delta_floor": 0.11796404936136716,
+      "verifiable": false
+    },
+    {
+      "subject": "world_religions",
+      "pair": "Llama-3.1-405B vs Qwen3-Next-80B",
+      "gap": 0.01754385964912275,
+      "delta_floor": 0.11796404936136716,
+      "verifiable": false
+    },
+    {
+      "subject": "world_religions",
+      "pair": "Llama-4-Maverick vs Qwen3-Next-80B",
+      "gap": 0.05263157894736836,
+      "delta_floor": 0.11796404936136716,
+      "verifiable": false
+    }
+  ]
+}

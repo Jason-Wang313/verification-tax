@@ -1,0 +1,916 @@
+{
+  "description": "Empirical validation of Theorem B (self-verification impossibility). Self-confidence predicts accuracy (positive Spearman r_s) but NOT calibration gap (r_s near zero or non-significant), consistent with the impossibility result.",
+  "within_model": {
+    "LLaMA-3.1-405B": {
+      "n_valid": 14042,
+      "overall_accuracy": 0.8404073493804302,
+      "overall_mean_conf": 0.9585311137083862,
+      "frac_conf_gt_0.99": 0.7797322318758012,
+      "frac_conf_gt_0.90": 0.8779376157242558,
+      "n_bins_used": 17,
+      "spearman_conf_vs_accuracy": {
+        "r": 0.9534313725490198,
+        "p": 3.2849947662852607e-09
+      },
+      "spearman_conf_vs_calibration_gap": {
+        "r": 0.3872549019607844,
+        "p": 0.12460639350840541
+      },
+      "bins": [
+        {
+          "bin_lo": 0.3,
+          "bin_hi": 0.4,
+          "mean_conf": 0.36526434752045506,
+          "accuracy": 0.3225806451612903,
+          "calibration_gap": 0.042683702359164744,
+          "n_items": 31
+        },
+        {
+          "bin_lo": 0.4,
+          "bin_hi": 0.5,
+          "mean_conf": 0.46315321082725447,
+          "accuracy": 0.33093525179856115,
+          "calibration_gap": 0.13221795902869332,
+          "n_items": 139
+        },
+        {
+          "bin_lo": 0.5,
+          "bin_hi": 0.6,
+          "mean_conf": 0.5548655643377279,
+          "accuracy": 0.35294117647058826,
+          "calibration_gap": 0.20192438786713968,
+          "n_items": 306
+        },
+        {
+          "bin_lo": 0.6,
+          "bin_hi": 0.7,
+          "mean_conf": 0.6496971449865124,
+          "accuracy": 0.4192546583850932,
+          "calibration_gap": 0.23044248660141925,
+          "n_items": 322
+        },
+        {
+          "bin_lo": 0.7,
+          "bin_hi": 0.8,
+          "mean_conf": 0.7533962343911821,
+          "accuracy": 0.4987593052109181,
+          "calibration_gap": 0.254636929180264,
+          "n_items": 403
+        },
+        {
+          "bin_lo": 0.8,
+          "bin_hi": 0.85,
+          "mean_conf": 0.8260641568980135,
+          "accuracy": 0.5148936170212766,
+          "calibration_gap": 0.31117053987673693,
+          "n_items": 235
+        },
+        {
+          "bin_lo": 0.85,
+          "bin_hi": 0.9,
+          "mean_conf": 0.8752607758751357,
+          "accuracy": 0.4676258992805755,
+          "calibration_gap": 0.4076348765945602,
+          "n_items": 278
+        },
+        {
+          "bin_lo": 0.9,
+          "bin_hi": 0.91,
+          "mean_conf": 0.9045677796275339,
+          "accuracy": 0.525,
+          "calibration_gap": 0.37956777962753385,
+          "n_items": 80
+        },
+        {
+          "bin_lo": 0.91,
+          "bin_hi": 0.92,
+          "mean_conf": 0.9146473045514251,
+          "accuracy": 0.5465116279069767,
+          "calibration_gap": 0.36813567664444835,
+          "n_items": 86
+        },
+        {
+          "bin_lo": 0.92,
+          "bin_hi": 0.93,
+          "mean_conf": 0.9245380288457334,
+          "accuracy": 0.5,
+          "calibration_gap": 0.42453802884573344,
+          "n_items": 100
+        },
+        {
+          "bin_lo": 0.93,
+          "bin_hi": 0.94,
+          "mean_conf": 0.9350560903486113,
+          "accuracy": 0.6140350877192983,
+          "calibration_gap": 0.321021002629313,
+          "n_items": 114
+        },
+        {
+          "bin_lo": 0.94,
+          "bin_hi": 0.95,
+          "mean_conf": 0.9456431712086169,
+          "accuracy": 0.594059405940594,
+          "calibration_gap": 0.3515837652680228,
+          "n_items": 101
+        },
+        {
+          "bin_lo": 0.95,
+          "bin_hi": 0.96,
+          "mean_conf": 0.9551349631682698,
+          "accuracy": 0.5815602836879432,
+          "calibration_gap": 0.37357467948032663,
+          "n_items": 141
+        },
+        {
+          "bin_lo": 0.96,
+          "bin_hi": 0.97,
+          "mean_conf": 0.9648708104564985,
+          "accuracy": 0.5895953757225434,
+          "calibration_gap": 0.3752754347339551,
+          "n_items": 173
+        },
+        {
+          "bin_lo": 0.97,
+          "bin_hi": 0.98,
+          "mean_conf": 0.9755842684306226,
+          "accuracy": 0.6536796536796536,
+          "calibration_gap": 0.321904614750969,
+          "n_items": 231
+        },
+        {
+          "bin_lo": 0.98,
+          "bin_hi": 0.99,
+          "mean_conf": 0.9855896656089463,
+          "accuracy": 0.660056657223796,
+          "calibration_gap": 0.3255330083851503,
+          "n_items": 353
+        },
+        {
+          "bin_lo": 0.99,
+          "bin_hi": 1.0,
+          "mean_conf": 0.999495822741522,
+          "accuracy": 0.9327792492465066,
+          "calibration_gap": 0.06671657349501547,
+          "n_items": 10949
+        }
+      ]
+    },
+    "LLaMA-4-Maverick": {
+      "n_valid": 14042,
+      "overall_accuracy": 0.7268195413758723,
+      "overall_mean_conf": 0.9887383385053604,
+      "frac_conf_gt_0.99": 0.9268622703318615,
+      "frac_conf_gt_0.90": 0.9647486113089303,
+      "n_bins_used": 15,
+      "spearman_conf_vs_accuracy": {
+        "r": 0.5499999999999999,
+        "p": 0.033655357815007086
+      },
+      "spearman_conf_vs_calibration_gap": {
+        "r": 0.5285714285714286,
+        "p": 0.04279728930945035
+      },
+      "bins": [
+        {
+          "bin_lo": 0.4,
+          "bin_hi": 0.5,
+          "mean_conf": 0.4948066696940269,
+          "accuracy": 0.25,
+          "calibration_gap": 0.24480666969402692,
+          "n_items": 44
+        },
+        {
+          "bin_lo": 0.5,
+          "bin_hi": 0.6,
+          "mean_conf": 0.5562779178086357,
+          "accuracy": 0.16216216216216217,
+          "calibration_gap": 0.3941157556464735,
+          "n_items": 37
+        },
+        {
+          "bin_lo": 0.6,
+          "bin_hi": 0.7,
+          "mean_conf": 0.6345459010308683,
+          "accuracy": 0.2169811320754717,
+          "calibration_gap": 0.41756476895539657,
+          "n_items": 106
+        },
+        {
+          "bin_lo": 0.7,
+          "bin_hi": 0.8,
+          "mean_conf": 0.7404287783610496,
+          "accuracy": 0.1836734693877551,
+          "calibration_gap": 0.5567553089732945,
+          "n_items": 98
+        },
+        {
+          "bin_lo": 0.8,
+          "bin_hi": 0.85,
+          "mean_conf": 0.8191109606485024,
+          "accuracy": 0.2840909090909091,
+          "calibration_gap": 0.5350200515575934,
+          "n_items": 88
+        },
+        {
+          "bin_lo": 0.85,
+          "bin_hi": 0.9,
+          "mean_conf": 0.8738206175143963,
+          "accuracy": 0.2796610169491525,
+          "calibration_gap": 0.5941596005652439,
+          "n_items": 118
+        },
+        {
+          "bin_lo": 0.9,
+          "bin_hi": 0.91,
+          "mean_conf": 0.904375396625887,
+          "accuracy": 0.26666666666666666,
+          "calibration_gap": 0.6377087299592203,
+          "n_items": 15
+        },
+        {
+          "bin_lo": 0.92,
+          "bin_hi": 0.93,
+          "mean_conf": 0.9240534794814061,
+          "accuracy": 0.2916666666666667,
+          "calibration_gap": 0.6323868128147394,
+          "n_items": 72
+        },
+        {
+          "bin_lo": 0.93,
+          "bin_hi": 0.94,
+          "mean_conf": 0.9377950606030081,
+          "accuracy": 0.09375,
+          "calibration_gap": 0.8440450606030081,
+          "n_items": 32
+        },
+        {
+          "bin_lo": 0.94,
+          "bin_hi": 0.95,
+          "mean_conf": 0.9454126873127915,
+          "accuracy": 0.07142857142857142,
+          "calibration_gap": 0.8739841158842201,
+          "n_items": 14
+        },
+        {
+          "bin_lo": 0.95,
+          "bin_hi": 0.96,
+          "mean_conf": 0.9527598834111398,
+          "accuracy": 0.30985915492957744,
+          "calibration_gap": 0.6429007284815624,
+          "n_items": 71
+        },
+        {
+          "bin_lo": 0.96,
+          "bin_hi": 0.97,
+          "mean_conf": 0.9645318920445356,
+          "accuracy": 0.3181818181818182,
+          "calibration_gap": 0.6463500738627175,
+          "n_items": 22
+        },
+        {
+          "bin_lo": 0.97,
+          "bin_hi": 0.98,
+          "mean_conf": 0.9727996119505468,
+          "accuracy": 0.25196850393700787,
+          "calibration_gap": 0.7208311080135389,
+          "n_items": 127
+        },
+        {
+          "bin_lo": 0.98,
+          "bin_hi": 0.99,
+          "mean_conf": 0.9856666455220461,
+          "accuracy": 0.2947976878612717,
+          "calibration_gap": 0.6908689576607744,
+          "n_items": 173
+        },
+        {
+          "bin_lo": 0.99,
+          "bin_hi": 1.0,
+          "mean_conf": 0.9998654458941946,
+          "accuracy": 0.7642719938532463,
+          "calibration_gap": 0.23559345204094828,
+          "n_items": 13015
+        }
+      ]
+    },
+    "Qwen3-Next-80B": {
+      "n_valid": 14042,
+      "overall_accuracy": 0.8350662298817833,
+      "overall_mean_conf": 0.9778010970487547,
+      "frac_conf_gt_0.99": 0.8614157527417746,
+      "frac_conf_gt_0.90": 0.9332003988035892,
+      "n_bins_used": 16,
+      "spearman_conf_vs_accuracy": {
+        "r": 0.823529411764706,
+        "p": 8.839139363842145e-05
+      },
+      "spearman_conf_vs_calibration_gap": {
+        "r": 0.42352941176470593,
+        "p": 0.10210932208599745
+      },
+      "bins": [
+        {
+          "bin_lo": 0.4,
+          "bin_hi": 0.5,
+          "mean_conf": 0.4794014188468293,
+          "accuracy": 0.373134328358209,
+          "calibration_gap": 0.10626709048862032,
+          "n_items": 67
+        },
+        {
+          "bin_lo": 0.5,
+          "bin_hi": 0.6,
+          "mean_conf": 0.5541024854503348,
+          "accuracy": 0.34615384615384615,
+          "calibration_gap": 0.20794863929648866,
+          "n_items": 130
+        },
+        {
+          "bin_lo": 0.6,
+          "bin_hi": 0.7,
+          "mean_conf": 0.6527283315865378,
+          "accuracy": 0.3910891089108911,
+          "calibration_gap": 0.26163922267564665,
+          "n_items": 202
+        },
+        {
+          "bin_lo": 0.7,
+          "bin_hi": 0.8,
+          "mean_conf": 0.7513307171212608,
+          "accuracy": 0.4489795918367347,
+          "calibration_gap": 0.30235112528452607,
+          "n_items": 196
+        },
+        {
+          "bin_lo": 0.8,
+          "bin_hi": 0.85,
+          "mean_conf": 0.8212083374808161,
+          "accuracy": 0.4108527131782946,
+          "calibration_gap": 0.41035562430252154,
+          "n_items": 129
+        },
+        {
+          "bin_lo": 0.85,
+          "bin_hi": 0.9,
+          "mean_conf": 0.8730146739483562,
+          "accuracy": 0.48058252427184467,
+          "calibration_gap": 0.3924321496765115,
+          "n_items": 206
+        },
+        {
+          "bin_lo": 0.9,
+          "bin_hi": 0.91,
+          "mean_conf": 0.9046570830166825,
+          "accuracy": 0.43037974683544306,
+          "calibration_gap": 0.4742773361812394,
+          "n_items": 79
+        },
+        {
+          "bin_lo": 0.91,
+          "bin_hi": 0.92,
+          "mean_conf": 0.9154845656095882,
+          "accuracy": 0.5217391304347826,
+          "calibration_gap": 0.39374543517480565,
+          "n_items": 23
+        },
+        {
+          "bin_lo": 0.92,
+          "bin_hi": 0.93,
+          "mean_conf": 0.9240977488290296,
+          "accuracy": 0.5116279069767442,
+          "calibration_gap": 0.4124698418522854,
+          "n_items": 86
+        },
+        {
+          "bin_lo": 0.93,
+          "bin_hi": 0.94,
+          "mean_conf": 0.9384233295750707,
+          "accuracy": 0.45263157894736844,
+          "calibration_gap": 0.48579175062770225,
+          "n_items": 95
+        },
+        {
+          "bin_lo": 0.94,
+          "bin_hi": 0.95,
+          "mean_conf": 0.9463763192628617,
+          "accuracy": 0.375,
+          "calibration_gap": 0.5713763192628617,
+          "n_items": 40
+        },
+        {
+          "bin_lo": 0.95,
+          "bin_hi": 0.96,
+          "mean_conf": 0.9529142456123176,
+          "accuracy": 0.494949494949495,
+          "calibration_gap": 0.45796475066282266,
+          "n_items": 99
+        },
+        {
+          "bin_lo": 0.96,
+          "bin_hi": 0.97,
+          "mean_conf": 0.963922865094703,
+          "accuracy": 0.5700934579439252,
+          "calibration_gap": 0.39382940715077785,
+          "n_items": 107
+        },
+        {
+          "bin_lo": 0.97,
+          "bin_hi": 0.98,
+          "mean_conf": 0.9744653504707806,
+          "accuracy": 0.5355450236966824,
+          "calibration_gap": 0.4389203267740982,
+          "n_items": 211
+        },
+        {
+          "bin_lo": 0.98,
+          "bin_hi": 0.99,
+          "mean_conf": 0.9854534013821215,
+          "accuracy": 0.5559701492537313,
+          "calibration_gap": 0.4294832521283901,
+          "n_items": 268
+        },
+        {
+          "bin_lo": 0.99,
+          "bin_hi": 1.0,
+          "mean_conf": 0.9996697405962542,
+          "accuracy": 0.8941798941798942,
+          "calibration_gap": 0.10548984641636006,
+          "n_items": 12096
+        }
+      ]
+    }
+  },
+  "cross_model": {
+    "LLaMA-3.1-405B -> LLaMA-4-Maverick": {
+      "n_shared": 14042,
+      "n_bins_used": 17,
+      "spearman_confA_vs_gapB": {
+        "r": -0.6813725490196079,
+        "p": 0.002596603135725265
+      },
+      "bins": [
+        {
+          "bin_lo": 0.3,
+          "bin_hi": 0.4,
+          "mean_conf_A": 0.3652643475204551,
+          "accuracy_B": 0.25806451612903225,
+          "mean_conf_B": 0.9343233360365071,
+          "calibration_gap_B": 0.6762588199074748,
+          "n_items": 31
+        },
+        {
+          "bin_lo": 0.4,
+          "bin_hi": 0.5,
+          "mean_conf_A": 0.46315321082725447,
+          "accuracy_B": 0.2805755395683453,
+          "mean_conf_B": 0.9358370320841919,
+          "calibration_gap_B": 0.6552614925158466,
+          "n_items": 139
+        },
+        {
+          "bin_lo": 0.5,
+          "bin_hi": 0.6,
+          "mean_conf_A": 0.5548655643377279,
+          "accuracy_B": 0.37254901960784315,
+          "mean_conf_B": 0.9682699965454857,
+          "calibration_gap_B": 0.5957209769376426,
+          "n_items": 306
+        },
+        {
+          "bin_lo": 0.6,
+          "bin_hi": 0.7,
+          "mean_conf_A": 0.6496971449865125,
+          "accuracy_B": 0.32608695652173914,
+          "mean_conf_B": 0.9547701145981884,
+          "calibration_gap_B": 0.6286831580764493,
+          "n_items": 322
+        },
+        {
+          "bin_lo": 0.7,
+          "bin_hi": 0.8,
+          "mean_conf_A": 0.753396234391182,
+          "accuracy_B": 0.45161290322580644,
+          "mean_conf_B": 0.9704574862457822,
+          "calibration_gap_B": 0.5188445830199757,
+          "n_items": 403
+        },
+        {
+          "bin_lo": 0.8,
+          "bin_hi": 0.85,
+          "mean_conf_A": 0.8260641568980135,
+          "accuracy_B": 0.4297872340425532,
+          "mean_conf_B": 0.9744922231640166,
+          "calibration_gap_B": 0.5447049891214635,
+          "n_items": 235
+        },
+        {
+          "bin_lo": 0.85,
+          "bin_hi": 0.9,
+          "mean_conf_A": 0.8752607758751356,
+          "accuracy_B": 0.44244604316546765,
+          "mean_conf_B": 0.9615146213917725,
+          "calibration_gap_B": 0.5190685782263048,
+          "n_items": 278
+        },
+        {
+          "bin_lo": 0.9,
+          "bin_hi": 0.91,
+          "mean_conf_A": 0.9045677796275337,
+          "accuracy_B": 0.4125,
+          "mean_conf_B": 0.966366713963286,
+          "calibration_gap_B": 0.553866713963286,
+          "n_items": 80
+        },
+        {
+          "bin_lo": 0.91,
+          "bin_hi": 0.92,
+          "mean_conf_A": 0.9146473045514248,
+          "accuracy_B": 0.45348837209302323,
+          "mean_conf_B": 0.9851365260992554,
+          "calibration_gap_B": 0.5316481540062321,
+          "n_items": 86
+        },
+        {
+          "bin_lo": 0.92,
+          "bin_hi": 0.93,
+          "mean_conf_A": 0.9245380288457337,
+          "accuracy_B": 0.41,
+          "mean_conf_B": 0.9621472904534261,
+          "calibration_gap_B": 0.5521472904534261,
+          "n_items": 100
+        },
+        {
+          "bin_lo": 0.93,
+          "bin_hi": 0.94,
+          "mean_conf_A": 0.9350560903486115,
+          "accuracy_B": 0.4298245614035088,
+          "mean_conf_B": 0.9733277595499459,
+          "calibration_gap_B": 0.5435031981464371,
+          "n_items": 114
+        },
+        {
+          "bin_lo": 0.94,
+          "bin_hi": 0.95,
+          "mean_conf_A": 0.9456431712086172,
+          "accuracy_B": 0.38613861386138615,
+          "mean_conf_B": 0.9755547657478538,
+          "calibration_gap_B": 0.5894161518864677,
+          "n_items": 101
+        },
+        {
+          "bin_lo": 0.95,
+          "bin_hi": 0.96,
+          "mean_conf_A": 0.9551349631682701,
+          "accuracy_B": 0.4397163120567376,
+          "mean_conf_B": 0.9786825271352454,
+          "calibration_gap_B": 0.5389662150785077,
+          "n_items": 141
+        },
+        {
+          "bin_lo": 0.96,
+          "bin_hi": 0.97,
+          "mean_conf_A": 0.9648708104564988,
+          "accuracy_B": 0.3930635838150289,
+          "mean_conf_B": 0.9715457572267624,
+          "calibration_gap_B": 0.5784821734117335,
+          "n_items": 173
+        },
+        {
+          "bin_lo": 0.97,
+          "bin_hi": 0.98,
+          "mean_conf_A": 0.9755842684306226,
+          "accuracy_B": 0.4805194805194805,
+          "mean_conf_B": 0.9712105678323444,
+          "calibration_gap_B": 0.49069108731286387,
+          "n_items": 231
+        },
+        {
+          "bin_lo": 0.98,
+          "bin_hi": 0.99,
+          "mean_conf_A": 0.9855896656089463,
+          "accuracy_B": 0.5382436260623229,
+          "mean_conf_B": 0.979719296134966,
+          "calibration_gap_B": 0.4414756700726431,
+          "n_items": 353
+        },
+        {
+          "bin_lo": 0.99,
+          "bin_hi": 1.0,
+          "mean_conf_A": 0.9994958227415219,
+          "accuracy_B": 0.8130422869668463,
+          "mean_conf_B": 0.9945832742768302,
+          "calibration_gap_B": 0.18154098730998391,
+          "n_items": 10949
+        }
+      ]
+    },
+    "LLaMA-3.1-405B -> Qwen3-Next-80B": {
+      "n_shared": 14042,
+      "n_bins_used": 17,
+      "spearman_confA_vs_gapB": {
+        "r": -0.698529411764706,
+        "p": 0.0018134319155482582
+      },
+      "bins": [
+        {
+          "bin_lo": 0.3,
+          "bin_hi": 0.4,
+          "mean_conf_A": 0.3652643475204551,
+          "accuracy_B": 0.3548387096774194,
+          "mean_conf_B": 0.9194237589353402,
+          "calibration_gap_B": 0.5645850492579209,
+          "n_items": 31
+        },
+        {
+          "bin_lo": 0.4,
+          "bin_hi": 0.5,
+          "mean_conf_A": 0.46315321082725447,
+          "accuracy_B": 0.39568345323741005,
+          "mean_conf_B": 0.8858642225136173,
+          "calibration_gap_B": 0.49018076927620724,
+          "n_items": 139
+        },
+        {
+          "bin_lo": 0.5,
+          "bin_hi": 0.6,
+          "mean_conf_A": 0.5548655643377279,
+          "accuracy_B": 0.5326797385620915,
+          "mean_conf_B": 0.9213379589880987,
+          "calibration_gap_B": 0.3886582204260072,
+          "n_items": 306
+        },
+        {
+          "bin_lo": 0.6,
+          "bin_hi": 0.7,
+          "mean_conf_A": 0.6496971449865125,
+          "accuracy_B": 0.546583850931677,
+          "mean_conf_B": 0.9217329974679115,
+          "calibration_gap_B": 0.37514914653623443,
+          "n_items": 322
+        },
+        {
+          "bin_lo": 0.7,
+          "bin_hi": 0.8,
+          "mean_conf_A": 0.753396234391182,
+          "accuracy_B": 0.598014888337469,
+          "mean_conf_B": 0.9333214992931258,
+          "calibration_gap_B": 0.33530661095565684,
+          "n_items": 403
+        },
+        {
+          "bin_lo": 0.8,
+          "bin_hi": 0.85,
+          "mean_conf_A": 0.8260641568980135,
+          "accuracy_B": 0.5531914893617021,
+          "mean_conf_B": 0.9228371864722298,
+          "calibration_gap_B": 0.36964569711052764,
+          "n_items": 235
+        },
+        {
+          "bin_lo": 0.85,
+          "bin_hi": 0.9,
+          "mean_conf_A": 0.8752607758751356,
+          "accuracy_B": 0.6151079136690647,
+          "mean_conf_B": 0.9286663719538499,
+          "calibration_gap_B": 0.31355845828478524,
+          "n_items": 278
+        },
+        {
+          "bin_lo": 0.9,
+          "bin_hi": 0.91,
+          "mean_conf_A": 0.9045677796275337,
+          "accuracy_B": 0.55,
+          "mean_conf_B": 0.9351647276573525,
+          "calibration_gap_B": 0.38516472765735243,
+          "n_items": 80
+        },
+        {
+          "bin_lo": 0.91,
+          "bin_hi": 0.92,
+          "mean_conf_A": 0.9146473045514248,
+          "accuracy_B": 0.686046511627907,
+          "mean_conf_B": 0.9457139808733199,
+          "calibration_gap_B": 0.25966746924541295,
+          "n_items": 86
+        },
+        {
+          "bin_lo": 0.92,
+          "bin_hi": 0.93,
+          "mean_conf_A": 0.9245380288457337,
+          "accuracy_B": 0.65,
+          "mean_conf_B": 0.9468958393867085,
+          "calibration_gap_B": 0.2968958393867085,
+          "n_items": 100
+        },
+        {
+          "bin_lo": 0.93,
+          "bin_hi": 0.94,
+          "mean_conf_A": 0.9350560903486115,
+          "accuracy_B": 0.5964912280701754,
+          "mean_conf_B": 0.9415687430750088,
+          "calibration_gap_B": 0.3450775150048334,
+          "n_items": 114
+        },
+        {
+          "bin_lo": 0.94,
+          "bin_hi": 0.95,
+          "mean_conf_A": 0.9456431712086172,
+          "accuracy_B": 0.6435643564356436,
+          "mean_conf_B": 0.9550270018819774,
+          "calibration_gap_B": 0.31146264544633384,
+          "n_items": 101
+        },
+        {
+          "bin_lo": 0.95,
+          "bin_hi": 0.96,
+          "mean_conf_A": 0.9551349631682701,
+          "accuracy_B": 0.5957446808510638,
+          "mean_conf_B": 0.9572026828035669,
+          "calibration_gap_B": 0.3614580019525031,
+          "n_items": 141
+        },
+        {
+          "bin_lo": 0.96,
+          "bin_hi": 0.97,
+          "mean_conf_A": 0.9648708104564988,
+          "accuracy_B": 0.6011560693641619,
+          "mean_conf_B": 0.9614241317476194,
+          "calibration_gap_B": 0.36026806238345754,
+          "n_items": 173
+        },
+        {
+          "bin_lo": 0.97,
+          "bin_hi": 0.98,
+          "mean_conf_A": 0.9755842684306226,
+          "accuracy_B": 0.6103896103896104,
+          "mean_conf_B": 0.9478769303497823,
+          "calibration_gap_B": 0.3374873199601719,
+          "n_items": 231
+        },
+        {
+          "bin_lo": 0.98,
+          "bin_hi": 0.99,
+          "mean_conf_A": 0.9855896656089463,
+          "accuracy_B": 0.6628895184135978,
+          "mean_conf_B": 0.9561681432618814,
+          "calibration_gap_B": 0.2932786248482836,
+          "n_items": 353
+        },
+        {
+          "bin_lo": 0.99,
+          "bin_hi": 1.0,
+          "mean_conf_A": 0.9994958227415219,
+          "accuracy_B": 0.9055621517946845,
+          "mean_conf_B": 0.9897108538926886,
+          "calibration_gap_B": 0.08414870209800418,
+          "n_items": 10949
+        }
+      ]
+    },
+    "LLaMA-4-Maverick -> Qwen3-Next-80B": {
+      "n_shared": 14042,
+      "n_bins_used": 15,
+      "spearman_confA_vs_gapB": {
+        "r": -0.3428571428571428,
+        "p": 0.21092379341475206
+      },
+      "bins": [
+        {
+          "bin_lo": 0.4,
+          "bin_hi": 0.5,
+          "mean_conf_A": 0.4948066696940269,
+          "accuracy_B": 0.4318181818181818,
+          "mean_conf_B": 0.9273749799317975,
+          "calibration_gap_B": 0.4955567981136157,
+          "n_items": 44
+        },
+        {
+          "bin_lo": 0.5,
+          "bin_hi": 0.6,
+          "mean_conf_A": 0.5562779178086357,
+          "accuracy_B": 0.5135135135135135,
+          "mean_conf_B": 0.9045197920241744,
+          "calibration_gap_B": 0.39100627851066094,
+          "n_items": 37
+        },
+        {
+          "bin_lo": 0.6,
+          "bin_hi": 0.7,
+          "mean_conf_A": 0.6345459010308683,
+          "accuracy_B": 0.49056603773584906,
+          "mean_conf_B": 0.9154793036949873,
+          "calibration_gap_B": 0.42491326595913825,
+          "n_items": 106
+        },
+        {
+          "bin_lo": 0.7,
+          "bin_hi": 0.8,
+          "mean_conf_A": 0.7404287783610499,
+          "accuracy_B": 0.5102040816326531,
+          "mean_conf_B": 0.9037031803231984,
+          "calibration_gap_B": 0.39349909869054533,
+          "n_items": 98
+        },
+        {
+          "bin_lo": 0.8,
+          "bin_hi": 0.85,
+          "mean_conf_A": 0.8191109606485024,
+          "accuracy_B": 0.5113636363636364,
+          "mean_conf_B": 0.9168678278122467,
+          "calibration_gap_B": 0.4055041914486104,
+          "n_items": 88
+        },
+        {
+          "bin_lo": 0.85,
+          "bin_hi": 0.9,
+          "mean_conf_A": 0.8738206175143963,
+          "accuracy_B": 0.5508474576271186,
+          "mean_conf_B": 0.9184698202728812,
+          "calibration_gap_B": 0.36762236264576253,
+          "n_items": 118
+        },
+        {
+          "bin_lo": 0.9,
+          "bin_hi": 0.91,
+          "mean_conf_A": 0.904375396625887,
+          "accuracy_B": 0.4666666666666667,
+          "mean_conf_B": 0.8578900874594253,
+          "calibration_gap_B": 0.3912234207927586,
+          "n_items": 15
+        },
+        {
+          "bin_lo": 0.92,
+          "bin_hi": 0.93,
+          "mean_conf_A": 0.9240534794814061,
+          "accuracy_B": 0.625,
+          "mean_conf_B": 0.9366873388788783,
+          "calibration_gap_B": 0.31168733887887834,
+          "n_items": 72
+        },
+        {
+          "bin_lo": 0.93,
+          "bin_hi": 0.94,
+          "mean_conf_A": 0.9377950606030082,
+          "accuracy_B": 0.28125,
+          "mean_conf_B": 0.9005008147219631,
+          "calibration_gap_B": 0.6192508147219631,
+          "n_items": 32
+        },
+        {
+          "bin_lo": 0.94,
+          "bin_hi": 0.95,
+          "mean_conf_A": 0.9454126873127915,
+          "accuracy_B": 0.35714285714285715,
+          "mean_conf_B": 0.9061160823710043,
+          "calibration_gap_B": 0.5489732252281472,
+          "n_items": 14
+        },
+        {
+          "bin_lo": 0.95,
+          "bin_hi": 0.96,
+          "mean_conf_A": 0.9527598834111398,
+          "accuracy_B": 0.5070422535211268,
+          "mean_conf_B": 0.9522754807122012,
+          "calibration_gap_B": 0.4452332271910745,
+          "n_items": 71
+        },
+        {
+          "bin_lo": 0.96,
+          "bin_hi": 0.97,
+          "mean_conf_A": 0.9645318920445355,
+          "accuracy_B": 0.5454545454545454,
+          "mean_conf_B": 0.9178869812692493,
+          "calibration_gap_B": 0.37243243581470387,
+          "n_items": 22
+        },
+        {
+          "bin_lo": 0.97,
+          "bin_hi": 0.98,
+          "mean_conf_A": 0.9727996119505468,
+          "accuracy_B": 0.5196850393700787,
+          "mean_conf_B": 0.9136009905649277,
+          "calibration_gap_B": 0.393915951194849,
+          "n_items": 127
+        },
+        {
+          "bin_lo": 0.98,
+          "bin_hi": 0.99,
+          "mean_conf_A": 0.9856666455220461,
+          "accuracy_B": 0.6416184971098265,
+          "mean_conf_B": 0.9451718999443904,
+          "calibration_gap_B": 0.3035534028345639,
+          "n_items": 173
+        },
+        {
+          "bin_lo": 0.99,
+          "bin_hi": 1.0,
+          "mean_conf_A": 0.9998654458941946,
+          "accuracy_B": 0.8589320015366885,
+          "mean_conf_B": 0.9821721962076494,
+          "calibration_gap_B": 0.12324019467096092,
+          "n_items": 13015
+        }
+      ]
+    }
+  }
+}
