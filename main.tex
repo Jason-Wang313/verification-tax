@@ -113,9 +113,11 @@ We validate all four predictions empirically on production language models (MMLU
 
 The base rate problem---that rare conditions are hard to detect---is among the oldest results in statistics. We show that AI auditing faces the same fundamental barrier. The ``disease'' is miscalibration: the gap between a model's stated confidence and its actual accuracy. As errors become rare, miscalibration becomes a rare condition, and the verification cost grows without bound. We call this the \emph{verification tax}.
 
-The tax is not a limitation of current methods. It is a law: the minimax-optimal rate for ECE estimation is $\Theta((\Lip\errrate/\nsamples)^{1/3})$, and no estimator can do better. Under meaningful verification ($\targetacc = \Theta(\errrate)$), sample complexity grows as $\Omega(1/\errrate^2)$---\emph{increasing} as models improve. This is the Scaling Duality: capability and verifiability are governed by the same exponent in opposite directions.
+This result completes a programme initiated by \citet{sun2023recalibration}, who established the $O(n^{-2/3})$ upper bound for ECE estimation (NeurIPS 2023 Spotlight), and extended by \citet{futami2024information}, who generalized the rate information-theoretically (NeurIPS 2024). Both left two questions open: (1)~Is $n^{-1/3}$ the optimal rate? (2)~How does the model's error rate $\errrate$ affect verification difficulty? We resolve both. The lower bound (Theorem~\ref{thm:minimax-lb}) matches the upper bound (Theorem~\ref{thm:upper-bound}), establishing $(\Lip\errrate/\nsamples)^{1/3}$ as the minimax rate. The $\errrate$-dependence---absent from all prior work---reveals a phase transition, a scaling duality, and a verification horizon.
 
-But the tax itself is the scaffolding. The paper's contributions are four results that we believe will surprise practitioners:
+The tax is a law: no estimator can beat $\Theta((\Lip\errrate/\nsamples)^{1/3})$. Under meaningful verification ($\targetacc = \Theta(\errrate)$), sample complexity grows as $\Omega(1/\errrate^2)$. Capability and verifiability are governed by the same exponent in opposite directions (Theorem~\ref{thm:duality}).
+
+But the rate is the scaffolding. The paper's contributions are four results that contradict standard assumptions in AI evaluation~\citep{liang2023helm,zheng2023judging,chiang2024chatbot}:
 
 \textbf{Surprise 1: Self-evaluation is bounded by a constant} (\S\ref{sec:surprise1}). Any estimator that does not use ground-truth labels---including LLM-as-Judge, self-consistency, chain-of-thought verification, and all model-derived signals---has worst-case calibration error $\geq 1/2$ for $\Lip \geq 1$. The bound is independent of the number of queries. White-box model access does not help unless it identifies a low-dimensional parametric family.
 
@@ -193,7 +195,7 @@ $\calmap_0 \equiv 0$ and $\calmap_1 \equiv \min(\Lip,1)$ produce identical obser
 
 \begin{corollary}[LLM-as-Judge Impossibility]
 \label{cor:llm-judge}
-Let $J$ be any evaluator model. If $J$'s evaluation of subject model $S$ relies solely on $(x_i, f_S(x_i))$---inputs and outputs, without ground-truth labels---then $\sup_{\calmap} \E[|V_J - \ECE|] \geq 1/2$ for $\Lip \geq 1$, regardless of $J$'s capability or the number of evaluations.
+Let $J$ be any evaluator model. If $J$'s evaluation of subject model $S$ relies solely on $(x_i, f_S(x_i))$---inputs and outputs, without ground-truth labels---then $\sup_{\calmap} \E[|V_J - \ECE|] \geq 1/2$ for $\Lip \geq 1$, regardless of $J$'s capability or the number of evaluations. This applies directly to the LLM-as-Judge paradigm~\citep{zheng2023judging}: using a language model to evaluate another model's calibration without ground-truth labels is information-theoretically bounded by a constant.
 \end{corollary}
 
 \begin{corollary}[Hallucination Detection Wall]
@@ -360,6 +362,8 @@ Llama-3.1-405B & 14{,}042 & 0.160 & 1.41 & 0.118 & 0.025 \\
 \label{sec:conclusion}
 
 The verification tax is a law: $\Theta((\Lip\errrate/\nsamples)^{1/3})$ for passive verification, with no escape via model access, self-evaluation, or strategic miscalibration. The four surprises---self-evaluation bounded by a constant, sharp phase transition, active querying eliminating $\Lip$, exponential composition---collectively imply that current evaluation practices operate in information-less regimes.
+
+\textbf{Practical applications.} The verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ should be reported alongside every calibration metric, analogous to confidence intervals in clinical trials~\citep{mitchell2019model}. The $\errrate$-adaptive holdout formula $\nsamples \geq \Lip\errrate/\targetacc^3$ replaces ad hoc test-set sizing. The active verification protocol (Theorem~\ref{thm:active}) provides 5--8$\times$ sample savings over passive evaluation and should be integrated into evaluation frameworks~\citep{liang2023helm}. The benchmark resolution limit (Corollary~\ref{cor:resolution}) gives concrete design criteria: a benchmark of $n$ items can only distinguish models differing by at least $(\Lip\errrate/n)^{1/3}$, implying that most current safety benchmarks~\citep{hendrycks2021mmlu} are undersized for the differences they claim to measure. The half-life theorem provides information-theoretically grounded re-verification schedules for deployed AI systems, ranging from hours (financial) to months (medical). The maximum verifiable pipeline depth $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$ gives concrete architecture constraints for agentic systems~\citep{yao2023react}.
 
 \textbf{Limitations.} Lipschitz assumption; log gap between Theorems~\ref{thm:minimax-lb}--\ref{thm:upper-bound}; worst-case Lipschitz accumulation in composition; ECE metric (kernel-based estimators are open).
 
