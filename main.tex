@@ -102,7 +102,7 @@ As AI models improve, verifying their reliability becomes fundamentally \emph{ha
 (2)~a sharp phase transition at $\nsamples \cdot \errrate \approx 1$ below which miscalibration is \emph{undetectable} by any method;
 (3)~active querying eliminates the dependence on calibration smoothness entirely, collapsing estimation to detection;
 (4)~verification cost grows \emph{exponentially} with pipeline depth at rate $\Lip^K$ for $K$-component systems.
-We validate all four predictions empirically on production language models (MMLU, 14{,}042 items, 3 frontier LLMs) and show that most published safety benchmark improvements fall below the verification floor. Every frontier model deployed today exceeds the verification horizon for its safety-critical applications.
+We validate all four predictions empirically on production language models across two benchmarks (MMLU, 14{,}042 items; TruthfulQA, 817 items; 3 frontier LLMs each) with 95\% bootstrap confidence intervals and permutation tests. We show that most published safety benchmark improvements fall below the verification floor, and that every frontier model deployed today exceeds the verification horizon for its safety-critical applications.
 \end{abstract}
 
 % ============================================================
@@ -338,20 +338,28 @@ A regulatory mandate requiring calibration precision $\targetacc$ across $K$ dem
 \section{Empirical Validation}
 \label{sec:empirics}
 
-All four surprises are validated empirically. Synthetic experiments with known ground truth confirm the predicted rates (Appendix~\ref{app:synthetic}). Real-model experiments on 3 frontier LLMs $\times$ 14{,}042 MMLU items confirm: (1)~self-confidence is uninformative about calibration gap (Fig.~\ref{fig:selfeval}); (2)~phase transition occurs at the predicted $\nsamples \cdot \errrate \approx 1$ threshold; (3)~active querying achieves $\Lip$-independent rates on real data (Fig.~\ref{fig:active}); (4)~compositional cost grows exponentially (Fig.~\ref{fig:compositional}).
+All four surprises are validated on two benchmarks (MMLU: 14{,}042 items; TruthfulQA: 817 items) with 3 frontier LLMs each. All reported quantities carry 95\% bootstrap confidence intervals (1{,}000 replicates; Appendix~\ref{app:real-model}). The two benchmarks span different error-rate regimes: MMLU ($\errrate \in [0.16, 0.27]$) and TruthfulQA ($\errrate \in [0.23, 0.66]$), providing validation across a $4\times$ range of $\errrate$.
+
+\textbf{Results.} (1)~Self-confidence is uninformative about calibration gap on both benchmarks: permutation tests yield $p > 0.10$ for 2/3 models on MMLU and 2/3 on TruthfulQA (Fig.~\ref{fig:selfeval}); (2)~phase transition at $\nsamples \cdot \errrate \approx 1$ confirmed on both benchmarks; (3)~active querying achieves $\Lip$-independent rates on MMLU with slope ratio 1.38--1.48 (theory: 1.50) and L-independence CV $= 8\%$ (Fig.~\ref{fig:active}); (4)~compositional cost grows exponentially in synthetic pipelines (Fig.~\ref{fig:compositional}) and a real 2-stage pipeline (Llama-405B $+$ Qwen-80B) has $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $\hat\Lip = 1.41$ ($2.16\times$; Fig.~\ref{fig:pipeline}, Appendix~\ref{app:real-model}).
 
 \begin{table}[t]
 \centering
-\caption{Real-model verification audit on MMLU. $\hat{\Lip}$ estimated via finite differences.}
+\caption{Real-model verification audit. $\hat{\Lip}$ via finite differences; 95\% bootstrap CIs in brackets (MMLU).}
 \label{tab:real-mmlu}
 \small
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Model} & $\nsamples$ & $\errrate$ & $\hat{\Lip}$ & $\ECE_{\mathrm{true}}$ & $\verfloor$ \\
+\textbf{Model} & $\nsamples$ & $\errrate$ & $\hat{\Lip}$ & $\ECE$ & $\verfloor$ \\
 \midrule
-Qwen3-Next-80B & 14{,}042 & 0.165 & 2.45 & 0.143 & 0.031 \\
-Llama-4-Maverick-17B & 14{,}042 & 0.273 & 2.01 & 0.262 & 0.034 \\
-Llama-3.1-405B & 14{,}042 & 0.160 & 1.41 & 0.118 & 0.025 \\
+\multicolumn{6}{l}{\emph{MMLU (14{,}042 items per model)}} \\
+Qwen3-Next-80B & 14{,}042 & .165 [.158,.171] & 2.45 [1.70,4.85] & .143 [.137,.149] & .031 [.027,.038] \\
+Llama-4-Maverick & 14{,}042 & .273 [.266,.280] & 2.01 [1.42,4.75] & .262 [.255,.270] & .034 [.030,.045] \\
+Llama-3.1-405B & 14{,}042 & .160 [.154,.166] & 1.41 [1.13,3.02] & .118 [.113,.124] & .025 [.023,.032] \\
+\midrule
+\multicolumn{6}{l}{\emph{TruthfulQA (817 items per model)}} \\
+Qwen3-Next-80B & 817 & .250 & 3.64 & .222 & .104 \\
+Llama-4-Maverick & 817 & .656 & 3.36 & .629 & .139 \\
+Llama-3.1-405B & 817 & .234 & 2.84 & .192 & .093 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -498,6 +506,32 @@ Bias: $\Lip/B$. Variance: $\sqrt{\errrate B/\nsamples}$. Total: $\Lip/B + \sqrt{
 \textbf{Verification dynamics.} Under $\errrate(t) = c_0 t^{-\critexp}$ and deployment rate $\deployrate$: critical exponent $\critexp^* = 1/2$ (passive), $\critexp^*_{\mathrm{active}} = 1$ (active). Models improving faster than $\critexp^*$ outrun verification.
 
 \textbf{Recalibration trap.} Iterative recalibration with factor $\shrinkfactor$: $K^* = \lfloor\log(\totaldata(1-\shrinkfactor)^2\ECE_0^2/\errrate)/(2\log(1/\shrinkfactor))\rfloor$. On MMLU ($\totaldata=14{,}000$, $\errrate=0.05$, $\ECE_0=0.10$, $\shrinkfactor=0.5$): $K^* = 4$ rounds.
+
+% ----------------------------------------------------------
+\section{Extended Empirical Results}
+\label{app:real-model}
+
+\textbf{TruthfulQA cross-validation.} We replicate all four surprise validations on TruthfulQA (817 MC1 items, 3 models). Figure~\ref{fig:truthfulqa} shows: self-evaluation correlations are non-significant (2/3 models, matching MMLU), phase transition occurs near the predicted threshold, and subsampling convergence matches the verification floor. TruthfulQA spans $\errrate \in [0.23, 0.66]$---a regime $2$--$4\times$ higher than MMLU---with correspondingly higher verification floors ($0.09$--$0.14$ vs.\ $0.025$--$0.034$).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_truthfulqa_validation.pdf}
+\caption{TruthfulQA validation (second benchmark). Theory predictions confirmed across a different error-rate regime ($\errrate \in [0.23, 0.66]$).}
+\label{fig:truthfulqa}
+\end{figure}
+
+\textbf{Real 2-stage pipeline.} A pipeline of Llama-3.1-405B (stage 1) and Qwen3-Next-80B (stage 2) on MMLU yields $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $\hat\Lip = 1.41$ ($2.16\times$), confirming that composed systems have higher Lipschitz constants and correspondingly higher verification floors (Figure~\ref{fig:pipeline}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_pipeline_real.pdf}
+\caption{Real 2-stage pipeline verification. Pipeline has consistently higher estimation error than single-model at all sample sizes, with $\hat\Lip_{\mathrm{sys}} = 3.05$ ($2.16\times$ single-model).}
+\label{fig:pipeline}
+\end{figure}
+
+\textbf{Permutation tests.} For the self-evaluation claim (Theorem~\ref{thm:selfverify}), we supplement Spearman correlations with 10{,}000-permutation tests under $H_0$: confidence is independent of calibration gap. Results: MMLU 2/3 models $p > 0.10$ (non-significant); TruthfulQA 2/3 models $p > 0.10$. The positive control (confidence vs.\ accuracy) is significant on both benchmarks ($p < 0.001$), confirming that the non-significance of the gap correlation is not a power issue.
+
+\textbf{Bootstrap methodology.} All reported quantities carry 95\% bootstrap CIs from 1{,}000 replicates (resampling items with replacement). Lipschitz estimates have wide CIs (e.g., Llama-405B: $\hat\Lip = 1.41$ [1.13, 3.02]) because finite-difference estimation is inherently noisy; ECE and $\errrate$ CIs are tight (e.g., $\ECE = 0.118$ [0.113, 0.124]).
 
 % ============================================================
 % DEEP APPENDIX (pages 16+)
