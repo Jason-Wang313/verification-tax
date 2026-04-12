@@ -17,14 +17,14 @@
     0.026352898624369424,
     0.13914999668915617
   ],
-  "self_eval_fraction_nonsignificant": 0.8888888888888888,
+  "self_eval_fraction_nonsignificant": 0.8,
   "self_eval_nonsig_count": 8,
-  "self_eval_total_with_rho": 9,
+  "self_eval_total_with_rho": 10,
   "mean_verification_floor_per_benchmark": {
     "mmlu": 0.03070607721193606,
     "truthfulqa": 0.11202974390776076,
-    "arc_challenge": 0.05603081703088709,
-    "hellaswag": 0.051001908443414894,
+    "arc_challenge": 0.05808359697861743,
+    "hellaswag": 0.041377405509921694,
     "winogrande": 0.10397134955173104
   },
   "per_pair_results": [
@@ -97,22 +97,22 @@
     {
       "benchmark": "arc_challenge",
       "model": "Llama-3.1-405B",
-      "N": 262,
-      "eps": 0.061069,
-      "ece": 0.057487,
-      "L_hat": 1.0,
-      "delta_floor": 0.061542,
-      "spearman_rho": null,
-      "spearman_p": null
+      "N": 867,
+      "eps": 0.05421,
+      "ece": 0.046579,
+      "L_hat": 5.0,
+      "delta_floor": 0.06787,
+      "spearman_rho": -0.5,
+      "spearman_p": 0.6667
     },
     {
       "benchmark": "arc_challenge",
       "model": "Llama-4-Maverick",
-      "N": 1167,
-      "eps": 0.479006,
-      "ece": 0.473905,
+      "N": 1171,
+      "eps": 0.47737,
+      "ece": 0.472286,
       "L_hat": 1.0,
-      "delta_floor": 0.074317,
+      "delta_floor": 0.074148,
       "spearman_rho": null,
       "spearman_p": null
     },
@@ -130,13 +130,13 @@
     {
       "benchmark": "hellaswag",
       "model": "Llama-3.1-405B",
-      "N": 506,
-      "eps": 0.126482,
-      "ece": 0.096555,
-      "L_hat": 2.2637,
-      "delta_floor": 0.082712,
-      "spearman_rho": -0.3714,
-      "spearman_p": 0.4685
+      "N": 1083,
+      "eps": 0.11265,
+      "ece": 0.129919,
+      "L_hat": 1.5003,
+      "delta_floor": 0.053838,
+      "spearman_rho": -0.9231,
+      "spearman_p": 0.0
     },
     {
       "benchmark": "hellaswag",
