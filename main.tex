@@ -287,7 +287,7 @@ The gap between passive ($(\Lip\errrate/\nsamples)^{1/3}$) and active ($\sqrt{\e
 For a $\recalround$-component pipeline with per-component Lipschitz $L_1, \ldots, L_\recalround$: $\Lsystem \leq \prod_k L_k + 1$, and $\nsamples_{\mathrm{sys}} = \Omega(\Lsystem \cdot \errrate/\targetacc^3)$. For homogeneous $L_k = \Lip > 1$: $\nsamples_{\mathrm{sys}} = \Omega(\Lip^\recalround \cdot \errrate/\targetacc^3)$---exponential in pipeline depth.
 \end{theorem}
 
-Maximum verifiable depth: $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$. An agent with 10 reasoning steps at $\Lip{=}2$: $1{,}024\times$ cost. At $\Lip{=}2$, $K{=}20$: over $10^6\times$.
+Maximum verifiable depth: $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$. An agent with 10 reasoning steps at $\Lip{=}2$: $1{,}024\times$ cost. At $\Lip{=}2$, $K{=}20$: over $10^6\times$. The Lipschitz composition model applies to continuous reasoning chains (chain-of-thought, iterative refinement). Discontinuous components such as retrieval or tool use have $\Lcomp = \infty$, making end-to-end verification infeasible at any sample size for such pipelines.
 
 \begin{figure}[t]
 \centering
@@ -325,12 +325,12 @@ Under Chinchilla scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$, $\Lip = 1$
 
 \begin{theorem}[Regulatory Infeasibility]
 \label{thm:regulatory}
-A regulatory mandate requiring calibration precision $\targetacc$ across $K$ demographic groups with minimum proportion $\groupprop_{\min}$ demands $\nsamples \geq K\Lip\errrate / (\groupprop_{\min}\targetacc^3)$ labeled samples. For the EU AI Act Annex III ($K{=}10$, $\groupprop_{\min}{=}0.05$, $\targetacc{=}0.02$, $\errrate{=}0.05$): $\nsamples \geq 1.25\text{M}$, against ${\sim}700\text{K}$ available medical imaging labels---a $1.8\times$ gap.
+A regulatory mandate requiring calibration precision $\targetacc$ across $K$ demographic groups with minimum proportion $\groupprop_{\min}$ demands $\nsamples \geq K\Lip\errrate / (\groupprop_{\min}\targetacc^3)$ labeled samples. For the EU AI Act Annex III ($K{=}10$, $\groupprop_{\min}{=}0.05$, $\targetacc{=}0.02$, $\errrate{=}0.05$): $\nsamples \geq 1.25\text{M}$, against ${\sim}700\text{K}$ available medical imaging labels---a $1.8\times$ gap. The parameters ($K{=}10$, $\groupprop_{\min}{=}0.05$, $\targetacc{=}0.02$) are illustrative estimates consistent with the regulatory intent; official numerical calibration requirements are not yet codified.
 \end{theorem}
 
 \input{results/regulatory_table}
 
-\paragraph{Verification half-life.} Under ECE drift rate $\driftrate$, every verification expires after $\halflife = \targetacc/\driftrate$. Domain estimates ($\Lip{=}1$, $\errrate{=}0.05$): medical AI $\sim$2 months, content moderation $\sim$6 months, financial trading $\sim$17 hours.
+\paragraph{Verification half-life.} Under ECE drift rate $\driftrate$, every verification expires after $\halflife = \targetacc/\driftrate$. Domain estimates ($\Lip{=}1$, $\errrate{=}0.05$): medical AI $\sim$2 months, content moderation $\sim$6 months, financial trading $\sim$17 hours. The drift rates are estimated from \citet{davis2020calibrationdrift} and domain literature; empirical validation on deployment monitoring data is an important direction for future work.
 
 % ============================================================
 % SECTION 8: EMPIRICS SUMMARY

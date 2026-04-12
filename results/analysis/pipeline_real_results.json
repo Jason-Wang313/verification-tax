@@ -1,0 +1,126 @@
+{
+  "description": "Real 2-stage pipeline verification tax validation (Theorem C). Pipeline = Llama-405B screens + Qwen3-80B decides on disagreements. Theory predicts: pipeline has higher L_sys, hence higher verification floor.",
+  "data": {
+    "n_shared": 14042,
+    "n_agree": 12225,
+    "n_disagree": 1817
+  },
+  "pipeline": {
+    "accuracy": 0.8350662298817833,
+    "mean_conf": 0.88132804346202,
+    "ece_true_B50": 0.1387186568132362,
+    "L_hat": 3.0500042593065846,
+    "eps": 0.16493377011821675
+  },
+  "single_model": {
+    "accuracy": 0.8404073493804302,
+    "mean_conf": 0.9585311137083863,
+    "ece_true_B50": 0.11830758716585948,
+    "L_hat": 1.414583174481156,
+    "eps": 0.15959265061956984
+  },
+  "subsampling": {
+    "m_values": [
+      100,
+      200,
+      500,
+      1000,
+      2000,
+      5000,
+      10000
+    ],
+    "n_reps": 200,
+    "pipeline": {
+      "100": {
+        "mean_abs_error": 0.02449863210146094,
+        "std_abs_error": 0.018766621469004496,
+        "verification_floor": 0.17134443773940206,
+        "B_star": 17
+      },
+      "200": {
+        "mean_abs_error": 0.01967826922411116,
+        "std_abs_error": 0.01439646143486764,
+        "verification_floor": 0.13599617035821324,
+        "B_star": 22
+      },
+      "500": {
+        "mean_abs_error": 0.011520426931436076,
+        "std_abs_error": 0.00867348016921149,
+        "verification_floor": 0.10020283505882434,
+        "B_star": 30
+      },
+      "1000": {
+        "mean_abs_error": 0.008407030487388709,
+        "std_abs_error": 0.006770653838074284,
+        "verification_floor": 0.07953104289128686,
+        "B_star": 38
+      },
+      "2000": {
+        "mean_abs_error": 0.005404256770007645,
+        "std_abs_error": 0.004223363706963086,
+        "verification_floor": 0.06312383057487839,
+        "B_star": 48
+      },
+      "5000": {
+        "mean_abs_error": 0.003195477337153059,
+        "std_abs_error": 0.002340940970004784,
+        "verification_floor": 0.046510036030538215,
+        "B_star": 65
+      },
+      "10000": {
+        "mean_abs_error": 0.0015868128038211838,
+        "std_abs_error": 0.001166527220649993,
+        "verification_floor": 0.03691504006097761,
+        "B_star": 82
+      }
+    },
+    "single_model": {
+      "100": {
+        "mean_abs_error": 0.02466522013795502,
+        "std_abs_error": 0.0199559580936449,
+        "verification_floor": 0.1311838760303587,
+        "B_star": 10
+      },
+      "200": {
+        "mean_abs_error": 0.016788998898120345,
+        "std_abs_error": 0.014419498772381587,
+        "verification_floor": 0.10412071140592863,
+        "B_star": 13
+      },
+      "500": {
+        "mean_abs_error": 0.011752554031676958,
+        "std_abs_error": 0.008975850569902641,
+        "verification_floor": 0.07671679609605729,
+        "B_star": 18
+      },
+      "1000": {
+        "mean_abs_error": 0.007936855259097828,
+        "std_abs_error": 0.006143759671784164,
+        "verification_floor": 0.0608901614132556,
+        "B_star": 23
+      },
+      "2000": {
+        "mean_abs_error": 0.00574119316756607,
+        "std_abs_error": 0.0039173238610359885,
+        "verification_floor": 0.0483285531409577,
+        "B_star": 29
+      },
+      "5000": {
+        "mean_abs_error": 0.0030407284287959,
+        "std_abs_error": 0.0020705421618219134,
+        "verification_floor": 0.035608782411000794,
+        "B_star": 39
+      },
+      "10000": {
+        "mean_abs_error": 0.0012597590284634036,
+        "std_abs_error": 0.0009227855289383478,
+        "verification_floor": 0.02826270932926469,
+        "B_star": 50
+      }
+    }
+  },
+  "comparison": {
+    "L_ratio_pipeline_over_single": 2.1561151824284015,
+    "floor_ratio_pipeline_over_single_at_m1000": 1.3061394656440046
+  }
+}

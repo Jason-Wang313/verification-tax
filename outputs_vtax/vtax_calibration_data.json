@@ -1,0 +1,726 @@
+{
+  "metadata": {
+    "generated": "2026-04-11T11:41:39.974246",
+    "target_paper": "The Verification Tax: Fundamental Limits of AI Auditing in the Rare-Error Regime",
+    "target_venue": "NeurIPS 2026 Main Track",
+    "data_source": "Existing NeurIPS scrape (20581 papers)",
+    "theory_papers_filtered": 3621,
+    "comparable_papers_found": 30,
+    "DATA_LIMITATION": "NeurIPS does NOT publish rejected papers by default. Only opt-in rejected papers are visible. This data is overwhelmingly accepted papers. We CANNOT compute fatality rates, decision boundaries, or score-to-acceptance mappings. All analysis is relative to accepted paper baselines."
+  },
+  "global_stats": {
+    "total_accepted": 16422,
+    "mean_accepted_score": 5.5,
+    "scores_by_year": {
+      "2021": {
+        "count": 10384,
+        "mean": 6.41
+      },
+      "2022": {
+        "count": 11219,
+        "mean": 6.04
+      },
+      "2023": {
+        "count": 16666,
+        "mean": 5.96
+      },
+      "2024": {
+        "count": 18562,
+        "mean": 5.94
+      },
+      "2025": {
+        "count": 24927,
+        "mean": 4.34
+      }
+    }
+  },
+  "accepted_review_patterns": {
+    "num_accepted_comparables": 25,
+    "score_stats": {
+      "all_scores": [
+        6.0,
+        7.0,
+        8.0,
+        8.0,
+        3.0,
+        3.0,
+        4.0,
+        5.0,
+        5.0,
+        6.0,
+        7.0,
+        7.0,
+        7.0,
+        4.0,
+        5.0,
+        6.0,
+        6.0,
+        1.0,
+        3.0,
+        6.0,
+        6.0,
+        7.0,
+        7.0,
+        5.0,
+        6.0,
+        6.0,
+        8.0,
+        5.0,
+        5.0,
+        6.0,
+        6.0,
+        7.0,
+        6.0,
+        6.0,
+        7.0,
+        7.0,
+        7.0,
+        3.0,
+        5.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        8.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        5.0,
+        5.0,
+        6.0,
+        7.0,
+        5.0,
+        6.0,
+        6.0,
+        7.0,
+        4.0,
+        4.0,
+        5.0,
+        5.0,
+        5.0,
+        4.0,
+        4.0,
+        5.0,
+        5.0,
+        6.0,
+        6.0,
+        6.0,
+        7.0,
+        3.0,
+        4.0,
+        8.0,
+        8.0,
+        8.0,
+        3.0,
+        4.0,
+        5.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        5.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        7.0,
+        7.0,
+        8.0,
+        5.0,
+        7.0,
+        8.0,
+        8.0,
+        6.0,
+        6.0,
+        7.0,
+        5.0,
+        6.0,
+        7.0,
+        7.0
+      ],
+      "mean": 5.76,
+      "min": 1.0,
+      "max": 8.0,
+      "per_paper_means": [
+        7.25,
+        3.75,
+        6.4,
+        5.25,
+        5.0,
+        6.25,
+        5.8,
+        6.6,
+        5.0,
+        6.0,
+        6.67,
+        6.5,
+        5.75,
+        6.0,
+        4.6,
+        4.5,
+        6.25,
+        6.2,
+        4.0,
+        4.0,
+        5.75,
+        7.0,
+        7.0,
+        6.33,
+        6.25
+      ],
+      "score_floor": 3.75
+    },
+    "survivable_weaknesses": {},
+    "total_reviews_analyzed": 103
+  },
+  "comparable_papers": [
+    {
+      "title": "Auditing Fairness by Betting",
+      "year": 2023,
+      "similarity": 0.8,
+      "tier": "A_highly_similar",
+      "scores": [
+        6.0,
+        7.0,
+        8.0,
+        8.0
+      ],
+      "mean_score": 7.25,
+      "decision": "spotlight",
+      "is_accepted": true,
+      "manually_added": true,
+      "reviews_full": [
+        {
+          "score": 6.0,
+          "confidence": 4.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        },
+        {
+          "score": 7.0,
+          "confidence": 3.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        },
+        {
+          "score": 8.0,
+          "confidence": 4.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        },
+        {
+          "score": 8.0,
+          "confidence": 4.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        }
+      ],
+      "meta_review": null,
+      "abstract": "We provide practical, efficient, and nonparametric methods for auditing the fairness of deployed classification and regression models. Whereas previous work relies on a fixed-sample size, our methods are sequential and allow for the continuous monitoring of incoming data, making them highly amenable to tracking the fairness of real-world systems. We also allow the data to be collected by a  probabilistic policy as opposed to sampled uniformly from the population. This enables auditing to be conducted on data gathered for another purpose. Moreover, this policy may change over time and different policies may be used on different subpopulations. Finally, our methods can handle distribution shift resulting from either changes to the model or changes in the underlying population. Our approach is based on recent progress in anytime-valid inference and game-theoretic statistics---the ``testing by betting'' framework in particular. These connections ensure that our methods are interpretable, fast, and easy to implement. We demonstrate the efficacy of our approach on three benchmark fairness datasets."
+    },
+    {
+      "title": "Scaling Up Active Testing to Large Language Models",
+      "year": 2025,
+      "similarity": 0.8,
+      "tier": "A_highly_similar",
+      "scores": [
+        3.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "mean_score": 3.75,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": true,
+      "reviews_full": [
+        {
+          "score": 3.0,
+          "confidence": 4.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        },
+        {
+          "score": 3.0,
+          "confidence": 3.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        },
+        {
+          "score": 4.0,
+          "confidence": 3.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        },
+        {
+          "score": 5.0,
+          "confidence": 3.0,
+          "strengths": "",
+          "weaknesses": "",
+          "questions": ""
+        }
+      ],
+      "meta_review": null,
+      "abstract": "Active testing enables label-efficient evaluation of predictive models through careful data acquisition, but it can pose a significant computational cost. We identify cost-saving measures that enable active testing to be scaled up to large language models (LLMs). In particular we show that the surrogate model used to guide data acquisition can be constructed cheaply using in-context learning, does not require updating within an active-testing loop, and can be smaller than the target model. We even find we can make good data-acquisition decisions without making predictions with the target model. As a result we are able to achieve much more accurate evaluations of LLM performance relative to using randomly acquired data. We additionally introduce a bootstrap estimator of evaluation error, which we show to be a useful indicator of how well active testing is working within a single run."
+    },
+    {
+      "title": "On Calibrating Diffusion Probabilistic Models",
+      "year": 2023,
+      "similarity": 0.451,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        7.0,
+        7.0,
+        7.0
+      ],
+      "mean_score": 6.4,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Towards Calibrated Robust Fine-Tuning of Vision-Language Models",
+      "year": 2024,
+      "similarity": 0.424,
+      "tier": "C_weakly_similar",
+      "scores": [
+        4.0,
+        5.0,
+        6.0,
+        6.0
+      ],
+      "mean_score": 5.25,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Online Clustering of Bandits with Misspecified User Models",
+      "year": 2023,
+      "similarity": 0.383,
+      "tier": "C_weakly_similar",
+      "scores": [
+        1.0,
+        3.0,
+        6.0,
+        6.0,
+        7.0,
+        7.0
+      ],
+      "mean_score": 5.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "The Best of Both Worlds: On the Dilemma of Out-of-distribution Detection",
+      "year": 2024,
+      "similarity": 0.382,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        6.0,
+        8.0
+      ],
+      "mean_score": 6.25,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Optimal Top-Two Method for Best Arm Identification and Fluid Analysis",
+      "year": 2024,
+      "similarity": 0.381,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        5.0,
+        6.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 5.8,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Minimax Optimal Online Imitation Learning via Replay Estimation",
+      "year": 2022,
+      "similarity": 0.376,
+      "tier": "C_weakly_similar",
+      "scores": [
+        7.0,
+        7.0,
+        8.0
+      ],
+      "mean_score": 7.33,
+      "decision": "accept",
+      "is_accepted": null,
+      "manually_added": false
+    },
+    {
+      "title": "On the Variance, Admissibility, and Stability of Empirical Risk Minimization",
+      "year": 2023,
+      "similarity": 0.376,
+      "tier": "C_weakly_similar",
+      "scores": [
+        6.0,
+        6.0,
+        7.0,
+        7.0,
+        7.0
+      ],
+      "mean_score": 6.6,
+      "decision": "spotlight",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Dual Defense: Enhancing Privacy and Mitigating Poisoning Attacks in Federated Learning",
+      "year": 2024,
+      "similarity": 0.354,
+      "tier": "C_weakly_similar",
+      "scores": [
+        3.0,
+        5.0,
+        6.0,
+        6.0
+      ],
+      "mean_score": 5.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Position: If Innovation in AI systematically Violates Fundamental Rights, Is It Innovation at All?",
+      "year": 2025,
+      "similarity": 0.354,
+      "tier": "C_weakly_similar",
+      "scores": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "mean_score": 6.0,
+      "decision": "oral",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Nearly Tight Bounds For Differentially Private Multiway Cut",
+      "year": 2023,
+      "similarity": 0.35,
+      "tier": "C_weakly_similar",
+      "scores": [
+        6.0,
+        6.0,
+        8.0
+      ],
+      "mean_score": 6.67,
+      "decision": "oral",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Delegated Classification",
+      "year": 2023,
+      "similarity": 0.35,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      "mean_score": 6.5,
+      "decision": "spotlight",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Replicability in Learning: Geometric Partitions and KKM-Sperner Lemma",
+      "year": 2024,
+      "similarity": 0.349,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        5.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 5.75,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Non-parametric classification via expand-and-sparsify representation",
+      "year": 2024,
+      "similarity": 0.346,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 6.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Bernstein–von Mises for Adaptively Collected Data",
+      "year": 2025,
+      "similarity": 0.345,
+      "tier": "C_weakly_similar",
+      "scores": [
+        4.0,
+        4.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "mean_score": 4.6,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Efficiently Computing Local Lipschitz Constants of Neural Networks via Bound Propagation",
+      "year": 2022,
+      "similarity": 0.324,
+      "tier": "C_weakly_similar",
+      "scores": [
+        4.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 5.67,
+      "decision": "accept",
+      "is_accepted": null,
+      "manually_added": false
+    },
+    {
+      "title": "Statistical Inference for Gradient Boosting Regression",
+      "year": 2025,
+      "similarity": 0.323,
+      "tier": "C_weakly_similar",
+      "scores": [
+        4.0,
+        4.0,
+        5.0,
+        5.0
+      ],
+      "mean_score": 4.5,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Score-based Generative Modeling Secretly Minimizes the Wasserstein Distance",
+      "year": 2022,
+      "similarity": 0.32,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      "mean_score": 6.5,
+      "decision": "accept",
+      "is_accepted": null,
+      "manually_added": false
+    },
+    {
+      "title": "Federated Learning with Client Subsampling, Data Heterogeneity, and Unbounded Smoothness: A New Algorithm and Lower Bounds",
+      "year": 2023,
+      "similarity": 0.32,
+      "tier": "C_weakly_similar",
+      "scores": [
+        6.0,
+        6.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 6.25,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "FourierFormer: Transformer Meets Generalized Fourier Integral Theorem",
+      "year": 2022,
+      "similarity": 0.319,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        6.0,
+        8.0
+      ],
+      "mean_score": 6.25,
+      "decision": "accept",
+      "is_accepted": null,
+      "manually_added": false
+    },
+    {
+      "title": "The Reliability of OKRidge Method in Solving Sparse Ridge Regression Problems",
+      "year": 2024,
+      "similarity": 0.318,
+      "tier": "C_weakly_similar",
+      "scores": [
+        3.0,
+        4.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "mean_score": 6.2,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "APOLLO: Automated LLM and Lean Collaboration for Advanced Formal Reasoning",
+      "year": 2025,
+      "similarity": 0.318,
+      "tier": "C_weakly_similar",
+      "scores": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "mean_score": 4.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Scalable and adaptive prediction bands with kernel sum-of-squares",
+      "year": 2025,
+      "similarity": 0.315,
+      "tier": "C_weakly_similar",
+      "scores": [
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ],
+      "mean_score": 4.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Safe Opponent-Exploitation Subgame Refinement",
+      "year": 2022,
+      "similarity": 0.315,
+      "tier": "C_weakly_similar",
+      "scores": [
+        4.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 5.67,
+      "decision": "accept",
+      "is_accepted": null,
+      "manually_added": false
+    },
+    {
+      "title": "An Accelerated Algorithm for Stochastic Bilevel Optimization under Unbounded Smoothness",
+      "year": 2024,
+      "similarity": 0.315,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "mean_score": 5.75,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Diffusion Models are Certifiably Robust Classifiers",
+      "year": 2024,
+      "similarity": 0.315,
+      "tier": "C_weakly_similar",
+      "scores": [
+        6.0,
+        7.0,
+        7.0,
+        8.0
+      ],
+      "mean_score": 7.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Error Analysis of Spherically Constrained Least Squares Reformulation in Solving the Stackelberg Prediction Game",
+      "year": 2024,
+      "similarity": 0.314,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        7.0,
+        8.0,
+        8.0
+      ],
+      "mean_score": 7.0,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Score-based generative models are provably robust: an uncertainty quantification perspective",
+      "year": 2024,
+      "similarity": 0.311,
+      "tier": "C_weakly_similar",
+      "scores": [
+        6.0,
+        6.0,
+        7.0
+      ],
+      "mean_score": 6.33,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    },
+    {
+      "title": "Testing Calibration in Nearly-Linear Time",
+      "year": 2024,
+      "similarity": 0.3,
+      "tier": "C_weakly_similar",
+      "scores": [
+        5.0,
+        6.0,
+        7.0,
+        7.0
+      ],
+      "mean_score": 6.25,
+      "decision": "poster",
+      "is_accepted": true,
+      "manually_added": false
+    }
+  ]
+}
