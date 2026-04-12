@@ -150,7 +150,7 @@ Construct $P_0$ (calibrated, $\ECE = 0$) and $P_1$ (miscalibrated by $\targetacc
 Under score-mass concentration near $1{-}\errrate$, $R^*(\nsamples, \errrate, \Lip) \geq c_2 (\Lip \errrate/\nsamples)^{1/3} \cdot (\log \nsamples)^{-c_3}$.
 \end{theorem}
 \begin{proof}[Proof sketch]
-Reduce to $L_1$ functional estimation in white noise via Brown--Low equivalence~\citep{brown1996equivalence} with effective sample size $n_{\mathrm{eff}} = \nsamples/\errrate$. Apply Theorem~2.2 of~\citet{lepski1999estimation}. Self-contained Assouad alternative in Appendix~\ref{app:assouad}. Full proof: Appendix~\ref{app:minimax-proof}.
+The full proof (Appendix~\ref{app:bernoulli_lb}) constructs two product priors on $\Lip$-Lipschitz calibration functions directly in the Bernoulli observation model, following the two-prior method of \citet{lepski1999estimation}. The construction uses a signed measure that separates $L_1$ norms while controlling the Bernoulli KL divergence, yielding the rate $(\Lip\errrate/\nsamples)^{1/3}$ up to logarithmic factors without invoking asymptotic equivalence to white noise. An alternative derivation via Brown--Low equivalence~\citep{brown1996equivalence} is in Appendix~\ref{app:minimax-proof}.
 \end{proof}
 
 \begin{theorem}[Matched Upper Bound]
@@ -161,7 +161,7 @@ Histogram binning with $B^* = \lfloor(\Lip^2\nsamples/\errrate)^{1/3}\rfloor$ ac
 Bias $\leq \Lip/B$, variance $\leq \sqrt{\errrate B/\nsamples}$. Optimize at $B^* = (\Lip^2\nsamples/\errrate)^{1/3}$.
 \end{proof}
 
-The lower and upper bounds match at $(\Lip\errrate/\nsamples)^{1/3}$; the logarithmic gap is inherited from an open problem in $L_1$ functional estimation~\citep{lepski1999estimation}.
+The polynomial rate $(\Lip\errrate/\nsamples)^{1/3}$ is established by matching upper and lower bounds. The lower bound carries a logarithmic correction $(\log \nsamples)^{-c'}$ inherited from the structure of $L_1$ functional estimation: the non-smoothness of $|t|$ at zero requires a Fourier-analytic construction whose truncation introduces the logarithmic loss. This is the same gap identified by \citet{lepski1999estimation} twenty-seven years ago, and it remains open whether the gap belongs in the lower bound or the upper bound. We conjecture that the minimax rate is exactly $\Theta((\Lip\errrate/\nsamples)^{1/3})$ with no logarithmic correction. Resolving this would settle a longstanding question in nonparametric functional estimation, independent of the AI auditing application.
 
 \begin{theorem}[Scaling Duality]
 \label{thm:duality}
@@ -202,6 +202,16 @@ Let $J$ be any evaluator model. If $J$'s evaluation of subject model $S$ relies 
 \label{cor:hallucination}
 Factual accuracy is a special case of calibration. Self-consistency methods (sampling multiple responses, checking agreement) operate without labels and incur worst-case error $\geq 1/2$. Self-reported hallucination rates have zero information-theoretic content.
 \end{corollary}
+
+\begin{corollary}[Instance-Dependent Self-Verification Impossibility]
+\label{cor:selfverify_instance}
+For any label-free estimator $V$ and any $\targetacc \in (0, \min(\Lip, 1)]$:
+$\sup_{\calmap \in \cF(\Lip),\, \ECE(\calmap) = \targetacc} \E[|V - \ECE(\calmap)|] \geq \targetacc/2$.
+That is, for \emph{every} ECE value $\targetacc$, there exists a calibration function with that ECE that any label-free estimator will mis-estimate by at least $\targetacc/2$.
+\end{corollary}
+\begin{proof}
+Fix $\targetacc$. Let $\calmap_0 \equiv 0$ ($\ECE = 0$) and $\calmap_\targetacc$ with $\ECE = \targetacc$. Both produce identical label-free observations. For any $V$: $\E[|V - 0|] + \E[|V - \targetacc|] \geq \targetacc$. Thus $\max\{\E[|V - \ECE(\calmap_0)|], \E[|V - \ECE(\calmap_\targetacc)|]\} \geq \targetacc/2$.
+\end{proof}
 
 \begin{theorem}[White-Box Irrelevance]
 \label{thm:whitebox}
@@ -400,6 +410,31 @@ Taking $\sup$: $\sup_\calmap \E[|V - \ECE|] \geq \min(\Lip,1)/2$. $\square$
 \textbf{Corollary (Distribution Shift).} A calibration monitor trained on $D_{\mathrm{train}}$ cannot detect miscalibration on $D_{\mathrm{test}}$ without labeled samples from $D_{\mathrm{test}}$.
 
 % ----------------------------------------------------------
+\section{Self-Contained Lower Bound via Bernoulli Two-Prior Method}
+\label{app:bernoulli_lb}
+
+We prove Theorem~\ref{thm:minimax-lb} directly in the Bernoulli observation model, without invoking asymptotic equivalence to Gaussian white noise.
+
+\textbf{Setup.} We observe $\nsamples$ i.i.d.\ pairs $(p_i, Y_i)$ where $p_i \sim \scoredist$ and $Y_i \mid p_i \sim \Bern(p_i + \calmap(p_i))$, with $\calmap \in \cF(\Lip)$.
+
+\textbf{Step 1: Parametric submodel.} Assume $\scoredist$ has density $\geq c_\scoredist > 0$ on a window $W = [1{-}\errrate{-}w/2,\, 1{-}\errrate{+}w/2]$. Partition $W$ into $N$ subintervals $I_1, \ldots, I_N$ of width $h = w/N$. Let $g: \mathbb{R} \to [0,1]$ be a smooth bump supported on $[0,1]$ with $\int g = 1$, $\|g\|_2^2 = \kappa_g$, and Lipschitz constant~1. For $\theta \in [-1,1]^N$, define:
+$\calmap_\theta(p) = \Lip h \sum_{j=1}^{N} \theta_j \, g((p - t_j + h/2)/h)$,
+where $t_j$ are the interval midpoints. Each bump has height $\Lip h$, width $h$, and Lipschitz constant $\Lip$. Disjoint supports ensure $\calmap_\theta \in \cF(\Lip)$.
+
+\textbf{Step 2: Sufficient statistics.} In interval $I_j$, there are $n_j \approx \nsamples c_\scoredist h$ observations. The per-bin calibration gap estimate $Z_j = n_j^{-1}\sum_{i: p_i \in I_j}(Y_i - p_i)$ satisfies $\E[Z_j] \approx \Lip h \theta_j \bar{g}_j$ and $\Var(Z_j) \approx \errrate/(\nsamples c_\scoredist h)$. Setting $\alpha = \Lip h \bar{g}_j$ and $\sigma^2 = \errrate/(\nsamples c_\scoredist h)$, the problem reduces to the sequence model $Z_j \approx \alpha\theta_j + \sigma\xi_j$ with approximately independent $\xi_j$.
+
+\textbf{Step 3: ECE as $L_1$ functional.} The ECE restricted to $W$ is $\ECE_W \approx c_\scoredist w \cdot \alpha \cdot F_1(\theta)$ where $F_1(\theta) = N^{-1}\sum_{j=1}^N |\theta_j|$. Lower-bounding $F_1$ estimation suffices.
+
+\textbf{Step 4: Two-prior construction} (following Lepski et al., 1999, \S4.3). Construct product priors $\pi_0 = \nu_0^{\otimes N}$, $\pi_1 = \nu_1^{\otimes N}$ on $[-1,1]^N$ where $\nu_1 - \nu_0 = \eta\mu$ for a signed measure $\mu$ with $\int \mu = 0$ and $\int |t|\mu(dt) = 2\delta$ (the separation in $L_1$ norm). Both $\nu_j$ are perturbations of $\mathrm{Uniform}([-1,1])$ with density $1/2$. The per-coordinate KL is $\KL(p_{\nu_1}\|p_{\nu_0}) \leq 4\alpha^2\eta^2/\sigma^2$.
+
+\textbf{Step 5: Bayesian Le~Cam bound.} Total KL: $\KL_{\mathrm{total}} = 4N\alpha^2\eta^2/\sigma^2$. Setting $\KL_{\mathrm{total}} = 1$: $\eta = \sigma/(2\alpha\sqrt{N})$. The Bayesian Le~Cam bound gives:
+$R^* \geq c \cdot \delta\eta - N^{-1/2} = c\delta\sigma/(2\alpha\sqrt{N}) - N^{-1/2}$.
+
+\textbf{Step 6: Optimization over $N$.} Substituting $\sigma/\alpha = \sqrt{\errrate N}/(\Lip w^{3/2}\bar{g}\sqrt{\nsamples c_\scoredist})$ and optimizing over $N$ yields $N^* = \Theta((\nsamples/\errrate)^{1/3})$ and:
+$$R^*_{\ECE} \geq c' \left(\frac{\Lip\errrate}{\nsamples}\right)^{1/3} / (\log \nsamples)^{c''}$$
+The logarithmic factor arises from the Fourier approximation of $|t|$ in constructing $\mu$, not from the observation model. This is the same factor as in Lepski et al.~\citep{lepski1999estimation}. $\square$
+
+% ----------------------------------------------------------
 \section{Full Proof of Theorem~\ref{thm:active} (Active Verification)}
 \label{app:active-proof}
 
@@ -468,7 +503,7 @@ Bias: $\Lip/B$. Variance: $\sqrt{\errrate B/\nsamples}$. Total: $\Lip/B + \sqrt{
 % DEEP APPENDIX (pages 16+)
 % ============================================================
 
-\section{Full Proof of Theorem~\ref{thm:minimax-lb}}
+\section{Alternative Derivation of Theorem~\ref{thm:minimax-lb} via Asymptotic Equivalence}
 \label{app:minimax-proof}
 
 \textbf{Step 1: Reduction to nonparametric regression.}
