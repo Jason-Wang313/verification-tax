@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "vtax"
+version = "0.1.0"
+description = "Verification Tax Calculator: information-theoretic floors for AI evaluation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [{name = "Jason Wang"}]
+keywords = ["calibration", "evaluation", "verification", "ECE", "AI safety"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Paper = "https://github.com/Jason-Wang313/verification-tax"
+Repository = "https://github.com/Jason-Wang313/verification-tax"

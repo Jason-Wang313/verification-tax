@@ -12,6 +12,7 @@
 \usepackage{algorithm2e}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{pifont}
 
 % ============================================================
 % FROZEN NOTATION — Do not modify
@@ -249,7 +250,9 @@ The phase transition (Corollary~\ref{cor:phase-transition}) predicts a sharp wal
 \input{results/benchmark_demolition_table}
 \label{tab:demolition}
 
-Of 11 major benchmarks, \textbf{7 have typical claimed improvements below the verification floor} ($L{=}1$). Zero are robustly verifiable. MMLU per-subject analysis is the worst: $\targetacc_{\min} = 0.084$ exceeds the typical claimed improvement of 0.035 by $2.4\times$. On our own MMLU data, \textbf{65\% of per-subject model rankings are completely unranked}---all pairwise gaps fall below the floor---and 77\% of pairwise comparisons are noise (Figure~\ref{fig:phase}, right).
+Of 11 major benchmarks, \textbf{7 have typical claimed improvements below the verification floor} ($L{=}1$). Zero are robustly verifiable. On our own MMLU data, \textbf{65\% of per-subject model rankings are completely unranked}---all pairwise gaps fall below the floor---and 77\% of pairwise comparisons are noise (Figure~\ref{fig:phase}, right).
+
+\textbf{Are the differences between frontier models real?} We compute pairwise accuracy gaps between published scores for GPT-4, GPT-4o, Claude~3 Opus, Claude~3.5 Sonnet, Gemini~1.5 Pro, Gemini Ultra, and Llama-3-405B across four benchmarks (MMLU, TruthfulQA, HumanEval, GPQA Diamond). Of 64 pairwise comparisons, \textbf{23\% are unverifiable or marginal}. On GPQA Diamond ($n{=}198$), \textbf{zero} of three model pairs are statistically distinguishable. On HumanEval ($n{=}164$), 40\% of pairs are unverifiable or marginal. Even on MMLU ($n{=}14{,}042$), GPT-4 vs.\ Claude~3 Opus (gap 0.4\%, floor 0.6\%) is noise. The top of the leaderboard is, in substantial part, a tie. Full table: Appendix~\ref{app:named-models}.
 
 % ============================================================
 % SECTION 5: SURPRISE 3
@@ -382,6 +385,10 @@ Llama-3.1-405B & 817 & .234 & 2.84 & .192 & .093 \\
 The verification tax is a law: $\Theta((\Lip\errrate/\nsamples)^{1/3})$ for passive verification, with no escape via model access, self-evaluation, or strategic miscalibration. The four surprises---self-evaluation bounded by a constant, sharp phase transition, active querying eliminating $\Lip$, exponential composition---collectively imply that current evaluation practices operate in information-less regimes.
 
 \textbf{Practical applications.} The verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ should be reported alongside every calibration metric, analogous to confidence intervals in clinical trials~\citep{mitchell2019model}. The $\errrate$-adaptive holdout formula $\nsamples \geq \Lip\errrate/\targetacc^3$ replaces ad hoc test-set sizing. The active verification protocol (Theorem~\ref{thm:active}) provides 5--8$\times$ sample savings over passive evaluation and should be integrated into evaluation frameworks~\citep{liang2023helm}. The benchmark resolution limit (Corollary~\ref{cor:resolution}) gives concrete design criteria: a benchmark of $n$ items can only distinguish models differing by at least $(\Lip\errrate/n)^{1/3}$, implying that most current safety benchmarks~\citep{hendrycks2021mmlu} are undersized for the differences they claim to measure. The half-life theorem provides information-theoretically grounded re-verification schedules for deployed AI systems, ranging from hours (financial) to months (medical). The maximum verifiable pipeline depth $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$ gives concrete architecture constraints for agentic systems~\citep{yao2023react}.
+
+\textbf{Prediction.} Under current scaling trends ($\scalingexp \approx 0.5$), next-generation frontier models will achieve $\errrate \approx 0.05$--$0.08$ on MMLU. At this error rate, the verification floor on MMLU ($n{=}14{,}042$) is $\verfloor \approx 0.016$--$0.018$. We predict that ${>}80\%$ of calibration improvements claimed in next-generation technical reports will fall below this floor. The field will announce gains that are, by the theory in this paper, statistically unverifiable.
+
+\textbf{Software.} We release \texttt{vtax}, a Python package implementing verification floor computation, holdout sizing, and verifiability assessment (\texttt{pip install vtax}; source at \url{https://github.com/Jason-Wang313/verification-tax}).
 
 \textbf{Limitations.} Lipschitz assumption; log gap between Theorems~\ref{thm:minimax-lb}--\ref{thm:upper-bound}; worst-case Lipschitz accumulation in composition; ECE metric (kernel-based estimators are open).
 
@@ -532,6 +539,13 @@ Bias: $\Lip/B$. Variance: $\sqrt{\errrate B/\nsamples}$. Total: $\Lip/B + \sqrt{
 \textbf{Permutation tests.} For the self-evaluation claim (Theorem~\ref{thm:selfverify}), we supplement Spearman correlations with 10{,}000-permutation tests under $H_0$: confidence is independent of calibration gap. Results: MMLU 2/3 models $p > 0.10$ (non-significant); TruthfulQA 2/3 models $p > 0.10$. The positive control (confidence vs.\ accuracy) is significant on both benchmarks ($p < 0.001$), confirming that the non-significance of the gap correlation is not a power issue.
 
 \textbf{Bootstrap methodology.} All reported quantities carry 95\% bootstrap CIs from 1{,}000 replicates (resampling items with replacement). Lipschitz estimates have wide CIs (e.g., Llama-405B: $\hat\Lip = 1.41$ [1.13, 3.02]) because finite-difference estimation is inherently noisy; ECE and $\errrate$ CIs are tight (e.g., $\ECE = 0.118$ [0.113, 0.124]).
+
+\subsection{Named Model Comparisons}
+\label{app:named-models}
+
+We compute pairwise accuracy gaps between 10 frontier models on 4 benchmarks using published scores from technical reports and model cards, and compare to the verification floor $\targetacc_{\mathrm{acc}} = 2\sqrt{\errrate(1-\errrate)/n}$.
+
+\input{results/named_model_comparison_table}
 
 % ============================================================
 % DEEP APPENDIX (pages 16+)
