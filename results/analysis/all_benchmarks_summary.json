@@ -1,0 +1,186 @@
+{
+  "total_benchmarks": 5,
+  "total_pairs_with_N_ge_100": 14,
+  "eps_range": [
+    0.03924914675767921,
+    1.0
+  ],
+  "ece_range": [
+    0.038197883959044436,
+    0.9576648786637985
+  ],
+  "L_hat_range": [
+    1.0,
+    5.0
+  ],
+  "delta_floor_range": [
+    0.026352898624369424,
+    0.13914999668915617
+  ],
+  "self_eval_fraction_nonsignificant": 0.8888888888888888,
+  "self_eval_nonsig_count": 8,
+  "self_eval_total_with_rho": 9,
+  "mean_verification_floor_per_benchmark": {
+    "mmlu": 0.03070607721193606,
+    "truthfulqa": 0.11202974390776076,
+    "arc_challenge": 0.05603081703088709,
+    "hellaswag": 0.051001908443414894,
+    "winogrande": 0.10397134955173104
+  },
+  "per_pair_results": [
+    {
+      "benchmark": "mmlu",
+      "model": "Llama-3.1-405B",
+      "N": 14042,
+      "eps": 0.159593,
+      "ece": 0.118308,
+      "L_hat": 1.6103,
+      "delta_floor": 0.026353,
+      "spearman_rho": 0.35,
+      "spearman_p": 0.3558
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Llama-4-Maverick",
+      "N": 14042,
+      "eps": 0.27318,
+      "ece": 0.261975,
+      "L_hat": 1.0,
+      "delta_floor": 0.026895,
+      "spearman_rho": null,
+      "spearman_p": null
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Qwen3-Next-80B",
+      "N": 14042,
+      "eps": 0.164934,
+      "ece": 0.142735,
+      "L_hat": 5.0,
+      "delta_floor": 0.03887,
+      "spearman_rho": -0.5,
+      "spearman_p": 0.6667
+    },
+    {
+      "benchmark": "truthfulqa",
+      "model": "Llama-3.1-405B",
+      "N": 817,
+      "eps": 0.233782,
+      "ece": 0.194715,
+      "L_hat": 2.8409,
+      "delta_floor": 0.093329,
+      "spearman_rho": -0.4286,
+      "spearman_p": 0.3374
+    },
+    {
+      "benchmark": "truthfulqa",
+      "model": "Llama-4-Maverick",
+      "N": 817,
+      "eps": 0.656059,
+      "ece": 0.629275,
+      "L_hat": 3.3553,
+      "delta_floor": 0.13915,
+      "spearman_rho": -0.2,
+      "spearman_p": 0.8
+    },
+    {
+      "benchmark": "truthfulqa",
+      "model": "Qwen3-Next-80B",
+      "N": 817,
+      "eps": 0.249694,
+      "ece": 0.22238,
+      "L_hat": 3.6393,
+      "delta_floor": 0.10361,
+      "spearman_rho": -0.1,
+      "spearman_p": 0.8729
+    },
+    {
+      "benchmark": "arc_challenge",
+      "model": "Llama-3.1-405B",
+      "N": 262,
+      "eps": 0.061069,
+      "ece": 0.057487,
+      "L_hat": 1.0,
+      "delta_floor": 0.061542,
+      "spearman_rho": null,
+      "spearman_p": null
+    },
+    {
+      "benchmark": "arc_challenge",
+      "model": "Llama-4-Maverick",
+      "N": 1167,
+      "eps": 0.479006,
+      "ece": 0.473905,
+      "L_hat": 1.0,
+      "delta_floor": 0.074317,
+      "spearman_rho": null,
+      "spearman_p": null
+    },
+    {
+      "benchmark": "arc_challenge",
+      "model": "Qwen3-Next-80B",
+      "N": 1172,
+      "eps": 0.039249,
+      "ece": 0.038198,
+      "L_hat": 1.0,
+      "delta_floor": 0.032233,
+      "spearman_rho": null,
+      "spearman_p": null
+    },
+    {
+      "benchmark": "hellaswag",
+      "model": "Llama-3.1-405B",
+      "N": 506,
+      "eps": 0.126482,
+      "ece": 0.096555,
+      "L_hat": 2.2637,
+      "delta_floor": 0.082712,
+      "spearman_rho": -0.3714,
+      "spearman_p": 0.4685
+    },
+    {
+      "benchmark": "hellaswag",
+      "model": "Llama-4-Maverick",
+      "N": 4625,
+      "eps": 0.168216,
+      "ece": 0.162523,
+      "L_hat": 1.0,
+      "delta_floor": 0.033132,
+      "spearman_rho": null,
+      "spearman_p": null
+    },
+    {
+      "benchmark": "hellaswag",
+      "model": "Qwen3-Next-80B",
+      "N": 9447,
+      "eps": 0.096962,
+      "ece": 0.083824,
+      "L_hat": 5.0,
+      "delta_floor": 0.037161,
+      "spearman_rho": -0.5,
+      "spearman_p": 0.6667
+    },
+    {
+      "benchmark": "winogrande",
+      "model": "Llama-4-Maverick",
+      "N": 701,
+      "eps": 1.0,
+      "ece": 0.957665,
+      "L_hat": 1.0,
+      "delta_floor": 0.112571,
+      "spearman_rho": 1.0,
+      "spearman_p": 0.0
+    },
+    {
+      "benchmark": "winogrande",
+      "model": "Qwen3-Next-80B",
+      "N": 1198,
+      "eps": 0.207846,
+      "ece": 0.192158,
+      "L_hat": 5.0,
+      "delta_floor": 0.095371,
+      "spearman_rho": 0.0,
+      "spearman_p": 1.0
+    }
+  ]
+}
