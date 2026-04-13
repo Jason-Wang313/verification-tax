@@ -444,8 +444,8 @@ def main():
     # ------------------------------------------------------------------
     print("\n--- Generating figures ---\n")
 
-    fig = plt.figure(figsize=(17, 5.5))
-    gs = GridSpec(1, 3, figure=fig, wspace=0.32)
+    fig = plt.figure(figsize=(11, 8))
+    gs = GridSpec(2, 2, figure=fig, wspace=0.28, hspace=0.42)
 
     colors = {
         "Qwen3-Next-80B": "#1f77b4",
@@ -459,7 +459,7 @@ def main():
     }
 
     # ---- Panel 1: Self-eval (conf vs accuracy vs gap) ----
-    ax1 = fig.add_subplot(gs[0])
+    ax1 = fig.add_subplot(gs[0, :])
     for name in MODEL_FILES:
         if name not in self_eval_results:
             continue
@@ -484,13 +484,13 @@ def main():
     ax1.set_xlabel("Mean confidence", fontsize=11)
     ax1.set_ylabel("Accuracy / Cal. gap", fontsize=11)
     ax1.set_title("(a) Self-Eval: Confidence vs Accuracy & Gap", fontsize=11, fontweight="bold")
-    ax1.legend(fontsize=6.5, loc="upper left", ncol=1)
+    ax1.legend(fontsize=7.5, loc="upper left", ncol=2)
     ax1.set_xlim(0, 1.02)
     ax1.set_ylim(-0.3, 1.05)
     ax1.grid(True, alpha=0.2)
 
     # ---- Panel 2: Subsampling convergence with floor ----
-    ax2 = fig.add_subplot(gs[1])
+    ax2 = fig.add_subplot(gs[1, 0])
     for name in MODEL_FILES:
         if name not in sub_results:
             continue
@@ -513,11 +513,11 @@ def main():
     ax2.set_xlabel(r"Sample size $m$", fontsize=11)
     ax2.set_ylabel(r"$|\widehat{\mathrm{ECE}} - \mathrm{ECE}|$", fontsize=11)
     ax2.set_title("(b) Subsampling Convergence", fontsize=11, fontweight="bold")
-    ax2.legend(fontsize=6.5, loc="upper right")
+    ax2.legend(fontsize=7.0, loc="upper right")
     ax2.grid(True, alpha=0.2, which="both")
 
     # ---- Panel 3: Phase transition ----
-    ax3 = fig.add_subplot(gs[2])
+    ax3 = fig.add_subplot(gs[1, 1])
     for name in MODEL_FILES:
         if name not in phase_results:
             continue
@@ -537,12 +537,12 @@ def main():
     ax3.set_xlabel(r"$m \cdot \varepsilon$", fontsize=11)
     ax3.set_ylabel("Detection power", fontsize=11)
     ax3.set_title("(c) Phase Transition", fontsize=11, fontweight="bold")
-    ax3.legend(fontsize=7, loc="lower right")
+    ax3.legend(fontsize=7.5, loc="lower right")
     ax3.grid(True, alpha=0.2)
     ax3.set_ylim(-0.05, 1.05)
 
     plt.suptitle("TruthfulQA Validation (B2): Self-Eval, Convergence, Phase Transition",
-                 fontsize=13, fontweight="bold", y=1.02)
+                 fontsize=13, fontweight="bold", y=0.98)
 
     fig_path_pdf = os.path.join(FIG_DIR, "fig_truthfulqa_validation.pdf")
     fig_path_png = os.path.join(FIG_DIR, "fig_truthfulqa_validation.png")
