@@ -822,7 +822,7 @@
 {"question_id": "arc_000848", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000842", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000777", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000858", "first_letter": "?", "correct_letter": "3", "is_correct": false, "softmax": {"1": 0.0, "2": 0.0, "3": 1.0, "4": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000858", "first_letter": "3", "correct_letter": "3", "is_correct": true, "softmax": {"1": 0.0, "2": 0.0, "3": 1.0, "4": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000783", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000802", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000859", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}

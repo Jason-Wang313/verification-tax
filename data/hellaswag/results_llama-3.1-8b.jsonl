@@ -17937,3 +17937,1157 @@
 {"question_id": "hswag_008131", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
 {"question_id": "hswag_008112", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
 {"question_id": "hswag_008159", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008142", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008121", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008118", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008117", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008160", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008137", "first_letter": "B", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008124", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008125", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008132", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008135", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008127", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008130", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008139", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008136", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008129", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008138", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008177", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008163", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008143", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008144", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008145", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008146", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008147", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008162", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008167", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008155", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008154", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008152", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008157", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008149", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008156", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008158", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008153", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008161", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008150", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008151", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008195", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008178", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008172", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008165", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008164", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008166", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008168", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008186", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008170", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008171", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008174", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008169", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008175", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008173", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008176", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008181", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008180", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008213", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008179", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008182", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008183", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008184", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008218", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008211", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008185", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008188", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008187", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008189", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008200", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008191", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008193", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008192", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008197", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008194", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008190", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008196", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008231", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008202", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008201", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008198", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008204", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008199", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008203", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008206", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008205", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008242", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008207", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008210", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008233", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008208", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008228", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008227", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008222", "first_letter": "D", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008215", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008249", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008209", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008214", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008216", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008217", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008212", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008219", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008223", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008221", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008220", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008225", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008224", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008230", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008235", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008257", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008226", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008229", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008267", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008232", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008234", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008238", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008241", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008239", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008240", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008236", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008237", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008246", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008243", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008244", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008248", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008252", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008245", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008251", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008256", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008253", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008250", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008280", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008268", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008247", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008254", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008285", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008255", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008258", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008263", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008262", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008265", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008266", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008261", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008259", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008260", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008264", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008271", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008270", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008269", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008303", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008274", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008275", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008276", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008307", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008277", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008282", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008272", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008273", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008281", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008283", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008279", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008278", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008284", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008290", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008291", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008294", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008321", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008287", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008288", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008299", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008289", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008316", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008286", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008293", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008292", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008295", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008301", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008296", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008297", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008300", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008302", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008298", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008335", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008339", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008304", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008306", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008305", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008308", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008309", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008320", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008312", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008345", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008310", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008337", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008342", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008313", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008314", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008315", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008311", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008318", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008317", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008357", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008319", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008323", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008322", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008324", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008326", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008325", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008330", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008327", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008328", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008331", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008329", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008338", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008341", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008360", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008344", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008365", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008340", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008355", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008332", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008334", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008336", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008333", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008375", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008346", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008369", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008343", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008370", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008347", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008350", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008349", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008352", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008363", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008351", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008348", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008356", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008374", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008379", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008373", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008377", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008378", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008358", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008353", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008359", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008393", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008354", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008394", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008385", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008361", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008362", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008366", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008364", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008367", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008368", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008411", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008380", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008372", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008371", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008376", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008381", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008383", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008382", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008384", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008386", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008402", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008412", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008387", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008389", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008391", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008390", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008398", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008397", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008388", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008396", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008392", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008403", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008401", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008399", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008400", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008395", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008429", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008404", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008409", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008408", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008407", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008405", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008406", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008410", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008413", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008420", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008416", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008417", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008447", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008414", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008415", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008419", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008418", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008425", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008422", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008421", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008423", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008424", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008440", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008428", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008427", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008432", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008436", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008437", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008434", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008442", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008465", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008431", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008441", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008433", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008438", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008426", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008445", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008468", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008459", "first_letter": "D", "correct_letter": "A", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008430", "first_letter": "D", "correct_letter": "A", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008444", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008443", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008439", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008435", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008474", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008477", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008446", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008455", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008479", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008483", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008450", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008451", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008449", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008448", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008452", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008484", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008453", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008454", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008458", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008457", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008494", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008456", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008470", "first_letter": "B", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008464", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008462", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008460", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008501", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008475", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008461", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008463", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008466", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008472", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008467", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008469", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008473", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008471", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008489", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008481", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008476", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008478", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008480", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008482", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008519", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008487", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008485", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008486", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008491", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008488", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008490", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008496", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008493", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008492", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008523", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008495", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008500", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008497", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008498", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008499", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008507", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008503", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008504", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008508", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008537", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008509", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008502", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008505", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008512", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008511", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008506", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008510", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008515", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008547", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008536", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008513", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008518", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008517", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008516", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008520", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008514", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008531", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008538", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008555", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008521", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008522", "first_letter": "D", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008559", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008524", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008525", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008529", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008527", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008530", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008528", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008526", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008532", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008534", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008543", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008535", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008551", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008533", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008553", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008569", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008573", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008539", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008542", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008550", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008540", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008548", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008544", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008546", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008541", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008545", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008563", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008587", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008570", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008554", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008557", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008561", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008556", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008552", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008560", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008591", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008558", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008549", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008562", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008580", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008564", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008565", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008566", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008568", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008602", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008567", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008595", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008584", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008576", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008609", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008571", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008581", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008574", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008613", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008614", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008572", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008578", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008575", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008577", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008582", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008583", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008579", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008586", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008585", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008590", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008589", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008592", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008597", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008627", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008601", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008596", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008593", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008599", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008598", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008588", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008594", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008610", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008622", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008606", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008611", "first_letter": "B", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008628", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008636", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008600", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008605", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008603", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008645", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008604", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008643", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008644", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008642", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008608", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008607", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008612", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008616", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008615", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008620", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008617", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008618", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008657", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008619", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008625", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008621", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008663", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008623", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008624", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008626", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008631", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008634", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008632", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008637", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008630", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008635", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008633", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008629", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008651", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008656", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008640", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008638", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008639", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008641", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008681", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008646", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008647", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008648", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008649", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008650", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008653", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008686", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008652", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008654", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008679", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008665", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008680", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008677", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008671", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008673", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008658", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008655", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008699", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008659", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008674", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008660", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008662", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008661", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008666", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008664", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008705", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008704", "first_letter": "B", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008703", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008667", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008668", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008670", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008678", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008669", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008676", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008672", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008717", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008675", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008683", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008682", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008685", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008710", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008684", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008692", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008688", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008690", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008689", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008687", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008724", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008691", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008731", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008718", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008712", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008727", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008735", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008693", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008695", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008694", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008700", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008697", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008698", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008696", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008707", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008701", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008706", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008702", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008709", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008715", "first_letter": "D", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008708", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008711", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008713", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008714", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008716", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008753", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008722", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008720", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008719", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008721", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008723", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008725", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008726", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008730", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008729", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008728", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008737", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008764", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008734", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008732", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008733", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008739", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008736", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008738", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008771", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008754", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008743", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008741", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008740", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008742", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008744", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008745", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008761", "first_letter": "D", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008747", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008746", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008748", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008751", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008749", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008752", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008750", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008789", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008779", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008762", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008755", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008772", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008757", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008756", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008759", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008758", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008760", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008775", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008785", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008790", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008798", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008763", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008765", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008767", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008768", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008769", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008766", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008807", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008770", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008774", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008803", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008773", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008776", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008777", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008782", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008781", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008778", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008780", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008783", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008784", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008786", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008787", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008788", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008825", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008792", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008804", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008793", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008791", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008794", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008797", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008795", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008796", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008809", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008801", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008799", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008802", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008800", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008806", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008805", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008808", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008810", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008843", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008811", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008815", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008814", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008816", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008817", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008812", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008818", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008833", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008813", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008820", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008819", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008821", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008822", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008842", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008823", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008824", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008829", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008826", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008839", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008827", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008835", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008861", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008830", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008828", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008831", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008844", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008832", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008836", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008838", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008837", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008841", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008840", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008845", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008868", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008849", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008848", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008857", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008834", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008875", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008855", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008879", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008880", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008878", "first_letter": "B", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008862", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008851", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008854", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008853", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008847", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008846", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008852", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008850", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008872", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008888", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008859", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008858", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008856", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008897", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008892", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008899", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008863", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008865", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008864", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008867", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008866", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008860", "first_letter": "C", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008900", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008887", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008870", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008869", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008871", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008874", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008873", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008915", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008877", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008884", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008885", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008890", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008876", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008882", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008881", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008883", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008886", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008904", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008901", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008891", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008895", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008889", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008893", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008907", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008894", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008933", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008896", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008902", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008898", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008903", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008910", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008906", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008912", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008908", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008905", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008911", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008909", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008913", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008927", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008938", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008914", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008936", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008922", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008918", "first_letter": "B", "correct_letter": "A", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008916", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008917", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008951", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008920", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008923", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008921", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008928", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008919", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008924", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008926", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008925", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008929", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008937", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008946", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008930", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008932", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008950", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008953", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008931", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008962", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008939", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008969", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008934", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008956", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008935", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008955", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008967", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008940", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008944", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008942", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008945", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008949", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008947", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008954", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008981", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008941", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008976", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008987", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008943", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008975", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008979", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008959", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008952", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008948", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008960", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008996", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008964", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008966", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008958", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008957", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008963", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008965", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008961", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008973", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008971", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009005", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008974", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008972", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008968", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009002", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008978", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_008970", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008988", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008980", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008977", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008983", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_008989", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008992", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008986", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008990", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_008982", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008995", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009023", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008985", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008984", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008991", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008994", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008997", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_008998", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_008993", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_008999", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009010", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009000", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009007", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009001", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009008", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009004", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009032", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009028", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009016", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009009", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009006", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009003", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009041", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009011", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009013", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009012", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009015", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009014", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009039", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009046", "first_letter": "D", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009017", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009018", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009047", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009049", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009020", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009019", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009059", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009021", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009024", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009042", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009022", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009045", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009040", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009025", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009026", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009027", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009031", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009030", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009029", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009051", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009033", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009034", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009035", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009077", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009037", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009036", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009038", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009043", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009044", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009052", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009050", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009048", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009054", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009060", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009079", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009053", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009087", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009088", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009055", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009057", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009058", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009056", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009095", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009061", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009062", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009063", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009064", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009075", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009067", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009065", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009070", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009068", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009074", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009069", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009072", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009073", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009071", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009089", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009076", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009113", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009078", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009066", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009104", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009101", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009091", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009112", "first_letter": "B", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009080", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009081", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009083", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009082", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009084", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009108", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009086", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009085", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009110", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009097", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009090", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009131", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009093", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009094", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009096", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009098", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009109", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009092", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009136", "first_letter": "A", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009105", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009102", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009103", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009128", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009139", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009127", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009138", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009106", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009099", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009100", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009111", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009149", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009107", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009114", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009115", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009122", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009121", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009125", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009118", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009120", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009116", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009126", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009124", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009117", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009130", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009119", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009123", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009129", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009167", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009137", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009164", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009165", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009166", "first_letter": "A", "correct_letter": "B", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009168", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009133", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009132", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009134", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009173", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009135", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009153", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009142", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009140", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009141", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009147", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009145", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009150", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009148", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009146", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009151", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009143", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009144", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009185", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009152", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009154", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009155", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009156", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009191", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009160", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009161", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009163", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009157", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009159", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009158", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009171", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009186", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009162", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009172", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009203", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009170", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009169", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009174", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009176", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009175", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009177", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009179", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009181", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009180", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009190", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009178", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009205", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009182", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009188", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009183", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009221", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009187", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009184", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009192", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009189", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009195", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009193", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009194", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009196", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009218", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009198", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009199", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009200", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009202", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009204", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009201", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009206", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009197", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009239", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009228", "first_letter": "A", "correct_letter": "D", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009209", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009212", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009210", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009211", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009226", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009207", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009216", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009230", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009229", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009208", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009215", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009213", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009214", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009220", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009243", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009253", "first_letter": "D", "correct_letter": "D", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009219", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009217", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009257", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009224", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009260", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009223", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009225", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009222", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009227", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009231", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009234", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009233", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009235", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009232", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009237", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009238", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009236", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009275", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009241", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009242", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009240", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009245", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009244", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009246", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009250", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009247", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009251", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009249", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009255", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009279", "first_letter": "B", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009258", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009252", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009256", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009254", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009262", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009287", "first_letter": "D", "correct_letter": "C", "is_correct": false, "max_conf": 0.25}
+{"question_id": "hswag_009293", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009261", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009264", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009263", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009265", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009248", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009259", "first_letter": "B", "correct_letter": "B", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009267", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009266", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009268", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
+{"question_id": "hswag_009294", "first_letter": "A", "correct_letter": "A", "is_correct": true, "max_conf": 0.25}
+{"question_id": "hswag_009269", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009271", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009272", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009270", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009274", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009273", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009277", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "hswag_009311", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
+{"question_id": "hswag_009276", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
+{"question_id": "hswag_009309", "first_letter": "C", "correct_letter": "C", "is_correct": true, "max_conf": 0.25}

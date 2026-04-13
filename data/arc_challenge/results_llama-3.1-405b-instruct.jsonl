@@ -775,12 +775,6 @@
 {"question_id": "arc_000100", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000059", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000061", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 7e-06, "B": 1.1e-05, "C": 0.0, "D": 0.999981}, "max_conf": 0.999981}
-{"question_id": "arc_000112", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000055", "error": "timeout_15s", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000058", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000056", "error": "timeout_15s", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000064", "error": "timeout_15s", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000060", "error": "timeout_15s", "first_letter": "?", "correct_letter": "C"}
 {"question_id": "arc_000111", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.982011, "B": 1e-06, "C": 2e-06, "D": 0.017986}, "max_conf": 0.982011}
 {"question_id": "arc_000109", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000120", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 5e-06, "B": 0.0, "C": 0.999994, "D": 0.0}, "max_conf": 0.999994}
@@ -790,69 +784,33 @@
 {"question_id": "arc_000133", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000139", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000138", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000093", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000113", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999972, "B": 4e-06, "C": 2.4e-05, "D": 0.0}, "max_conf": 0.999972}
 {"question_id": "arc_000137", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 0.999994, "C": 5e-06, "D": 0.0}, "max_conf": 0.999994}
-{"question_id": "arc_000114", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000157", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000116", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000115", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000117", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000118", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000154", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
 {"question_id": "arc_000156", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000174", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-05, "B": 0.0, "C": 0.000123, "D": 0.999866}, "max_conf": 0.999866}
 {"question_id": "arc_000168", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.998068, "C": 4e-06, "D": 0.001927}, "max_conf": 0.998068}
 {"question_id": "arc_000176", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999957, "B": 1.1e-05, "C": 1e-06, "D": 3.1e-05}, "max_conf": 0.999957}
 {"question_id": "arc_000177", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000153", "error": "timeout_15s", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000159", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2e-06, "B": 1e-06, "C": 0.999997, "D": 0.0}, "max_conf": 0.999997}
 {"question_id": "arc_000175", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 3.8e-05, "B": 0.000216, "C": 0.730873, "D": 0.268873}, "max_conf": 0.730873}
 {"question_id": "arc_000172", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
-{"question_id": "arc_000155", "error": "timeout_15s", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000158", "error": "timeout_15s", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000210", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000169", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000170", "error": "timeout_15s", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000208", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000217", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000213", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000225", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999446, "B": 1e-06, "C": 0.000553, "D": 0.0}, "max_conf": 0.999446}
 {"question_id": "arc_000179", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000173", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000193", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000197", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000198", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000200", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000212", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000214", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
 {"question_id": "arc_000228", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 0.999999, "C": 1e-06, "D": 0.0}, "max_conf": 0.999999}
 {"question_id": "arc_000229", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.999998, "C": 0.0, "D": 0.0}, "max_conf": 0.999998}
 {"question_id": "arc_000231", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
-{"question_id": "arc_000248", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
 {"question_id": "arc_000246", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000247", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000262", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
-{"question_id": "arc_000227", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000234", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000232", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000235", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000224", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000236", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000245", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
 {"question_id": "arc_000260", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.924137, "B": 0.075858, "C": 3e-06, "D": 2e-06}, "max_conf": 0.924137}
 {"question_id": "arc_000282", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 6.6e-05, "C": 0.0, "D": 0.999934}, "max_conf": 0.999934}
 {"question_id": "arc_000267", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999866, "B": 1e-05, "C": 1e-06, "D": 0.000123}, "max_conf": 0.999866}
 {"question_id": "arc_000268", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.000123, "B": 2e-06, "C": 0.999856, "D": 1.9e-05}, "max_conf": 0.999856}
 {"question_id": "arc_000291", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000296", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000275", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000298", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000276", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000278", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000280", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000288", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000284", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
 {"question_id": "arc_000297", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000314", "first_letter": "3", "correct_letter": "3", "is_correct": true, "softmax": {"1": 0.0, "2": 0.0, "3": 0.651355, "4": 0.348645}, "max_conf": 0.651355}
 {"question_id": "arc_000303", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
@@ -864,35 +822,19 @@
 {"question_id": "arc_000331", "first_letter": "B", "correct_letter": "D", "is_correct": false, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000333", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999998, "B": 1e-06, "C": 1e-06, "D": 0.0}, "max_conf": 0.999998}
 {"question_id": "arc_000335", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.000179, "B": 0.000179, "C": 0.999596, "D": 4.5e-05}, "max_conf": 0.999596}
-{"question_id": "arc_000309", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000343", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000289", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000290", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000295", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000315", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000340", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000339", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
 {"question_id": "arc_000352", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000347", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 1e-06}, "max_conf": 0.999999}
-{"question_id": "arc_000344", "error": "timeout_15s", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000357", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000320", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.015494, "B": 0.958549, "C": 0.000413, "D": 0.025544}, "max_conf": 0.958549}
 {"question_id": "arc_000346", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000317", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000349", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000337", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000351", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000385", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 3.1e-05, "B": 8e-06, "C": 0.999952, "D": 9e-06}, "max_conf": 0.999952}
 {"question_id": "arc_000384", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000386", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "2"}
 {"question_id": "arc_000389", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000354", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1.5e-05, "B": 0.095346, "C": 0.904614, "D": 2.5e-05}, "max_conf": 0.904614}
 {"question_id": "arc_000398", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000355", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000382", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000371", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000362", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000381", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
 {"question_id": "arc_000383", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000361", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000391", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
@@ -901,7 +843,6 @@
 {"question_id": "arc_000411", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000454", "first_letter": "3", "correct_letter": "3", "is_correct": true, "softmax": {"1": 1e-06, "2": 1e-06, "3": 0.999996, "4": 2e-06}, "max_conf": 0.999996}
 {"question_id": "arc_000463", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000471", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000416", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000483", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.001019, "B": 0.986558, "C": 4e-06, "D": 0.012419}, "max_conf": 0.986558}
 {"question_id": "arc_000414", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999932, "B": 5.8e-05, "C": 2e-06, "D": 8e-06}, "max_conf": 0.999932}
@@ -909,7 +850,6 @@
 {"question_id": "arc_000431", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000447", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.999993, "D": 6e-06}, "max_conf": 0.999993}
 {"question_id": "arc_000436", "first_letter": "A", "correct_letter": "B", "is_correct": false, "softmax": {"A": 0.932451, "B": 0.067547, "C": 1e-06, "D": 1e-06}, "max_conf": 0.932451}
-{"question_id": "arc_000437", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000452", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 3e-06, "B": 0.999996, "C": 1e-06, "D": 0.0}, "max_conf": 0.999996}
 {"question_id": "arc_000484", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000422", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
@@ -919,29 +859,13 @@
 {"question_id": "arc_000503", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999995, "D": 5e-06}, "max_conf": 0.999995}
 {"question_id": "arc_000506", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.003593, "B": 0.996304, "C": 9.6e-05, "D": 7e-06}, "max_conf": 0.996304}
 {"question_id": "arc_000509", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000513", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "A"}
 {"question_id": "arc_000512", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1.1e-05, "B": 1e-06, "C": 0.999986, "D": 2e-06}, "max_conf": 0.999986}
 {"question_id": "arc_000514", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000516", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000487", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000486", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000488", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
 {"question_id": "arc_000517", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 8e-06, "B": 0.999986, "C": 5e-06, "D": 1e-06}, "max_conf": 0.999986}
 {"question_id": "arc_000494", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000489", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000490", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000482", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
 {"question_id": "arc_000515", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000485", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
-{"question_id": "arc_000529", "error": "timeout_15s", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000524", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000526", "error": "timeout_15s", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000536", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000565", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000534", "error": "timeout_15s", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000542", "error": "timeout_15s", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000552", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000553", "error": "timeout_15s", "first_letter": "?", "correct_letter": "C"}
 {"question_id": "arc_000555", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000554", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
 {"question_id": "arc_000563", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.999999, "C": 0.0, "D": 0.0}, "max_conf": 0.999999}
@@ -951,16 +875,7 @@
 {"question_id": "arc_000587", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.999999, "C": 0.0, "D": 1e-06}, "max_conf": 0.999999}
 {"question_id": "arc_000592", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
 {"question_id": "arc_000580", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 0.0}, "max_conf": 0.999999}
-{"question_id": "arc_000576", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000574", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000578", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
 {"question_id": "arc_000596", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000604", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000586", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000582", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000583", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000569", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000577", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
 {"question_id": "arc_000615", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999997, "B": 3e-06, "C": 0.0, "D": 0.0}, "max_conf": 0.999997}
 {"question_id": "arc_000616", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000621", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
@@ -970,37 +885,288 @@
 {"question_id": "arc_000614", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999921, "B": 7.5e-05, "C": 1e-06, "D": 3e-06}, "max_conf": 0.999921}
 {"question_id": "arc_000624", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1.5e-05, "B": 1e-06, "C": 0.999981, "D": 3e-06}, "max_conf": 0.999981}
 {"question_id": "arc_000630", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 5.8e-05, "B": 0.999467, "C": 0.00014, "D": 0.000335}, "max_conf": 0.999467}
-{"question_id": "arc_000601", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000602", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000603", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000656", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000613", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000598", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
 {"question_id": "arc_000644", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000660", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000661", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000663", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000664", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.994716, "B": 4.5e-05, "C": 1.9e-05, "D": 0.00522}, "max_conf": 0.994716}
 {"question_id": "arc_000654", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000657", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000652", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000658", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000659", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000635", "error": "timeout_15s", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000645", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000641", "error": "timeout_15s", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000651", "error": "timeout_15s", "first_letter": "?", "correct_letter": "A"}
 {"question_id": "arc_000668", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
-{"question_id": "arc_000697", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}", "first_letter": "?", "correct_letter": "C"}
 {"question_id": "arc_000666", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 3e-06, "B": 0.0, "C": 0.0, "D": 0.999997}, "max_conf": 0.999997}
 {"question_id": "arc_000708", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.19313, "B": 0.674089, "C": 0.132736, "D": 4.5e-05}, "max_conf": 0.674089}
 {"question_id": "arc_000709", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.004604, "B": 0.994261, "C": 0.000706, "D": 0.000428}, "max_conf": 0.994261}
 {"question_id": "arc_000669", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000710", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
 {"question_id": "arc_000715", "first_letter": "D", "correct_letter": "C", "is_correct": false, "softmax": {"A": 0.003879, "B": 0.128455, "C": 0.128455, "D": 0.73921}, "max_conf": 0.73921}
-{"question_id": "arc_000678", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "A"}
-{"question_id": "arc_000682", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000684", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "C"}
-{"question_id": "arc_000688", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "B"}
-{"question_id": "arc_000690", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
-{"question_id": "arc_000691", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}", "first_letter": "?", "correct_letter": "D"}
+{"question_id": "arc_000671", "first_letter": "3", "correct_letter": "3", "is_correct": true, "softmax": {"1": 0.0, "2": 1e-06, "3": 0.999999, "4": 1e-06}, "max_conf": 0.999999}
+{"question_id": "arc_000714", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000721", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1.7e-05, "B": 0.999983, "C": 0.0, "D": 0.0}, "max_conf": 0.999983}
+{"question_id": "arc_000726", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000727", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 4e-06, "B": 0.0, "C": 0.0, "D": 0.999996}, "max_conf": 0.999996}
+{"question_id": "arc_000745", "first_letter": "A", "correct_letter": "C", "is_correct": false, "softmax": {"A": 0.999021, "B": 0.00014, "C": 0.000804, "D": 3.5e-05}, "max_conf": 0.999021}
+{"question_id": "arc_000754", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000757", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000770", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999997, "B": 1e-06, "C": 1e-06, "D": 2e-06}, "max_conf": 0.999997}
+{"question_id": "arc_000760", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000774", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000783", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000781", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.999999, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000784", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000799", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 5e-06, "B": 0.0, "C": 0.999994, "D": 0.0}, "max_conf": 0.999994}
+{"question_id": "arc_000801", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 1e-06, "C": 0.999982, "D": 1.7e-05}, "max_conf": 0.999982}
+{"question_id": "arc_000803", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000809", "first_letter": "B", "correct_letter": "D", "is_correct": false, "softmax": {"A": 3.1e-05, "B": 0.981912, "C": 7.3e-05, "D": 0.017984}, "max_conf": 0.981912}
+{"question_id": "arc_000810", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000813", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2e-06, "B": 0.0, "C": 0.999998, "D": 0.0}, "max_conf": 0.999998}
+{"question_id": "arc_000820", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000821", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000838", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000841", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000822", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000839", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000857", "first_letter": "B", "correct_letter": "A", "is_correct": false, "softmax": {"A": 0.042029, "B": 0.956568, "C": 0.001269, "D": 0.000134}, "max_conf": 0.956568}
+{"question_id": "arc_000858", "first_letter": "3", "correct_letter": "3", "is_correct": true, "softmax": {"1": 0.0, "2": 0.0, "3": 0.999987, "4": 1.3e-05}, "max_conf": 0.999987}
+{"question_id": "arc_000861", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000877", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000867", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000870", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000871", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000879", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000869", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0, "E": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000868", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 6e-06, "B": 1.1e-05, "C": 0.999974, "D": 8e-06}, "max_conf": 0.999974}
+{"question_id": "arc_000888", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999997, "D": 2e-06}, "max_conf": 0.999997}
+{"question_id": "arc_000912", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.037326, "B": 1e-06, "C": 3.4e-05, "D": 0.962639}, "max_conf": 0.962639}
+{"question_id": "arc_000916", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000917", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000887", "first_letter": "1", "correct_letter": "1", "is_correct": true, "softmax": {"1": 1.0, "2": 0.0, "3": 0.0, "4": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000913", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000921", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000971", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000972", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000968", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2.4e-05, "B": 0.001927, "C": 0.998041, "D": 8e-06}, "max_conf": 0.998041}
+{"question_id": "arc_000970", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000974", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000978", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000955", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001025", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001017", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.000296, "B": 2e-06, "C": 4.5e-05, "D": 0.999657}, "max_conf": 0.999657}
+{"question_id": "arc_001038", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1.9e-05, "B": 0.999975, "C": 2e-06, "D": 3e-06, "E": 1e-06}, "max_conf": 0.999975}
+{"question_id": "arc_001039", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001040", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 7e-06, "B": 0.999993, "C": 0.0, "D": 0.0}, "max_conf": 0.999993}
+{"question_id": "arc_001041", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001042", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001043", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001044", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001006", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001007", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.000911, "B": 8e-06, "C": 4.5e-05, "D": 0.999036}, "max_conf": 0.999036}
+{"question_id": "arc_001018", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001048", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001009", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001050", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001053", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.004609, "B": 0.000108, "C": 5.8e-05, "D": 0.995225}, "max_conf": 0.995225}
+{"question_id": "arc_001077", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001078", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001081", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999979, "B": 2.1e-05, "C": 0.0, "D": 0.0}, "max_conf": 0.999979}
+{"question_id": "arc_001076", "first_letter": "B", "correct_letter": "C", "is_correct": false, "softmax": {"A": 1e-06, "B": 0.998824, "C": 0.00117, "D": 5e-06}, "max_conf": 0.998824}
+{"question_id": "arc_001085", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001089", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001083", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001106", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 7e-06, "B": 0.999993, "C": 0.0, "D": 0.0}, "max_conf": 0.999993}
+{"question_id": "arc_001094", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001087", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001107", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001105", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001113", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1.9e-05, "B": 3e-06, "C": 1e-06, "D": 0.999978}, "max_conf": 0.999978}
+{"question_id": "arc_001108", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.999999, "C": 0.0, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_001118", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.00097, "B": 0.000404, "C": 0.938622, "D": 0.060004}, "max_conf": 0.938622}
+{"question_id": "arc_001150", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.999997, "D": 2e-06}, "max_conf": 0.999997}
+{"question_id": "arc_001157", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001170", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001134", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001143", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000112", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000116", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000093", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.000626, "B": 4e-05, "C": 2.8e-05, "D": 0.999306}, "max_conf": 0.999306}
+{"question_id": "arc_000055", "first_letter": "B", "correct_letter": "C", "is_correct": false, "softmax": {"A": 4e-06, "B": 0.999995, "C": 1e-06, "D": 0.0}, "max_conf": 0.999995}
+{"question_id": "arc_000060", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000157", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2e-06, "B": 2e-06, "C": 0.999996, "D": 1e-06}, "max_conf": 0.999996}
+{"question_id": "arc_000197", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000169", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000198", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2.1e-05, "B": 5.8e-05, "C": 0.999835, "D": 8.5e-05}, "max_conf": 0.999835}
+{"question_id": "arc_000232", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000236", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000245", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.002183, "B": 0.997785, "C": 5e-06, "D": 2.7e-05}, "max_conf": 0.997785}
+{"question_id": "arc_000275", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000278", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 5e-06, "B": 0.999951, "C": 1.7e-05, "D": 2.8e-05}, "max_conf": 0.999951}
+{"question_id": "arc_000280", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000224", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999989, "B": 7e-06, "C": 1e-06, "D": 4e-06}, "max_conf": 0.999989}
+{"question_id": "arc_000284", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000248", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2e-06, "B": 0.0, "C": 0.999997, "D": 1e-06}, "max_conf": 0.999997}
+{"question_id": "arc_000276", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000234", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.028955, "B": 0.958841, "C": 0.01207, "D": 0.000134}, "max_conf": 0.958841}
+{"question_id": "arc_000214", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.00018, "B": 0.999792, "C": 2.8e-05, "D": 1e-06}, "max_conf": 0.999792}
+{"question_id": "arc_000227", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000212", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.000708, "B": 0.002799, "C": 4.5e-05, "D": 0.996448}, "max_conf": 0.996448}
+{"question_id": "arc_000290", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000351", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 2e-06, "B": 0.0, "C": 3.1e-05, "D": 0.999966}, "max_conf": 0.999966}
+{"question_id": "arc_000486", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000487", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000371", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000437", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000386", "first_letter": "2", "correct_letter": "2", "is_correct": true, "softmax": {"1": 1e-06, "2": 0.999982, "3": 1.7e-05}, "max_conf": 0.999982}
+{"question_id": "arc_000344", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000349", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000381", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000488", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000362", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000565", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000490", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000513", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000574", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 4e-06, "B": 0.999895, "C": 1.7e-05, "D": 8.5e-05}, "max_conf": 0.999895}
+{"question_id": "arc_000577", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000534", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 3e-06, "B": 0.000123, "C": 0.999828, "D": 4.5e-05}, "max_conf": 0.999828}
+{"question_id": "arc_000542", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000582", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000552", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000583", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000604", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000613", "first_letter": "D", "correct_letter": "C", "is_correct": false, "softmax": {"A": 0.876697, "B": 0.003162, "C": 0.118648, "D": 0.001494}, "max_conf": 0.876697}
+{"question_id": "arc_000641", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000645", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000635", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1e-06, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000651", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000652", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000728", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000743", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000762", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.00359, "B": 0.000908, "C": 0.995462, "D": 4e-05}, "max_conf": 0.995462}
+{"question_id": "arc_000763", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999999, "B": 0.0, "C": 0.0, "D": 1e-06}, "max_conf": 0.999999}
+{"question_id": "arc_000764", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000765", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000802", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000808", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 4e-06, "B": 1e-06, "C": 3e-06, "D": 0.999992}, "max_conf": 0.999992}
+{"question_id": "arc_000836", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999996, "B": 0.0, "C": 0.0, "D": 4e-06}, "max_conf": 0.999996}
+{"question_id": "arc_000828", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 1e-06, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000856", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000855", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000862", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 2e-06, "B": 0.999992, "C": 5e-06, "D": 0.0}, "max_conf": 0.999992}
+{"question_id": "arc_000897", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000922", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000915", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1.7e-05, "B": 0.999983, "C": 0.0, "D": 0.0}, "max_conf": 0.999983}
+{"question_id": "arc_000923", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000925", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000924", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.0, "D": 0.999998}, "max_conf": 0.999998}
+{"question_id": "arc_000995", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 3e-06, "B": 0.0, "C": 0.999997, "D": 0.0}, "max_conf": 0.999997}
+{"question_id": "arc_000946", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999999, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000929", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000940", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.000158, "B": 2e-06, "C": 3.5e-05, "D": 0.999804}, "max_conf": 0.999804}
+{"question_id": "arc_001046", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001057", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999997, "B": 3e-06, "C": 0.0, "D": 0.0}, "max_conf": 0.999997}
+{"question_id": "arc_001059", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999999, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_001058", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.000804, "B": 0.998842, "C": 0.000335, "D": 1.9e-05}, "max_conf": 0.998842}
+{"question_id": "arc_001067", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001070", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001075", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001102", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001104", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999967, "B": 2e-06, "C": 3.1e-05, "D": 0.0}, "max_conf": 0.999967}
+{"question_id": "arc_001125", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001129", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001127", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001119", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999992, "B": 0.0, "C": 8e-06, "D": 0.0}, "max_conf": 0.999992}
+{"question_id": "arc_001121", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000118", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000064", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000056", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000117", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000114", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000153", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.000488, "B": 1e-06, "C": 8e-06, "D": 0.999504}, "max_conf": 0.999504}
+{"question_id": "arc_000173", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.000553, "B": 0.999435, "C": 5e-06, "D": 8e-06}, "max_conf": 0.999435}
+{"question_id": "arc_000210", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000309", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000315", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000288", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000339", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999999, "B": 0.0, "C": 0.0, "D": 1e-06}, "max_conf": 0.999999}
+{"question_id": "arc_000343", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000337", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.904592, "B": 0.095343, "C": 3.6e-05, "D": 2.8e-05}, "max_conf": 0.904592}
+{"question_id": "arc_000170", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000193", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000235", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.159914, "B": 0.027789, "C": 0.81211, "D": 0.000187}, "max_conf": 0.81211}
+{"question_id": "arc_000340", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000295", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000298", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000536", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.985816, "B": 9.5e-05, "C": 0.010951, "D": 0.003138}, "max_conf": 0.985816}
+{"question_id": "arc_000553", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.999999, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000657", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.999999, "C": 0.0, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000658", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-05, "B": 0.0, "C": 0.0, "D": 0.999989}, "max_conf": 0.999989}
+{"question_id": "arc_000659", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000678", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999996, "B": 4e-06, "C": 0.0, "D": 0.0}, "max_conf": 0.999996}
+{"question_id": "arc_000598", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.994081, "B": 7e-06, "C": 0.005911, "D": 1e-06}, "max_conf": 0.994081}
+{"question_id": "arc_000601", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000682", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000569", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000690", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 1e-06, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000684", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000576", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000603", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000735", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000759", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000823", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 2e-06, "B": 0.0, "C": 0.0, "D": 0.999998}, "max_conf": 0.999998}
+{"question_id": "arc_000826", "first_letter": "2", "correct_letter": "2", "is_correct": true, "softmax": {"1": 1e-06, "2": 0.999998, "3": 1e-06, "4": 1e-06}, "max_conf": 0.999998}
+{"question_id": "arc_000835", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000845", "first_letter": "B", "correct_letter": "A", "is_correct": false, "softmax": {"A": 0.222237, "B": 0.775683, "C": 0.001923, "D": 0.000158}, "max_conf": 0.775683}
+{"question_id": "arc_000848", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000737", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000733", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000730", "first_letter": "D", "correct_letter": "C", "is_correct": false, "softmax": {"A": 0.000139, "B": 0.002461, "C": 0.004598, "D": 0.992803}, "max_conf": 0.992803}
+{"question_id": "arc_000827", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999645, "B": 0.000335, "C": 1.9e-05, "D": 0.0}, "max_conf": 0.999645}
+{"question_id": "arc_000767", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000736", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 2e-06, "C": 0.0, "D": 0.999997}, "max_conf": 0.999997}
+{"question_id": "arc_000860", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 7.5e-05, "B": 0.999917, "C": 7e-06, "D": 1e-06}, "max_conf": 0.999917}
+{"question_id": "arc_000854", "first_letter": "A", "correct_letter": "B", "is_correct": false, "softmax": {"A": 0.530824, "B": 0.46845, "C": 0.000704, "D": 2.1e-05}, "max_conf": 0.530824}
+{"question_id": "arc_000926", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 1e-06, "B": 3e-06, "C": 0.999994, "D": 2e-06}, "max_conf": 0.999994}
+{"question_id": "arc_000859", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000914", "first_letter": "D", "correct_letter": "B", "is_correct": false, "softmax": {"A": 1e-06, "B": 5e-06, "C": 2e-06, "D": 0.999992}, "max_conf": 0.999992}
+{"question_id": "arc_000973", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000905", "first_letter": "D", "correct_letter": "C", "is_correct": false, "softmax": {"A": 0.437673, "B": 0.000214, "C": 0.561984, "D": 0.00013}, "max_conf": 0.561984}
+{"question_id": "arc_000889", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 2.1e-05, "B": 0.0, "C": 0.994067, "D": 0.005911}, "max_conf": 0.994067}
+{"question_id": "arc_000958", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000906", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001016", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000873", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001080", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001092", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001099", "first_letter": "A", "correct_letter": "B", "is_correct": false, "softmax": {"A": 0.975905, "B": 0.022951, "C": 2e-06, "D": 0.001143}, "max_conf": 0.975905}
+{"question_id": "arc_001115", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001101", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000155", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000200", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000154", "first_letter": "C", "correct_letter": "B", "is_correct": false, "softmax": {"A": 0.000551, "B": 0.001698, "C": 0.996948, "D": 0.000802}, "max_conf": 0.996948}
+{"question_id": "arc_000471", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000289", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000489", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000158", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000115", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000843", "first_letter": "C", "correct_letter": "B", "is_correct": false, "softmax": {"A": 0.000113, "B": 0.066434, "C": 0.809337, "D": 0.124116}, "max_conf": 0.809337}
+{"question_id": "arc_000732", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000863", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1e-06, "B": 0.0, "C": 0.0, "D": 0.999999}, "max_conf": 0.999999}
+{"question_id": "arc_000959", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000872", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 3.1e-05, "B": 3e-06, "C": 0.999949, "D": 1.7e-05}, "max_conf": 0.999949}
+{"question_id": "arc_000907", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999995, "D": 5e-06}, "max_conf": 0.999995}
+{"question_id": "arc_000738", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.904596, "B": 6e-05, "C": 0.0, "D": 0.095344}, "max_conf": 0.904596}
+{"question_id": "arc_001088", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_001010", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999998, "B": 1e-06, "C": 1e-06, "D": 1e-06}, "max_conf": 0.999998}
+{"question_id": "arc_000578", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000482", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000656", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 1e-06}, "max_conf": 0.999999}
+{"question_id": "arc_000586", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1.3e-05, "B": 0.0, "C": 0.0, "D": 0.999987}, "max_conf": 0.999987}
+{"question_id": "arc_000725", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 1.5e-05, "B": 2e-06, "C": 6e-06, "D": 0.999977}, "max_conf": 0.999977}
+{"question_id": "arc_000691", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000602", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000058", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000688", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000526", "first_letter": "B", "correct_letter": "B", "is_correct": true, "softmax": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_000529", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}, "max_conf": 1.0}
+{"question_id": "arc_000697", "first_letter": "C", "correct_letter": "C", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001008", "first_letter": "D", "correct_letter": "D", "is_correct": true, "softmax": {"A": 0.0, "B": 0.0, "C": 6e-06, "D": 0.999993}, "max_conf": 0.999993}
+{"question_id": "arc_001120", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999999, "B": 1e-06, "C": 0.0, "D": 0.0}, "max_conf": 0.999999}
+{"question_id": "arc_000524", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 1.0, "B": 0.0, "C": 0.0, "D": 0.0}, "max_conf": 1.0}
+{"question_id": "arc_001045", "first_letter": "A", "correct_letter": "A", "is_correct": true, "softmax": {"A": 0.999982, "B": 1.7e-05, "C": 1e-06, "D": 0.0}, "max_conf": 0.999982}
