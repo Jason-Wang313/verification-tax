@@ -126,54 +126,27 @@ ax2.set_xlim(0.01, 0.50)
 ax2.set_ylim(5, 2e7)
 
 # Horizontal benchmark lines
-ax2.axhline(1e4, color=GRAY_REF, ls=":", lw=LW_REF, alpha=0.65, zorder=1)
-ax2.axhline(1e5, color=GRAY_REF, ls=":", lw=LW_REF, alpha=0.65, zorder=1)
-ax2.text(0.42, 1.20e4, "$m = 10\\!,\\!000$\n(typical benchmark)", fontsize=7,
-         ha="right", va="bottom", color=GRAY_REF, linespacing=1.2)
-ax2.text(0.42, 1.20e5, "$m = 100\\!,\\!000$\n(large benchmark)", fontsize=7,
-         ha="right", va="bottom", color=GRAY_REF, linespacing=1.2)
+ax2.axhline(1e4, color=GRAY_REF, ls=":", lw=LW_REF, alpha=0.5, zorder=1)
+ax2.axhline(1e5, color=GRAY_REF, ls=":", lw=LW_REF, alpha=0.5, zorder=1)
+ax2.text(0.45, 1.3e4, "$m{=}10$k", fontsize=8, ha="right", va="bottom", color=GRAY_REF)
+ax2.text(0.45, 1.3e5, "$m{=}100$k", fontsize=8, ha="right", va="bottom", color=GRAY_REF)
 
-# Shade the infeasible region (above 100k)
-ax2.fill_between(eps, 1e5, 2e7, color="#F2F3F4", alpha=0.6, zorder=0)
-ax2.text(0.10, 4e6, "Infeasible region", fontsize=8, color=GRAY_REF,
-         ha="center", va="center", style="italic")
+# Shade infeasible region (above 100k) — subtle
+ax2.fill_between(eps, 1e5, 2e7, color="#F2F3F4", alpha=0.4, zorder=0)
 
-# Annotate specific epsilon values on the passive curve
-annotations = [
-    (0.05, r"$\varepsilon\!=\!0.05$" + "\n" + r"$m_{\mathrm{pass}}\!=\!3{,}200$",
-     2.2, 0.18),   # offset_x factor, offset_y factor
-    (0.01, r"$\varepsilon\!=\!0.01$" + "\n" + r"$m_{\mathrm{pass}}\!=\!80{,}000$",
-     2.5, 3.5),
-]
-
-for eps_val, label, ox, oy in annotations:
+# Mark two key points on passive curve — minimal annotation
+for eps_val, m_label in [(0.05, "3.2k"), (0.01, "80k")]:
     m_val = 8 * L / eps_val**2
-    ax2.plot(eps_val, m_val, "o", color=VERMILLION, ms=5, zorder=5,
-             markeredgecolor="white", markeredgewidth=0.5)
-    ax2.annotate(label,
-                 xy=(eps_val, m_val),
-                 xytext=(eps_val * ox, m_val * oy),
-                 fontsize=7.5, color=VERMILLION,
-                 arrowprops=dict(arrowstyle="->", color=VERMILLION,
-                                 lw=0.8, connectionstyle="arc3,rad=-0.15"),
-                 ha="left", va="center", linespacing=1.15)
+    ax2.plot(eps_val, m_val, "o", color=VERMILLION, ms=6, zorder=5,
+             markeredgecolor="white", markeredgewidth=0.8)
 
-# Also mark the "verification horizons" — where curves cross the benchmark lines
-# Passive crosses 10k at eps = sqrt(8L/1e4) = sqrt(8e-4) ~ 0.0283
-# Passive crosses 100k at eps = sqrt(8L/1e5) ~ 0.00894
-# Active crosses 10k at eps = 4/1e4 = 4e-4 (off chart)
-eps_cross_10k  = np.sqrt(8 * L / 1e4)
-eps_cross_100k = np.sqrt(8 * L / 1e5)
-
-ax2.plot(eps_cross_10k, 1e4, "s", color=VERMILLION, ms=6, zorder=5,
-         markeredgecolor="white", markeredgewidth=0.6)
-ax2.annotate(r"$\varepsilon^{*}\!\approx\!0.028$" + "\nverification\nhorizon",
-             xy=(eps_cross_10k, 1e4),
-             xytext=(eps_cross_10k * 2.5, 1e4 * 0.06),
-             fontsize=7, color=VERMILLION, ha="left", va="center",
-             arrowprops=dict(arrowstyle="->", color=VERMILLION, lw=0.7,
-                             connectionstyle="arc3,rad=0.25"),
-             linespacing=1.1)
+# Single clean annotation for the horizon crossing
+eps_cross = np.sqrt(8 * L / 1e4)
+ax2.plot(eps_cross, 1e4, "s", color=VERMILLION, ms=7, zorder=5,
+         markeredgecolor="white", markeredgewidth=0.8)
+ax2.annotate("horizon", xy=(eps_cross, 1e4), xytext=(eps_cross * 3, 1e4 * 0.12),
+             fontsize=8, color=VERMILLION, ha="left", va="center",
+             arrowprops=dict(arrowstyle="->", color=VERMILLION, lw=0.8))
 
 ax2.set_xlabel(r"Error rate $\varepsilon$")
 ax2.set_ylabel(r"Required samples $m$ for $\delta = \varepsilon/2$")
