@@ -1,7 +1,7 @@
 \documentclass{article}
 
-% NeurIPS 2026
-\usepackage[preprint]{neurips_2026}
+% NeurIPS 2026 main-track submission (anonymous, line-numbered)
+\usepackage{neurips_2026}
 
 % Standard packages
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -12,6 +12,7 @@
 \usepackage{algorithm2e}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{microtype}
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -88,11 +89,7 @@
 % ============================================================
 \title{The Verification Tax: Fundamental Limits of AI Auditing \\ in the Rare-Error Regime}
 
-\author{
-Jason Wang \\
-Independent Researcher \\
-\texttt{jason@example.com}
-}
+\author{Anonymous Author(s)}
 
 % \iclrfinalcopy % ICLR only
 
@@ -105,7 +102,7 @@ The most cited calibration result in deep learning---post-temperature-scaling EC
 (2)~a sharp phase transition at $\nsamples \cdot \errrate \approx 1$ below which miscalibration is undetectable;
 (3)~active querying eliminates the Lipschitz constant, collapsing estimation to detection;
 (4)~verification cost grows exponentially with pipeline depth at rate $\Lip^K$.
-We validate across five benchmarks (MMLU, TruthfulQA, ARC-Challenge, HellaSwag, WinoGrande; ${\sim}27{,}000$ items) with 6 LLMs from 5 families (8B--405B parameters, 27 benchmark--model pairs with logprob-based confidence), 95\% bootstrap CIs, and permutation tests. Self-evaluation non-significance holds in 80\% of pairs. Across frontier models, 23\% of pairwise comparisons are indistinguishable from noise. Code: \texttt{pip install vtax}.
+We validate across five benchmarks (MMLU, TruthfulQA, ARC-Challenge, HellaSwag, WinoGrande; ${\sim}27{,}000$ items) with 6 LLMs from 5 families (8B--405B parameters, 27 benchmark--model pairs with logprob-based confidence), 95\% bootstrap CIs, and permutation tests. Self-evaluation non-significance holds in 80\% of pairs. Across frontier models, 23\% of pairwise comparisons are indistinguishable from noise, implying that credible calibration claims must report verification floors and prioritize active querying once gains approach benchmark resolution.
 \end{abstract}
 
 % ============================================================
@@ -114,7 +111,7 @@ We validate across five benchmarks (MMLU, TruthfulQA, ARC-Challenge, HellaSwag, 
 \section{Introduction}
 \label{sec:intro}
 
-The base rate problem---that rare conditions are hard to detect---is among the oldest results in statistics. We show that AI auditing faces the same fundamental barrier. The ``disease'' is miscalibration: the gap between a model's stated confidence and its actual accuracy. As errors become rare, miscalibration becomes a rare condition, and the verification cost grows without bound. We call this the \emph{verification tax}.
+The base rate problem---that rare conditions are hard to detect---is among the oldest results in statistics. We show that AI auditing faces the same fundamental barrier. The ``disease'' is miscalibration: the gap between a model's stated confidence and its actual accuracy. As errors become rare, miscalibration becomes a rare condition, and the verification cost grows without bound. We call this the \emph{verification tax}. In one line: better models are harder to audit.
 
 This result completes a programme initiated by \citet{sun2023recalibration}, who established the $O(n^{-2/3})$ upper bound for ECE estimation (NeurIPS 2023 Spotlight), and extended by \citet{futami2024information}, who generalized the rate information-theoretically (NeurIPS 2024). Both left two questions open: (1)~Is $n^{-1/3}$ the optimal rate? (2)~How does the model's error rate $\errrate$ affect verification difficulty? We resolve both. The lower bound (Theorem~\ref{thm:minimax-lb}) matches the upper bound (Theorem~\ref{thm:upper-bound}), establishing $(\Lip\errrate/\nsamples)^{1/3}$ as the minimax rate. The $\errrate$-dependence---absent from all prior work---reveals a phase transition, a scaling duality, and a verification horizon.
 
@@ -240,9 +237,9 @@ The phase transition (Corollary~\ref{cor:phase-transition}) predicts a sharp wal
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/fig2_phase_transition.pdf}
+\includegraphics[width=0.20\textwidth]{figures/fig2_phase_transition.pdf}
 \hfill
-\includegraphics[width=0.48\textwidth]{figures/fig_leaderboard_noise.pdf}
+\includegraphics[width=0.78\textwidth]{figures/fig_leaderboard_noise.pdf}
 \caption{\textbf{Left:} Phase transition---detection power vs.\ $\nsamples \cdot \errrate$ across four error rates (synthetic). \textbf{Right:} Leaderboard noise---pairwise accuracy gaps vs.\ verification floor across 57 MMLU subjects; 77\% of comparisons fall below the floor. See Appendix for enlarged version.}
 \label{fig:phase}
 \end{figure}
@@ -322,23 +319,14 @@ For a group with proportion $\groupprop$, verification requires $\nsamples \geq 
 
 \begin{theorem}[Verification Horizon]
 \label{thm:horizon}
-Let $\errrate(\modelsize) = c_0\modelsize^{-\scalingexp}$ and $\totaldata$ be total labeled data. The verification floor is $\verfloor(\modelsize) = (\Lip\errrate(\modelsize)/\totaldata)^{1/3}$. Meaningful verification requires $\modelsize < \horizonN = (c_0^2\totaldata/\Lip)^{1/(2\scalingexp)}}$.
+Let $\errrate(\modelsize) = c_0\modelsize^{-\scalingexp}$ and $\totaldata$ be total labeled data. The verification floor is $\verfloor(\modelsize) = (\Lip\errrate(\modelsize)/\totaldata)^{1/3}$. Meaningful verification requires $\modelsize < \horizonN = (c_0^2\totaldata/\Lip)^{1/(2\scalingexp)}$.
 \end{theorem}
 
-Under Chinchilla scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$, $\Lip = 1$, $\totaldata = 14{,}000$): $\horizonN \approx 10^7$---well below current frontier models ($>10^{11}$). Active verification shifts the horizon to $\horizonN_{\mathrm{active}} = (c_0\totaldata)^{1/\scalingexp}$, but no current evaluation framework supports active querying at scale.
+Under Chinchilla scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$, $\Lip = 1$, $\totaldata = 14{,}000$): $\horizonN \approx 10^7$---well below current frontier models ($>10^{11}$). Across the domains we audit, every frontier system exceeds the passive horizon by orders of magnitude; representative calculations are deferred to Appendix~\ref{app:horizon-details}. Active verification shifts the horizon to $\horizonN_{\mathrm{active}} = (c_0\totaldata)^{1/\scalingexp}$, but no current evaluation framework supports active querying at scale.
 
-\input{results/verification_horizon_table}
+\paragraph{Regulatory infeasibility.} The fairness tax (Corollary~\ref{cor:fairness}) compounds with the base verification tax across demographic subgroups. If evaluation must certify calibration to precision $\targetacc$ across $K$ groups with minimum proportion $\groupprop_{\min}$, then $\nsamples \geq K\Lip\errrate / (\groupprop_{\min}\targetacc^3)$. Under illustrative EU AI Act Annex III settings ($K{=}10$, $\groupprop_{\min}{=}0.05$, $\targetacc{=}0.02$, $\errrate{=}0.05$), this requires $1.25$M labels against ${\sim}700$K available medical-imaging labels. Appendix~\ref{app:horizon-details} reports the broader cross-framework comparison and assumptions.
 
-\textbf{Regulatory infeasibility.} The fairness tax (Corollary~\ref{cor:fairness}) compounds with the base verification tax across demographic subgroups.
-
-\begin{theorem}[Regulatory Infeasibility]
-\label{thm:regulatory}
-A regulatory mandate requiring calibration precision $\targetacc$ across $K$ demographic groups with minimum proportion $\groupprop_{\min}$ demands $\nsamples \geq K\Lip\errrate / (\groupprop_{\min}\targetacc^3)$ labeled samples. For the EU AI Act Annex III ($K{=}10$, $\groupprop_{\min}{=}0.05$, $\targetacc{=}0.02$, $\errrate{=}0.05$): $\nsamples \geq 1.25\text{M}$, against ${\sim}700\text{K}$ available medical imaging labels---a $1.8\times$ gap. The parameters ($K{=}10$, $\groupprop_{\min}{=}0.05$, $\targetacc{=}0.02$) are illustrative estimates consistent with the regulatory intent; official numerical calibration requirements are not yet codified.
-\end{theorem}
-
-\input{results/regulatory_table}
-
-\paragraph{Verification half-life.} Under ECE drift rate $\driftrate$, every verification expires after $\halflife = \targetacc/\driftrate$. Domain estimates ($\Lip{=}1$, $\errrate{=}0.05$): medical AI $\sim$2 months, content moderation $\sim$6 months, financial trading $\sim$17 hours. The drift rates are estimated from \citet{davis2020calibrationdrift} and domain literature; empirical validation on deployment monitoring data is an important direction for future work.
+\paragraph{Verification half-life.} Under ECE drift rate $\driftrate$, every verification expires after $\halflife = \targetacc/\driftrate$. Representative domains range from months (medical AI) to hours (financial trading), so even successful audits must be periodically renewed.
 
 % ============================================================
 % SECTION 8: EMPIRICS SUMMARY
@@ -346,33 +334,11 @@ A regulatory mandate requiring calibration precision $\targetacc$ across $K$ dem
 \section{Empirical Validation}
 \label{sec:empirics}
 
-All four surprises are validated on five benchmarks (MMLU: 14{,}042; TruthfulQA: 817; ARC-Challenge: 1{,}172; HellaSwag: 10{,}042; WinoGrande: 1{,}267) with 6 LLMs from 5 families (Llama-3.1-405B, Llama-4-Maverick, Qwen3-Next-80B, Qwen2.5-7B, Mistral-Small-3.1, Gemma-3-27B; 8B--405B), yielding 27 benchmark--model pairs with logprob-based confidence scores. All quantities carry 95\% bootstrap CIs (1{,}000 replicates; Appendix~\ref{app:real-model}). The benchmarks span $\errrate \in [0.04, 1.0]$ across five domains (knowledge, truthfulness, science, commonsense, coreference), providing broad validation. Figure~\ref{fig:sun} shows how the $\errrate$-dependent rate diverges from prior work as models improve.
+All four surprises are validated on five benchmarks (MMLU: 14{,}042; TruthfulQA: 817; ARC-Challenge: 1{,}172; HellaSwag: 10{,}042; WinoGrande: 1{,}267) with 6 LLMs from 5 families (8B--405B), yielding 27 benchmark--model runs with logprob-based confidence scores. All quantities carry 95\% bootstrap CIs (1{,}000 replicates; Appendix~\ref{app:real-model}). Figure~\ref{fig:sun} shows how the $\errrate$-dependent rate diverges from prior work as models improve.
 
-\textbf{Results.} (1)~Self-confidence is uninformative about calibration gap: across 14 benchmark--model pairs, \textbf{89\% show non-significant} Spearman correlation between confidence and calibration gap ($p > 0.05$), with permutation tests confirming on MMLU and TruthfulQA (Fig.~\ref{fig:selfeval}). Theorem~\ref{thm:selfverify} is a worst-case bound; the rare significant pairs involve extreme miscalibration ($\ECE > 0.6$) where overconfidence creates spurious correlation. (2)~Phase transition at $\nsamples \cdot \errrate \approx 1$ confirmed on all benchmarks. (3)~Active querying achieves $\Lip$-independent rates on MMLU with slope ratio 1.38--1.48 (theory: 1.50) and L-independence CV $= 8\%$ (Fig.~\ref{fig:active}). The active oracle requires unlabeled inputs sorted by confidence; the cost is inference (cheap), not labeling (expensive). (4)~Compositional cost grows exponentially in synthetic pipelines (Fig.~\ref{fig:compositional}) and a real 2-stage pipeline has $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $1.41$ ($2.16\times$; Appendix~\ref{app:real-model}).
+\textbf{Results.} (1)~Self-confidence is uninformative about calibration gap: across 14 benchmark--model pairs, \textbf{89\% show non-significant} Spearman correlation between confidence and calibration gap ($p > 0.05$), with permutation tests confirming on MMLU and TruthfulQA (Fig.~\ref{fig:selfeval}). Theorem~\ref{thm:selfverify} is a worst-case bound; the rare significant pairs involve extreme miscalibration ($\ECE > 0.6$). (2)~Phase transition at $\nsamples \cdot \errrate \approx 1$ confirmed on all benchmarks. (3)~Active querying achieves $\Lip$-independent rates on MMLU with slope ratio 1.38--1.48 (theory: 1.50) and L-independence CV $= 8\%$ (Fig.~\ref{fig:active}). (4)~Compositional cost grows exponentially in synthetic pipelines (Fig.~\ref{fig:compositional}) and a real 2-stage pipeline has $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $1.41$ ($2.16\times$; Appendix~\ref{app:real-model}).
 
-\textbf{ECE vs.\ accuracy floors.} The verification tax ($(\Lip\errrate/n)^{1/3}$) gives the floor for calibration comparisons; the standard binomial floor ($2\sqrt{\errrate(1-\errrate)/n}$) gives the floor for accuracy comparisons. On MMLU ($n{=}14{,}042$, $\errrate{=}0.16$, $\Lip{=}1.4$): accuracy floor $= 0.006$, ECE floor $= 0.028$---a $4.7\times$ gap. Models that are distinguishable on accuracy may be indistinguishable on calibration. This is the regime where the verification tax bites: calibration, not accuracy, is the harder and more consequential question for trustworthy AI.
-
-\begin{table}[t]
-\centering
-\caption{Real-model verification audit. $\hat{\Lip}$ via finite differences; 95\% bootstrap CIs in brackets (MMLU).}
-\label{tab:real-mmlu}
-\small
-\begin{tabular}{lccccc}
-\toprule
-\textbf{Model} & $\nsamples$ & $\errrate$ & $\hat{\Lip}$ & $\ECE$ & $\verfloor$ \\
-\midrule
-\multicolumn{6}{l}{\emph{MMLU (14{,}042 items per model)}} \\
-Qwen3-Next-80B & 14{,}042 & .165 [.158,.171] & 2.45 [1.70,4.85] & .143 [.137,.149] & .031 [.027,.038] \\
-Llama-4-Maverick & 14{,}042 & .273 [.266,.280] & 2.01 [1.42,4.75] & .262 [.255,.270] & .034 [.030,.045] \\
-Llama-3.1-405B & 14{,}042 & .160 [.154,.166] & 1.41 [1.13,3.02] & .118 [.113,.124] & .025 [.023,.032] \\
-\midrule
-\multicolumn{6}{l}{\emph{TruthfulQA (817 items per model)}} \\
-Qwen3-Next-80B & 817 & .250 & 3.64 & .222 & .104 \\
-Llama-4-Maverick & 817 & .656 & 3.36 & .629 & .139 \\
-Llama-3.1-405B & 817 & .234 & 2.84 & .192 & .093 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\textbf{ECE vs.\ accuracy floors.} The verification tax ($(\Lip\errrate/n)^{1/3}$) gives the floor for calibration comparisons; the standard binomial floor ($2\sqrt{\errrate(1-\errrate)/n}$) gives the floor for accuracy comparisons. On MMLU ($n{=}14{,}042$, $\errrate{=}0.16$, $\Lip{=}1.4$): accuracy floor $= 0.006$, ECE floor $= 0.028$---a $4.7\times$ gap. Models that are distinguishable on accuracy may still be indistinguishable on calibration. Representative audit tables and the full five-benchmark breakdown are deferred to the appendix.
 
 \begin{figure}[t]
 \centering
@@ -398,20 +364,13 @@ Extended results across all five benchmarks (14 benchmark--model pairs, $\errrat
 \section{Conclusion}
 \label{sec:conclusion}
 
-The verification tax is a law: $\Theta((\Lip\errrate/\nsamples)^{1/3})$ for passive verification, with no escape via model access, self-evaluation, or strategic miscalibration. The four surprises---self-evaluation bounded by a constant, sharp phase transition, active querying eliminating $\Lip$, exponential composition---collectively imply that current evaluation practices operate in information-less regimes.
+The verification tax is a law: $\Theta((\Lip\errrate/\nsamples)^{1/3})$ for passive verification, with no escape via model access, self-evaluation, or strategic miscalibration. Better models are harder to audit; passive benchmarking fails exactly when frontier gaps become small; and active querying is the only route that asymptotically removes the Lipschitz penalty. Practically, papers should report verification floors beside calibration claims, size holdouts via $\nsamples \geq \Lip\errrate/\targetacc^3$, and treat leaderboard gaps below the floor as ties rather than progress.
 
-\textbf{Practical applications.} The verification floor $\verfloor = (\Lip\errrate/\nsamples)^{1/3}$ should be reported alongside every calibration metric, analogous to confidence intervals in clinical trials~\citep{mitchell2019model}. The $\errrate$-adaptive holdout formula $\nsamples \geq \Lip\errrate/\targetacc^3$ replaces ad hoc test-set sizing. The active verification protocol (Theorem~\ref{thm:active}) provides 5--8$\times$ sample savings over passive evaluation and should be integrated into evaluation frameworks~\citep{liang2023helm}. The benchmark resolution limit (Corollary~\ref{cor:resolution}) gives concrete design criteria: a benchmark of $n$ items can only distinguish models differing by at least $(\Lip\errrate/n)^{1/3}$, implying that most current safety benchmarks~\citep{hendrycks2021mmlu} are undersized for the differences they claim to measure. The half-life theorem provides information-theoretically grounded re-verification schedules for deployed AI systems, ranging from hours (financial) to months (medical). The maximum verifiable pipeline depth $\maxpipedepth = \lfloor\log_\Lip(\totaldata\targetacc^3/\errrate)\rfloor$ gives concrete architecture constraints for agentic systems~\citep{yao2023react}.
+\textbf{Prediction.} Under current scaling trends ($\scalingexp \approx 0.5$), next-generation frontier models will achieve $\errrate \approx 0.05$--$0.08$ on MMLU. At this error rate, the verification floor on MMLU ($n{=}14{,}042$) is $\verfloor \approx 0.016$--$0.018$, so we predict that most claimed calibration gains in next-generation technical reports will remain below the detectable floor.
 
-\textbf{Prediction.} Under current scaling trends ($\scalingexp \approx 0.5$), next-generation frontier models will achieve $\errrate \approx 0.05$--$0.08$ on MMLU. At this error rate, the verification floor on MMLU ($n{=}14{,}042$) is $\verfloor \approx 0.016$--$0.018$. We predict that ${>}80\%$ of calibration improvements claimed in next-generation technical reports will fall below this floor. The field will announce gains that are, by the theory in this paper, statistically unverifiable.
+\textbf{Anonymous software.} An anonymized implementation of the verification-floor, holdout-sizing, and verifiability-assessment tools is included in the supplementary material and can be publicly released upon publication.
 
-\textbf{Software.} We release \texttt{vtax}, a Python package implementing verification floor computation, holdout sizing, and verifiability assessment (\texttt{pip install vtax}; source at \url{https://github.com/Jason-Wang313/verification-tax}).
-
-\textbf{Limitations.} Lipschitz assumption; log gap between Theorems~\ref{thm:minimax-lb}--\ref{thm:upper-bound}; worst-case Lipschitz accumulation in composition; ECE metric (kernel-based estimators are open).
-
-\textbf{Open problems.} Close the log gap; handle non-Lipschitz pipeline components; extend to multiclass vector-valued calibration.
-
-\subsubsection*{Acknowledgments}
-% To be added upon publication.
+\textbf{Limitations and open problems.} Our analysis assumes Lipschitz calibration, leaves a logarithmic gap between Theorems~\ref{thm:minimax-lb} and~\ref{thm:upper-bound}, uses worst-case Lipschitz accumulation in composition, and focuses on ECE rather than alternative calibration functionals. Closing the log gap and handling discontinuous or multiclass settings remain open.
 
 % ============================================================
 \bibliographystyle{plainnat}
@@ -561,6 +520,35 @@ Under active verification, the requirement drops to $K\errrate/(\groupprop_{\min
 \textbf{Permutation tests.} For the self-evaluation claim (Theorem~\ref{thm:selfverify}), we supplement Spearman correlations with 10{,}000-permutation tests under $H_0$: confidence is independent of calibration gap. Results: MMLU 2/3 models $p > 0.10$ (non-significant); TruthfulQA 2/3 models $p > 0.10$. The positive control (confidence vs.\ accuracy) is significant on both benchmarks ($p < 0.001$), confirming that the non-significance of the gap correlation is not a power issue.
 
 \textbf{Bootstrap methodology.} All reported quantities carry 95\% bootstrap CIs from 1{,}000 replicates (resampling items with replacement). Lipschitz estimates have wide CIs (e.g., Llama-405B: $\hat\Lip = 1.41$ [1.13, 3.02]) because finite-difference estimation is inherently noisy; ECE and $\errrate$ CIs are tight (e.g., $\ECE = 0.118$ [0.113, 0.124]).
+
+\begin{table}[h]
+\centering
+\caption{Real-model verification audit. $\hat{\Lip}$ via finite differences; 95\% bootstrap CIs in brackets (MMLU).}
+\label{tab:real-mmlu}
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & $\nsamples$ & $\errrate$ & $\hat{\Lip}$ & $\ECE$ & $\verfloor$ \\
+\midrule
+\multicolumn{6}{l}{\emph{MMLU (14{,}042 items per model)}} \\
+Qwen3-Next-80B & 14{,}042 & .165 [.158,.171] & 2.45 [1.70,4.85] & .143 [.137,.149] & .031 [.027,.038] \\
+Llama-4-Maverick & 14{,}042 & .273 [.266,.280] & 2.01 [1.42,4.75] & .262 [.255,.270] & .034 [.030,.045] \\
+Llama-3.1-405B & 14{,}042 & .160 [.154,.166] & 1.41 [1.13,3.02] & .118 [.113,.124] & .025 [.023,.032] \\
+\midrule
+\multicolumn{6}{l}{\emph{TruthfulQA (817 items per model)}} \\
+Qwen3-Next-80B & 817 & .250 & 3.64 & .222 & .104 \\
+Llama-4-Maverick & 817 & .656 & 3.36 & .629 & .139 \\
+Llama-3.1-405B & 817 & .234 & 2.84 & .192 & .093 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Verification Horizon and Regulatory Tables}
+\label{app:horizon-details}
+
+\input{results/verification_horizon_table}
+
+\input{results/regulatory_table}
 
 % ============================================================
 % SECTION F: Full Proof of T1 — Le Cam (from v1, lines 788-824, including Assouad)
