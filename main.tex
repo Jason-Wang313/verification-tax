@@ -129,6 +129,8 @@ But the rate is the scaffolding. The paper's contributions are four results that
 
 Together, these results imply that the dominant practices in AI evaluation---passive benchmarking, self-evaluation, and end-to-end testing of complex pipelines---operate in provably information-less regimes. We demonstrate this empirically and show that every frontier model exceeds the verification horizon (\S\ref{sec:horizon}).
 
+\paragraph{Concrete scale.} The law already bites on today's benchmarks. On MMLU ($n{=}14{,}042$, $\errrate{\approx}0.16$, $\hat\Lip{\approx}1.4$), the calibration floor is about $0.028$, while the corresponding accuracy floor is only $0.006$: calibration is about $4.7\times$ harder to verify than accuracy. On TruthfulQA ($n{=}817$), the floor rises to $0.093$--$0.139$, large enough to swamp many reported improvements. Even if frontier models reach $\errrate \approx 0.05$ on MMLU, the passive floor remains $\approx 0.016$--$0.018$. The practical implication is simple: below-floor gains should be treated as ties unless the evaluator uses much larger holdouts or active querying.
+
 % ============================================================
 % SECTION 2: CORE THEORY
 % ============================================================
@@ -338,7 +340,7 @@ Under Chinchilla scaling ($\scalingexp \approx 0.5$, $c_0 \approx 1$, $\Lip = 1$
 
 All four surprises are validated on five benchmarks (MMLU: 14{,}042; TruthfulQA: 817; ARC-Challenge: 1{,}172; HellaSwag: 10{,}042; WinoGrande: 1{,}267) with 6 LLMs from 5 families (8B--405B), yielding 27 benchmark--model runs with logprob-based confidence scores. All quantities carry 95\% bootstrap CIs (1{,}000 replicates; Appendix~\ref{app:real-model}). Figure~\ref{fig:sun} shows how the $\errrate$-dependent rate diverges from prior work as models improve.
 
-\textbf{Results.} (1)~Self-confidence is uninformative about calibration gap: across 14 benchmark--model pairs, \textbf{89\% show non-significant} Spearman correlation between confidence and calibration gap ($p > 0.05$), with permutation tests confirming on MMLU and TruthfulQA (Fig.~\ref{fig:selfeval}). Theorem~\ref{thm:selfverify} is a worst-case bound; the rare significant pairs involve extreme miscalibration ($\ECE > 0.6$). (2)~Phase transition at $\nsamples \cdot \errrate \approx 1$ confirmed on all benchmarks. (3)~Active querying achieves $\Lip$-independent rates on MMLU with slope ratio 1.38--1.48 (theory: 1.50) and L-independence CV $= 8\%$ (Fig.~\ref{fig:active}). (4)~Compositional cost grows exponentially in synthetic pipelines (Fig.~\ref{fig:compositional}) and a real 2-stage pipeline has $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $1.41$ ($2.16\times$; Appendix~\ref{app:real-model}).
+\textbf{Results.} (1)~Self-confidence is uninformative about calibration gap: across 14 benchmark--model pairs, \textbf{89\% show non-significant} Spearman correlation between confidence and calibration gap ($p > 0.05$), with permutation tests confirming on MMLU and TruthfulQA (Fig.~\ref{fig:selfeval}). Theorem~\ref{thm:selfverify} is a worst-case bound; the rare significant pairs involve extreme miscalibration ($\ECE > 0.6$). (2)~Phase transition at $\nsamples \cdot \errrate \approx 1$ confirmed on all benchmarks. (3)~Active querying achieves $\Lip$-independent rates on MMLU with slope ratio 1.38--1.48 (theory: 1.50) and L-independence CV $= 8\%$ (Fig.~\ref{fig:active}). (4)~Compositional cost grows exponentially in synthetic pipelines (Fig.~\ref{fig:compositional}) and a real 2-stage pipeline has $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $1.41$ ($2.16\times$; Appendix~\ref{app:real-model}). These empirical results align with the practical checklist advertised in the introduction: report the floor, treat below-floor gaps as ties, and switch to active querying when passive resolution saturates.
 
 \textbf{ECE vs.\ accuracy floors.} The verification tax ($(\Lip\errrate/n)^{1/3}$) gives the floor for calibration comparisons; the standard binomial floor ($2\sqrt{\errrate(1-\errrate)/n}$) gives the floor for accuracy comparisons. On MMLU ($n{=}14{,}042$, $\errrate{=}0.16$, $\Lip{=}1.4$): accuracy floor $= 0.006$, ECE floor $= 0.028$---a $4.7\times$ gap. Models that are distinguishable on accuracy may still be indistinguishable on calibration. Representative audit tables and the full five-benchmark breakdown are deferred to the appendix.
 
@@ -492,11 +494,11 @@ Under active verification, the requirement drops to $K\errrate/(\groupprop_{\min
 \section{Extended Empirical Results}
 \label{app:extended-empirical}
 
-\textbf{Five-benchmark validation.} We validate across MMLU (14{,}042), TruthfulQA (817), ARC-Challenge (1{,}172), HellaSwag (10{,}042), and WinoGrande (1{,}267) with 3 models, yielding 14 valid benchmark--model pairs. Figure~\ref{fig:all_benchmarks} shows verification floors per benchmark; Figure~\ref{fig:truthfulqa} shows detailed TruthfulQA analysis.
+\textbf{Five-benchmark validation.} We validate across MMLU (14{,}042), TruthfulQA (817), ARC-Challenge (1{,}172), HellaSwag (10{,}042), and WinoGrande (1{,}267) with 3 models, yielding 14 valid benchmark--model pairs. Figure~\ref{fig:all_benchmarks} shows verification floors per benchmark; Figures~\ref{fig:truthfulqa-selfeval}--\ref{fig:truthfulqa-phase} show detailed TruthfulQA analysis.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/fig_all_benchmarks.pdf}
+\includegraphics[width=\textwidth]{figures/fig_all_benchmarks.pdf}
 \caption{Verification floors across 5 benchmarks. Only MMLU ($n{=}14{,}042$) has a floor safely below 0.05. Smaller benchmarks cannot verify typical calibration improvements.}
 \label{fig:all_benchmarks}
 \end{figure}
@@ -505,18 +507,39 @@ Under active verification, the requirement drops to $K\errrate/(\groupprop_{\min
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{figures/fig_truthfulqa_validation.pdf}
-\caption{TruthfulQA validation (second benchmark). Theory predictions confirmed across a different error-rate regime ($\errrate \in [0.23, 0.66]$).}
-\label{fig:truthfulqa}
+\includegraphics[width=\textwidth]{figures/fig_truthfulqa_self_eval.pdf}
+\caption{TruthfulQA self-evaluation analysis. Confidence tracks accuracy more reliably than calibration gap, consistent with the self-verification impossibility result.}
+\label{fig:truthfulqa-selfeval}
 \end{figure}
-
-\textbf{Real 2-stage pipeline.} A pipeline of Llama-3.1-405B (stage 1) and Qwen3-Next-80B (stage 2) on MMLU yields $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $\hat\Lip = 1.41$ ($2.16\times$), confirming that composed systems have higher Lipschitz constants and correspondingly higher verification floors (Figure~\ref{fig:pipeline}).
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{figures/fig_pipeline_real.pdf}
-\caption{Real 2-stage pipeline verification. Pipeline has consistently higher estimation error than single-model at all sample sizes, with $\hat\Lip_{\mathrm{sys}} = 3.05$ ($2.16\times$ single-model).}
-\label{fig:pipeline}
+\includegraphics[width=\textwidth]{figures/fig_truthfulqa_subsampling.pdf}
+\caption{TruthfulQA subsampling convergence. Estimation error shrinks with sample size but remains bounded below by the benchmark's verification floor.}
+\label{fig:truthfulqa-subsampling}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_truthfulqa_phase.pdf}
+\caption{TruthfulQA phase transition. Detection power rises sharply once $\nsamples \cdot \errrate$ clears the theoretical transition scale.}
+\label{fig:truthfulqa-phase}
+\end{figure}
+
+\textbf{Real 2-stage pipeline.} A pipeline of Llama-3.1-405B (stage 1) and Qwen3-Next-80B (stage 2) on MMLU yields $\hat\Lip_{\mathrm{sys}} = 3.05$ vs.\ single-model $\hat\Lip = 1.41$ ($2.16\times$), confirming that composed systems have higher Lipschitz constants and correspondingly higher verification floors (Figures~\ref{fig:pipeline-error}--\ref{fig:pipeline-lipschitz}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_pipeline_real_error.pdf}
+\caption{Real 2-stage pipeline verification error. The pipeline has consistently higher estimation error than the single model across sample sizes.}
+\label{fig:pipeline-error}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_pipeline_real_lipschitz.pdf}
+\caption{Real 2-stage pipeline Lipschitz comparison. The estimated system Lipschitz constant is $2.16\times$ the single-model value, explaining the larger verification tax.}
+\label{fig:pipeline-lipschitz}
 \end{figure}
 
 \textbf{Permutation tests.} For the self-evaluation claim (Theorem~\ref{thm:selfverify}), we supplement Spearman correlations with 10{,}000-permutation tests under $H_0$: confidence is independent of calibration gap. Results: MMLU 2/3 models $p > 0.10$ (non-significant); TruthfulQA 2/3 models $p > 0.10$. The positive control (confidence vs.\ accuracy) is significant on both benchmarks ($p < 0.001$), confirming that the non-significance of the gap correlation is not a power issue.
@@ -877,13 +900,16 @@ The constant $c_1(\errrate)$ is monotonically decreasing in $\errrate$: smaller 
 
 \begin{figure}[h]
 \centering
-\begin{minipage}{0.49\textwidth}
 \includegraphics[width=\textwidth]{figures/fig5_slope_vs_k.pdf}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
+\caption{Synthetic slope study: estimation error versus sample size for increasing numbers of zero-crossings.}
+\label{fig:slope-vs-k}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 \includegraphics[width=\textwidth]{figures/fig6_slope_convergence.pdf}
-\end{minipage}
-\caption{Slope convergence to minimax $-1/3$ as zero-crossings increase (synthetic).}
+\caption{Synthetic slope convergence to the minimax $-1/3$ rate as zero-crossings increase.}
+\label{fig:slope-convergence}
 \end{figure}
 
 % ============================================================
@@ -898,18 +924,20 @@ The constant $c_1(\errrate)$ is monotonically decreasing in $\errrate$: smaller 
 
 \paragraph{Lipschitz constant estimation.} For each model, we partition the score range into 20 equal-width bins, compute the empirical accuracy in each bin with at least 30 samples, take the calibration gap $\hat\calmap_b = \mathrm{acc}_b - p_b$ at each bin center, and form the adjacent-bin slope $|\hat\calmap_{b+1} - \hat\calmap_b|/|p_{b+1} - p_b|$. We report the 75th percentile of these slopes, capped at $\hat\Lip = 5$, as a robust estimate. This is sensitive to bin choice and noise; we recommend the audit floor be reported with $\hat\Lip$ from at least two binning resolutions.
 
-\paragraph{Pseudo-classifier control experiment.} As a sanity check before running the real-model experiment, we constructed a 10-class softmax classifier from Gaussian logits with $\errrate \approx 0.10$ ($N = 20{,}000$, full-dataset ECE $\approx 0.31$). Subsampling at $\nsamples \in \{50, \ldots, 10^4\}$ with optimal $B^*$ bins (200 replicates per $\nsamples$) confirms that (i) the verification floor (red dashed in Figure~\ref{fig:pseudo-real-model}) tracks the empirical std of estimates across the full range, and (ii) the phase transition near $\nsamples \cdot \errrate \approx 1$ is visible. The pseudo-classifier results match the MMLU real-model findings of Section~\ref{sec:empirics}.
+\paragraph{Pseudo-classifier control experiment.} As a sanity check before running the real-model experiment, we constructed a 10-class softmax classifier from Gaussian logits with $\errrate \approx 0.10$ ($N = 20{,}000$, full-dataset ECE $\approx 0.31$). Subsampling at $\nsamples \in \{50, \ldots, 10^4\}$ with optimal $B^*$ bins (200 replicates per $\nsamples$) confirms that (i) the verification floor (red dashed in Figure~\ref{fig:pseudo-real-model-error}) tracks the empirical std of estimates across the full range, and (ii) the phase transition near $\nsamples \cdot \errrate \approx 1$ is visible (Figure~\ref{fig:pseudo-real-model-phase}). The pseudo-classifier results match the MMLU real-model findings of Section~\ref{sec:empirics}.
 
 \begin{figure}[h]
 \centering
-\begin{minipage}{0.49\textwidth}
 \includegraphics[width=\textwidth]{figures/fig8_real_model.pdf}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
+\caption{Pseudo-classifier control: ECE estimate $\pm$ std versus $\nsamples$, with the verification floor overlaid.}
+\label{fig:pseudo-real-model-error}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 \includegraphics[width=\textwidth]{figures/fig9_real_phase.pdf}
-\end{minipage}
-\caption{Pseudo-classifier control experiment ($\errrate \approx 0.10$, true ECE $\approx 0.31$, $N = 20{,}000$). (Left) ECE estimate $\pm$ std vs.\ $\nsamples$ with verification floor overlaid. (Right) Detection power vs.\ $\nsamples \cdot \errrate$, with the predicted phase transition at $\nsamples \cdot \errrate = 1$.}
-\label{fig:pseudo-real-model}
+\caption{Pseudo-classifier control: detection power versus $\nsamples \cdot \errrate$, with the predicted phase transition at $\nsamples \cdot \errrate = 1$.}
+\label{fig:pseudo-real-model-phase}
 \end{figure}
 
 % ============================================================

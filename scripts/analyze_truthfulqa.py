@@ -552,6 +552,114 @@ def main():
     print(f"  Saved {fig_path_pdf}")
     print(f"  Saved {fig_path_png}")
 
+    # ---- Standalone appendix panels: one graph per figure ----
+    # Panel A: self-eval
+    fig_a, ax_a = plt.subplots(figsize=(9, 4.8))
+    for name in MODEL_FILES:
+        if name not in self_eval_results:
+            continue
+        se = self_eval_results[name]
+        d = model_data[name]
+        bins = se["bins"]
+        if not bins:
+            continue
+        confs = [b["mean_conf"] for b in bins]
+        accs = [b["accuracy"] for b in bins]
+        gaps = [b["calibration_gap"] for b in bins]
+        label_suffix = " [partial]" if d["is_partial"] else ""
+
+        ax_a.plot(confs, accs, marker=markers[name], color=colors[name],
+                  linewidth=1.8, markersize=6, label=f"{name} acc{label_suffix}")
+        ax_a.plot(confs, gaps, marker=markers[name], color=colors[name],
+                  linewidth=1.5, markersize=5.5, linestyle="--", alpha=0.65,
+                  label=f"{name} gap")
+
+    ax_a.plot([0, 1], [0, 1], "k:", linewidth=0.9, alpha=0.4, label="Perfect cal.")
+    ax_a.axhline(0, color="gray", linewidth=0.6, alpha=0.4)
+    ax_a.set_xlabel("Mean confidence", fontsize=12)
+    ax_a.set_ylabel("Accuracy / Cal. gap", fontsize=12)
+    ax_a.set_title("TruthfulQA: Self-Eval vs Accuracy and Gap", fontsize=13, fontweight="bold")
+    ax_a.legend(fontsize=8.5, loc="upper left", ncol=2)
+    ax_a.set_xlim(0, 1.02)
+    ax_a.set_ylim(-0.3, 1.05)
+    ax_a.grid(True, alpha=0.2)
+    fig_a.tight_layout()
+    fig_a_pdf = os.path.join(FIG_DIR, "fig_truthfulqa_self_eval.pdf")
+    fig_a_png = os.path.join(FIG_DIR, "fig_truthfulqa_self_eval.png")
+    fig_a.savefig(fig_a_pdf, dpi=300, bbox_inches="tight")
+    fig_a.savefig(fig_a_png, dpi=300, bbox_inches="tight")
+    plt.close(fig_a)
+    print(f"  Saved {fig_a_pdf}")
+    print(f"  Saved {fig_a_png}")
+
+    # Panel B: subsampling convergence
+    fig_b, ax_b = plt.subplots(figsize=(8.5, 4.8))
+    for name in MODEL_FILES:
+        if name not in sub_results:
+            continue
+        d = model_data[name]
+        sr = sub_results[name]
+        ms = sorted(sr.keys())
+        errs = [sr[m]["mean_abs_err"] for m in ms]
+        err_stds = [sr[m]["std_abs_err"] for m in ms]
+        floors = [sr[m]["floor"] for m in ms]
+        label_suffix = " [partial]" if d["is_partial"] else ""
+
+        ax_b.errorbar(ms, errs, yerr=err_stds, fmt=f"{markers[name]}-",
+                      color=colors[name], markersize=6, linewidth=1.8,
+                      capsize=3, label=f"{name}{label_suffix}")
+        ax_b.plot(ms, floors, "--", color=colors[name], alpha=0.55, linewidth=1.4,
+                  label=f"{name} floor")
+
+    ax_b.set_xscale("log")
+    ax_b.set_yscale("log")
+    ax_b.set_xlabel(r"Sample size $m$", fontsize=12)
+    ax_b.set_ylabel(r"$|\widehat{\mathrm{ECE}} - \mathrm{ECE}|$", fontsize=12)
+    ax_b.set_title("TruthfulQA: Subsampling Convergence", fontsize=13, fontweight="bold")
+    ax_b.legend(fontsize=8.0, loc="upper right")
+    ax_b.grid(True, alpha=0.2, which="both")
+    fig_b.tight_layout()
+    fig_b_pdf = os.path.join(FIG_DIR, "fig_truthfulqa_subsampling.pdf")
+    fig_b_png = os.path.join(FIG_DIR, "fig_truthfulqa_subsampling.png")
+    fig_b.savefig(fig_b_pdf, dpi=300, bbox_inches="tight")
+    fig_b.savefig(fig_b_png, dpi=300, bbox_inches="tight")
+    plt.close(fig_b)
+    print(f"  Saved {fig_b_pdf}")
+    print(f"  Saved {fig_b_png}")
+
+    # Panel C: phase transition
+    fig_c, ax_c = plt.subplots(figsize=(8.5, 4.8))
+    for name in MODEL_FILES:
+        if name not in phase_results:
+            continue
+        d = model_data[name]
+        pt = phase_results[name]
+        ms = sorted(pt.keys())
+        m_eps = [pt[m]["m_eps"] for m in ms]
+        powers = [pt[m]["power"] for m in ms]
+        label_suffix = " [partial]" if d["is_partial"] else ""
+
+        ax_c.plot(m_eps, powers, f"{markers[name]}-", color=colors[name],
+                  markersize=6, linewidth=1.8, label=f"{name}{label_suffix}")
+
+    ax_c.axvline(x=1.0, color="red", linestyle="--", linewidth=1.6,
+                 label=r"$m \cdot \varepsilon = 1$ (theory)")
+    ax_c.set_xscale("log")
+    ax_c.set_xlabel(r"$m \cdot \varepsilon$", fontsize=12)
+    ax_c.set_ylabel("Detection power", fontsize=12)
+    ax_c.set_title("TruthfulQA: Phase Transition", fontsize=13, fontweight="bold")
+    ax_c.legend(fontsize=8.5, loc="lower right")
+    ax_c.grid(True, alpha=0.2)
+    ax_c.set_ylim(-0.05, 1.05)
+    fig_c.tight_layout()
+    fig_c_pdf = os.path.join(FIG_DIR, "fig_truthfulqa_phase.pdf")
+    fig_c_png = os.path.join(FIG_DIR, "fig_truthfulqa_phase.png")
+    fig_c.savefig(fig_c_pdf, dpi=300, bbox_inches="tight")
+    fig_c.savefig(fig_c_png, dpi=300, bbox_inches="tight")
+    plt.close(fig_c)
+    print(f"  Saved {fig_c_pdf}")
+    print(f"  Saved {fig_c_png}")
+
     # ------------------------------------------------------------------
     # Save JSON summary
     # ------------------------------------------------------------------
