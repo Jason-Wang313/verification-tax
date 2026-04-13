@@ -423,6 +423,9 @@ The verification tax is a law: $\Theta((\Lip\errrate/\nsamples)^{1/3})$ for pass
 \newpage
 \appendix
 
+% ============================================================
+% SECTION A: Self-Verification Impossibility — Full Proof + Corollaries (v2)
+% ============================================================
 \section{Full Proof of Theorem~\ref{thm:selfverify} and Corollaries}
 \label{app:selfverify-proof}
 
@@ -440,7 +443,9 @@ Taking $\sup$: $\sup_\calmap \E[|V - \ECE|] \geq \min(\Lip,1)/2$. $\square$
 
 \textbf{Corollary (Distribution Shift).} A calibration monitor trained on $D_{\mathrm{train}}$ cannot detect miscalibration on $D_{\mathrm{test}}$ without labeled samples from $D_{\mathrm{test}}$.
 
-% ----------------------------------------------------------
+% ============================================================
+% SECTION B: Self-Contained Bernoulli T2 Proof (v2 addition)
+% ============================================================
 \section{Self-Contained Lower Bound via Bernoulli Two-Prior Method}
 \label{app:bernoulli_lb}
 
@@ -465,24 +470,41 @@ $R^* \geq c \cdot \delta\eta - N^{-1/2} = c\delta\sigma/(2\alpha\sqrt{N}) - N^{-
 $$R^*_{\ECE} \geq c' \left(\frac{\Lip\errrate}{\nsamples}\right)^{1/3} / (\log \nsamples)^{c''}$$
 The logarithmic factor arises from the Fourier approximation of $|t|$ in constructing $\mu$, not from the observation model. This is the same factor as in Lepski et al.~\citep{lepski1999estimation}. $\square$
 
-% ----------------------------------------------------------
+% ============================================================
+% SECTION C: Full Proof of TA — Active Verification (from v1)
+% ============================================================
 \section{Full Proof of Theorem~\ref{thm:active} (Active Verification)}
 \label{app:active-proof}
 
-\textbf{Lower bound.} Construct $P_0$, $P_1$ as in Theorem~\ref{thm:lecam}. Under adaptive querying, by the chain rule:
-$\KL(P_0^\nsamples \| P_1^\nsamples) = \sum_{i=1}^\nsamples \E[\KL(P_0(\cdot|p_i) \| P_1(\cdot|p_i))]$.
-Each term is at most $\targetacc^2/\errrate$. Adaptivity does not increase per-observation information. Therefore $\KL \leq \nsamples\targetacc^2/\errrate$, and Le~Cam gives $\activeR \geq c\sqrt{\errrate/\nsamples}$.
+\textbf{Lower bound.} The Le~Cam lower bound from Theorem~\ref{thm:lecam} applies unchanged to adaptive strategies. Construct the same two hypotheses: $P_0$ (calibrated, $\ECE = 0$) and $P_1$ (miscalibrated by $\delta$ near $p = 1 - \errrate$, $\ECE = \delta$). Under adaptive querying, the auditor selects $p_i$ based on all previous observations $(p_1, y_1, \ldots, p_{i-1}, y_{i-1})$. By the chain rule of KL divergence:
+\begin{equation}
+\KL(P_0^{\nsamples} \| P_1^{\nsamples}) = \sum_{i=1}^{\nsamples} \E\left[\KL(P_0(\cdot \mid p_i) \| P_1(\cdot \mid p_i))\right]
+\end{equation}
+Each term is at most $\delta^2 / \errrate$ (the per-observation KL when $p_i$ is in the miscalibrated region, zero otherwise). Adaptivity does not increase the per-observation information: conditioned on $p_i$, the label $y_i$ is a single Bernoulli draw whose KL is $\delta^2 / \errrate$ regardless of previous observations. Therefore $\KL \leq \nsamples \delta^2 / \errrate$, and Le~Cam gives $\activeR \geq c\sqrt{\errrate / \nsamples}$.
 
-\textbf{Upper bound (two-phase explore-exploit).}
-\emph{Phase~1:} Select $N$ equally-spaced confidence levels in $[1{-}\errrate{-}w, 1{-}\errrate{+}w]$. Query each $\nsamples/(2N)$ times. Estimate $\hat\calmap(p_j)$ with stderr $\sigma_j = \sqrt{2\errrate N/\nsamples}$. Classify bins as resolved ($|\hat\calmap| > 2\sigma_j$) or unresolved.
+\textbf{Upper bound.} We construct a two-phase adaptive strategy.
 
-\emph{Phase~2:} Concentrate remaining $\nsamples/2$ queries on resolved bins. Estimate $|\calmap|$ directly (sign is known).
+\emph{Phase 1 (Exploration):} Select $N$ equally-spaced confidence levels $\{p_j = j/N\}_{j=1}^{N}$ in the interval $[1 - \errrate - w, 1 - \errrate + w]$ for a window width $w = O(1)$. Query each level $\nsamples/(2N)$ times. The empirical estimate $\hat{\calmap}(p_j)$ has standard error $\sigma_j = \sqrt{2\errrate N / \nsamples}$. Classify each bin as:
+\begin{itemize}
+\item \emph{Resolved}: $|\hat{\calmap}(p_j)| > 2\sigma_j$ --- the sign of $\calmap(p_j)$ is known with high probability.
+\item \emph{Unresolved}: $|\hat{\calmap}(p_j)| \leq 2\sigma_j$ --- the sign is uncertain.
+\end{itemize}
 
-\emph{Unresolved zone:} Width $\leq 4\sigma_j/\Lip$. Contribution: $O(\sigma_j^2/\Lip) = O(\errrate N/(\nsamples\Lip))$.
+The unresolved zone has width at most $4\sigma_j / \Lip = O(\sqrt{\errrate N / \nsamples} / \Lip)$ by the Lipschitz constraint (the function can only stay near zero for a region of width $\leq |\calmap|_{\max}/\Lip$).
 
-\emph{Total error:} Resolved $O(\sqrt{\errrate/\nsamples})$ + unresolved $O(\errrate N/(\nsamples\Lip))$. Set $N = \Lip\sqrt{\nsamples/\errrate}$; both become $O(\sqrt{\errrate/\nsamples})$. $\square$
+\emph{Phase 2 (Exploitation):} Use the remaining $\nsamples/2$ queries on resolved bins to estimate $|\calmap(p_j)| = \calmap(p_j) \cdot \mathrm{sign}(\calmap(p_j))$ (sign is known, so no absolute value problem). This is a simple average with error $\sqrt{\errrate / \nsamples}$.
 
-% ----------------------------------------------------------
+\emph{Total error:}
+\begin{itemize}
+\item Resolved bins: estimation error $O(\sqrt{\errrate/\nsamples})$.
+\item Unresolved bins: the contribution to ECE is at most $(\text{max } |\calmap| \text{ in zone}) \times (\text{width of zone})$. Since $|\calmap| \leq 2\sigma_j$ in the zone and the width is $O(\sigma_j / \Lip)$, this contributes $O(\sigma_j^2 / \Lip) = O(\errrate N / (\nsamples \Lip))$.
+\end{itemize}
+
+Choose $N = \Lip\sqrt{\nsamples/\errrate}$ to balance the two terms. Both become $O(\sqrt{\errrate/\nsamples})$. $\square$
+
+% ============================================================
+% SECTION D: Regulatory Infeasibility (v2 addition)
+% ============================================================
 \section{Regulatory Infeasibility: Full Derivation}
 \label{app:regulatory}
 
@@ -495,7 +517,9 @@ $\nsamples_{\mathrm{total}} \geq K \cdot \frac{\Lip\errrate}{\groupprop_{\min}\t
 
 Under active verification, the requirement drops to $K\errrate/(\groupprop_{\min}\targetacc^2)$, making all three frameworks feasible---but requiring infrastructure that does not yet exist.
 
-% ----------------------------------------------------------
+% ============================================================
+% SECTION E: Extended Benchmark Analysis + Leaderboard + 5-Benchmark + TruthfulQA + Pipeline (v2)
+% ============================================================
 \section{Extended Benchmark Analysis}
 \label{app:demolition-extended}
 
@@ -503,36 +527,8 @@ Under active verification, the requirement drops to $K\errrate/(\groupprop_{\min
 
 \input{results/leaderboard_noise_table}
 
-% ----------------------------------------------------------
-\section{Full Proofs of Theorems~\ref{thm:lecam} and~\ref{thm:upper-bound}}
-\label{app:lecam-proof}
-
-\textbf{Theorem~\ref{thm:lecam} (Le Cam).}
-Fix score distribution at $p_0 = 1-\errrate$. $P_0$: $Y \sim \Bern(1-\errrate)$, $\ECE = 0$. $P_1$: $Y \sim \Bern(1-\errrate-\targetacc)$, $\ECE = \targetacc$. Both use constant $\calmap \in \cF(\Lip)$.
-$\KL(P_0^\nsamples \| P_1^\nsamples) = \nsamples\targetacc^2/(\errrate(1-\errrate)) \leq \nsamples\targetacc^2/\errrate$.
-Bretagnolle--Huber: $R^* \geq (\targetacc/2)e^{-\KL}$. Set $\KL = 1$: $\targetacc = \sqrt{\errrate/\nsamples}$, giving $R^* \geq (1/2e)\sqrt{\errrate/\nsamples}$. $\square$
-
-\subsection{Assouad Alternative}
-\label{app:assouad}
-
-Partition $[0,1]$ into $B$ bins. Consider $\calmap_\omega(p) = h\omega_b$ for $p \in I_b$, $\omega \in \{-1,+1\}^B$, $h = \Lip/(2B)$. By Assouad's lemma with $\KL = 4\nsamples h^2/(B\errrate)$, setting $h = c\sqrt{B\errrate/\nsamples}$ and $B = (\Lip\nsamples/\errrate)^{1/3}$ recovers $R^* \geq c'(\Lip\errrate/\nsamples)^{1/3}$. $\square$
-
-\textbf{Theorem~\ref{thm:upper-bound} (Upper Bound).}
-Bias: $\Lip/B$. Variance: $\sqrt{\errrate B/\nsamples}$. Total: $\Lip/B + \sqrt{\errrate B/\nsamples}$. At $B^* = (\Lip^2\nsamples/\errrate)^{1/3}$: $(\Lip\errrate/\nsamples)^{1/3}$. $\square$
-
-% ----------------------------------------------------------
-\section{Compositional Tax Proof and Dynamics}
-\label{app:compositional}
-
-\textbf{Theorem~\ref{thm:compositional}.} By the chain rule, $g_\recalround \circ \cdots \circ g_1$ is $(\prod L_k)$-Lipschitz. Since $\calmap_{\mathrm{sys}} = \calmapraw_{\mathrm{sys}} - p$ and $p \mapsto p$ is 1-Lipschitz, $\Lsystem \leq \prod L_k + 1$. Apply Theorem~\ref{thm:upper-bound} with $\Lip = \Lsystem$. $\square$
-
-\textbf{Verification dynamics.} Under $\errrate(t) = c_0 t^{-\critexp}$ and deployment rate $\deployrate$: critical exponent $\critexp^* = 1/2$ (passive), $\critexp^*_{\mathrm{active}} = 1$ (active). Models improving faster than $\critexp^*$ outrun verification.
-
-\textbf{Recalibration trap.} Iterative recalibration with factor $\shrinkfactor$: $K^* = \lfloor\log(\totaldata(1-\shrinkfactor)^2\ECE_0^2/\errrate)/(2\log(1/\shrinkfactor))\rfloor$. On MMLU ($\totaldata=14{,}000$, $\errrate=0.05$, $\ECE_0=0.10$, $\shrinkfactor=0.5$): $K^* = 4$ rounds.
-
-% ----------------------------------------------------------
 \section{Extended Empirical Results}
-\label{app:real-model}
+\label{app:extended-empirical}
 
 \textbf{Five-benchmark validation.} We validate across MMLU (14{,}042), TruthfulQA (817), ARC-Challenge (1{,}172), HellaSwag (10{,}042), and WinoGrande (1{,}267) with 3 models, yielding 14 valid benchmark--model pairs. Figure~\ref{fig:all_benchmarks} shows verification floors per benchmark; Figure~\ref{fig:truthfulqa} shows detailed TruthfulQA analysis.
 
@@ -565,80 +561,322 @@ Bias: $\Lip/B$. Variance: $\sqrt{\errrate B/\nsamples}$. Total: $\Lip/B + \sqrt{
 
 \textbf{Bootstrap methodology.} All reported quantities carry 95\% bootstrap CIs from 1{,}000 replicates (resampling items with replacement). Lipschitz estimates have wide CIs (e.g., Llama-405B: $\hat\Lip = 1.41$ [1.13, 3.02]) because finite-difference estimation is inherently noisy; ECE and $\errrate$ CIs are tight (e.g., $\ECE = 0.118$ [0.113, 0.124]).
 
-\subsection{Named Model Comparisons}
-\label{app:named-models}
+% ============================================================
+% SECTION F: Full Proof of T1 — Le Cam (from v1, lines 788-824, including Assouad)
+% ============================================================
+\section{Full Proof of Theorem~\ref{thm:lecam} (Le Cam Lower Bound)}
+\label{app:lecam-proof}
 
-Full methodology: pairwise accuracy gaps between 10 frontier models on 4 benchmarks using published scores from technical reports and model cards. Verification floor: $\targetacc_{\mathrm{acc}} = 2\sqrt{\errrate(1-\errrate)/n}$. The main-text Table~\ref{tab:named} shows the top comparisons; full data (64 pairs) is in the supplementary materials.
+Construct two hypotheses. Fix a classifier whose score distribution places all mass at $p_0 = 1 - \errrate$.
+\begin{itemize}
+    \item $P_0$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate)$. Calibrated: $\calmapraw(p_0) = p_0$, so $\ECE = 0$.
+    \item $P_1$: $Y \mid p(X) = p_0 \sim \Bern(1 - \errrate - \delta)$. Miscalibrated: $\ECE = \delta$.
+\end{itemize}
+Both hypotheses use a constant calibration gap (Lipschitz constant 0), so $\calmap \in \cF(\Lip)$ for all $\Lip > 0$. The KL divergence of $\nsamples$ i.i.d.\ samples is:
+\[
+\KL(P_0^{\nsamples} \| P_1^{\nsamples}) = \nsamples \cdot \KL(\Bern(1-\errrate) \| \Bern(1-\errrate-\delta)) = \frac{\nsamples \delta^2}{\errrate(1-\errrate)} \leq \frac{\nsamples \delta^2}{\errrate}
+\]
+where the last inequality uses $1 - \errrate \leq 1$ and the KL approximation $\KL(\Bern(p) \| \Bern(p+\delta)) \approx \delta^2 / (p(1-p))$ (valid for $\delta \leq \errrate/2$). By Le~Cam's lemma~\citep{tsybakov2009nonparametric}:
+\[
+R^* \geq \frac{\delta}{2}\left(1 - \TV(P_0^{\nsamples}, P_1^{\nsamples})\right) \geq \frac{\delta}{2} e^{-\KL(P_0^{\nsamples} \| P_1^{\nsamples})}
+\]
+where the second inequality uses Bretagnolle--Huber. Setting $\KL = 1$ (i.e., $\delta = \sqrt{\errrate / \nsamples}$): $R^* \geq (1/2e) \sqrt{\errrate/\nsamples} \approx 0.184 \sqrt{\errrate/\nsamples}$. $\square$
+
+\subsection{Direct Bernoulli Lower Bound (Alternative to Brown--Low)}
+\label{app:assouad}
+
+For readers who prefer a self-contained argument avoiding asymptotic equivalence, we sketch a direct Assouad-type lower bound in the Bernoulli model.
+
+Partition $[0,1]$ into $B$ equal-width bins. Consider the class of calibration functions $\calmap_\omega(p) = h \cdot \omega_b$ for $p \in I_b$, where $\omega = (\omega_1, \ldots, \omega_B) \in \{-1, +1\}^B$ and $h > 0$ is chosen so that $\calmap_\omega$ is $\Lip$-Lipschitz (requiring $h \leq \Lip/(2B)$). Each $\calmap_\omega$ has $\ECE = h$ (since $\sum_b (1/B) |h \cdot \omega_b| = h$). For any two configurations $\omega, \omega'$ differing in one coordinate $b$, the KL divergence of the $\nsamples/B$ observations in bin $b$ is:
+\[
+\KL = \frac{\nsamples}{B} \cdot \frac{(2h)^2}{\errrate(1-\errrate)} \leq \frac{4\nsamples h^2}{B\errrate}
+\]
+By Assouad's lemma~\citep{tsybakov2009nonparametric}, the minimax risk satisfies:
+\[
+R^* \geq \frac{Bh}{2}\left(1 - \sqrt{\frac{2\nsamples h^2}{B\errrate}}\right)
+\]
+Setting $h = c\sqrt{B\errrate/\nsamples}$ for a small constant $c$ and $B = \lfloor(\Lip\nsamples/\errrate)^{1/3}\rfloor$ gives:
+\[
+R^* \geq c' \left(\frac{\Lip\errrate}{\nsamples}\right)^{1/3}
+\]
+This recovers the $(\Lip\errrate/\nsamples)^{1/3}$ rate directly from the Bernoulli model, confirming the Brown--Low reduction. The constant $c'$ is weaker than the one obtained via \citet{lepski1999estimation}, but the argument is fully self-contained. $\square$
 
 % ============================================================
-% DEEP APPENDIX (pages 16+)
+% SECTION G: Full Proof of T3 — Upper Bound (from v1, lines 827-838)
 % ============================================================
+\section{Full Proof of Theorem~\ref{thm:upper-bound} (Matched Upper Bound)}
+\label{app:upper-proof}
 
+\textbf{Bias-variance decomposition.} With $B$ equal-width bins and $\nsamples$ total samples:
+
+\textbf{1. Bias.} Within each bin of width $1/B$, the calibration gap $\calmap$ varies by at most $\Lip/B$ (Lipschitz). By the Bridge Lemma, $|\ECE_B - \CE_{\mathrm{smooth}}| \leq \Lip/B$.
+
+\textbf{2. Variance.} Each bin $b$ has $n_b \approx \nsamples/B$ samples. (Under bounded density $c_\scoredist \leq d\scoredist/dp \leq C_\scoredist$; equal-mass binning achieves $n_b = \nsamples/B$ exactly when $\scoredist$ concentrates.) The empirical calibration gap has variance $\Var(\hat{\calmap}_b) \leq \effnoise / n_b \approx \effnoise B/\nsamples$, where $\effnoise = \max_b \E[\calmapraw(p)(1-\calmapraw(p)) \mid p \in I_b]$. Estimation error: $\E[|\widehat{\ECE}_B - \ECE_B|] \leq \sqrt{\effnoise B/\nsamples}$.
+
+\textbf{3. Total error.} $\Lip/B + \sqrt{\effnoise B/\nsamples}$.
+
+\textbf{4. Optimization.} Setting $\Lip/B = \sqrt{\effnoise B/\nsamples}$: $B^* = (\Lip^2\nsamples/\effnoise)^{1/3}$, total error $(\Lip\effnoise/\nsamples)^{1/3}$. In the rare-error regime $\effnoise \approx \errrate$, recovering the headline rate. $\square$
+
+% ============================================================
+% SECTION H: Compositional Tax + Dynamics + Recalibration + Half-Life (from v1, lines 841-871)
+% ============================================================
+\section{Verification Dynamics, Recalibration Trap, and Half-Life}
+\label{app:dynamics}
+
+\subsection{Verification Dynamics}
+Suppose a model is deployed at rate $\deployrate$ samples per unit time and $\errrate(t) = c_0 t^{-\critexp}$. The verification floor at time $t$ is $\verfloor(t) = (\Lip c_0/\deployrate)^{1/3} t^{-(\critexp+1)/3}$. Meaningful verification ($\verfloor(t) < \errrate(t)$) reduces to $(\Lip/(\deployrate c_0^2))^{1/3} < t^{(1-2\critexp)/3}$. This is satisfied for large $t$ when $\critexp < 1/2$, violated when $\critexp > 1/2$, and equivalent to $\Lip/(\deployrate c_0^2) < 1$ when $\critexp = 1/2$. Critical exponent: $\critexp^* = 1/2$ (passive), $\critexp^*_{\mathrm{active}} = 1$ (active). $\square$
+
+\subsection{Recalibration Trap}
+\label{prop:recaltrap}
+With $\ECE_K = \shrinkfactor^K \ECE_0$, the improvement from round $K$ to $K+1$ is $\shrinkfactor^K \ECE_0(1-\shrinkfactor)$. Distinguishing requires (Theorem~\ref{thm:lecam}) $\nsamples_K \geq \errrate/(\shrinkfactor^{2K}\ECE_0^2(1-\shrinkfactor)^2)$. Setting $\nsamples_K = \totaldata$ gives $\maxround = \lfloor\log(\totaldata(1-\shrinkfactor)^2\ECE_0^2/\errrate)/(2\log(1/\shrinkfactor))\rfloor$.
+
+\textbf{Worked example (MMLU).} $\shrinkfactor = 0.5$, $\errrate = 0.05$, $\ECE_0 = 0.10$, $\totaldata = 14{,}000$: $\maxround = \lfloor 6.55/1.386 \rfloor = 4$. After 4 halving rounds, MMLU cannot verify further improvement.
+
+\subsection{Verification Half-Life}
+\label{thm:halflife}
+Let ECE drift rate $\driftrate$ satisfy $|\ECE(t) - \ECE(0)| \leq \driftrate t$. (i) The verification becomes invalid after $\halflife = \targetacc/\driftrate$. (ii) Perpetual verification requires data rate $\datrate \geq \Lip\errrate\driftrate/\targetacc^4$.
+
+\textbf{Domain estimates} (assuming $\Lip = 1$, $\errrate = 0.05$): Medical AI ($\driftrate = 0.01$/month, $\targetacc = 0.02$): $\halflife = 2$ months, $\datrate \approx 3{,}100$/month. Content moderation: 6 months, 620/month. Financial trading ($\driftrate = 0.1$/week, $\targetacc = 0.01$): $\halflife = 17$ hours. Autonomous driving: 15 days. Static benchmarks have the same half-life: a benchmark constructed at $t = 0$ decays at rate $\driftrate$, formalizing the case for periodic refresh.
+
+% ============================================================
+% SECTION I: Full Proof of T2 — Minimax via Brown-Low (from v1, lines 874-919)
+% — Now relabeled as "Alternative Derivation"
+% ============================================================
 \section{Alternative Derivation of Theorem~\ref{thm:minimax-lb} via Asymptotic Equivalence}
 \label{app:minimax-proof}
 
 \textbf{Step 1: Reduction to nonparametric regression.}
-Within window $[1{-}\errrate{-}w/2, 1{-}\errrate{+}w/2]$ where $\scoredist$ places mass $\geq \tvdrift$, labels are $\Bern(p + \calmap(p))$ with variance $\approx \errrate$. The ECE on this window is $\int |\calmap(p)| d\scoredist$---an $L_1$ norm.
 
-\textbf{Step 2: Brown--Low equivalence.}
-Estimating $\int|\calmap|dp$ from $\nsamples$ observations with variance $\errrate$ is equivalent to white noise with $n_{\mathrm{eff}} = \nsamples/\errrate$~\citep{brown1996equivalence}.
+Within a window of width $w$ around $p = 1 - \errrate$, where the score distribution concentrates, the calibration verification problem reduces to estimating the $L_1$ norm of a regression function. Specifically:
 
-\textbf{Step 3: Lepski et al.}
-By Theorem~2.2 of~\citet{lepski1999estimation}: $R^* \geq c \cdot (\nsamples/\errrate)^{-1/3}/(\log\nsamples)^{c'}$. Incorporating $\Lip$: $R^* \geq c_2(\Lip\errrate/\nsamples)^{1/3}/(\log\nsamples)^{c_3}$. $\square$
+For $p \in [1-\errrate - w/2, \, 1-\errrate + w/2]$, define $\calmap(p) = \calmapraw(p) - p$. The labels $Y_i$ given $p(X_i) = p$ are $\Bern(\calmapraw(p)) = \Bern(p + \calmap(p))$, with variance $\calmapraw(p)(1 - \calmapraw(p)) \approx \errrate$ in the rare-error regime.
 
-% ----------------------------------------------------------
-\section{White-Box Irrelevance: Full Proof}
+The ECE restricted to this window is:
+\begin{equation}
+\ECE_{\text{window}} = \int_{1-\errrate-w/2}^{1-\errrate+w/2} |\calmap(p)| \, d\scoredist(p)
+\end{equation}
+This is precisely the $L_1$ norm of $\calmap$ on the window, weighted by $\scoredist$.
+
+\textbf{Step 2: Identification with $L_1$ functional estimation in white noise.}
+
+By the asymptotic equivalence of nonparametric regression and Gaussian white noise \citep{brown1996equivalence, nussbaum1996equivalence}, estimating $\int |\calmap(p)| dp$ from $\nsamples$ observations with per-observation variance $\errrate$ is asymptotically equivalent to estimating $\int |f(t)| dt$ in the white noise model:
+\begin{equation}
+dX(t) = f(t) dt + (\nsamples / \errrate)^{-1/2} dW(t), \quad t \in [0,1]
+\end{equation}
+with effective sample size $n_{\mathrm{eff}} = \nsamples / \errrate$ and $f \in \Sigma(\beta=1, \Lip)$ (Lipschitz = H\"older with $\beta = 1$).
+
+\textbf{Step 3: Application of Lepski, Nemirovski \& Spokoiny (1999).}
+
+By Theorem~2.2 of \citet{lepski1999estimation}, the minimax rate for estimating the $L_1$ norm of a $\beta$-H\"older function in white noise with sample size $n$ is:
+\begin{equation}
+R^*_{L_1} \geq c \cdot n^{-\beta/(2\beta+1)} / (\log n)^{c'}
+\end{equation}
+For $\beta = 1$ (Lipschitz) and $n = n_{\mathrm{eff}} = \nsamples / \errrate$:
+\begin{equation}
+R^*_{L_1} \geq c \cdot (\nsamples / \errrate)^{-1/3} / (\log(\nsamples/\errrate))^{c'} = c \cdot \left(\frac{\errrate}{\nsamples}\right)^{1/3} / (\log \nsamples)^{c'}
+\end{equation}
+Incorporating the Lipschitz constant $\Lip$ (which scales the function class):
+\begin{equation}
+R^*(\nsamples, \errrate, \Lip) \geq c_2 \left(\frac{\Lip \errrate}{\nsamples}\right)^{1/3} / (\log \nsamples)^{c_3}
+\end{equation}
+
+\textbf{Technical conditions:}
+\begin{itemize}
+    \item \emph{Score-mass concentration:} The score distribution $\scoredist$ must place mass $\geq \rho$ in a window of width $w$ around $1 - \errrate$. We state this as an assumption. This holds for well-trained classifiers: overconfident models concentrate predictions near the top.
+    \item \emph{The Brown--Low equivalence} requires $\nsamples$ sufficiently large relative to the smoothness. The minimum $\nsamples$ is $\nsamples \geq C(\Lip) / \errrate$ for a constant depending on $\Lip$.
+    \item \emph{Lipschitz constant:} Since $\calmap(p) = \calmapraw(p) - p$ and $p \mapsto p$ is 1-Lipschitz, we have $\Lip_\calmap \leq \Lip_\calmapraw + 1$. We use $\Lip$ throughout for $\Lip_\calmap$.
+\end{itemize}
+
+\paragraph{Clarification on the asymptotic regime.} The Brown--Low equivalence is applied in the limit $\nsamples \to \infty$ with $\errrate$ \emph{fixed}. The error rate $\errrate$ is a property of the model under audit, not an asymptotic parameter. For any fixed $\errrate \in (0, 1/2)$, the Bernoulli label variance $\errrate(1-\errrate) \geq \errrate/2 > 0$ is bounded away from zero, satisfying the regularity conditions. The $\errrate$-dependence in the rate $(\Lip\errrate/\nsamples)^{1/3}$ arises from substituting $\effnoise = \errrate(1-\errrate) \approx \errrate$ into the white-noise minimax rate with $n_{\mathrm{eff}} = \nsamples / \errrate$, not from taking $\errrate \to 0$ within the equivalence framework.
+
+% ============================================================
+% SECTION J: White-Box Supplementary (from v1, lines 922-925)
+% ============================================================
+\section{Supplementary Details for Theorem~\ref{thm:whitebox}}
 \label{app:whitebox}
 
-Fix identical $\cS$. Construct $P_0$ (calibrated) and $P_1$ (miscalibrated by $\targetacc$ near $p \approx 1{-}\errrate$). $\cS$ is identical under both. Conditional KL: $\nsamples\targetacc^2/\errrate$, identical to Theorem~\ref{thm:lecam}. $\square$
+The proof of Theorem~\ref{thm:whitebox} in the main text is complete. We note that the result extends straightforwardly to any side information $\cS$ that is independent of the fresh evaluation labels conditional on the scores. This includes: model weights, architecture specifications, training data, training logs, gradient histories, and any derived quantity (e.g., Fisher information matrices, Hessian spectra, pruning masks). The key insight is that calibration is a property of the model-world interface, not of the model alone.
 
-The result extends to any side information independent of fresh labels conditional on scores.
-
-% ----------------------------------------------------------
-\section{Sequential Verification}
+% ============================================================
+% SECTION K: Sequential Verification (from v1, lines 958-994)
+% ============================================================
+\section{Full Proof of Sequential Verification}
 \label{app:sequential}
 
-\textbf{Lower:} Wald's identity under Le~Cam hypotheses: $\E[\stoppingtime] \geq \errrate\log(1/\confalpha)/\targetacc^2$. \textbf{Upper:} Confidence sequence via method of mixtures~\citep{howard2021timeuniform}: stop when width $\leq \targetacc$, giving $\stoppingtime \approx \errrate\log(1/\confalpha)/\targetacc^2$. Matching.
+\textbf{Lower bound.} Under the two Le~Cam hypotheses ($P_0$: $\ECE = 0$, $P_1$: $\ECE = \targetacc$), the log-likelihood ratio after $t$ observations is:
+\begin{equation}
+\Lambda_t = \sum_{i=1}^{t} \log \frac{p_1(y_i \mid p_i)}{p_0(y_i \mid p_i)}
+\end{equation}
+This is a random walk with per-step drift:
+\begin{equation}
+\E_{P_0}[\Lambda_1] = -\KL(P_0(\cdot \mid p_i) \| P_1(\cdot \mid p_i)) \approx -\frac{\targetacc^2}{\errrate}
+\end{equation}
 
-% ----------------------------------------------------------
-\section{Temperature Scaling and Transfer}
+By Wald's identity for sequential testing \citep{tsybakov2009nonparametric}, any test between $P_0$ and $P_1$ with error probabilities $\leq \confalpha$ satisfies:
+\begin{equation}
+\E[\stoppingtime] \geq \frac{\log(1/\confalpha)}{\KL(P_0 \| P_1)} = \frac{\errrate \log(1/\confalpha)}{\targetacc^2}
+\end{equation}
+
+Since any sequential verification protocol with accuracy $\targetacc$ at confidence $1 - \confalpha$ must distinguish $\ECE = 0$ from $\ECE = \targetacc$ with probability $\geq 1 - \confalpha$, the lower bound follows.
+
+\textbf{Upper bound.} We construct a confidence sequence for the ECE using the method of mixtures \citep{howard2021timeuniform}. Define the running ECE estimate:
+\begin{equation}
+\widehat{\ECE}_t = \sum_{b=1}^{B} \frac{n_{b,t}}{t} \left| \hat{\calmap}_{b,t} \right|
+\end{equation}
+where $\hat{\calmap}_{b,t}$ is the empirical calibration gap in bin $b$ after $t$ observations.
+
+By Theorem~1 of \citet{howard2021timeuniform}, there exists a time-uniform confidence sequence $(C_t)_{t \geq 1}$ such that:
+\begin{equation}
+\Pr\left(\exists t \geq 1: |\widehat{\ECE}_t - \ECE| > C_t\right) \leq \confalpha
+\end{equation}
+with $C_t = O(\sqrt{\errrate \log(\log(t)/\confalpha) / t})$.
+
+Define the stopping time $\stoppingtime = \inf\{t : C_t \leq \targetacc\}$. Solving $C_t \leq \targetacc$:
+\begin{equation}
+\sqrt{\frac{\errrate \log(\log(t)/\confalpha)}{t}} \leq \targetacc \implies t \geq \frac{\errrate \log(\log(t)/\confalpha)}{\targetacc^2}
+\end{equation}
+
+For the dominant term, $\E[\stoppingtime] = O(\errrate \log(1/\confalpha) / \targetacc^2)$, matching the lower bound up to constants. $\square$
+
+% ============================================================
+% SECTION L: Temperature Scaling (from v1, lines 997-1050)
+% ============================================================
+\section{Temperature Scaling Analysis}
 \label{app:tempscaling}
 
-\textbf{Proposition (Temperature Scaling).} Under correct specification ($\calmap(p;T) = \sigmoid(\logit(p)/T) - p$, $T^*{=}1$), MLE achieves $\CE = O_p(1/\sqrt{\nsamples})$---the parametric rate. Fisher information: $I(1) = \E[p(1{-}p)\logit(p)^2] \approx \errrate\log^2(1/\errrate)$. Misspecification bias persists regardless of $\nsamples$.
+We provide the full proof of the temperature scaling rate proposition.
 
-\textbf{Proposition (Verification Transfer).} If $M_2$ differs from verified $M_1$ by $\Liph$-Lipschitz shift $\leq \ftshift$: $\nsamples_2 = \Theta(\Liph\errrate_2/\ftshift^3)$ via transfer vs.\ $\Theta(\Lip\errrate_2/\targetacc^3)$ from scratch. Saving: $(\Lip/\Liph)(\targetacc/\ftshift)^3$.
+\textbf{Step 1: MLE for the temperature parameter.}
+Given scores $p_1, \ldots, p_{\nsamples}$ and labels $y_1, \ldots, y_{\nsamples}$, the negative log-likelihood is:
+\begin{equation}
+\ell(T) = -\sum_{i=1}^{\nsamples} \left[ y_i \log \sigmoid(\logit(p_i)/T) + (1 - y_i) \log(1 - \sigmoid(\logit(p_i)/T)) \right]
+\end{equation}
+This is a 1D convex optimization. The MLE $\hat{T}$ is unique.
 
-\textbf{Proposition (Ungameability).} Constant $\calmap = \targetacc$ minimizes KL (hardest to detect). Any non-constant $\calmap$ with same ECE is easier. $R^* = \Theta(\sqrt{\errrate/\nsamples})$.
+\textbf{Step 2: Asymptotic normality of MLE.}
+By standard M-estimation theory \citep{vandervaart1998asymptotic}:
+\begin{equation}
+\sqrt{\nsamples}(\hat{T} - T^*) \xrightarrow{d} N(0, \FisherI(T^*)^{-1})
+\end{equation}
+where $\FisherI(T^*)$ is the Fisher information. At $T^* = 1$, the score function is:
+\begin{equation}
+\frac{\partial}{\partial T} \log p(Y \mid p, T) \bigg|_{T=1} = -(Y - p) \cdot \logit(p)
+\end{equation}
+So:
+\begin{equation}
+\FisherI(1) = \E[(Y - p)^2 \cdot \logit(p)^2] = \E[p(1-p) \cdot \logit(p)^2]
+\end{equation}
+In the rare-error regime with scores concentrated near $1 - \errrate$: $\logit(1-\errrate) \approx \log(1/\errrate)$ and $p(1-p) \approx \errrate$, giving:
+\begin{equation}
+\FisherI(1) \approx \errrate \cdot \log^2(1/\errrate)
+\end{equation}
+This is positive and grows as $\errrate \to 0$ --- rare errors make temperature estimation \emph{easier} because logits are more spread out. The MLE satisfies: $|\hat{T} - T^*| = O_p(1/\sqrt{\nsamples \cdot \FisherI(T^*)})$.
 
-% ----------------------------------------------------------
-\section{Corrections and Relaxations}
+\textbf{Step 3: Translating to calibration error.}
+By Taylor expansion of $\calmap(p; T)$ around $T^* = 1$:
+\begin{equation}
+\calmap(p; \hat{T}) \approx \frac{\partial \calmap}{\partial T}\bigg|_{T=1} \cdot (\hat{T} - 1) = p(1-p) \cdot \logit(p) \cdot (\hat{T} - 1)
+\end{equation}
+So the smooth CE is:
+\begin{equation}
+\CE_{\mathrm{smooth}} = \int |\calmap(p; \hat{T})| \, d\scoredist(p) \approx |\hat{T} - 1| \cdot \underbrace{\int p(1-p) |\logit(p)| \, d\scoredist(p)}_{\kappa}
+\end{equation}
+where $\kappa$ is a constant depending on the score distribution. Substituting $|\hat{T} - 1| = O_p(1/\sqrt{\nsamples \cdot \FisherI(T^*)})$:
+\begin{equation}
+\CE_{\mathrm{smooth}} = O_p\left(\frac{\kappa}{\sqrt{\nsamples \cdot \FisherI(T^*)}}\right) = O_p\left(\frac{1}{\sqrt{\nsamples}}\right)
+\end{equation}
+with a constant that depends on $\errrate$ through $\FisherI(T^*)$ and $\kappa$. This is the \textbf{parametric rate} $\nsamples^{-1/2}$, not the nonparametric rate $(\Lip\errrate/\nsamples)^{1/3}$.
+
+\textbf{Step 4: Connection to binned ECE.}
+Via the Bridge Lemma: $\ECE_B \leq \CE_{\mathrm{smooth}} + \Lip/B$. Taking $B = O(\sqrt{\nsamples}/\Lip)$:
+\begin{equation}
+\ECE_B = O(1/\sqrt{\nsamples})
+\end{equation}
+
+\textbf{Comparison to nonparametric rate:} The ratio is $(1/\sqrt{\nsamples}) / (\Lip\errrate/\nsamples)^{1/3} = (\Lip\errrate)^{-1/3} / \nsamples^{1/6}$, which shrinks with $\nsamples$. For $\nsamples = 10{,}000$ and $\Lip\errrate = 0.05$: ratio $\approx 0.05$. Temperature scaling is $\sim$20$\times$ more data-efficient than nonparametric ECE estimation. $\square$
+
+% ============================================================
+% SECTION M: Verification Transfer (from v1, lines 1052-1079)
+% ============================================================
+\section{Verification Transfer Details}
+\label{app:transfer}
+
+We provide the full proof of the verification transfer proposition.
+
+\textbf{Step 1: Problem reduction.}
+Since $\calmap_1(p)$ is known (from prior verification), estimating $\ECE(M_2) = \int |\calmap_2(p)| \, d\scoredist(p)$ reduces to estimating the shift $\shiftfn(p) = \calmap_2(p) - \calmap_1(p)$, then computing $\int |\calmap_1(p) + \hat{\shiftfn}(p)| \, d\scoredist(p)$.
+
+\textbf{Step 2: Lower bound (detection cost).}
+Two-sample Le~Cam between $H_0$: $\calmap_2 = \calmap_1$ and $H_1$: $\calmap_2 = \calmap_1 + \shiftfn$ with $\|\shiftfn\|_\infty = \ftshift$. From $\nsamples_2$ fresh samples near $p \approx 1 - \errrate_2$:
+\begin{equation}
+\KL(H_0^{\nsamples_2} \| H_1^{\nsamples_2}) \approx \frac{\nsamples_2 \ftshift^2}{\errrate_2}
+\end{equation}
+Indistinguishable when $\KL \leq 1$, requiring $\nsamples_2 = \Omega(\errrate_2 / \ftshift^2)$.
+
+\textbf{Step 3: Upper bound (estimation with transfer).}
+Apply Theorem~\ref{thm:upper-bound} to $\shiftfn$ instead of $\calmap_2$. The histogram estimator for $\shiftfn$ has bias $\Liph / B$ and variance $\sqrt{\errrate_2 B / \nsamples_2}$. Optimizing: $B^* = (\Liph^2 \nsamples_2 / \errrate_2)^{1/3}$, giving:
+\begin{equation}
+\|\hat{\shiftfn} - \shiftfn\| = O\left(\left(\frac{\Liph \errrate_2}{\nsamples_2}\right)^{1/3}\right)
+\end{equation}
+By the triangle inequality:
+\begin{equation}
+\left| \ECE(M_2) - \widehat{\ECE}(M_2) \right| \leq \int |\hat{\shiftfn}(p) - \shiftfn(p)| \, d\scoredist(p) = O\left(\left(\frac{\Liph \errrate_2}{\nsamples_2}\right)^{1/3}\right)
+\end{equation}
+Setting this equal to $\ftshift$: $\nsamples_2 = O(\Liph \errrate_2 / \ftshift^3)$.
+
+\textbf{Step 4: When does transfer help?}
+From-scratch: $\nsamples_2 = \Theta(\Lip \errrate_2 / \delta^3)$. With transfer: $\nsamples_2 = \Theta(\Liph \errrate_2 / \ftshift^3)$. Transfer helps when $\ftshift < \delta$ and $\Liph \leq \Lip$. With $\ftshift = \delta/10$, saving is $1000\times$. Transfer provides no benefit when $\ftshift \geq \delta$. $\square$
+
+% ============================================================
+% SECTION N: Corrections (from v1, lines 1082-1092)
+% ============================================================
+\section{Corrections: Correlation, Heterogeneity, Pre-Calibration}
 \label{app:corrections}
 
-\textbf{Correlation.} If benchmarks share items, effective $\nsamples$ is reduced. \textbf{Heterogeneity.} Non-uniform score distributions: use equal-mass binning. \textbf{Pre-calibration.} Post-hoc calibration changes $\Lip$ and $\errrate$; the tax applies to the post-calibration function.
+The core theorems assume i.i.d.\ labeled samples with independent Bernoulli noise. In practice, several deviations may arise.
 
-% ----------------------------------------------------------
+\paragraph{Temporal correlation.} If evaluation samples arrive sequentially and exhibit temporal dependence, the effective sample size is reduced by a factor depending on the mixing time. For $\critexp$-mixing sequences with coefficient $\critexp(k) \leq c \cdot \tvdrift^k$, the effective sample size is $\nsamples_{\mathrm{eff}} \approx \nsamples \cdot (1-\tvdrift)$. All bounds apply with $\nsamples$ replaced by $\nsamples_{\mathrm{eff}}$.
+
+\paragraph{Domain heterogeneity.} When the evaluation set spans multiple domains with different error rates, the per-domain verification floor (Fix~3) accounts for this heterogeneity. The overall ECE is a weighted average of domain-specific ECEs, and Jensen's inequality ensures the overall verification floor is no larger than the worst per-domain floor weighted by domain proportion.
+
+\paragraph{Pre-calibration via RLHF.} Models that have undergone reinforcement learning from human feedback may have artificially smooth calibration functions (small $\Lip$), which reduces the verification tax. However, if the RLHF procedure oversmooths, the remaining miscalibration may be concentrated at specific confidence levels, violating the uniform Lipschitz assumption. Domain-specific Lipschitz estimates should be used in such cases.
+
+% ============================================================
+% SECTION O: Numerical Sanity Checks + Sharp Constants Table (from v1, lines 1094-1123)
+% ============================================================
 \section{Numerical Sanity Checks}
 \label{app:numerical}
 
+\subsection{Sharp Le Cam Constants}
+
+For each $\errrate$, we numerically optimize the Le~Cam lower bound over the separation parameter $\delta$, using the exact Bernoulli KL divergence (not the quadratic approximation). We compute three versions: the Bretagnolle--Huber bound $R^* \geq (\delta/2)\exp(-\KL)$, the Pinsker bound $R^* \geq (\delta/2)(1 - \sqrt{\KL/2})$, and the exact bound via the Bernoulli likelihood ratio test. Table~\ref{tab:sharp-constants} reports the tightest constant for each $\errrate$.
+
 \begin{table}[h]
 \centering
-\caption{Sharp Le~Cam constants $c_1(\errrate)$ via exact Bernoulli TV.}
+\caption{Sharp Le~Cam constants $c_1(\errrate)$ and nonparametric estimation sample sizes. The Le~Cam constant governs detection; the estimation column uses $\nsamples \geq \Lip\errrate/\targetacc^3$ with $\Lip = 1$, $\targetacc = 0.01$.}
 \label{tab:sharp-constants}
-\small
-\begin{tabular}{lcccc}
+\begin{tabular}{cccc}
 \toprule
-$\errrate$ & $c_1$ (Bretagnolle--Huber) & $c_1$ (Exact TV) & $\nsamples_{\mathrm{detect}}$ ($\targetacc{=}0.01$) & $\nsamples_{\mathrm{estimate}}$ ($\targetacc{=}0.01$, $\Lip{=}1$) \\
+$\errrate$ & $c_1(\errrate)$ & $\nsamples_{\mathrm{detect}}$ (Le~Cam) & $\nsamples_{\mathrm{estimate}}$ (nonparametric) \\
 \midrule
-0.01 & 0.282 & 0.278 & 80 & 10{,}000 \\
-0.05 & 0.347 & 0.344 & 601 & 50{,}000 \\
-0.10 & 0.365 & 0.361 & 1{,}333 & 100{,}000 \\
-0.20 & 0.371 & 0.367 & 2{,}754 & 200{,}000 \\
-0.35 & 0.381 & 0.377 & 5{,}076 & 350{,}000 \\
+0.01 & 0.3780 & 15 & 10{,}000 \\
+0.02 & 0.3638 & 27 & 20{,}000 \\
+0.05 & 0.3474 & 61 & 50{,}000 \\
+0.10 & 0.3326 & 111 & 100{,}000 \\
+0.15 & 0.3206 & 155 & 150{,}000 \\
+0.20 & 0.3093 & 192 & 200{,}000 \\
+0.25 & 0.2982 & 223 & 250{,}000 \\
+0.30 & 0.2873 & 248 & 300{,}000 \\
+0.35 & 0.2759 & 267 & 350{,}000 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% ----------------------------------------------------------
+The constant $c_1(\errrate)$ is monotonically decreasing in $\errrate$: smaller error rates yield tighter constants because the Bernoulli variance is smaller and the KL approximation is sharper. All values fall in $[0.28, 0.38]$, consistent with the theoretical prediction $c_1 \geq 1/(2e) \approx 0.184$ from the quadratic KL approximation. The exact constants are roughly $2\times$ larger, reflecting the tightness gained from exact Bernoulli KL computation.
+
+% ============================================================
+% SECTION P: Synthetic Experiments (v2 brief version)
+% ============================================================
 \section{Synthetic Experiments}
 \label{app:synthetic}
 
@@ -657,10 +895,54 @@ $\errrate$ & $c_1$ (Bretagnolle--Huber) & $c_1$ (Exact TV) & $\nsamples_{\mathrm
 \caption{Slope convergence to minimax $-1/3$ as zero-crossings increase (synthetic).}
 \end{figure}
 
-% ----------------------------------------------------------
+% ============================================================
+% SECTION Q: Real-Model Experiment Details (from v1, lines 1126-1149)
+% ============================================================
 \section{Real-Model Experiment Details}
 \label{app:real-model}
 
-Three NIM-hosted LLMs on full MMLU test set ($N{=}14{,}042$). Confidence: softmax over A/B/C/D logprobs at first token. Saturation: 78--92\% of items yield $>$0.99 confidence. Lipschitz: 75th-percentile of adjacent-bin slopes (20 bins, min 30 per bin), capped at 5.
+\paragraph{MMLU experimental protocol.} We query each NIM-hosted model with the standard 4-way multiple-choice prompt (``Answer the following multiple choice question. Reply with ONLY the letter (A, B, C, or D)''). For each question, we extract the logprobs of the four answer tokens A, B, C, D at the first generated position, apply softmax over those four logits, and take the maximum as the model's confidence. The model's predicted answer is the argmax. Records with API errors (e.g., 403 Forbidden, content-filter rejection) are excluded. Each model run uses a single deterministic temperature-0 generation per question.
+
+\paragraph{Confidence saturation (full data, $N = 14{,}042$ each).} On the complete MMLU set, max-softmax confidence is heavily concentrated near 1: Llama-3.1-405B has mean confidence 0.96 with 77\% of questions saturated ($> 0.99$); Qwen3-Next-80B has mean 0.98 with 86\% saturated; Llama-4-Maverick-17B has mean 0.99 with 92\% saturated. The 405B model has the most spread (lowest saturation rate), as expected for a larger and more capable model. Saturation affects the resolution of high-confidence bins but not the convergence rate, which is governed by the optimal bin count $B^*$.
+
+\paragraph{Lipschitz constant estimation.} For each model, we partition the score range into 20 equal-width bins, compute the empirical accuracy in each bin with at least 30 samples, take the calibration gap $\hat\calmap_b = \mathrm{acc}_b - p_b$ at each bin center, and form the adjacent-bin slope $|\hat\calmap_{b+1} - \hat\calmap_b|/|p_{b+1} - p_b|$. We report the 75th percentile of these slopes, capped at $\hat\Lip = 5$, as a robust estimate. This is sensitive to bin choice and noise; we recommend the audit floor be reported with $\hat\Lip$ from at least two binning resolutions.
+
+\paragraph{Pseudo-classifier control experiment.} As a sanity check before running the real-model experiment, we constructed a 10-class softmax classifier from Gaussian logits with $\errrate \approx 0.10$ ($N = 20{,}000$, full-dataset ECE $\approx 0.31$). Subsampling at $\nsamples \in \{50, \ldots, 10^4\}$ with optimal $B^*$ bins (200 replicates per $\nsamples$) confirms that (i) the verification floor (red dashed in Figure~\ref{fig:pseudo-real-model}) tracks the empirical std of estimates across the full range, and (ii) the phase transition near $\nsamples \cdot \errrate \approx 1$ is visible. The pseudo-classifier results match the MMLU real-model findings of Section~\ref{sec:empirics}.
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.49\textwidth}
+\includegraphics[width=\textwidth]{figures/fig8_real_model.pdf}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\includegraphics[width=\textwidth]{figures/fig9_real_phase.pdf}
+\end{minipage}
+\caption{Pseudo-classifier control experiment ($\errrate \approx 0.10$, true ECE $\approx 0.31$, $N = 20{,}000$). (Left) ECE estimate $\pm$ std vs.\ $\nsamples$ with verification floor overlaid. (Right) Detection power vs.\ $\nsamples \cdot \errrate$, with the predicted phase transition at $\nsamples \cdot \errrate = 1$.}
+\label{fig:pseudo-real-model}
+\end{figure}
+
+% ============================================================
+% SECTION R: Named Model Comparisons (v2 addition)
+% ============================================================
+\subsection{Named Model Comparisons}
+\label{app:named-models}
+
+Full methodology: pairwise accuracy gaps between 10 frontier models on 4 benchmarks using published scores from technical reports and model cards. Verification floor: $\targetacc_{\mathrm{acc}} = 2\sqrt{\errrate(1-\errrate)/n}$. The main-text Table~\ref{tab:named} shows the top comparisons; full data (64 pairs) is in the supplementary materials.
+
+% ============================================================
+% SECTION S: Compositional Tax — Full Proof (from v1, lines 860-871)
+% ============================================================
+\section{Full Proof of Theorem~\ref{thm:compositional} (Compositional Verification)}
+\label{app:compositional}
+
+\textbf{Lipschitz composition.} By the chain rule, if $g_k$ is $L_k$-Lipschitz in its first argument, then $g_\recalround \circ \cdots \circ g_1$ is $(\prod_{k=1}^{\recalround} L_k)$-Lipschitz. Since $\calmap_{\mathrm{sys}}(p) = \calmapraw_{\mathrm{sys}}(p) - p$ and $p \mapsto p$ is 1-Lipschitz, $\Lsystem \leq \prod_k L_k + 1$.
+
+\textbf{Verification cost.} Applying Theorem~\ref{thm:upper-bound} with $\Lip = \Lsystem$: $\nsamples_{\mathrm{sys}} = \Theta(\Lsystem \errrate/\targetacc^3)$. For homogeneous $L_k = \Lip$: $\Lsystem \approx \Lip^\recalround$, giving exponential scaling. $\square$
+
+\textbf{Agent loop bound.} For an agent with $\recalround$ reasoning iterations and $\Lip = 2$: $\Lip^{10} = 1024$, $\Lip^{20} > 10^6$.
+
+\textbf{Caveats.} The Lipschitz composition model is optimistic in two directions: discontinuous components (e.g., discrete retrieval) yield $\Lcomp = \infty$, making end-to-end verification impossible at \emph{any} sample size; conversely, contractive components ($L_k < 1$) reduce the effective $\Lsystem$. Empirical estimation of $\Lsystem$ via finite-difference approximation is recommended before applying the exponential bound. Independence of per-component calibration gaps is also assumed; correlated miscalibration can either help or hurt depending on structure.
+
+\textbf{Worked example.} A two-stage retriever--classifier with $\Lip = 2$ each gives $\Lsystem \leq 5$, requiring $5\times$ the data of a single classifier. With $\Lip = 3$: $10\times$. A three-stage pipeline at $\Lip = 2$: $9\times$; at $\Lip = 3$: $28\times$.
 
 \end{document}
