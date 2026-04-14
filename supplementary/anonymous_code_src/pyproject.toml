@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verification-tools"
+version = "0.1.0"
+description = "Anonymous verification-floor utilities for calibration auditing"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["calibration", "evaluation", "verification", "ece"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+]
+
+[tool.setuptools]
+packages = ["verification_tools"]
+
