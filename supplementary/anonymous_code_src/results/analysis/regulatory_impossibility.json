@@ -1,0 +1,105 @@
+{
+  "description": "Regulatory impossibility analysis for AI verification",
+  "formulas": {
+    "m_required_passive": "K / pi_min * L * eps / delta^3",
+    "m_required_active": "K / pi_min * eps / delta^2"
+  },
+  "frameworks": [
+    {
+      "name": "EU AI Act Annex III",
+      "description": "High-risk medical AI",
+      "K": 10,
+      "pi_min": 0.05,
+      "delta": 0.02,
+      "eps": 0.05,
+      "L": 1.0
+    },
+    {
+      "name": "NIST AI RMF",
+      "description": "Performance monitoring",
+      "K": 5,
+      "pi_min": 0.1,
+      "delta": 0.01,
+      "eps": 0.03,
+      "L": 1.0
+    },
+    {
+      "name": "FDA SaMD",
+      "description": "Clinical subgroup validation",
+      "K": 8,
+      "pi_min": 0.05,
+      "delta": 0.01,
+      "eps": 0.02,
+      "L": 1.0
+    }
+  ],
+  "available_data": {
+    "Medical imaging": 707000,
+    "General medical": 500000,
+    "Clinical trials": 200000
+  },
+  "results": [
+    {
+      "framework": "EU AI Act Annex III",
+      "description": "High-risk medical AI",
+      "domain": "Medical imaging",
+      "parameters": {
+        "K": 10,
+        "pi_min": 0.05,
+        "delta": 0.02,
+        "eps": 0.05,
+        "L": 1.0
+      },
+      "m_required_passive": 1249999.9999999998,
+      "m_required_active": 25000.0,
+      "m_available": 707000,
+      "gap_passive": 1.7680339462517678,
+      "gap_active": 0.03536067892503536,
+      "feasible_passive": false,
+      "feasible_active": true
+    },
+    {
+      "framework": "NIST AI RMF",
+      "description": "Performance monitoring",
+      "domain": "General medical",
+      "parameters": {
+        "K": 5,
+        "pi_min": 0.1,
+        "delta": 0.01,
+        "eps": 0.03,
+        "L": 1.0
+      },
+      "m_required_passive": 1499999.9999999998,
+      "m_required_active": 15000.0,
+      "m_available": 500000,
+      "gap_passive": 2.9999999999999996,
+      "gap_active": 0.03,
+      "feasible_passive": false,
+      "feasible_active": true
+    },
+    {
+      "framework": "FDA SaMD",
+      "description": "Clinical subgroup validation",
+      "domain": "Medical imaging",
+      "parameters": {
+        "K": 8,
+        "pi_min": 0.05,
+        "delta": 0.01,
+        "eps": 0.02,
+        "L": 1.0
+      },
+      "m_required_passive": 3199999.9999999995,
+      "m_required_active": 32000.0,
+      "m_available": 707000,
+      "gap_passive": 4.526166902404525,
+      "gap_active": 0.04526166902404526,
+      "feasible_passive": false,
+      "feasible_active": true
+    }
+  ],
+  "summary": {
+    "total_frameworks": 3,
+    "infeasible_passive": 3,
+    "infeasible_active": 0
+  }
+}

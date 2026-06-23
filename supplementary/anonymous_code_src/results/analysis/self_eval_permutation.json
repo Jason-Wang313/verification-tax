@@ -1,0 +1,395 @@
+{
+  "description": "Permutation test for self-verification impossibility (Theorem B). Tests whether confidence predicts calibration gap (should NOT be significant) vs accuracy (positive control, should be significant). 10,000 permutations per test.",
+  "per_model": {
+    "LLaMA-3.1-405B": {
+      "n_valid": 14042,
+      "n_bins": 17,
+      "overall_accuracy": 0.8404073493804302,
+      "overall_mean_conf": 0.9585311137083862,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.3872549019607844,
+        "permutation_p_value": 0.1392,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.3872549019607844,
+        "standard_spearman_p": 0.12460639350840541
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.9534313725490198,
+        "permutation_p_value": 0.0,
+        "n_permutations": 10000,
+        "significant_at_0.01": true,
+        "standard_spearman_r": 0.9534313725490198,
+        "standard_spearman_p": 3.2849947662852607e-09
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.36526434752045506,
+          "accuracy": 0.3225806451612903,
+          "calibration_gap": 0.042683702359164744,
+          "n_items": 31
+        },
+        {
+          "mean_conf": 0.46315321082725447,
+          "accuracy": 0.33093525179856115,
+          "calibration_gap": 0.13221795902869332,
+          "n_items": 139
+        },
+        {
+          "mean_conf": 0.5548655643377279,
+          "accuracy": 0.35294117647058826,
+          "calibration_gap": 0.20192438786713968,
+          "n_items": 306
+        },
+        {
+          "mean_conf": 0.6496971449865124,
+          "accuracy": 0.4192546583850932,
+          "calibration_gap": 0.23044248660141925,
+          "n_items": 322
+        },
+        {
+          "mean_conf": 0.7533962343911821,
+          "accuracy": 0.4987593052109181,
+          "calibration_gap": 0.254636929180264,
+          "n_items": 403
+        },
+        {
+          "mean_conf": 0.8260641568980135,
+          "accuracy": 0.5148936170212766,
+          "calibration_gap": 0.31117053987673693,
+          "n_items": 235
+        },
+        {
+          "mean_conf": 0.8752607758751357,
+          "accuracy": 0.4676258992805755,
+          "calibration_gap": 0.4076348765945602,
+          "n_items": 278
+        },
+        {
+          "mean_conf": 0.9045677796275339,
+          "accuracy": 0.525,
+          "calibration_gap": 0.37956777962753385,
+          "n_items": 80
+        },
+        {
+          "mean_conf": 0.9146473045514251,
+          "accuracy": 0.5465116279069767,
+          "calibration_gap": 0.36813567664444835,
+          "n_items": 86
+        },
+        {
+          "mean_conf": 0.9245380288457334,
+          "accuracy": 0.5,
+          "calibration_gap": 0.42453802884573344,
+          "n_items": 100
+        },
+        {
+          "mean_conf": 0.9350560903486113,
+          "accuracy": 0.6140350877192983,
+          "calibration_gap": 0.321021002629313,
+          "n_items": 114
+        },
+        {
+          "mean_conf": 0.9456431712086169,
+          "accuracy": 0.594059405940594,
+          "calibration_gap": 0.3515837652680228,
+          "n_items": 101
+        },
+        {
+          "mean_conf": 0.9551349631682698,
+          "accuracy": 0.5815602836879432,
+          "calibration_gap": 0.37357467948032663,
+          "n_items": 141
+        },
+        {
+          "mean_conf": 0.9648708104564985,
+          "accuracy": 0.5895953757225434,
+          "calibration_gap": 0.3752754347339551,
+          "n_items": 173
+        },
+        {
+          "mean_conf": 0.9755842684306226,
+          "accuracy": 0.6536796536796536,
+          "calibration_gap": 0.321904614750969,
+          "n_items": 231
+        },
+        {
+          "mean_conf": 0.9855896656089463,
+          "accuracy": 0.660056657223796,
+          "calibration_gap": 0.3255330083851503,
+          "n_items": 353
+        },
+        {
+          "mean_conf": 0.999495822741522,
+          "accuracy": 0.9327792492465066,
+          "calibration_gap": 0.06671657349501547,
+          "n_items": 10949
+        }
+      ],
+      "null_distribution_stats": {
+        "gap_null_mean": 0.20674607843137255,
+        "gap_null_std": 0.1495027082501362,
+        "gap_null_95th": 0.48774509803921573,
+        "acc_null_mean": 0.20242107843137255,
+        "acc_null_std": 0.14811634651421612,
+        "acc_null_95th": 0.482843137254902
+      }
+    },
+    "LLaMA-4-Maverick": {
+      "n_valid": 14042,
+      "n_bins": 15,
+      "overall_accuracy": 0.7268195413758723,
+      "overall_mean_conf": 0.9887383385053604,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.5285714285714286,
+        "permutation_p_value": 0.0453,
+        "n_permutations": 10000,
+        "significant_at_0.05": true,
+        "standard_spearman_r": 0.5285714285714286,
+        "standard_spearman_p": 0.04279728930945035
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.5499999999999999,
+        "permutation_p_value": 0.0369,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.5499999999999999,
+        "standard_spearman_p": 0.033655357815007086
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.4948066696940269,
+          "accuracy": 0.25,
+          "calibration_gap": 0.24480666969402692,
+          "n_items": 44
+        },
+        {
+          "mean_conf": 0.5562779178086357,
+          "accuracy": 0.16216216216216217,
+          "calibration_gap": 0.3941157556464735,
+          "n_items": 37
+        },
+        {
+          "mean_conf": 0.6345459010308683,
+          "accuracy": 0.2169811320754717,
+          "calibration_gap": 0.41756476895539657,
+          "n_items": 106
+        },
+        {
+          "mean_conf": 0.7404287783610496,
+          "accuracy": 0.1836734693877551,
+          "calibration_gap": 0.5567553089732945,
+          "n_items": 98
+        },
+        {
+          "mean_conf": 0.8191109606485024,
+          "accuracy": 0.2840909090909091,
+          "calibration_gap": 0.5350200515575934,
+          "n_items": 88
+        },
+        {
+          "mean_conf": 0.8738206175143963,
+          "accuracy": 0.2796610169491525,
+          "calibration_gap": 0.5941596005652439,
+          "n_items": 118
+        },
+        {
+          "mean_conf": 0.904375396625887,
+          "accuracy": 0.26666666666666666,
+          "calibration_gap": 0.6377087299592203,
+          "n_items": 15
+        },
+        {
+          "mean_conf": 0.9240534794814061,
+          "accuracy": 0.2916666666666667,
+          "calibration_gap": 0.6323868128147394,
+          "n_items": 72
+        },
+        {
+          "mean_conf": 0.9377950606030081,
+          "accuracy": 0.09375,
+          "calibration_gap": 0.8440450606030081,
+          "n_items": 32
+        },
+        {
+          "mean_conf": 0.9454126873127915,
+          "accuracy": 0.07142857142857142,
+          "calibration_gap": 0.8739841158842201,
+          "n_items": 14
+        },
+        {
+          "mean_conf": 0.9527598834111398,
+          "accuracy": 0.30985915492957744,
+          "calibration_gap": 0.6429007284815624,
+          "n_items": 71
+        },
+        {
+          "mean_conf": 0.9645318920445356,
+          "accuracy": 0.3181818181818182,
+          "calibration_gap": 0.6463500738627175,
+          "n_items": 22
+        },
+        {
+          "mean_conf": 0.9727996119505468,
+          "accuracy": 0.25196850393700787,
+          "calibration_gap": 0.7208311080135389,
+          "n_items": 127
+        },
+        {
+          "mean_conf": 0.9856666455220461,
+          "accuracy": 0.2947976878612717,
+          "calibration_gap": 0.6908689576607744,
+          "n_items": 173
+        },
+        {
+          "mean_conf": 0.9998654458941946,
+          "accuracy": 0.7642719938532463,
+          "calibration_gap": 0.23559345204094828,
+          "n_items": 13015
+        }
+      ],
+      "null_distribution_stats": {
+        "gap_null_mean": 0.21857321428571427,
+        "gap_null_std": 0.15654367502613692,
+        "gap_null_95th": 0.5178571428571428,
+        "acc_null_mean": 0.21763678571428569,
+        "acc_null_std": 0.15742742469077742,
+        "acc_null_95th": 0.5178571428571428
+      }
+    },
+    "Qwen3-Next-80B": {
+      "n_valid": 14042,
+      "n_bins": 16,
+      "overall_accuracy": 0.8350662298817833,
+      "overall_mean_conf": 0.9778010970487547,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.42352941176470593,
+        "permutation_p_value": 0.1045,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.42352941176470593,
+        "standard_spearman_p": 0.10210932208599745
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.823529411764706,
+        "permutation_p_value": 0.0,
+        "n_permutations": 10000,
+        "significant_at_0.01": true,
+        "standard_spearman_r": 0.823529411764706,
+        "standard_spearman_p": 8.839139363842145e-05
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.4794014188468293,
+          "accuracy": 0.373134328358209,
+          "calibration_gap": 0.10626709048862032,
+          "n_items": 67
+        },
+        {
+          "mean_conf": 0.5541024854503348,
+          "accuracy": 0.34615384615384615,
+          "calibration_gap": 0.20794863929648866,
+          "n_items": 130
+        },
+        {
+          "mean_conf": 0.6527283315865378,
+          "accuracy": 0.3910891089108911,
+          "calibration_gap": 0.26163922267564665,
+          "n_items": 202
+        },
+        {
+          "mean_conf": 0.7513307171212608,
+          "accuracy": 0.4489795918367347,
+          "calibration_gap": 0.30235112528452607,
+          "n_items": 196
+        },
+        {
+          "mean_conf": 0.8212083374808161,
+          "accuracy": 0.4108527131782946,
+          "calibration_gap": 0.41035562430252154,
+          "n_items": 129
+        },
+        {
+          "mean_conf": 0.8730146739483562,
+          "accuracy": 0.48058252427184467,
+          "calibration_gap": 0.3924321496765115,
+          "n_items": 206
+        },
+        {
+          "mean_conf": 0.9046570830166825,
+          "accuracy": 0.43037974683544306,
+          "calibration_gap": 0.4742773361812394,
+          "n_items": 79
+        },
+        {
+          "mean_conf": 0.9154845656095882,
+          "accuracy": 0.5217391304347826,
+          "calibration_gap": 0.39374543517480565,
+          "n_items": 23
+        },
+        {
+          "mean_conf": 0.9240977488290296,
+          "accuracy": 0.5116279069767442,
+          "calibration_gap": 0.4124698418522854,
+          "n_items": 86
+        },
+        {
+          "mean_conf": 0.9384233295750707,
+          "accuracy": 0.45263157894736844,
+          "calibration_gap": 0.48579175062770225,
+          "n_items": 95
+        },
+        {
+          "mean_conf": 0.9463763192628617,
+          "accuracy": 0.375,
+          "calibration_gap": 0.5713763192628617,
+          "n_items": 40
+        },
+        {
+          "mean_conf": 0.9529142456123176,
+          "accuracy": 0.494949494949495,
+          "calibration_gap": 0.45796475066282266,
+          "n_items": 99
+        },
+        {
+          "mean_conf": 0.963922865094703,
+          "accuracy": 0.5700934579439252,
+          "calibration_gap": 0.39382940715077785,
+          "n_items": 107
+        },
+        {
+          "mean_conf": 0.9744653504707806,
+          "accuracy": 0.5355450236966824,
+          "calibration_gap": 0.4389203267740982,
+          "n_items": 211
+        },
+        {
+          "mean_conf": 0.9854534013821215,
+          "accuracy": 0.5559701492537313,
+          "calibration_gap": 0.4294832521283901,
+          "n_items": 268
+        },
+        {
+          "mean_conf": 0.9996697405962542,
+          "accuracy": 0.8941798941798942,
+          "calibration_gap": 0.10548984641636006,
+          "n_items": 12096
+        }
+      ],
+      "null_distribution_stats": {
+        "gap_null_mean": 0.20923735294117646,
+        "gap_null_std": 0.15148881396659927,
+        "gap_null_95th": 0.5,
+        "acc_null_mean": 0.20761823529411763,
+        "acc_null_std": 0.1501709079394191,
+        "acc_null_95th": 0.5
+      }
+    }
+  }
+}

@@ -1,0 +1,595 @@
+{
+  "description": "Verification horizon analysis for frontier models",
+  "scaling_law": {
+    "alpha": 0.5,
+    "c0": 1.0,
+    "L": 1.0,
+    "formula_passive": "N* = (c0^2 * M_total / L)^(1/(2*alpha))",
+    "formula_active": "N*_active = (c0 * M_total / L)^(1/alpha)"
+  },
+  "models": [
+    {
+      "name": "GPT-4",
+      "params": 1800000000000.0,
+      "eps_mmlu": 0.12
+    },
+    {
+      "name": "GPT-4o",
+      "params": 200000000000.0,
+      "eps_mmlu": 0.13
+    },
+    {
+      "name": "Claude 3 Opus",
+      "params": 175000000000.0,
+      "eps_mmlu": 0.15
+    },
+    {
+      "name": "Claude 3.5 Sonnet",
+      "params": 70000000000.0,
+      "eps_mmlu": 0.12
+    },
+    {
+      "name": "Gemini 1.5 Pro",
+      "params": 540000000000.0,
+      "eps_mmlu": 0.1
+    },
+    {
+      "name": "Llama-3-405B",
+      "params": 405000000000.0,
+      "eps_mmlu": 0.16
+    },
+    {
+      "name": "Llama-4-Maverick",
+      "params": 17000000000.0,
+      "eps_mmlu": 0.27
+    },
+    {
+      "name": "Qwen3-Next-80B",
+      "params": 80000000000.0,
+      "eps_mmlu": 0.17
+    }
+  ],
+  "domains": {
+    "General NLP (MMLU-scale)": 14000,
+    "Medical imaging": 500000,
+    "Legal": 10000,
+    "Financial": 20000,
+    "Code (HumanEval-scale)": 5000,
+    "Autonomous driving": 100000
+  },
+  "results": [
+    {
+      "model": "GPT-4",
+      "params_N": 1800000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 128571428.57142857,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4",
+      "params_N": 1800000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 3600000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4",
+      "params_N": 1800000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 180000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4",
+      "params_N": 1800000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 90000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4",
+      "params_N": 1800000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 360000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4",
+      "params_N": 1800000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 18000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4o",
+      "params_N": 200000000000.0,
+      "eps_mmlu": 0.13,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 14285714.285714285,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4o",
+      "params_N": 200000000000.0,
+      "eps_mmlu": 0.13,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 400000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4o",
+      "params_N": 200000000000.0,
+      "eps_mmlu": 0.13,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 20000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4o",
+      "params_N": 200000000000.0,
+      "eps_mmlu": 0.13,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 10000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4o",
+      "params_N": 200000000000.0,
+      "eps_mmlu": 0.13,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 40000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "GPT-4o",
+      "params_N": 200000000000.0,
+      "eps_mmlu": 0.13,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 2000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3 Opus",
+      "params_N": 175000000000.0,
+      "eps_mmlu": 0.15,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 12500000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3 Opus",
+      "params_N": 175000000000.0,
+      "eps_mmlu": 0.15,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 350000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3 Opus",
+      "params_N": 175000000000.0,
+      "eps_mmlu": 0.15,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 17500000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3 Opus",
+      "params_N": 175000000000.0,
+      "eps_mmlu": 0.15,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 8750000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3 Opus",
+      "params_N": 175000000000.0,
+      "eps_mmlu": 0.15,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 35000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3 Opus",
+      "params_N": 175000000000.0,
+      "eps_mmlu": 0.15,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 1750000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "params_N": 70000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 5000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "params_N": 70000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 140000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "params_N": 70000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 7000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "params_N": 70000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 3500000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "params_N": 70000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 14000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "params_N": 70000000000.0,
+      "eps_mmlu": 0.12,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 700000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "params_N": 540000000000.0,
+      "eps_mmlu": 0.1,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 38571428.571428575,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "params_N": 540000000000.0,
+      "eps_mmlu": 0.1,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 1080000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "params_N": 540000000000.0,
+      "eps_mmlu": 0.1,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 54000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "params_N": 540000000000.0,
+      "eps_mmlu": 0.1,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 27000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "params_N": 540000000000.0,
+      "eps_mmlu": 0.1,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 108000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "params_N": 540000000000.0,
+      "eps_mmlu": 0.1,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 5400000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-3-405B",
+      "params_N": 405000000000.0,
+      "eps_mmlu": 0.16,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 28928571.42857143,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-3-405B",
+      "params_N": 405000000000.0,
+      "eps_mmlu": 0.16,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 810000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-3-405B",
+      "params_N": 405000000000.0,
+      "eps_mmlu": 0.16,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 40500000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-3-405B",
+      "params_N": 405000000000.0,
+      "eps_mmlu": 0.16,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 20250000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-3-405B",
+      "params_N": 405000000000.0,
+      "eps_mmlu": 0.16,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 81000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-3-405B",
+      "params_N": 405000000000.0,
+      "eps_mmlu": 0.16,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 4050000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-4-Maverick",
+      "params_N": 17000000000.0,
+      "eps_mmlu": 0.27,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 1214285.7142857143,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-4-Maverick",
+      "params_N": 17000000000.0,
+      "eps_mmlu": 0.27,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 34000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-4-Maverick",
+      "params_N": 17000000000.0,
+      "eps_mmlu": 0.27,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 1700000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-4-Maverick",
+      "params_N": 17000000000.0,
+      "eps_mmlu": 0.27,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 850000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-4-Maverick",
+      "params_N": 17000000000.0,
+      "eps_mmlu": 0.27,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 3400000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Llama-4-Maverick",
+      "params_N": 17000000000.0,
+      "eps_mmlu": 0.27,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 170000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Qwen3-Next-80B",
+      "params_N": 80000000000.0,
+      "eps_mmlu": 0.17,
+      "domain": "General NLP (MMLU-scale)",
+      "M_total": 14000,
+      "N_star_passive": 14000.0,
+      "N_star_active": 196000000.0,
+      "gap_N_over_Nstar": 5714285.714285715,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Qwen3-Next-80B",
+      "params_N": 80000000000.0,
+      "eps_mmlu": 0.17,
+      "domain": "Medical imaging",
+      "M_total": 500000,
+      "N_star_passive": 500000.0,
+      "N_star_active": 250000000000.0,
+      "gap_N_over_Nstar": 160000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Qwen3-Next-80B",
+      "params_N": 80000000000.0,
+      "eps_mmlu": 0.17,
+      "domain": "Legal",
+      "M_total": 10000,
+      "N_star_passive": 10000.0,
+      "N_star_active": 100000000.0,
+      "gap_N_over_Nstar": 8000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Qwen3-Next-80B",
+      "params_N": 80000000000.0,
+      "eps_mmlu": 0.17,
+      "domain": "Financial",
+      "M_total": 20000,
+      "N_star_passive": 20000.0,
+      "N_star_active": 400000000.0,
+      "gap_N_over_Nstar": 4000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Qwen3-Next-80B",
+      "params_N": 80000000000.0,
+      "eps_mmlu": 0.17,
+      "domain": "Code (HumanEval-scale)",
+      "M_total": 5000,
+      "N_star_passive": 5000.0,
+      "N_star_active": 25000000.0,
+      "gap_N_over_Nstar": 16000000.0,
+      "exceeds_horizon": true
+    },
+    {
+      "model": "Qwen3-Next-80B",
+      "params_N": 80000000000.0,
+      "eps_mmlu": 0.17,
+      "domain": "Autonomous driving",
+      "M_total": 100000,
+      "N_star_passive": 100000.0,
+      "N_star_active": 10000000000.0,
+      "gap_N_over_Nstar": 800000.0,
+      "exceeds_horizon": true
+    }
+  ],
+  "summary": {
+    "total_pairs": 48,
+    "pairs_exceeding_horizon": 48,
+    "fraction_exceeding": 1.0
+  }
+}

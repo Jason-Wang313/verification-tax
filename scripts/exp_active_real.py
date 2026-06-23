@@ -1,546 +1,392 @@
 """
-Active vs Passive Verification on Real MMLU Data.
+Offline active vs passive verification on saved MMLU traces.
 
-Implements the two-phase explore-exploit active strategy from Theorem A
-and compares it to passive (histogram) ECE estimation on real LLM data.
+This experiment treats the benchmark as a finite unlabeled pool with hidden
+correctness labels. The auditor may reveal labels adaptively from the saved
+per-item outputs, which gives an offline replay version of the two-phase
+explore-exploit protocol from Theorem 12.
 
-Generates:
-  - figures/fig_active_real.pdf and .png  (2-panel comparison)
-  - results/analysis/active_real_results.json  (full numerical results)
+Outputs:
+  - figures/fig_active_real.pdf and .png
+  - results/analysis/active_real_results.json
 """
 
+from __future__ import annotations
+
 import json
-import os
-import numpy as np
+from pathlib import Path
+
 import matplotlib
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 
-np.random.seed(42)
 
-# ── Paths (absolute) ──────────────────────────────────────────────────
-BASE = "C:/Users/wangz/verification tax"
-DATA_DIR = os.path.join(BASE, "data", "mmlu")
-FIG_DIR  = os.path.join(BASE, "figures")
-RES_DIR  = os.path.join(BASE, "results", "analysis")
-os.makedirs(FIG_DIR, exist_ok=True)
-os.makedirs(RES_DIR, exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = PROJECT_ROOT / "data" / "mmlu"
+FIG_DIR = PROJECT_ROOT / "figures"
+RES_DIR = PROJECT_ROOT / "results" / "analysis"
+FIG_DIR.mkdir(exist_ok=True)
+RES_DIR.mkdir(parents=True, exist_ok=True)
 
-# ── Model parameters ──────────────────────────────────────────────────
-MODEL_PARAMS = {
-    "Llama-3.1-405B": {
-        "file": "results_llama-3.1-405b-instruct.jsonl",
-        "eps": 0.160, "L_hat": 1.41, "ece_true": 0.118,
-    },
-    "Llama-4-Maverick": {
-        "file": "results_llama-4-maverick.jsonl",
-        "eps": 0.273, "L_hat": 2.01, "ece_true": 0.262,
-    },
-    "Qwen3-Next-80B": {
-        "file": "results_qwen3-next-80b.jsonl",
-        "eps": 0.165, "L_hat": 2.45, "ece_true": 0.143,
-    },
+RNG = np.random.default_rng(42)
+
+MODEL_FILES = {
+    "Llama 3.1 405B": "results_llama-3.1-405b-instruct.jsonl",
+    "Llama 4 Maverick": "results_llama-4-maverick.jsonl",
+    "Mistral Small 3.1": "results_mistral-small-3.1.jsonl",
+    "Qwen3 Next 80B": "results_qwen3-next-80b.jsonl",
 }
 
 M_VALUES = [100, 200, 500, 1000, 2000, 5000, 10000]
-N_REPS   = 200
+N_REPS = 200
 
 
-# ── Data loading ──────────────────────────────────────────────────────
-def load_results(path):
-    """Load valid (no-error) records from a JSONL results file."""
-    records = []
-    with open(path) as f:
+def load_results(path: Path) -> list[dict[str, float]]:
+    rows = []
+    with open(path, encoding="utf-8") as f:
         for line in f:
+            line = line.strip()
+            if not line:
+                continue
             rec = json.loads(line)
             if "error" in rec or "max_conf" not in rec or "is_correct" not in rec:
                 continue
-            records.append({
-                "conf": float(rec["max_conf"]),
-                "correct": int(rec["is_correct"]),
-            })
-    return records
+            rows.append({"conf": float(rec["max_conf"]), "correct": int(bool(rec["is_correct"]))})
+    return rows
 
 
-# ── ECE computation (standard binned) ────────────────────────────────
-def empirical_ece(p, y, B):
-    """Compute binned ECE with B equal-width bins on [0, 1]."""
+def empirical_ece(p: np.ndarray, y: np.ndarray, bins: int) -> float:
     n = len(p)
-    edges = np.linspace(0, 1, B + 1)
-    ece = 0.0
-    for b in range(B):
-        if b == B - 1:
-            mask = (p >= edges[b]) & (p <= edges[b + 1])
+    edges = np.linspace(0, 1, bins + 1)
+    total = 0.0
+    for idx in range(bins):
+        if idx == bins - 1:
+            mask = (p >= edges[idx]) & (p <= edges[idx + 1])
         else:
-            mask = (p >= edges[b]) & (p < edges[b + 1])
-        nb = mask.sum()
-        if nb > 0:
-            acc = np.mean(y[mask])
-            conf = np.mean(p[mask])
-            ece += (nb / n) * abs(acc - conf)
-    return ece
+            mask = (p >= edges[idx]) & (p < edges[idx + 1])
+        count = int(mask.sum())
+        if count == 0:
+            continue
+        total += (count / n) * abs(float(np.mean(y[mask])) - float(np.mean(p[mask])))
+    return float(total)
 
 
-# ── Passive strategy ─────────────────────────────────────────────────
-def passive_estimate(p_pool, y_pool, m, L_hat, eps):
-    """
-    Randomly subsample m items, compute ECE with optimal bin count.
-    Returns estimated ECE.
-    """
-    N = len(p_pool)
-    idx = np.random.choice(N, size=m, replace=False)
+def estimate_lipschitz(p: np.ndarray, y: np.ndarray, n_bins: int = 20) -> float:
+    min_per_bin = max(10, len(p) // 100)
+    edges = np.linspace(0, 1, n_bins + 1)
+    centers = []
+    accs = []
+    for idx in range(n_bins):
+        if idx == n_bins - 1:
+            mask = (p >= edges[idx]) & (p <= edges[idx + 1])
+        else:
+            mask = (p >= edges[idx]) & (p < edges[idx + 1])
+        if int(mask.sum()) >= min_per_bin:
+            centers.append((edges[idx] + edges[idx + 1]) / 2)
+            accs.append(float(np.mean(y[mask])))
+    if len(centers) < 2:
+        return 1.0
+    centers = np.array(centers)
+    gaps = np.array(accs) - centers
+    slopes = []
+    for idx in range(len(gaps) - 1):
+        delta = float(abs(centers[idx + 1] - centers[idx]))
+        if delta > 0:
+            slopes.append(abs(float(gaps[idx + 1] - gaps[idx])) / delta)
+    if not slopes:
+        return 1.0
+    return float(min(np.percentile(slopes, 75), 5.0))
+
+
+def optimal_bins(n: int, eps: float, l_hat: float) -> int:
+    if eps <= 0:
+        return 15
+    return max(2, min(50, int(np.floor((l_hat**2 * n / eps) ** (1 / 3)))))
+
+
+def passive_estimate(p_pool: np.ndarray, y_pool: np.ndarray, m: int, l_hat: float, eps: float) -> float:
+    idx = RNG.choice(len(p_pool), size=m, replace=False)
     sub_p = p_pool[idx]
     sub_y = y_pool[idx]
-    B_star = max(2, int((L_hat**2 * m / max(eps, 1e-3)) ** (1/3)))
-    return empirical_ece(sub_p, sub_y, B_star)
+    bins = optimal_bins(m, eps, l_hat)
+    return empirical_ece(sub_p, sub_y, bins)
 
 
-# ── Active strategy (two-phase explore-exploit) ──────────────────────
-def _build_quantile_bins(p_pool, N_grid):
-    """
-    Build bin edges based on data quantiles so every bin has roughly equal
-    population.  This is critical when 80-93% of confidences are > 0.99:
-    uniform-width bins waste most of their range on empty regions.
-
-    Returns bin_edges (length N_grid+1) with exact data-range endpoints.
-    """
-    # Use quantile-based edges so each bin has ~equal pool mass
-    quantiles = np.linspace(0, 100, N_grid + 1)
+def _build_quantile_bins(p_pool: np.ndarray, n_grid: int) -> np.ndarray:
+    quantiles = np.linspace(0, 100, n_grid + 1)
     edges = np.percentile(p_pool, quantiles)
-    # Ensure strictly increasing edges (ties at saturation point)
-    # Add tiny jitter to duplicate edges so every bin is non-degenerate
-    for i in range(1, len(edges)):
-        if edges[i] <= edges[i - 1]:
-            edges[i] = edges[i - 1] + 1e-12
+    for idx in range(1, len(edges)):
+        if edges[idx] <= edges[idx - 1]:
+            edges[idx] = edges[idx - 1] + 1e-12
     return edges
 
 
-def active_estimate(p_pool, y_pool, m, L_hat, eps):
-    """
-    Two-phase explore-exploit active ECE estimation.
-
-    Phase 1 (Exploration, budget m/2):
-      - Use quantile-based adaptive bins so each bin has roughly equal
-        pool mass (handles confidence saturation).
-      - Sample uniformly across bins to estimate per-bin calibration gap.
-      - Classify bins as resolved/unresolved.
-
-    Phase 2 (Exploitation, budget m/2):
-      - Concentrate remaining budget on resolved bins proportional to
-        pool weight, refining the gap estimate.
-
-    Returns estimated ECE.
-    """
-    N_pool = len(p_pool)
+def active_estimate(p_pool: np.ndarray, y_pool: np.ndarray, m: int, l_hat: float, eps: float) -> float:
     budget_explore = m // 2
     budget_exploit = m - budget_explore
 
-    # ── Determine number of bins ─────────────────────────────────────
-    # From Theorem A: N = min(L * sqrt(m/eps), m/8) to ensure >= 4 items/bin
-    N_grid = min(int(L_hat * np.sqrt(m / max(eps, 1e-3))), budget_explore // 4)
-    N_grid = max(N_grid, 4)   # at least 4 bins
-    N_grid = min(N_grid, 50)  # cap to avoid over-fragmentation
+    n_grid = min(int(max(l_hat, 1.0) * np.sqrt(m / max(eps, 1e-3))), budget_explore // 4)
+    n_grid = min(max(n_grid, 4), 50)
+    edges = _build_quantile_bins(p_pool, n_grid)
+    n_bins = len(edges) - 1
 
-    # ── Build quantile-based bin edges ───────────────────────────────
-    bin_edges = _build_quantile_bins(p_pool, N_grid)
-    n_bins = len(bin_edges) - 1
-
-    # ── Pre-assign ALL pool items to bins ────────────────────────────
     pool_bin_indices = []
     pool_bin_counts = np.zeros(n_bins, dtype=int)
-    for b in range(n_bins):
-        if b == n_bins - 1:
-            mask = (p_pool >= bin_edges[b]) & (p_pool <= bin_edges[b + 1])
+    for idx in range(n_bins):
+        if idx == n_bins - 1:
+            mask = (p_pool >= edges[idx]) & (p_pool <= edges[idx + 1])
         else:
-            mask = (p_pool >= bin_edges[b]) & (p_pool < bin_edges[b + 1])
-        idxs = np.where(mask)[0]
-        pool_bin_indices.append(idxs)
-        pool_bin_counts[b] = len(idxs)
+            mask = (p_pool >= edges[idx]) & (p_pool < edges[idx + 1])
+        chosen = np.where(mask)[0]
+        pool_bin_indices.append(chosen)
+        pool_bin_counts[idx] = len(chosen)
+    pool_fractions = pool_bin_counts / max(len(p_pool), 1)
 
-    pool_fractions = pool_bin_counts / max(N_pool, 1)
-
-    # ── Phase 1: Exploration ─────────────────────────────────────────
-    # Equal budget per bin (the bins are already population-balanced)
-    n_per_bin_target = max(1, budget_explore // n_bins)
-    phase1_samples = {}
-    phase1_delta_hat = np.zeros(n_bins)
+    explore_target = max(1, budget_explore // n_bins)
+    phase1 = {}
+    phase1_delta = np.zeros(n_bins)
     phase1_n = np.zeros(n_bins, dtype=int)
 
-    for b in range(n_bins):
-        avail = pool_bin_indices[b]
+    for idx in range(n_bins):
+        avail = pool_bin_indices[idx]
         if len(avail) == 0:
-            phase1_samples[b] = np.array([], dtype=int)
+            phase1[idx] = np.array([], dtype=int)
             continue
-        n_sample = min(n_per_bin_target, len(avail))
-        chosen = np.random.choice(avail, size=n_sample, replace=False)
-        phase1_samples[b] = chosen
-        phase1_n[b] = n_sample
-        phase1_delta_hat[b] = np.mean(y_pool[chosen]) - np.mean(p_pool[chosen])
+        n_sample = min(explore_target, len(avail))
+        chosen = RNG.choice(avail, size=n_sample, replace=False)
+        phase1[idx] = chosen
+        phase1_n[idx] = n_sample
+        phase1_delta[idx] = float(np.mean(y_pool[chosen]) - np.mean(p_pool[chosen]))
 
-    # ── Classify bins as resolved / unresolved ───────────────────────
     resolved = np.zeros(n_bins, dtype=bool)
-    for b in range(n_bins):
-        if phase1_n[b] < 2:
+    for idx in range(n_bins):
+        if phase1_n[idx] < 2:
             continue
-        stderr_b = np.sqrt(max(eps, 1e-3) * (1 - max(eps, 1e-3)) / phase1_n[b])
-        if abs(phase1_delta_hat[b]) > 2 * stderr_b:
-            resolved[b] = True
+        stderr = np.sqrt(max(eps, 1e-3) * (1 - max(eps, 1e-3)) / phase1_n[idx])
+        if abs(phase1_delta[idx]) > 2 * stderr:
+            resolved[idx] = True
 
-    # ── Phase 2: Exploitation ────────────────────────────────────────
-    # Allocate remaining budget proportional to pool weight among resolved bins
     resolved_weights = pool_fractions * resolved.astype(float)
-    total_resolved_weight = resolved_weights.sum()
-
-    if total_resolved_weight > 0:
-        alloc = (resolved_weights / total_resolved_weight * budget_exploit).astype(int)
-        leftover = budget_exploit - alloc.sum()
+    alloc = np.zeros(n_bins, dtype=int)
+    total_resolved = float(resolved_weights.sum())
+    if total_resolved > 0:
+        alloc = (resolved_weights / total_resolved * budget_exploit).astype(int)
+        leftover = budget_exploit - int(alloc.sum())
         if leftover > 0:
-            top_bins = np.argsort(-resolved_weights)
-            for i in range(min(leftover, n_bins)):
-                alloc[top_bins[i]] += 1
+            order = np.argsort(-resolved_weights)
+            for idx in order[:leftover]:
+                alloc[idx] += 1
     else:
-        # No bins resolved -- spread evenly across non-empty bins
         non_empty = pool_bin_counts > 0
-        n_ne = non_empty.sum()
-        alloc = np.zeros(n_bins, dtype=int)
-        if n_ne > 0:
-            per = budget_exploit // n_ne
-            for b in range(n_bins):
-                if non_empty[b]:
-                    alloc[b] = per
+        count = int(non_empty.sum())
+        if count > 0:
+            alloc[non_empty] = budget_exploit // count
 
-    phase2_samples = {}
-    for b in range(n_bins):
-        if alloc[b] == 0 or pool_bin_counts[b] == 0:
-            phase2_samples[b] = np.array([], dtype=int)
+    phase2 = {}
+    for idx in range(n_bins):
+        if alloc[idx] == 0 or pool_bin_counts[idx] == 0:
+            phase2[idx] = np.array([], dtype=int)
             continue
-        avail = pool_bin_indices[b]
-        already = set(phase1_samples[b].tolist()) if len(phase1_samples[b]) > 0 else set()
-        remaining = np.array([i for i in avail if i not in already])
+        already = set(phase1[idx].tolist()) if len(phase1[idx]) else set()
+        remaining = np.array([obs for obs in pool_bin_indices[idx] if obs not in already])
         if len(remaining) == 0:
-            phase2_samples[b] = np.array([], dtype=int)
+            phase2[idx] = np.array([], dtype=int)
             continue
-        n_sample = min(alloc[b], len(remaining))
-        chosen = np.random.choice(remaining, size=n_sample, replace=False)
-        phase2_samples[b] = chosen
+        n_sample = min(int(alloc[idx]), len(remaining))
+        phase2[idx] = RNG.choice(remaining, size=n_sample, replace=False)
 
-    # ── Final ECE estimate ───────────────────────────────────────────
-    ece_active = 0.0
-    for b in range(n_bins):
-        all_idx = np.concatenate([phase1_samples[b], phase2_samples[b]]).astype(int)
+    total = 0.0
+    for idx in range(n_bins):
+        all_idx = np.concatenate([phase1[idx], phase2[idx]]).astype(int)
         if len(all_idx) == 0:
             continue
-        delta_b = np.mean(y_pool[all_idx]) - np.mean(p_pool[all_idx])
-        ece_active += pool_fractions[b] * abs(delta_b)
+        gap = float(np.mean(y_pool[all_idx]) - np.mean(p_pool[all_idx]))
+        total += pool_fractions[idx] * abs(gap)
+    return float(total)
 
-    return ece_active
 
-
-# ══════════════════════════════════════════════════════════════════════
-# Main experiment
-# ══════════════════════════════════════════════════════════════════════
-def main():
+def main() -> None:
     print("=" * 80)
-    print("Active vs Passive Verification on Real MMLU Data")
+    print("Offline Active vs Passive Verification on Saved MMLU Traces")
     print("=" * 80)
 
-    # ── Load all model data ──────────────────────────────────────────
     model_data = {}
-    for name, params in MODEL_PARAMS.items():
-        path = os.path.join(DATA_DIR, params["file"])
-        if not os.path.exists(path):
-            print(f"  MISSING: {path}")
-            continue
-        records = load_results(path)
-        p = np.array([r["conf"] for r in records])
-        y = np.array([r["correct"] for r in records])
-        frac_high = np.mean(p > 0.99)
-        model_data[name] = {
-            "p": p, "y": y, "N": len(records),
-            "eps": params["eps"], "L_hat": params["L_hat"],
-            "ece_true": params["ece_true"],
+    for model_name, filename in MODEL_FILES.items():
+        path = DATA_DIR / filename
+        rows = load_results(path)
+        p = np.array([row["conf"] for row in rows])
+        y = np.array([row["correct"] for row in rows])
+        eps = float(1.0 - np.mean(y))
+        l_hat = estimate_lipschitz(p, y)
+        ece_true = empirical_ece(p, y, 50)
+        model_data[model_name] = {
+            "p": p,
+            "y": y,
+            "N": len(rows),
+            "eps": eps,
+            "L_hat": l_hat,
+            "ece_true": ece_true,
+            "frac_conf_gt_099": float(np.mean(p > 0.99)),
         }
-        print(f"  {name}: N={len(records)}, eps={params['eps']:.3f}, "
-              f"L_hat={params['L_hat']:.2f}, ECE_true={params['ece_true']:.3f}, "
-              f"frac(conf>0.99)={frac_high:.3f}")
+        print(
+            f"{model_name:20s} N={len(rows):5d} eps={eps:.3f} "
+            f"L_hat={l_hat:.2f} ECE={ece_true:.3f} frac(conf>0.99)={np.mean(p > 0.99):.3f}"
+        )
 
-    if not model_data:
-        print("No model data loaded -- aborting.")
-        return
-
-    # ── Run subsampling experiments ──────────────────────────────────
-    print()
-    print("=" * 80)
-    print("Running subsampling experiments (200 reps each)...")
-    print("=" * 80)
-
-    all_results = {}
-
-    for name, d in model_data.items():
-        print(f"\n--- {name} (L_hat={d['L_hat']:.2f}, eps={d['eps']:.3f}) ---")
-        p_pool = d["p"]
-        y_pool = d["y"]
-        N      = d["N"]
-        L_hat  = d["L_hat"]
-        eps    = d["eps"]
-        ece_true = d["ece_true"]
-
+    results = {}
+    for model_name, data in model_data.items():
+        print(f"\n--- {model_name} ---")
         passive_errors = {}
-        active_errors  = {}
-
+        active_errors = {}
         for m in M_VALUES:
-            if m > N:
+            if m > data["N"]:
                 continue
-
-            p_errs = []
-            a_errs = []
-
-            for rep in range(N_REPS):
-                # Passive
-                ece_p = passive_estimate(p_pool, y_pool, m, L_hat, eps)
-                p_errs.append(abs(ece_p - ece_true))
-
-                # Active
-                ece_a = active_estimate(p_pool, y_pool, m, L_hat, eps)
-                a_errs.append(abs(ece_a - ece_true))
-
+            passive = []
+            active = []
+            for _ in range(N_REPS):
+                passive.append(
+                    abs(passive_estimate(data["p"], data["y"], m, data["L_hat"], data["eps"]) - data["ece_true"])
+                )
+                active.append(
+                    abs(active_estimate(data["p"], data["y"], m, data["L_hat"], data["eps"]) - data["ece_true"])
+                )
             passive_errors[m] = {
-                "mean": float(np.mean(p_errs)),
-                "std":  float(np.std(p_errs)),
-                "median": float(np.median(p_errs)),
+                "mean": float(np.mean(passive)),
+                "std": float(np.std(passive)),
+                "median": float(np.median(passive)),
             }
             active_errors[m] = {
-                "mean": float(np.mean(a_errs)),
-                "std":  float(np.std(a_errs)),
-                "median": float(np.median(a_errs)),
+                "mean": float(np.mean(active)),
+                "std": float(np.std(active)),
+                "median": float(np.median(active)),
             }
-
-            print(f"  m={m:5d}: passive |err|={np.mean(p_errs):.4f} +/- {np.std(p_errs):.4f}  "
-                  f"active |err|={np.mean(a_errs):.4f} +/- {np.std(a_errs):.4f}  "
-                  f"ratio={np.mean(p_errs)/max(np.mean(a_errs),1e-8):.2f}")
-
-        all_results[name] = {
+            print(
+                f"m={m:5d}: passive={np.mean(passive):.4f} +/- {np.std(passive):.4f}   "
+                f"active={np.mean(active):.4f} +/- {np.std(active):.4f}   "
+                f"ratio={np.mean(passive)/max(np.mean(active), 1e-8):.2f}"
+            )
+        results[model_name] = {
+            "eps": data["eps"],
+            "L_hat": data["L_hat"],
+            "ece_true": data["ece_true"],
             "passive": passive_errors,
-            "active":  active_errors,
-            "ece_true": ece_true,
-            "L_hat": L_hat,
-            "eps": eps,
+            "active": active_errors,
         }
-
-    # ── Fit log-log slopes ───────────────────────────────────────────
-    print()
-    print("=" * 80)
-    print("Log-log slope fits (m >= 500)")
-    print("=" * 80)
 
     slopes = {}
-    for name, res in all_results.items():
-        slopes[name] = {}
-        for strategy in ["passive", "active"]:
-            ms = sorted([int(k) for k in res[strategy].keys() if int(k) >= 500])
+    for model_name, data in results.items():
+        slopes[model_name] = {}
+        for strategy in ("passive", "active"):
+            ms = sorted(m for m in data[strategy] if m >= 500)
             if len(ms) < 2:
                 continue
-            log_m   = np.log(np.array(ms, dtype=float))
-            log_err = np.log(np.array([res[strategy][m]["mean"] for m in ms]))
-            # Linear regression: log(err) = slope * log(m) + intercept
-            coeffs = np.polyfit(log_m, log_err, 1)
-            slope, intercept = float(coeffs[0]), float(coeffs[1])
-            slopes[name][strategy] = {"slope": slope, "intercept": intercept}
-            print(f"  {name:20s} {strategy:8s}: slope = {slope:+.3f}  "
-                  f"(theory: {'−0.333' if strategy == 'passive' else '−0.500'})")
+            log_m = np.log(np.array(ms, dtype=float))
+            log_err = np.log(np.array([data[strategy][m]["mean"] for m in ms]))
+            slope, intercept = np.polyfit(log_m, log_err, 1)
+            slopes[model_name][strategy] = {"slope": float(slope), "intercept": float(intercept)}
 
-    # ── L-independence test at m=2000 ────────────────────────────────
-    print()
-    print("=" * 80)
-    print("L-independence test at m=2000")
-    print("=" * 80)
-    for name, res in all_results.items():
-        if 2000 in res["passive"] and 2000 in res["active"]:
-            pe = res["passive"][2000]["mean"]
-            ae = res["active"][2000]["mean"]
-            print(f"  {name:20s}  L_hat={res['L_hat']:.2f}  "
-                  f"passive_err={pe:.4f}  active_err={ae:.4f}  "
-                  f"ratio={pe/max(ae,1e-8):.2f}")
+    colors = ["#0072B2", "#D55E00", "#009E73", "#CC79A7"]
+    plt.rcParams.update({"font.size": 10})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13.5, 5.6))
 
-    # ── Generate figure ──────────────────────────────────────────────
-    print()
-    print("Generating figure...")
+    for idx, (model_name, data) in enumerate(results.items()):
+        ms_p = sorted(data["passive"])
+        errs_p = [data["passive"][m]["mean"] for m in ms_p]
+        ms_a = sorted(data["active"])
+        errs_a = [data["active"][m]["mean"] for m in ms_a]
+        ax1.plot(ms_p, errs_p, "o-", color=colors[idx], linewidth=1.6, markersize=5,
+                 label=f"{model_name} passive ($\\hat{{L}}$={data['L_hat']:.2f})")
+        ax1.plot(ms_a, errs_a, "s--", color=colors[idx], linewidth=1.6, markersize=5,
+                 label=f"{model_name} active")
 
-    # Colorblind-safe palette (Wong 2011)
-    colors = ['#0072B2', '#D55E00', '#009E73']  # blue, orange, green
+    m_ref = np.array(M_VALUES, dtype=float)
+    ax1.plot(m_ref, 0.8 * m_ref ** (-1 / 3), "k:", alpha=0.5, label=r"$m^{-1/3}$")
+    ax1.plot(m_ref, 0.45 * m_ref ** (-1 / 2), "k-.", alpha=0.5, label=r"$m^{-1/2}$")
+    ax1.set_xscale("log")
+    ax1.set_yscale("log")
+    ax1.set_xlabel("Label budget $m$")
+    ax1.set_ylabel(r"Mean $|\widehat{\mathrm{ECE}} - \mathrm{ECE}_{\mathrm{true}}|$")
+    ax1.set_title("Offline adaptive audit vs passive subsampling", fontweight="bold")
+    ax1.legend(fontsize=7.4, loc="upper right", framealpha=0.92)
+    ax1.grid(True, alpha=0.25, which="both")
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5))
-    plt.rcParams.update({'font.size': 10})
+    ordered = sorted(results, key=lambda name: results[name]["L_hat"])
+    x = np.arange(len(ordered))
+    passive_2k = [results[name]["passive"][2000]["mean"] for name in ordered]
+    active_2k = [results[name]["active"][2000]["mean"] for name in ordered]
+    ax2.bar(x - 0.18, passive_2k, 0.36, color=[colors[list(results.keys()).index(name)] for name in ordered],
+            alpha=0.85, edgecolor="black", linewidth=0.5, label="Passive")
+    ax2.bar(x + 0.18, active_2k, 0.36, color=[colors[list(results.keys()).index(name)] for name in ordered],
+            alpha=0.45, hatch="///", edgecolor="black", linewidth=0.5, label="Active")
+    ax2.set_xticks(x)
+    ax2.set_xticklabels([f"{name}\n($\\hat{{L}}$={results[name]['L_hat']:.2f})" for name in ordered], fontsize=8.5)
+    ax2.set_ylabel(r"Mean $|\widehat{\mathrm{ECE}} - \mathrm{ECE}_{\mathrm{true}}|$")
+    ax2.set_title(r"Fixed budget $m=2000$ across saved MMLU traces", fontweight="bold")
+    ax2.legend(loc="upper left")
+    ax2.grid(True, alpha=0.25, axis="y")
 
-    # ── LEFT panel: log-log error vs m ───────────────────────────────
-    for i, (name, res) in enumerate(all_results.items()):
-        L_hat = res["L_hat"]
+    active_cv = float(np.std(active_2k) / np.mean(active_2k))
+    passive_cv = float(np.std(passive_2k) / np.mean(passive_2k))
+    ax2.text(
+        0.98,
+        0.95,
+        f"Passive CV = {passive_cv:.2f}\nActive CV = {active_cv:.2f}\n"
+        "Main signal: steeper active slopes",
+        transform=ax2.transAxes,
+        ha="right",
+        va="top",
+        fontsize=8.5,
+        bbox={"boxstyle": "round,pad=0.3", "facecolor": "white", "edgecolor": "#cccccc", "alpha": 0.95},
+    )
 
-        # Passive
-        ms_p = sorted([int(k) for k in res["passive"].keys()])
-        errs_p = [res["passive"][m]["mean"] for m in ms_p]
-        ax1.plot(ms_p, errs_p, 'o-', color=colors[i], markersize=5, linewidth=1.5,
-                 label=f"{name} passive ($\\hat{{L}}$={L_hat:.2f})")
+    fig.tight_layout(w_pad=3)
+    fig.savefig(FIG_DIR / "fig_active_real.pdf", bbox_inches="tight")
+    fig.savefig(FIG_DIR / "fig_active_real.png", bbox_inches="tight")
+    plt.close(fig)
 
-        # Active
-        ms_a = sorted([int(k) for k in res["active"].keys()])
-        errs_a = [res["active"][m]["mean"] for m in ms_a]
-        ax1.plot(ms_a, errs_a, 's--', color=colors[i], markersize=5, linewidth=1.5,
-                 alpha=0.8, label=f"{name} active")
+    slope_ratios = {}
+    for model_name in results:
+        if "passive" in slopes.get(model_name, {}) and "active" in slopes.get(model_name, {}):
+            passive_slope = slopes[model_name]["passive"]["slope"]
+            active_slope = slopes[model_name]["active"]["slope"]
+            slope_ratios[model_name] = float(active_slope / passive_slope)
 
-    # Theory reference lines
-    m_ref = np.array([100, 200, 500, 1000, 2000, 5000, 10000], dtype=float)
-    # Passive theory: m^{-1/3}
-    ref_passive = 0.8 * m_ref**(-1/3)
-    ax1.plot(m_ref, ref_passive, 'k:', linewidth=1.2, alpha=0.5,
-             label=r'$m^{-1/3}$ (passive theory)')
-    # Active theory: m^{-1/2}
-    ref_active = 0.5 * m_ref**(-1/2)
-    ax1.plot(m_ref, ref_active, 'k-.', linewidth=1.2, alpha=0.5,
-             label=r'$m^{-1/2}$ (active theory)')
-
-    ax1.set_xscale('log')
-    ax1.set_yscale('log')
-    ax1.set_xlabel(r'Sample size $m$', fontsize=11)
-    ax1.set_ylabel(r'Mean $|\widehat{\mathrm{ECE}} - \mathrm{ECE}_{\mathrm{true}}|$', fontsize=11)
-    ax1.set_title('Active vs Passive ECE Estimation Error', fontsize=12, fontweight='bold')
-    ax1.legend(fontsize=7.5, loc='upper right', ncol=1, framealpha=0.9)
-    ax1.grid(True, alpha=0.25, which='both')
-    ax1.set_xlim(70, 15000)
-
-    # ── RIGHT panel: error at m=2000 vs L_hat ────────────────────────
-    names_ordered = sorted(all_results.keys(), key=lambda n: all_results[n]["L_hat"])
-    L_hats = [all_results[n]["L_hat"] for n in names_ordered]
-    passive_at_2k = []
-    active_at_2k  = []
-    for n in names_ordered:
-        passive_at_2k.append(all_results[n]["passive"][2000]["mean"]
-                             if 2000 in all_results[n]["passive"] else 0)
-        active_at_2k.append(all_results[n]["active"][2000]["mean"]
-                            if 2000 in all_results[n]["active"] else 0)
-
-    x_pos = np.arange(len(names_ordered))
-    bar_w = 0.35
-
-    bars_p = ax2.bar(x_pos - bar_w/2, passive_at_2k, bar_w,
-                     color=[colors[list(all_results.keys()).index(n)]
-                            for n in names_ordered],
-                     alpha=0.85, label='Passive', edgecolor='black', linewidth=0.5)
-    bars_a = ax2.bar(x_pos + bar_w/2, active_at_2k, bar_w,
-                     color=[colors[list(all_results.keys()).index(n)]
-                            for n in names_ordered],
-                     alpha=0.5, hatch='///', label='Active',
-                     edgecolor='black', linewidth=0.5)
-
-    # Annotate L_hat values
-    ax2.set_xticks(x_pos)
-    xlabels = [f"{n}\n($\\hat{{L}}$={all_results[n]['L_hat']:.2f})"
-               for n in names_ordered]
-    ax2.set_xticklabels(xlabels, fontsize=8.5)
-    ax2.set_ylabel(r'Mean $|\widehat{\mathrm{ECE}} - \mathrm{ECE}_{\mathrm{true}}|$', fontsize=11)
-    ax2.set_title(r'Error at $m=2000$: $\hat{L}$-Dependence', fontsize=12, fontweight='bold')
-    ax2.legend(fontsize=9, loc='upper left')
-    ax2.grid(True, alpha=0.25, axis='y')
-
-    # Add annotation about L-independence
-    ax2.annotate('Passive: error increases with $\\hat{L}$\n'
-                 'Active: error roughly constant',
-                 xy=(0.98, 0.65), xycoords='axes fraction',
-                 fontsize=8, ha='right', va='top',
-                 bbox=dict(boxstyle='round,pad=0.3', facecolor='lightyellow',
-                           edgecolor='gray', alpha=0.9))
-
-    plt.tight_layout(w_pad=3)
-
-    fig_pdf = os.path.join(FIG_DIR, "fig_active_real.pdf")
-    fig_png = os.path.join(FIG_DIR, "fig_active_real.png")
-    plt.savefig(fig_pdf, dpi=300, bbox_inches='tight')
-    plt.savefig(fig_png, dpi=300, bbox_inches='tight')
-    plt.close()
-    print(f"  Saved {fig_pdf}")
-    print(f"  Saved {fig_png}")
-
-    # ── Save JSON results ────────────────────────────────────────────
     output = {
-        "description": "Active vs passive ECE estimation on real MMLU data",
+        "description": "Offline active vs passive ECE estimation on saved MMLU traces",
         "n_reps": N_REPS,
         "m_values": M_VALUES,
+        "active_cv_at_m2000": active_cv,
+        "passive_cv_at_m2000": passive_cv,
+        "slope_ratios_active_over_passive": slope_ratios,
         "models": {},
     }
-    for name, res in all_results.items():
-        output["models"][name] = {
-            "eps": res["eps"],
-            "L_hat": res["L_hat"],
-            "ece_true": res["ece_true"],
-            "passive": {str(k): v for k, v in res["passive"].items()},
-            "active":  {str(k): v for k, v in res["active"].items()},
-            "slopes": slopes.get(name, {}),
+    for model_name, data in results.items():
+        output["models"][model_name] = {
+            "eps": data["eps"],
+            "L_hat": data["L_hat"],
+            "ece_true": data["ece_true"],
+            "frac_conf_gt_099": model_data[model_name]["frac_conf_gt_099"],
+            "passive": {str(k): v for k, v in data["passive"].items()},
+            "active": {str(k): v for k, v in data["active"].items()},
+            "slopes": slopes.get(model_name, {}),
         }
 
-    json_path = os.path.join(RES_DIR, "active_real_results.json")
-    with open(json_path, "w") as f:
+    with open(RES_DIR / "active_real_results.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
-    print(f"  Saved {json_path}")
 
-    # ── Final summary ────────────────────────────────────────────────
-    print()
-    print("=" * 80)
-    print("SUMMARY")
-    print("=" * 80)
-    print()
-    print("NOTE: Theory rates are worst-case (minimax) bounds. Real data converges")
-    print("faster because the calibration function is smoother than worst-case L-Lip.")
-    print("The key predictions to validate are:")
-    print("  (1) active slope is steeper than passive (active/passive ratio > 1)")
-    print("  (2) active error is L-independent (low CV across models)")
-    print("  (3) active catches up to and beats passive at large m")
-    print()
-    print(f"{'Model':<22s} {'PassSlope':>10s} {'ActSlope':>10s} {'Ratio':>8s} {'Theory':>8s}")
-    print("-" * 62)
-    for name in all_results:
-        if "passive" in slopes.get(name, {}) and "active" in slopes.get(name, {}):
-            sp = slopes[name]["passive"]["slope"]
-            sa = slopes[name]["active"]["slope"]
-            ratio = sa / sp if abs(sp) > 1e-6 else float('nan')
-            print(f"{name:<22s} {sp:>+10.3f} {sa:>+10.3f} {ratio:>8.2f} {'~1.50':>8s}")
-    print()
-    print("  Theory predicts: passive ~ m^{-1/3}, active ~ m^{-1/2}")
-    print("  So slope ratio (active/passive) should be ~1.50 = (1/2)/(1/3)")
-    print()
-    print("L-independence check (active errors at m=2000):")
-    active_errs_2k = []
-    passive_errs_2k = []
-    for name in names_ordered:
-        if 2000 in all_results[name]["active"]:
-            ae = all_results[name]["active"][2000]["mean"]
-            pe = all_results[name]["passive"][2000]["mean"]
-            active_errs_2k.append(ae)
-            passive_errs_2k.append(pe)
-            print(f"  {name}: L_hat={all_results[name]['L_hat']:.2f}, "
-                  f"passive={pe:.4f}, active={ae:.4f}")
-    if len(active_errs_2k) >= 2:
-        cv_active  = np.std(active_errs_2k)  / np.mean(active_errs_2k)
-        cv_passive = np.std(passive_errs_2k) / np.mean(passive_errs_2k)
-        print(f"  Active  CV: {cv_active:.3f} "
-              f"({'L-independent' if cv_active < 0.3 else 'L-dependent'})")
-        print(f"  Passive CV: {cv_passive:.3f} "
-              f"({'L-independent' if cv_passive < 0.3 else 'L-dependent'})")
-        print(f"  (Theory: active CV << passive CV)")
-    print()
-    # Crossover point
-    print("Crossover analysis (active beats passive):")
-    for name, res in all_results.items():
-        ms = sorted([int(k) for k in res["passive"].keys()])
-        for m_val in ms:
-            pe = res["passive"][m_val]["mean"]
-            ae = res["active"][m_val]["mean"]
-            if ae < pe:
-                print(f"  {name}: active < passive starting at m={m_val}")
-                break
-        else:
-            print(f"  {name}: active never < passive in tested range")
-    print()
-    print("Done.")
+    print("\nSummary")
+    print("-" * 80)
+    for model_name in ordered:
+        if "passive" in slopes.get(model_name, {}) and "active" in slopes.get(model_name, {}):
+            print(
+                f"{model_name:20s} passive slope={slopes[model_name]['passive']['slope']:+.3f}   "
+                f"active slope={slopes[model_name]['active']['slope']:+.3f}   "
+                f"ratio={slope_ratios[model_name]:.2f}"
+            )
+    print(f"Passive CV at m=2000: {passive_cv:.3f}")
+    print(f"Active CV at m=2000:  {active_cv:.3f}")
 
 
 if __name__ == "__main__":

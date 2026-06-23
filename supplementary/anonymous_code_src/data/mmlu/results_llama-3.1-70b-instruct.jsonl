@@ -1,0 +1,599 @@
+{"question_id": "mmlu_000002", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000011", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -2.1502199172973633, "B": -2.1502199172973633, "C": -0.27522003650665283, "D": -4.900219917297363}, "softmax_abcd": {"A": 0.11648568009050553, "B": 0.11648568009050553, "C": 0.7595819594295941, "D": 0.0074466803893947775}, "max_conf": 0.7595819594295941, "first_token": "C"}
+{"question_id": "mmlu_000000", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -5.926258087158203, "B": -0.05125799402594566, "C": -4.051258087158203, "D": -3.551258087158203}, "softmax_abcd": {"A": 0.0026716785494302953, "B": 0.9511835375681863, "C": 0.017421532568500892, "D": 0.028723251313882456}, "max_conf": 0.9511835375681863, "first_token": "B"}
+{"question_id": "mmlu_000004", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -2.30622935295105, "B": -0.43122929334640503, "C": -1.5562293529510498, "D": -3.55622935295105}, "softmax_abcd": {"A": 0.10076252725190102, "B": 0.6570542534804643, "C": 0.21331427186620955, "D": 0.02886894740142527}, "max_conf": 0.6570542534804643, "first_token": "B"}
+{"question_id": "mmlu_000014", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -2.6303200721740723, "B": -1.3803199529647827, "C": -0.6303199529647827, "D": -2.0053200721740723}, "softmax_abcd": {"A": 0.07273972412412383, "B": 0.2538866140899939, "C": 0.5374779662462529, "D": 0.13589569553962946}, "max_conf": 0.5374779662462529, "first_token": "C"}
+{"question_id": "mmlu_000001", "subject": "abstract_algebra", "answer_letter": "C", "response": "C)", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -0.960640549659729, "B": -2.0856404304504395, "C": -0.835640549659729, "D": -2.8356404304504395}, "softmax_abcd": {"A": 0.3829721477190697, "B": 0.12433286750815427, "C": 0.4339642967555439, "D": 0.058730688017232156}, "max_conf": 0.4339642967555439, "first_token": "C"}
+{"question_id": "mmlu_000009", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -2.9797258377075195, "B": -3.6047258377075195, "C": -0.6047258377075195, "D": -0.9797258377075195}, "softmax_abcd": {"A": 0.050825066910440315, "B": 0.027204697919055543, "C": 0.5464209645373568, "D": 0.37554927063314736}, "max_conf": 0.5464209645373568, "first_token": "C"}
+{"question_id": "mmlu_000016", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -1.9872568845748901, "B": -2.7372570037841797, "C": -0.9872568845748901, "D": -2.1122570037841797}, "softmax_abcd": {"A": 0.19711637966155435, "B": 0.09311117364979997, "C": 0.5358178729256373, "D": 0.17395457376300844}, "max_conf": 0.5358178729256373, "first_token": "C"}
+{"question_id": "mmlu_000008", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -7.8770294189453125, "B": -0.0020295039284974337, "C": -7.5020294189453125, "D": -6.8770294189453125}, "softmax_abcd": {"A": 0.00037938292941936324, "B": 0.9980373484423544, "C": 0.0005519989051578765, "D": 0.0010312697230682158}, "max_conf": 0.9980373484423544, "first_token": "B"}
+{"question_id": "mmlu_000003", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -2.1030516624450684, "B": -0.8530515432357788, "C": -2.6030516624450684, "D": -0.9780515432357788}, "softmax_abcd": {"A": 0.12229287524188252, "B": 0.42684412673204636, "C": 0.07417437829861379, "D": 0.37668861972745743}, "max_conf": 0.42684412673204636, "first_token": "B"}
+{"question_id": "mmlu_000006", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.06486351788043976, "B": -4.314863681793213, "C": -3.189863443374634, "D": -4.814863681793213}, "softmax_abcd": {"A": 0.9373363800967849, "B": 0.013370383185538407, "C": 0.041183689383541285, "D": 0.008109547334135311}, "max_conf": 0.9373363800967849, "first_token": "A"}
+{"question_id": "mmlu_000020", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000019", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.04934230074286461, "B": -3.674342393875122, "C": -4.174342155456543, "D": -5.049342155456543}, "softmax_abcd": {"A": 0.9527888006423307, "B": 0.025390959124589423, "C": 0.015400398860314508, "D": 0.006419841372765305}, "max_conf": 0.9527888006423307, "first_token": "A"}
+{"question_id": "mmlu_000013", "subject": "abstract_algebra", "answer_letter": "C", "response": "B", "first_letter": "B", "correct_letter": "C", "is_correct": false, "logprobs_abcd": {"A": -1.9626317024230957, "B": -0.8376317024230957, "C": -1.2126317024230957, "D": -2.0876317024230957}, "softmax_abcd": {"A": 0.14124864828627262, "B": 0.43507646633827385, "C": 0.29902339076855694, "D": 0.12465149460689649}, "max_conf": 0.43507646633827385, "first_token": "B"}
+{"question_id": "mmlu_000023", "subject": "abstract_algebra", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -5.896703243255615, "B": -6.771703243255615, "C": -2.0217034816741943, "D": -0.14670343697071075}, "softmax_abcd": {"A": 0.00274883749552657, "B": 0.0011458859501532188, "C": 0.13244637612053586, "D": 0.8636589004337845}, "max_conf": 0.8636589004337845, "first_token": "D"}
+{"question_id": "mmlu_000030", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000017", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -4.288059711456299, "B": -4.038059711456299, "C": -0.038059890270233154, "D": -5.663059711456299}, "softmax_abcd": {"A": 0.013766090614488486, "B": 0.017676010237429783, "C": 0.965077286361303, "D": 0.0034806127867787824}, "max_conf": 0.965077286361303, "first_token": "C"}
+{"question_id": "mmlu_000022", "subject": "abstract_algebra", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -4.776072025299072, "B": -4.151072025299072, "C": -6.651072025299072, "D": -0.026072023436427116}, "softmax_abcd": {"A": 0.0084312847914619, "B": 0.015751713727608474, "C": 0.0012929793996547894, "D": 0.9745240220812749}, "max_conf": 0.9745240220812749, "first_token": "D"}
+{"question_id": "mmlu_000005", "subject": "abstract_algebra", "answer_letter": "A", "response": "C", "first_letter": "C", "correct_letter": "A", "is_correct": false, "logprobs_abcd": {"A": -2.658050060272217, "B": -1.0330500602722168, "C": -0.658050000667572, "D": -2.908050060272217}, "softmax_abcd": {"A": 0.07019378079983996, "B": 0.3564734327055529, "C": 0.5186658150409493, "D": 0.0546669714536579}, "max_conf": 0.5186658150409493, "first_token": "C"}
+{"question_id": "mmlu_000034", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000029", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.004548679105937481, "B": -5.6295485496521, "C": -8.129549026489258, "D": -9.254549026489258}, "softmax_abcd": {"A": 0.996017206227722, "B": 0.003592199403842249, "C": 0.00029486554251828025, "D": 9.572882591751805e-05}, "max_conf": 0.996017206227722, "first_token": "A"}
+{"question_id": "mmlu_000028", "subject": "abstract_algebra", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -1.0774474143981934, "B": -1.5774474143981934, "C": -4.202447414398193, "D": -0.8274474143981934}, "softmax_abcd": {"A": 0.34077436769627734, "B": 0.20669010205197857, "C": 0.014972580774029968, "D": 0.4375629494777141}, "max_conf": 0.4375629494777141, "first_token": "D"}
+{"question_id": "mmlu_000021", "subject": "abstract_algebra", "answer_letter": "A", "response": "A)", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.45172637701034546, "B": -1.2017264366149902, "C": -3.4517264366149902, "D": -4.45172643661499}, "softmax_abcd": {"A": 0.6491528567818807, "B": 0.30663807888298433, "C": 0.03231941573540634, "D": 0.011889648599728802}, "max_conf": 0.6491528567818807, "first_token": "A"}
+{"question_id": "mmlu_000015", "subject": "abstract_algebra", "answer_letter": "B", "response": "A", "first_letter": "A", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -0.03999454900622368, "B": -3.414994478225708, "C": -5.539994716644287, "D": -6.539994716644287}, "softmax_abcd": {"A": 0.9617157034974243, "B": 0.032908104053714485, "C": 0.0039303116101057686, "D": 0.0014458808387553417}, "max_conf": 0.9617157034974243, "first_token": "A"}
+{"question_id": "mmlu_000012", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000007", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000010", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000042", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000031", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -4.7593793869018555, "B": -0.009379606693983078, "C": -7.6343793869018555, "D": -8.634379386901855}, "softmax_abcd": {"A": 0.008571813352778882, "B": 0.9907666957187967, "C": 0.00048358861791071486, "D": 0.0001779023105138639}, "max_conf": 0.9907666957187967, "first_token": "B"}
+{"question_id": "mmlu_000018", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000032", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000027", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000024", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000025", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000026", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000035", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000033", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000043", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -3.827256917953491, "B": -3.077256917953491, "C": -0.07725696265697479, "D": -5.07725715637207}, "softmax_abcd": {"A": 0.021774829394505, "B": 0.04609731418990525, "C": 0.9258892648306482, "D": 0.006238591584941633}, "max_conf": 0.9258892648306482, "first_token": "C"}
+{"question_id": "mmlu_000040", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -4.54154634475708, "B": -3.54154634475708, "C": -0.04154633358120918, "D": -7.79154634475708}, "softmax_abcd": {"A": 0.010663915280653392, "B": 0.02898752712762686, "C": 0.9599350727243278, "D": 0.00041348486739193084}, "max_conf": 0.9599350727243278, "first_token": "C"}
+{"question_id": "mmlu_000036", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000037", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000038", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000039", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000045", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000046", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000050", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000047", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000048", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000049", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000041", "subject": "abstract_algebra", "answer_letter": "A", "response": "B", "first_letter": "B", "correct_letter": "A", "is_correct": false, "logprobs_abcd": {"A": -1.5224815607070923, "B": -0.6474815607070923, "C": -1.3974815607070923, "D": -4.897481441497803}, "softmax_abcd": {"A": 0.2189984737111589, "B": 0.5253500280022021, "C": 0.24815778170979574, "D": 0.007493716576843296}, "max_conf": 0.5253500280022021, "first_token": "B"}
+{"question_id": "mmlu_000044", "subject": "abstract_algebra", "answer_letter": "C", "response": "A", "first_letter": "A", "correct_letter": "C", "is_correct": false, "logprobs_abcd": {"A": -0.6556783318519592, "B": -4.4056782722473145, "C": -0.7806783318519592, "D": -4.6556782722473145}, "softmax_abcd": {"A": 0.5196613103731181, "B": 0.012221263356999702, "C": 0.45859949679732886, "D": 0.009517929472553234}, "max_conf": 0.5196613103731181, "first_token": "A"}
+{"question_id": "mmlu_000051", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000053", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000052", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000067", "subject": "abstract_algebra", "answer_letter": "C", "response": "A", "first_letter": "A", "correct_letter": "C", "is_correct": false, "logprobs_abcd": {"A": -0.13458679616451263, "B": -3.509586811065674, "C": -4.009586811065674, "D": -2.634586811065674}, "softmax_abcd": {"A": 0.8794630364249143, "B": 0.030093569782695635, "C": 0.018252672733406555, "D": 0.07219072105898337}, "max_conf": 0.8794630364249143, "first_token": "A"}
+{"question_id": "mmlu_000059", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.04810664430260658, "B": -3.5481066703796387, "C": -4.673106670379639, "D": -4.923106670379639}, "softmax_abcd": {"A": 0.954529888760565, "B": 0.02882430428731349, "C": 0.009357881506764183, "D": 0.007287925445357364}, "max_conf": 0.954529888760565, "first_token": "A"}
+{"question_id": "mmlu_000054", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000070", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000062", "subject": "abstract_algebra", "answer_letter": "C", "response": "A", "first_letter": "A", "correct_letter": "C", "is_correct": false, "logprobs_abcd": {"A": -0.17891345918178558, "B": -3.5539133548736572, "C": -5.303913593292236, "D": -2.0539133548736572}, "softmax_abcd": {"A": 0.8378582417305911, "B": 0.028669935434448995, "C": 0.004982086551091715, "D": 0.12848973628386806}, "max_conf": 0.8378582417305911, "first_token": "A"}
+{"question_id": "mmlu_000074", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000055", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000056", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000057", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000058", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000064", "subject": "abstract_algebra", "answer_letter": "B", "response": "B)", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -2.7130918502807617, "B": -0.08809177577495575, "C": -4.088091850280762, "D": -6.963091850280762}, "softmax_abcd": {"A": 0.0663496082328049, "B": 0.9159281573082064, "C": 0.01677580812738567, "D": 0.0009464263316031918}, "max_conf": 0.9159281573082064, "first_token": "B"}
+{"question_id": "mmlu_000060", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000063", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000061", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000065", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000066", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000073", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -2.1239943504333496, "B": -0.24899441003799438, "C": -2.3739943504333496, "D": -5.12399435043335}, "softmax_abcd": {"A": 0.1197689907716677, "B": 0.7809918784957867, "C": 0.09327618380064667, "D": 0.005962946931899085}, "max_conf": 0.7809918784957867, "first_token": "B"}
+{"question_id": "mmlu_000068", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000069", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000072", "subject": "abstract_algebra", "answer_letter": "D", "response": "A", "first_letter": "A", "correct_letter": "D", "is_correct": false, "logprobs_abcd": {"A": -0.8338837623596191, "B": -1.4588837623596191, "C": -1.2088837623596191, "D": -3.708883762359619}, "softmax_abcd": {"A": 0.4387953257846273, "B": 0.23487021290693536, "C": 0.3015793229953662, "D": 0.024755138313070968}, "max_conf": 0.4387953257846273, "first_token": "A"}
+{"question_id": "mmlu_000071", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000075", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000077", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000076", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000087", "subject": "abstract_algebra", "answer_letter": "A", "response": "A)", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.40185385942459106, "B": -1.6518537998199463, "C": -2.9018537998199463, "D": -5.526854038238525}, "softmax_abcd": {"A": 0.7275182137452003, "B": 0.20843747046499797, "C": 0.05971833513362613, "D": 0.004325980656175595}, "max_conf": 0.7275182137452003, "first_token": "A"}
+{"question_id": "mmlu_000078", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000079", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -3.0518815517425537, "B": -6.176881790161133, "C": -0.05188159644603729, "D": -6.801881790161133}, "softmax_abcd": {"A": 0.04727463906721332, "B": 0.0020771021835468842, "C": 0.9495364660672945, "D": 0.0011117926819452192}, "max_conf": 0.9495364660672945, "first_token": "C"}
+{"question_id": "mmlu_000080", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000081", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000096", "subject": "abstract_algebra", "answer_letter": "B", "response": "C", "first_letter": "C", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -1.7447296380996704, "B": -1.7447296380996704, "C": -0.6197296380996704, "D": -2.244729518890381}, "softmax_abcd": {"A": 0.17584743929070706, "B": 0.17584743929070706, "C": 0.5416482453423265, "D": 0.10665687607625947}, "max_conf": 0.5416482453423265, "first_token": "C"}
+{"question_id": "mmlu_000082", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000083", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000084", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000085", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000010", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000002", "subject": "abstract_algebra", "answer_letter": "D", "response": "C", "first_letter": "C", "correct_letter": "D", "is_correct": false, "logprobs_abcd": {"A": -3.2442283630371094, "B": -5.744228363037109, "C": -0.6192283630371094, "D": -0.8692283630371094}, "softmax_abcd": {"A": 0.039005100991157934, "B": 0.0032017336611842324, "C": 0.5384488102674789, "D": 0.41934435508017887}, "max_conf": 0.5384488102674789, "first_token": "C"}
+{"question_id": "mmlu_000012", "subject": "abstract_algebra", "answer_letter": "A", "response": "C", "first_letter": "C", "correct_letter": "A", "is_correct": false, "logprobs_abcd": {"A": -2.7740886211395264, "B": -4.524088382720947, "C": -0.399088591337204, "D": -1.3990886211395264}, "softmax_abcd": {"A": 0.06297283065560022, "B": 0.010943039722284402, "C": 0.6770217529197315, "D": 0.2490623767023838}, "max_conf": 0.6770217529197315, "first_token": "C"}
+{"question_id": "mmlu_000020", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.7562257051467896, "B": -2.0062255859375, "C": -1.7562257051467896, "D": -1.5062257051467896}, "softmax_abcd": {"A": 0.47020082855003664, "B": 0.13471480892647703, "C": 0.17297721804533664, "D": 0.2221071444781497}, "max_conf": 0.47020082855003664, "first_token": "A"}
+{"question_id": "mmlu_000034", "subject": "abstract_algebra", "answer_letter": "A", "response": "D", "first_letter": "D", "correct_letter": "A", "is_correct": false, "logprobs_abcd": {"A": -2.4999399185180664, "B": -0.9999399185180664, "C": -4.374939918518066, "D": -0.6249399185180664}, "softmax_abcd": {"A": 0.08226482867092295, "B": 0.36868538352770885, "C": 0.012615720073333107, "D": 0.5364340677280351}, "max_conf": 0.5364340677280351, "first_token": "D"}
+{"question_id": "mmlu_000024", "subject": "abstract_algebra", "answer_letter": "B", "response": "A", "first_letter": "A", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -0.14789748191833496, "B": -3.522897481918335, "C": -5.647897720336914, "D": -2.272897481918335}, "softmax_abcd": {"A": 0.8637533910781507, "B": 0.0295560157280149, "C": 0.0035299618469260816, "D": 0.10316063134690824}, "max_conf": 0.8637533910781507, "first_token": "A"}
+{"question_id": "mmlu_000026", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -4.278635501861572, "B": -5.153635501861572, "C": -0.028635691851377487, "D": -4.903635501861572}, "softmax_abcd": {"A": 0.013877801590236374, "B": 0.00578512839960355, "C": 0.9729088181062671, "D": 0.007428251903893035}, "max_conf": 0.9729088181062671, "first_token": "C"}
+{"question_id": "mmlu_000046", "subject": "abstract_algebra", "answer_letter": "B", "response": "C", "first_letter": "C", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -4.334449768066406, "B": -0.8344495296478271, "C": -0.7094495296478271, "D": -2.834449529647827}, "softmax_abcd": {"A": 0.013136827051890045, "B": 0.43503206884622975, "C": 0.49295591584756626, "D": 0.05887518825431409}, "max_conf": 0.49295591584756626, "first_token": "C"}
+{"question_id": "mmlu_000032", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.03261015564203262, "B": -3.9076101779937744, "C": -5.282609939575195, "D": -5.657609939575195}, "softmax_abcd": {"A": 0.9712430276809515, "B": 0.020157505503410215, "C": 0.005096616759042173, "D": 0.003502850056596077}, "max_conf": 0.9712430276809515, "first_token": "A"}
+{"question_id": "mmlu_000007", "subject": "abstract_algebra", "answer_letter": "D", "response": "C", "first_letter": "C", "correct_letter": "D", "is_correct": false, "logprobs_abcd": {"A": -1.2330583333969116, "B": -5.733058452606201, "C": -0.35805830359458923, "D": -5.608058452606201}, "softmax_abcd": {"A": 0.2921778865419489, "B": 0.0032458027432156014, "C": 0.7008983343574008, "D": 0.0036779763574348195}, "max_conf": 0.7008983343574008, "first_token": "C"}
+{"question_id": "mmlu_000037", "subject": "abstract_algebra", "answer_letter": "B", "response": "D", "first_letter": "D", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -2.4098570346832275, "B": -3.0348570346832275, "C": -4.784857273101807, "D": -0.15985709428787231}, "softmax_abcd": {"A": 0.08996032704813978, "B": 0.04815229316582285, "C": 0.008367611874612584, "D": 0.8535197679114248}, "max_conf": 0.8535197679114248, "first_token": "D"}
+{"question_id": "mmlu_000050", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000025", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -1.0600389242172241, "B": -5.560039043426514, "C": -0.4350389242172241, "D": -6.060039043426514}, "softmax_abcd": {"A": 0.346489193193062, "B": 0.003849146788866013, "C": 0.6473270344768903, "D": 0.0023346255411816675}, "max_conf": 0.6473270344768903, "first_token": "C"}
+{"question_id": "mmlu_000033", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -6.377194881439209, "B": -8.002195358276367, "C": -0.0021949741058051586, "D": -9.002195358276367}, "softmax_abcd": {"A": 0.001699943838364391, "B": 0.0003347386293495251, "C": 0.9978421740723826, "D": 0.00012314345990359785}, "max_conf": 0.9978421740723826, "first_token": "C"}
+{"question_id": "mmlu_000027", "subject": "abstract_algebra", "answer_letter": "B", "response": "D", "first_letter": "D", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -1.4414304494857788, "B": -1.6914304494857788, "C": -4.691430568695068, "D": -0.5664304494857788}, "softmax_abcd": {"A": 0.23716632084683034, "B": 0.18470531639367554, "C": 0.009195935118958906, "D": 0.5689324276405352}, "max_conf": 0.5689324276405352, "first_token": "D"}
+{"question_id": "mmlu_000030", "subject": "abstract_algebra", "answer_letter": "B", "response": "C", "first_letter": "C", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -1.7824103832244873, "B": -2.6574103832244873, "C": -0.9074103832244873, "D": -1.0324103832244873}, "softmax_abcd": {"A": 0.16855625731140622, "B": 0.07026470185228315, "C": 0.4043454413078934, "D": 0.35683359952841726}, "max_conf": 0.4043454413078934, "first_token": "C"}
+{"question_id": "mmlu_000018", "subject": "abstract_algebra", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -5.393538475036621, "B": -6.643538475036621, "C": -4.393538475036621, "D": -0.018538542091846466}, "softmax_abcd": {"A": 0.004546598542888741, "B": 0.0013026222919351748, "C": 0.012358936200432838, "D": 0.9817918429647433}, "max_conf": 0.9817918429647433, "first_token": "D"}
+{"question_id": "mmlu_000045", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -6.278202533721924, "B": -0.7782025337219238, "C": -0.6532025337219238, "D": -4.028202533721924}, "softmax_abcd": {"A": 0.0018781037332521646, "B": 0.4595568314821181, "C": 0.5207461126902543, "D": 0.017818952094375295}, "max_conf": 0.5207461126902543, "first_token": "C"}
+{"question_id": "mmlu_000058", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.3624374270439148, "B": -2.9874374866485596, "C": -1.8624374866485596, "D": -2.3624374866485596}, "softmax_abcd": {"A": 0.6988583294381876, "B": 0.050625124568372516, "C": 0.1559363616740752, "D": 0.09458018431936466}, "max_conf": 0.6988583294381876, "first_token": "A"}
+{"question_id": "mmlu_000036", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000035", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000047", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000038", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000065", "subject": "abstract_algebra", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -4.016385078430176, "B": -3.141385078430176, "C": -0.26638513803482056, "D": -1.7663850784301758}, "softmax_abcd": {"A": 0.01804803609832052, "B": 0.04329498790088742, "C": 0.7674219771348642, "D": 0.17123499886592786}, "max_conf": 0.7674219771348642, "first_token": "C"}
+{"question_id": "mmlu_000039", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000042", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000048", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000069", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.0837416872382164, "B": -4.833741664886475, "C": -2.7087416648864746, "D": -5.333741664886475}, "softmax_abcd": {"A": 0.9205229907545233, "B": 0.007964084521484328, "C": 0.06668246328516936, "D": 0.0048304614388230615}, "max_conf": 0.9205229907545233, "first_token": "A"}
+{"question_id": "mmlu_000061", "subject": "abstract_algebra", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -1.8146065473556519, "B": -2.4396066665649414, "C": -3.9396066665649414, "D": -0.31460657715797424}, "softmax_abcd": {"A": 0.16296244194029527, "B": 0.08722749906957664, "C": 0.01946308583674165, "D": 0.7303469731533865}, "max_conf": 0.7303469731533865, "first_token": "D"}
+{"question_id": "mmlu_000049", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000052", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000051", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000055", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000080", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000053", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000054", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000056", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000057", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000082", "subject": "abstract_algebra", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.017239483073353767, "B": -4.517239570617676, "C": -5.517239570617676, "D": -6.392239570617676}, "softmax_abcd": {"A": 0.9833814568866369, "B": 0.010924380243957822, "C": 0.004018854899291548, "D": 0.0016753079701135431}, "max_conf": 0.9833814568866369, "first_token": "A"}
+{"question_id": "mmlu_000060", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000066", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000063", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000068", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000071", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000070", "subject": "abstract_algebra", "answer_letter": "D", "response": "C", "first_letter": "C", "correct_letter": "D", "is_correct": false, "logprobs_abcd": {"A": -4.139623641967773, "B": -1.5146236419677734, "C": -0.3896236717700958, "D": -2.5146236419677734}, "softmax_abcd": {"A": 0.01602459481577681, "B": 0.22121270793605716, "C": 0.6813830898726279, "D": 0.08137960737553818}, "max_conf": 0.6813830898726279, "first_token": "C"}
+{"question_id": "mmlu_000074", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000075", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000095", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000076", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000078", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000077", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000084", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000081", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000083", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000085", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000086", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000091", "subject": "abstract_algebra", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -3.231043577194214, "B": -0.10604353994131088, "C": -2.981043577194214, "D": -4.606043338775635}, "softmax_abcd": {"A": 0.03953075255127438, "B": 0.8997158145521943, "C": 0.05075849101663009, "D": 0.009994941879901222}, "max_conf": 0.8997158145521943, "first_token": "B"}
+{"question_id": "mmlu_000088", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000090", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000089", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000092", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000093", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000110", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000094", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000097", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000098", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000099", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000100", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000101", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000118", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000102", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000103", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000104", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000105", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000107", "subject": "anatomy", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -3.411087989807129, "B": -0.03608790412545204, "C": -6.536087989807129, "D": -7.036087989807129}, "softmax_abcd": {"A": 0.0330088864400297, "B": 0.9646611472797669, "C": 0.001450309252498178, "D": 0.0008796570277050561}, "max_conf": 0.9646611472797669, "first_token": "B"}
+{"question_id": "mmlu_000106", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000109", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000108", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000127", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000111", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000112", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000113", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000130", "subject": "anatomy", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -9.125137329101562, "B": -11.125137329101562, "C": -0.0001370812824461609, "D": -11.750137329101562}, "softmax_abcd": {"A": 0.00010889441919172333, "B": 1.4737257064198309e-05, "C": 0.9998684800384753, "D": 7.888285268634367e-06}, "max_conf": 0.9998684800384753, "first_token": "C"}
+{"question_id": "mmlu_000114", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000115", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000116", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000117", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000121", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000119", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000120", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000122", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000138", "subject": "anatomy", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -9.375107765197754, "B": -11.625107765197754, "C": -12.250107765197754, "D": -0.0001081169830285944}, "softmax_abcd": {"A": 8.480990764768244e-05, "B": 8.938898501229058e-06, "C": 4.7846475811541266e-06, "D": 0.99990146654627}, "max_conf": 0.99990146654627, "first_token": "D"}
+{"question_id": "mmlu_000123", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000141", "subject": "anatomy", "answer_letter": "C", "response": "B", "first_letter": "B", "correct_letter": "C", "is_correct": false, "logprobs_abcd": {"A": -6.377299785614014, "B": -0.0022997616324573755, "C": -7.752299785614014, "D": -8.752299308776855}, "softmax_abcd": {"A": 0.0016997225907381284, "B": 0.9977124213324745, "C": 0.00042975717282242495, "D": 0.00015809890396474677}, "max_conf": 0.9977124213324745, "first_token": "B"}
+{"question_id": "mmlu_000124", "subject": "anatomy", "answer_letter": "B", "response": "D", "first_letter": "D", "correct_letter": "B", "is_correct": false, "logprobs_abcd": {"A": -1.3194382190704346, "B": -1.5694382190704346, "C": -3.6944382190704346, "D": -0.6944382190704346}, "softmax_abcd": {"A": 0.2673753017878779, "B": 0.20823209440635246, "C": 0.024869777123346457, "D": 0.49952282668242326}, "max_conf": 0.49952282668242326, "first_token": "D"}
+{"question_id": "mmlu_000125", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000126", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000128", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000129", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000131", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000132", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000133", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000135", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000134", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000136", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000137", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000139", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000140", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000142", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000158", "subject": "anatomy", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -10.750027656555176, "B": -14.500027656555176, "C": -12.375027656555176, "D": -2.7894584491150454e-05}, "softmax_abcd": {"A": 2.1444852153398955e-05, "B": 5.043345828633263e-07, "C": 4.222741762032056e-06, "D": 0.9999738280715017}, "max_conf": 0.9999738280715017, "first_token": "D"}
+{"question_id": "mmlu_000143", "subject": "anatomy", "answer_letter": "C", "response": "D", "first_letter": "D", "correct_letter": "C", "is_correct": false, "logprobs_abcd": {"A": -5.026653289794922, "B": -5.526653289794922, "C": -4.151653289794922, "D": -0.02665337361395359}, "softmax_abcd": {"A": 0.006560881092452644, "B": 0.003979375537301446, "C": 0.01573873555934051, "D": 0.9737210078109054}, "max_conf": 0.9737210078109054, "first_token": "D"}
+{"question_id": "mmlu_000144", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000145", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000146", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000147", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000148", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000149", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000150", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000151", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000152", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000153", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000154", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000155", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000156", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000157", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000174", "subject": "anatomy", "answer_letter": "D", "response": "D", "first_letter": "D", "correct_letter": "D", "is_correct": true, "logprobs_abcd": {"A": -4.264333724975586, "B": -9.014333724975586, "C": -10.514333724975586, "D": -0.014333739876747131}, "softmax_abcd": {"A": 0.014061534564425932, "B": 0.00012165611113955882, "C": 2.714514756160494e-05, "D": 0.985789664176873}, "max_conf": 0.985789664176873, "first_token": "D"}
+{"question_id": "mmlu_000161", "subject": "anatomy", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -10.125056266784668, "B": -11.625056266784668, "C": -5.590759246842936e-05, "D": -12.000056266784668}, "softmax_abcd": {"A": 4.006307355270477e-05, "B": 8.93928001785334e-06, "C": 0.9999448537751129, "D": 6.143871316380971e-06}, "max_conf": 0.9999448537751129, "first_token": "C"}
+{"question_id": "mmlu_000159", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000160", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000163", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000162", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000164", "subject": "anatomy", "answer_letter": "C", "response": "C", "first_letter": "C", "correct_letter": "C", "is_correct": true, "logprobs_abcd": {"A": -6.127336502075195, "B": -9.252336502075195, "C": -0.0023366310633718967, "D": -9.877336502075195}, "softmax_abcd": {"A": 0.002182395402472878, "B": 9.588776193848037e-05, "C": 0.9976703918151559, "D": 5.132502043267986e-05}, "max_conf": 0.9976703918151559, "first_token": "C"}
+{"question_id": "mmlu_000166", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000165", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000167", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000168", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000171", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000169", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000170", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000172", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000173", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000190", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000181", "subject": "anatomy", "answer_letter": "B", "response": "B", "first_letter": "B", "correct_letter": "B", "is_correct": true, "logprobs_abcd": {"A": -2.738369941711426, "B": -0.488369882106781, "C": -2.738369941711426, "D": -1.3633699417114258}, "softmax_abcd": {"A": 0.06475504119094579, "B": 0.6143787615120356, "C": 0.06475504119094579, "D": 0.2561111561060729}, "max_conf": 0.6143787615120356, "first_token": "B"}
+{"question_id": "mmlu_000175", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000176", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000177", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000178", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000179", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000197", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000180", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000183", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000182", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000184", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000185", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000186", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000187", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000188", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000189", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000191", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000192", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000209", "subject": "anatomy", "answer_letter": "A", "response": "A", "first_letter": "A", "correct_letter": "A", "is_correct": true, "logprobs_abcd": {"A": -0.0001591317413840443, "B": -9.25015926361084, "C": -9.87515926361084, "D": -11.87515926361084}, "softmax_abcd": {"A": 0.9998455050757814, "B": 9.609679062676063e-05, "C": 5.14369054269702e-05, "D": 6.9612281647738735e-06}, "max_conf": 0.9998455050757814, "first_token": "A"}
+{"question_id": "mmlu_000210", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000193", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000068", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000094", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000114", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000036", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000122", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000090", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000035", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000010", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000113", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000099", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000048", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000106", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000085", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000105", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000111", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000101", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000088", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000120", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000104", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000063", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000080", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000055", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000053", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000092", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000110", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000057", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000083", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000095", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000086", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000056", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000066", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000156", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000118", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000078", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000109", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000089", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000108", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000060", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000125", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000167", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000093", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000071", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000116", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000119", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000127", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000054", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000103", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000084", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000173", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000074", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000126", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000052", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000038", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000077", "subject": "abstract_algebra", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000097", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000039", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000115", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000100", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000049", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000123", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000117", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000189", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000098", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000112", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000075", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000047", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000050", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000042", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000102", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000194", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000076", "subject": "abstract_algebra", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000081", "subject": "abstract_algebra", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000121", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000051", "subject": "abstract_algebra", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000202", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000128", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000129", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000131", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000132", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000133", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000135", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000134", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000136", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000137", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000139", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000144", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000142", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000140", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000147", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000151", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000148", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000150", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000146", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000153", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000145", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000152", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000149", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000155", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000157", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000159", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000154", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000163", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000162", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000233", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000160", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000165", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000166", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000168", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000170", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000169", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000171", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000172", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000175", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000178", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000176", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000180", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000182", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000179", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000177", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000185", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000183", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000251", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000184", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000196", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000191", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000198", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000187", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000197", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000186", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000199", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000192", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000258", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000195", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000200", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000201", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000188", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000190", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000203", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000204", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000193", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000205", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000206", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000210", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000207", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000208", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000211", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000214", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000212", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000213", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000216", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000222", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000215", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000218", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000217", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000219", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000221", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000224", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000225", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000220", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000228", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000226", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000293", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000231", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000229", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000223", "subject": "anatomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000227", "subject": "anatomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000230", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000235", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000234", "subject": "anatomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000236", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000232", "subject": "anatomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000237", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000242", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000239", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000238", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000243", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000241", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000240", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000245", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000246", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000250", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000244", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000313", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000247", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000249", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000248", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000253", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000256", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000254", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000262", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000257", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000252", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000265", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000259", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000261", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000266", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000260", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000255", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000267", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000264", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000271", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000270", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000274", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000268", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000333", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000273", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000269", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000263", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000272", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000340", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000276", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000275", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000277", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000281", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000278", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000280", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000279", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000284", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000287", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000285", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000351", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000286", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000282", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000283", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000288", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000289", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000290", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000295", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000291", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000296", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000292", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000294", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000298", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000299", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000365", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000300", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000297", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000301", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000370", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000302", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000303", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000305", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000306", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000304", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000307", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000308", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000311", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000310", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000314", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000309", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000315", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000312", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000316", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000318", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000317", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000326", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000321", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000319", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000320", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000391", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000323", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000322", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000325", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000324", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000327", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000328", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000329", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000330", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000331", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000332", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000342", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000336", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000341", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000335", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000338", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000337", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000405", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000334", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000339", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000343", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000344", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000345", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000346", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000348", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000347", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000349", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000350", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000353", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000352", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000358", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000357", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000356", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000354", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000355", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000359", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000360", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000363", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000366", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000430", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000362", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000368", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000361", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000364", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000367", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000369", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000371", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000372", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000374", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000373", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000440", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000376", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000375", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000377", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000378", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000383", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000381", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000448", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000379", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000382", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000380", "subject": "astronomy", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000384", "subject": "astronomy", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000385", "subject": "astronomy", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000386", "subject": "astronomy", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000390", "subject": "business_ethics", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000388", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000387", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000389", "subject": "business_ethics", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000392", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000393", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000397", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000394", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000395", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000396", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000465", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000398", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000400", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000399", "subject": "business_ethics", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000401", "subject": "business_ethics", "answer_letter": "D", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000402", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000403", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000411", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000409", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000406", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000410", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000407", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000404", "subject": "business_ethics", "answer_letter": "C", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}
+{"question_id": "mmlu_000478", "subject": "business_ethics", "answer_letter": "A", "error": "Error code: 403 - {'status': 403, 'title': 'Forbidden', 'detail': 'Authorization failed'}"}
+{"question_id": "mmlu_000408", "subject": "business_ethics", "answer_letter": "B", "error": "Error code: 429 - {'status': 429, 'title': 'Too Many Requests'}"}

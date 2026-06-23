@@ -1,0 +1,32 @@
+\begin{table*}[t]
+\centering
+\caption{Screened headline set for direct item-level calibration claims. Pairs are included only when they have at least 100 valid items, at least 70\% benchmark coverage, and non-degenerate confidence support.}
+\label{tab:screened-roster}
+\small
+\begin{tabular}{llrrcccc}
+\toprule
+Benchmark & Model & $m$ & Cov. & $\varepsilon$ & ECE & $\hat{L}$ & $\delta_{\mathrm{floor}}$ \\
+\midrule
+MMLU & Llama 3.1 405B & 14,042 & 100\% & 0.160 & 0.118 & 1.61 & 0.026 \\
+MMLU & Llama 4 Maverick & 14,042 & 100\% & 0.273 & 0.262 & 1.00 & 0.027 \\
+MMLU & Mistral Small 3.1 & 13,259 & 94\% & 0.223 & 0.157 & 1.26 & 0.028 \\
+MMLU & Qwen3 Next 80B & 14,042 & 100\% & 0.165 & 0.143 & 5.00 & 0.039 \\
+\midrule
+TruthfulQA & Llama 3.1 405B & 817 & 100\% & 0.234 & 0.195 & 2.84 & 0.093 \\
+TruthfulQA & Llama 4 Maverick & 817 & 100\% & 0.656 & 0.629 & 3.36 & 0.139 \\
+TruthfulQA & Mistral Small 3.1 & 774 & 95\% & 0.229 & 0.166 & 2.69 & 0.093 \\
+TruthfulQA & Qwen3 Next 80B & 817 & 100\% & 0.250 & 0.222 & 3.64 & 0.104 \\
+\midrule
+ARC-Challenge & Llama 3.1 405B & 1,171 & 100\% & 0.053 & 0.045 & 4.18 & 0.057 \\
+ARC-Challenge & Llama 4 Maverick & 1,172 & 100\% & 0.047 & 0.044 & 1.00 & 0.034 \\
+ARC-Challenge & Mistral Small 3.1 & 1,110 & 95\% & 0.060 & 0.051 & 3.90 & 0.060 \\
+ARC-Challenge & Qwen3 Next 80B & 1,172 & 100\% & 0.038 & 0.037 & 1.00 & 0.032 \\
+\midrule
+HellaSwag & Mistral Small 3.1 & 9,486 & 94\% & 0.069 & 0.047 & 3.06 & 0.028 \\
+HellaSwag & Qwen3 Next 80B & 9,447 & 94\% & 0.097 & 0.084 & 5.00 & 0.037 \\
+\midrule
+WinoGrande & Mistral Small 3.1 & 1,199 & 95\% & 0.220 & 0.180 & 1.68 & 0.068 \\
+WinoGrande & Qwen3 Next 80B & 1,198 & 95\% & 0.208 & 0.192 & 5.00 & 0.095 \\
+\bottomrule
+\end{tabular}
+\end{table*}

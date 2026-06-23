@@ -1,0 +1,57 @@
+\begin{table}[t]
+\centering
+\caption{Expanded full-roster audit across all usable benchmark--model result files. Coverage is the fraction of the benchmark with valid per-item outputs. High-coverage pairs have coverage $\geq 70\%$.}
+\label{tab:full-roster}
+\small
+\begin{tabular}{llrrcccc}
+\toprule
+Benchmark & Model & $N$ & Cov. & $\varepsilon$ & ECE & $\hat{L}$ & $\delta_{\mathrm{floor}}$ \\
+\midrule
+MMLU & Llama 3.1 405B & 14,042 & 100\% & 0.160 & 0.118 & 1.61 & 0.026 \\
+MMLU & Llama 4 Maverick & 14,042 & 100\% & 0.273 & 0.262 & 1.00 & 0.027 \\
+MMLU & Qwen3 Next 80B & 14,042 & 100\% & 0.165 & 0.143 & 5.00 & 0.039 \\
+MMLU & Qwen2.5 7B & 13,265 & 94\% & 0.294 & 0.294 & 1.00 & 0.028 \\
+MMLU & Mistral Small 3.1 & 13,259 & 94\% & 0.223 & 0.157 & 1.26 & 0.028 \\
+MMLU & Deepseek R1 Qwen 32B & 13,128 & 93\% & 0.769 & 0.019 & 1.00 & 0.039 \\
+MMLU & Llama 3.1 8B & 4,676 & 33\% & 0.341 & 0.409 & 1.00 & 0.042 \\
+MMLU & Gemma 2 2B It Q4 K M & 488 & 3\% & 0.666 & 0.188 & 4.06 & 0.177 \\
+MMLU & Gemma 2 9B It Q4 K M & 138 & 1\% & 0.797 & 0.047 & 1.00 & 0.179 \\
+\midrule
+TruthfulQA & Llama 3.1 405B & 817 & 100\% & 0.234 & 0.195 & 2.84 & 0.093 \\
+TruthfulQA & Llama 4 Maverick & 817 & 100\% & 0.656 & 0.629 & 3.36 & 0.139 \\
+TruthfulQA & Qwen3 Next 80B & 817 & 100\% & 0.250 & 0.222 & 3.64 & 0.104 \\
+TruthfulQA & Mistral Small 3.1 & 774 & 95\% & 0.229 & 0.166 & 2.69 & 0.093 \\
+TruthfulQA & Qwen2.5 7B & 774 & 95\% & 0.335 & 0.335 & 1.00 & 0.076 \\
+TruthfulQA & Deepseek R1 Qwen 32B & 771 & 94\% & 0.014 & 0.759 & 1.00 & 0.026 \\
+TruthfulQA & Llama 3.1 8B & 412 & 50\% & 0.459 & 0.319 & 1.34 & 0.114 \\
+TruthfulQA & Gemma 2 2B It Q4 K M & 294 & 36\% & 0.000 & 0.753 & 1.00 & 0.000 \\
+\midrule
+ARC-Challenge & Llama 4 Maverick & 1,172 & 100\% & 0.047 & 0.044 & 1.00 & 0.034 \\
+ARC-Challenge & Qwen3 Next 80B & 1,172 & 100\% & 0.038 & 0.037 & 1.00 & 0.032 \\
+ARC-Challenge & Llama 3.1 405B & 1,171 & 100\% & 0.053 & 0.045 & 4.18 & 0.057 \\
+ARC-Challenge & Mistral Small 3.1 & 1,110 & 95\% & 0.060 & 0.051 & 3.90 & 0.060 \\
+ARC-Challenge & Qwen2.5 7B & 1,110 & 95\% & 0.105 & 0.105 & 1.00 & 0.046 \\
+ARC-Challenge & Deepseek R1 Qwen 32B & 1,107 & 94\% & 0.774 & 0.026 & 1.00 & 0.089 \\
+ARC-Challenge & Llama 3.1 8B & 560 & 48\% & 0.213 & 0.537 & 1.00 & 0.072 \\
+ARC-Challenge & Gemma 2 2B It Q4 K M & 200 & 17\% & 0.735 & 0.015 & 1.00 & 0.154 \\
+ARC-Challenge & Gemma 3 27B & 161 & 14\% & 0.056 & 0.055 & 1.00 & 0.070 \\
+\midrule
+HellaSwag & Qwen2.5 7B & 9,487 & 94\% & 0.179 & 0.179 & 1.00 & 0.027 \\
+HellaSwag & Mistral Small 3.1 & 9,486 & 94\% & 0.069 & 0.047 & 3.06 & 0.028 \\
+HellaSwag & Deepseek R1 Qwen 32B & 9,467 & 94\% & 0.749 & 0.001 & 1.00 & 0.043 \\
+HellaSwag & Qwen3 Next 80B & 9,447 & 94\% & 0.097 & 0.084 & 5.00 & 0.037 \\
+HellaSwag & Llama 3.1 8B & 5,155 & 51\% & 0.270 & 0.480 & 1.00 & 0.037 \\
+HellaSwag & Llama 4 Maverick & 4,625 & 46\% & 0.168 & 0.163 & 1.00 & 0.033 \\
+HellaSwag & Gemma 3 27B & 2,567 & 26\% & 0.452 & 0.422 & 1.62 & 0.066 \\
+HellaSwag & Llama 3.1 405B & 1,725 & 17\% & 0.101 & 0.156 & 1.33 & 0.043 \\
+\midrule
+WinoGrande & Mistral Small 3.1 & 1,199 & 95\% & 0.220 & 0.180 & 1.68 & 0.068 \\
+WinoGrande & Qwen2.5 7B & 1,199 & 95\% & 0.322 & 0.322 & 1.00 & 0.065 \\
+WinoGrande & Qwen3 Next 80B & 1,198 & 95\% & 0.208 & 0.192 & 5.00 & 0.095 \\
+WinoGrande & Deepseek R1 Qwen 32B & 1,194 & 94\% & 0.504 & 0.004 & 1.00 & 0.075 \\
+WinoGrande & Llama 4 Maverick & 701 & 55\% & 1.000 & 0.958 & 1.00 & 0.113 \\
+WinoGrande & Llama 3.1 8B & 644 & 51\% & 0.345 & 0.155 & 1.00 & 0.081 \\
+WinoGrande & Gemma 3 27B & 230 & 18\% & 0.274 & 0.276 & 1.00 & 0.106 \\
+\bottomrule
+\end{tabular}
+\end{table}

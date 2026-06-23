@@ -1,0 +1,97 @@
+leaderboard,benchmark,model_A,model_B,reported_gap,n,eps_A,eps_B,accuracy_floor,ece_floor,verdict
+Tech reports / HELM,MMLU,GPT-4,GPT-4o,0.0230,14042,0.1360,0.1130,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4,Claude 3 Opus,0.0040,14042,0.1360,0.1320,0.0060,0.0220,NO
+Tech reports / HELM,MMLU,GPT-4,Claude 3.5 Sonnet,0.0230,14042,0.1360,0.1130,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4,Gemini 1.5 Pro,0.0050,14042,0.1360,0.1410,0.0060,0.0220,NO
+Tech reports / HELM,MMLU,GPT-4,Gemini Ultra,0.0360,14042,0.1360,0.1000,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4,Llama-3-405B,0.0240,14042,0.1360,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4,Llama-3.1-405B,0.0240,14042,0.1360,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4,Qwen3-Next-80B,0.0290,14042,0.1360,0.1650,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4,Llama-4-Maverick,0.1370,14042,0.1360,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Claude 3 Opus,0.0190,14042,0.1130,0.1320,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Claude 3.5 Sonnet,0.0000,14042,0.1130,0.1130,0.0060,0.0220,NO
+Tech reports / HELM,MMLU,GPT-4o,Gemini 1.5 Pro,0.0280,14042,0.1130,0.1410,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Gemini Ultra,0.0130,14042,0.1130,0.1000,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Llama-3-405B,0.0470,14042,0.1130,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Llama-3.1-405B,0.0470,14042,0.1130,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Qwen3-Next-80B,0.0520,14042,0.1130,0.1650,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,GPT-4o,Llama-4-Maverick,0.1600,14042,0.1130,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3 Opus,Claude 3.5 Sonnet,0.0190,14042,0.1320,0.1130,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3 Opus,Gemini 1.5 Pro,0.0090,14042,0.1320,0.1410,0.0060,0.0220,Marginal
+Tech reports / HELM,MMLU,Claude 3 Opus,Gemini Ultra,0.0320,14042,0.1320,0.1000,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3 Opus,Llama-3-405B,0.0280,14042,0.1320,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3 Opus,Llama-3.1-405B,0.0280,14042,0.1320,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3 Opus,Qwen3-Next-80B,0.0330,14042,0.1320,0.1650,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3 Opus,Llama-4-Maverick,0.1410,14042,0.1320,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3.5 Sonnet,Gemini 1.5 Pro,0.0280,14042,0.1130,0.1410,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3.5 Sonnet,Gemini Ultra,0.0130,14042,0.1130,0.1000,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3.5 Sonnet,Llama-3-405B,0.0470,14042,0.1130,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3.5 Sonnet,Llama-3.1-405B,0.0470,14042,0.1130,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3.5 Sonnet,Qwen3-Next-80B,0.0520,14042,0.1130,0.1650,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Claude 3.5 Sonnet,Llama-4-Maverick,0.1600,14042,0.1130,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini 1.5 Pro,Gemini Ultra,0.0410,14042,0.1410,0.1000,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini 1.5 Pro,Llama-3-405B,0.0190,14042,0.1410,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini 1.5 Pro,Llama-3.1-405B,0.0190,14042,0.1410,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini 1.5 Pro,Qwen3-Next-80B,0.0240,14042,0.1410,0.1650,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini 1.5 Pro,Llama-4-Maverick,0.1320,14042,0.1410,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini Ultra,Llama-3-405B,0.0600,14042,0.1000,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini Ultra,Llama-3.1-405B,0.0600,14042,0.1000,0.1600,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini Ultra,Qwen3-Next-80B,0.0650,14042,0.1000,0.1650,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Gemini Ultra,Llama-4-Maverick,0.1730,14042,0.1000,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Llama-3-405B,Llama-3.1-405B,0.0000,14042,0.1600,0.1600,0.0060,0.0220,NO
+Tech reports / HELM,MMLU,Llama-3-405B,Qwen3-Next-80B,0.0050,14042,0.1600,0.1650,0.0060,0.0220,NO
+Tech reports / HELM,MMLU,Llama-3-405B,Llama-4-Maverick,0.1130,14042,0.1600,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Llama-3.1-405B,Qwen3-Next-80B,0.0050,14042,0.1600,0.1650,0.0060,0.0220,NO
+Tech reports / HELM,MMLU,Llama-3.1-405B,Llama-4-Maverick,0.1130,14042,0.1600,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,MMLU,Qwen3-Next-80B,Llama-4-Maverick,0.1080,14042,0.1650,0.2730,0.0060,0.0220,YES
+Tech reports / HELM,TruthfulQA,GPT-4,Llama-3.1-405B,0.1760,817,0.4100,0.2340,0.0341,0.0780,YES
+Tech reports / HELM,TruthfulQA,GPT-4,Qwen3-Next-80B,0.1600,817,0.4100,0.2500,0.0341,0.0780,YES
+Tech reports / HELM,TruthfulQA,GPT-4,Llama-4-Maverick,0.2460,817,0.4100,0.6560,0.0341,0.0780,YES
+Tech reports / HELM,TruthfulQA,Llama-3.1-405B,Qwen3-Next-80B,0.0160,817,0.2340,0.2500,0.0341,0.0780,NO
+Tech reports / HELM,TruthfulQA,Llama-3.1-405B,Llama-4-Maverick,0.4220,817,0.2340,0.6560,0.0341,0.0780,YES
+Tech reports / HELM,TruthfulQA,Qwen3-Next-80B,Llama-4-Maverick,0.4060,817,0.2500,0.6560,0.0341,0.0780,YES
+Tech reports,HumanEval,GPT-4,GPT-4o,0.2330,164,0.3300,0.0970,0.0663,0.1128,YES
+Tech reports,HumanEval,GPT-4,Claude 3.5 Sonnet,0.2500,164,0.3300,0.0800,0.0663,0.1128,YES
+Tech reports,HumanEval,GPT-4,Gemini 1.5 Pro,0.0450,164,0.3300,0.2850,0.0663,0.1128,NO
+Tech reports,HumanEval,GPT-4,Llama-3-405B,0.0560,164,0.3300,0.3860,0.0663,0.1128,NO
+Tech reports,HumanEval,GPT-4o,Claude 3.5 Sonnet,0.0170,164,0.0970,0.0800,0.0663,0.1128,NO
+Tech reports,HumanEval,GPT-4o,Gemini 1.5 Pro,0.1880,164,0.0970,0.2850,0.0663,0.1128,YES
+Tech reports,HumanEval,GPT-4o,Llama-3-405B,0.2890,164,0.0970,0.3860,0.0663,0.1128,YES
+Tech reports,HumanEval,Claude 3.5 Sonnet,Gemini 1.5 Pro,0.2050,164,0.0800,0.2850,0.0663,0.1128,YES
+Tech reports,HumanEval,Claude 3.5 Sonnet,Llama-3-405B,0.3060,164,0.0800,0.3860,0.0663,0.1128,YES
+Tech reports,HumanEval,Gemini 1.5 Pro,Llama-3-405B,0.1010,164,0.2850,0.3860,0.0663,0.1128,Marginal
+Tech reports,GPQA Diamond,GPT-4o,Claude 3.5 Sonnet,0.0570,198,0.4620,0.4050,0.0709,0.1330,NO
+Tech reports,GPQA Diamond,GPT-4o,Gemini 1.5 Pro,0.0690,198,0.4620,0.5310,0.0709,0.1330,NO
+Tech reports,GPQA Diamond,Claude 3.5 Sonnet,Gemini 1.5 Pro,0.1260,198,0.4050,0.5310,0.0709,0.1330,Marginal
+Open LLM Leaderboard v2,MMLU-Pro,DeepSeek-V3,Llama-3.3-70B-Instruct,0.0510,12032,0.3500,0.4010,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,DeepSeek-V3,Qwen2.5-72B-Instruct,0.0890,12032,0.3500,0.4390,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,DeepSeek-V3,Llama-3.1-70B-Instruct,0.1100,12032,0.3500,0.4600,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,DeepSeek-V3,Mistral-Large-2,0.0930,12032,0.3500,0.4430,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,Llama-3.3-70B-Instruct,Qwen2.5-72B-Instruct,0.0380,12032,0.4010,0.4390,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,Llama-3.3-70B-Instruct,Llama-3.1-70B-Instruct,0.0590,12032,0.4010,0.4600,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,Llama-3.3-70B-Instruct,Mistral-Large-2,0.0420,12032,0.4010,0.4430,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,Qwen2.5-72B-Instruct,Llama-3.1-70B-Instruct,0.0210,12032,0.4390,0.4600,0.0090,0.0326,YES
+Open LLM Leaderboard v2,MMLU-Pro,Qwen2.5-72B-Instruct,Mistral-Large-2,0.0040,12032,0.4390,0.4430,0.0090,0.0326,NO
+Open LLM Leaderboard v2,MMLU-Pro,Llama-3.1-70B-Instruct,Mistral-Large-2,0.0170,12032,0.4600,0.4430,0.0090,0.0326,Marginal
+AlpacaEval 2.0 (length-controlled),AlpacaEval-2.0-LC,GPT-4o,GPT-4 Turbo,0.0230,805,0.4270,0.4500,0.0352,0.0871,NO
+AlpacaEval 2.0 (length-controlled),AlpacaEval-2.0-LC,GPT-4o,Claude 3 Opus,0.1690,805,0.4270,0.5960,0.0352,0.0871,YES
+AlpacaEval 2.0 (length-controlled),AlpacaEval-2.0-LC,GPT-4o,Llama-3-70B-Instruct,0.2250,805,0.4270,0.6520,0.0352,0.0871,YES
+AlpacaEval 2.0 (length-controlled),AlpacaEval-2.0-LC,GPT-4 Turbo,Claude 3 Opus,0.1460,805,0.4500,0.5960,0.0352,0.0871,YES
+AlpacaEval 2.0 (length-controlled),AlpacaEval-2.0-LC,GPT-4 Turbo,Llama-3-70B-Instruct,0.2020,805,0.4500,0.6520,0.0352,0.0871,YES
+AlpacaEval 2.0 (length-controlled),AlpacaEval-2.0-LC,Claude 3 Opus,Llama-3-70B-Instruct,0.0560,805,0.5960,0.6520,0.0352,0.0871,Marginal
+HELM (Stanford CRFM),HELM-MMLU,GPT-4o,Claude 3.5 Sonnet,0.0000,14042,0.1130,0.1130,0.0057,0.0211,NO
+HELM (Stanford CRFM),HELM-MMLU,GPT-4o,Gemini 1.5 Pro,0.0280,14042,0.1130,0.1410,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,GPT-4o,Llama-3.1-405B-Instruct,0.0170,14042,0.1130,0.1300,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,GPT-4o,Mistral-Large-2,0.0480,14042,0.1130,0.1610,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,Claude 3.5 Sonnet,Gemini 1.5 Pro,0.0280,14042,0.1130,0.1410,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,Claude 3.5 Sonnet,Llama-3.1-405B-Instruct,0.0170,14042,0.1130,0.1300,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,Claude 3.5 Sonnet,Mistral-Large-2,0.0480,14042,0.1130,0.1610,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,Gemini 1.5 Pro,Llama-3.1-405B-Instruct,0.0110,14042,0.1410,0.1300,0.0057,0.0211,Marginal
+HELM (Stanford CRFM),HELM-MMLU,Gemini 1.5 Pro,Mistral-Large-2,0.0200,14042,0.1410,0.1610,0.0057,0.0211,YES
+HELM (Stanford CRFM),HELM-MMLU,Llama-3.1-405B-Instruct,Mistral-Large-2,0.0310,14042,0.1300,0.1610,0.0057,0.0211,YES
+Chatbot Arena (Arena-Hard-Auto),Arena-Hard,GPT-4 Turbo,Claude 3 Opus,0.1790,500,0.2200,0.3990,0.0424,0.0879,YES
+Chatbot Arena (Arena-Hard-Auto),Arena-Hard,GPT-4 Turbo,Llama-3-70B-Instruct,0.3170,500,0.2200,0.5370,0.0424,0.0879,YES
+Chatbot Arena (Arena-Hard-Auto),Arena-Hard,GPT-4 Turbo,GPT-4o,0.0180,500,0.2200,0.2020,0.0424,0.0879,NO
+Chatbot Arena (Arena-Hard-Auto),Arena-Hard,Claude 3 Opus,Llama-3-70B-Instruct,0.1380,500,0.3990,0.5370,0.0424,0.0879,YES
+Chatbot Arena (Arena-Hard-Auto),Arena-Hard,Claude 3 Opus,GPT-4o,0.1970,500,0.3990,0.2020,0.0424,0.0879,YES
+Chatbot Arena (Arena-Hard-Auto),Arena-Hard,Llama-3-70B-Instruct,GPT-4o,0.3350,500,0.5370,0.2020,0.0424,0.0879,YES

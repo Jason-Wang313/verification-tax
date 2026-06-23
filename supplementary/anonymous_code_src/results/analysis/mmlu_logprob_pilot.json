@@ -1,0 +1,501 @@
+{
+  "items": [
+    {
+      "subject": "abstract_algebra",
+      "question": "Statement 1 | Every nonzero free abelian group has an infinite number of bases. Statement 2 | Every free abelian group of rank at least 2 has an infinite number of bases.",
+      "choices": [
+        "True, True",
+        "False, False",
+        "True, False",
+        "False, True"
+      ],
+      "answer": 3
+    },
+    {
+      "subject": "professional_law",
+      "question": "A university student, a citizen of State A, believes that her university violated federal law when it eliminated funding for the women's varsity volleyball team. She has sued the university, a nonprofit corporation located and incorporated in State B, and the university's athletic director, a citizen of State B, in federal court in State B. What is the best method of serving the defendants?",
+      "choices": [
+        "Service as required by State B's rules of civil procedure.",
+        "Service by a process server's leaving copies of the summons and complaint with copies of the summons and complaint with secretaries in the respective offices of the athletic director and the university president.",
+        "Service by emailing copies of the summons and complaint to the athletic director and the university president.",
+        "Service by the student herself on the athletic director and the university president."
+      ],
+      "answer": 0
+    },
+    {
+      "subject": "professional_law",
+      "question": "A builder contracted in writing to construct a small greenhouse on a homeowner's property for $20,000, payable upon completion. After the builder had spent $9,000 framing the greenhouse and an additional $1,000 for materials not yet incorporated into the greenhouse, the homeowner wrongfully ordered the builder to stop work. The builder then resold the unused materials that he had already purchased for the greenhouse to another contractor for $1,000. At the time the homeowner stopped the work, it would have cost the builder an additional $5,000 to complete the project. The an additional $5,000 to complete the project. The partially built greenhouse increased the value of the homeowner's property by $3,000. In a suit by the builder against the homeowner, how much is the builder likely to recover?",
+      "choices": [
+        "$3,000, the increase in the value of the homeowner's property.",
+        "$10,000, the total cost expended by the builder at the time of the breach.",
+        "$14,000, the total cost expended by the builder ($10,000) plus the builder's expected profit ($5,000), minus the loss avoided by the resale of the unused materials ($1,000).",
+        "$15,000, the contract price ($20,000) minus the costs saved by the breach ($5,000)."
+      ],
+      "answer": 2
+    },
+    {
+      "subject": "clinical_knowledge",
+      "question": "Which of the following is not a controlled drug?",
+      "choices": [
+        "A 30 milligram ampoule of Codeine Phosphate for injection.",
+        "A sustained release Morphine tablet.",
+        "A 12.5 microgram Fentanyl patch.",
+        "A 500 ml bottle of Morphine 10 mg in 5 ml in oral suspension."
+      ],
+      "answer": 3
+    },
+    {
+      "subject": "college_chemistry",
+      "question": "A Cu(II) metal ion (giso = 2.12) produces four lines with a separation of 500 MHz between each line. Express the hyperfine splitting in field units of mT and the hyperfine coupling in units of wavenumbers.",
+      "choices": [
+        "500 MHz = 0.185 mT = 0.29842 cm-1",
+        "500 MHz = 16.850 mT = 0.01667 cm-1",
+        "500 MHz = 32.953 mT = 0.76298 cm-1",
+        "500 MHz = 45.672 mT = 2.86329 cm-1"
+      ],
+      "answer": 2
+    }
+  ],
+  "results": [
+    {
+      "subject": "abstract_algebra",
+      "model": "meta/llama-3.1-405b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "D",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -0.22664853930473328,
+        "B": -7.226648330688477,
+        "C": -7.601648330688477,
+        "D": -1.6016485691070557
+      },
+      "softmax_abcd": {
+        "A": 0.7972077338307673,
+        "B": 0.0007269595069364169,
+        "C": 0.0004996314752325708,
+        "D": 0.2015656751870638
+      },
+      "max_conf": 0.7972077338307673,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "abstract_algebra",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "response": "## Step 1:",
+      "first_letter": "?",
+      "correct_letter": "D",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -40.75,
+        "B": -39.25,
+        "C": -41.25,
+        "D": -21.5
+      },
+      "softmax_abcd": {
+        "A": 4.3634621370252014e-09,
+        "B": 1.955568056833982e-08,
+        "C": 2.6465735686009926e-09,
+        "D": 0.9999999734342837
+      },
+      "max_conf": 0.9999999734342837,
+      "first_token_observed": "##"
+    },
+    {
+      "subject": "abstract_algebra",
+      "model": "qwen/qwen3-next-80b-a3b-instruct",
+      "response": "D",
+      "first_letter": "D",
+      "correct_letter": "D",
+      "is_correct": true,
+      "logprobs_abcd": {
+        "A": -12.875003814697266,
+        "B": -13.750003814697266,
+        "C": -15.625003814697266,
+        "D": -3.814689989667386e-06
+      },
+      "softmax_abcd": {
+        "A": 2.5612790566822204e-06,
+        "B": 1.0676999605288152e-06,
+        "C": 1.6373709204722788e-07,
+        "D": 0.9999962072838906
+      },
+      "max_conf": 0.9999962072838906,
+      "first_token_observed": "D"
+    },
+    {
+      "subject": "abstract_algebra",
+      "model": "meta/llama-3.1-70b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "D",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -0.25917744636535645,
+        "B": -3.0091774463653564,
+        "C": -3.1341774463653564,
+        "D": -2.0091774463653564
+      },
+      "softmax_abcd": {
+        "A": 0.7727270953254358,
+        "B": 0.049398790500626746,
+        "C": 0.043594279608228446,
+        "D": 0.13427983456570902
+      },
+      "max_conf": 0.7727270953254358,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "professional_law",
+      "model": "meta/llama-3.1-405b-instruct",
+      "response": "B",
+      "first_letter": "B",
+      "correct_letter": "A",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -3.89558744430542,
+        "B": -0.02058732882142067,
+        "C": -12.520586967468262,
+        "D": -12.020586967468262
+      },
+      "softmax_abcd": {
+        "A": 0.020332154426926534,
+        "B": 0.9796581754954679,
+        "C": 3.6508475665080514e-06,
+        "D": 6.019230038985625e-06
+      },
+      "max_conf": 0.9796581754954679,
+      "first_token_observed": "B"
+    },
+    {
+      "subject": "professional_law",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "A",
+      "is_correct": true,
+      "logprobs_abcd": {
+        "A": -0.00015841660206206143,
+        "B": -8.750158309936523,
+        "C": -19.750158309936523,
+        "D": -27.250158309936523
+      },
+      "softmax_abcd": {
+        "A": 0.999841561116802,
+        "B": 0.00015843623558005533,
+        "C": 2.6461546009909576e-09,
+        "D": 1.4635467508028758e-12
+      },
+      "max_conf": 0.999841561116802,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "professional_law",
+      "model": "qwen/qwen3-next-80b-a3b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "A",
+      "is_correct": true,
+      "logprobs_abcd": {
+        "A": -0.10022804141044617,
+        "B": -2.3502280712127686,
+        "C": -10.975228309631348,
+        "D": -12.350228309631348
+      },
+      "softmax_abcd": {
+        "A": 0.9046311334940453,
+        "B": 0.09534741714321825,
+        "C": 1.7120597727189788e-05,
+        "D": 4.328765009278326e-06
+      },
+      "max_conf": 0.9046311334940453,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "professional_law",
+      "model": "meta/llama-3.1-70b-instruct",
+      "response": "B",
+      "first_letter": "B",
+      "correct_letter": "A",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -6.752438545227051,
+        "B": -0.002438430907204747,
+        "C": -7.502438545227051,
+        "D": -7.377438545227051
+      },
+      "softmax_abcd": {
+        "A": 0.0011681335665514637,
+        "B": 0.9976548223659422,
+        "C": 0.0005517872259729816,
+        "D": 0.0006252568415333195
+      },
+      "max_conf": 0.9976548223659422,
+      "first_token_observed": "B"
+    },
+    {
+      "subject": "professional_law",
+      "model": "meta/llama-3.1-405b-instruct",
+      "response": "D",
+      "first_letter": "D",
+      "correct_letter": "C",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -9.3399658203125,
+        "B": -7.0899658203125,
+        "C": -2.4649658203125,
+        "D": -0.08996587991714478
+      },
+      "softmax_abcd": {
+        "A": 8.78516290170662e-05,
+        "B": 0.0008335130489076935,
+        "C": 0.08502064238920062,
+        "D": 0.9140579929328746
+      },
+      "max_conf": 0.9140579929328746,
+      "first_token_observed": "D"
+    },
+    {
+      "subject": "professional_law",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "response": "C",
+      "first_letter": "C",
+      "correct_letter": "C",
+      "is_correct": true,
+      "logprobs_abcd": {
+        "A": -35.75,
+        "B": -31.0,
+        "C": 0.0,
+        "D": -16.75
+      },
+      "softmax_abcd": {
+        "A": 2.978326110298705e-16,
+        "B": 3.442476925475177e-14,
+        "C": 0.9999999468421156,
+        "D": 5.3157849718485235e-08
+      },
+      "max_conf": 0.9999999468421156,
+      "first_token_observed": "C"
+    },
+    {
+      "subject": "professional_law",
+      "model": "qwen/qwen3-next-80b-a3b-instruct",
+      "response": "C",
+      "first_letter": "C",
+      "correct_letter": "C",
+      "is_correct": true,
+      "logprobs_abcd": {
+        "A": -15.876930236816406,
+        "B": -13.376930236816406,
+        "C": -0.0019302800064906478,
+        "D": -6.251930236816406
+      },
+      "softmax_abcd": {
+        "A": 1.2727315570718417e-07,
+        "B": 1.550504450762444e-06,
+        "C": 0.9980715907086429,
+        "D": 0.0019267315137505641
+      },
+      "max_conf": 0.9980715907086429,
+      "first_token_observed": "C"
+    },
+    {
+      "subject": "professional_law",
+      "model": "meta/llama-3.1-70b-instruct",
+      "response": "D",
+      "first_letter": "D",
+      "correct_letter": "C",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -3.961902141571045,
+        "B": -5.461902141571045,
+        "C": -1.336902141571045,
+        "D": -0.3369021415710449
+      },
+      "softmax_abcd": {
+        "A": 0.019028616706417978,
+        "B": 0.004245858293106131,
+        "C": 0.2626819509819827,
+        "D": 0.7140435740184933
+      },
+      "max_conf": 0.7140435740184933,
+      "first_token_observed": "D"
+    },
+    {
+      "subject": "clinical_knowledge",
+      "model": "meta/llama-3.1-405b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "D",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -0.20745158195495605,
+        "B": -7.957451820373535,
+        "C": -5.207451820373535,
+        "D": -1.707451581954956
+      },
+      "softmax_abcd": {
+        "A": 0.8128106448630241,
+        "B": 0.0003501120387020372,
+        "C": 0.00547667373963861,
+        "D": 0.1813625693586351
+      },
+      "max_conf": 0.8128106448630241,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "clinical_knowledge",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "response": "C",
+      "first_letter": "C",
+      "correct_letter": "D",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -3.0665929317474365,
+        "B": -14.066593170166016,
+        "C": -0.06659281998872757,
+        "D": -4.066592693328857
+      },
+      "softmax_abcd": {
+        "A": 0.04661258122183846,
+        "B": 7.785091990170901e-07,
+        "C": 0.9362388258491571,
+        "D": 0.01714781441980546
+      },
+      "max_conf": 0.9362388258491571,
+      "first_token_observed": "C"
+    },
+    {
+      "subject": "clinical_knowledge",
+      "model": "qwen/qwen3-next-80b-a3b-instruct",
+      "response": "D",
+      "first_letter": "D",
+      "correct_letter": "D",
+      "is_correct": true,
+      "logprobs_abcd": {
+        "A": -10.250454902648926,
+        "B": -9.000454902648926,
+        "C": -8.125454902648926,
+        "D": -0.0004551566671580076
+      },
+      "softmax_abcd": {
+        "A": 3.534143611729785e-05,
+        "B": 0.00012335373265859813,
+        "C": 0.0002959102216933334,
+        "D": 0.9995453946095307
+      },
+      "max_conf": 0.9995453946095307,
+      "first_token_observed": "D"
+    },
+    {
+      "subject": "clinical_knowledge",
+      "model": "meta/llama-3.1-70b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "D",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -0.49152541160583496,
+        "B": -2.366525411605835,
+        "C": -2.491525411605835,
+        "D": -1.616525411605835
+      },
+      "softmax_abcd": {
+        "A": 0.6198311054373092,
+        "B": 0.09505417862379392,
+        "C": 0.083885018213221,
+        "D": 0.20122969772567587
+      },
+      "max_conf": 0.6198311054373092,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "college_chemistry",
+      "model": "meta/llama-3.1-405b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "C",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -0.17929765582084656,
+        "B": -2.804297685623169,
+        "C": -8.30429744720459,
+        "D": -8.30429744720459
+      },
+      "softmax_abcd": {
+        "A": 0.9319387911587731,
+        "B": 0.06750941759039808,
+        "C": 0.0002758956254144177,
+        "D": 0.0002758956254144177
+      },
+      "max_conf": 0.9319387911587731,
+      "first_token_observed": "A"
+    },
+    {
+      "subject": "college_chemistry",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "response": "## Step 1:",
+      "first_letter": "?",
+      "correct_letter": "C",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -25.250553131103516,
+        "B": -23.500553131103516,
+        "C": -26.250553131103516,
+        "D": -30.250553131103516
+      },
+      "softmax_abcd": {
+        "A": 0.14026779801971853,
+        "B": 0.8071854458417035,
+        "C": 0.05160163914984279,
+        "D": 0.0009451169887352888
+      },
+      "max_conf": 0.8071854458417035,
+      "first_token_observed": "##"
+    },
+    {
+      "subject": "college_chemistry",
+      "model": "qwen/qwen3-next-80b-a3b-instruct",
+      "response": "B",
+      "first_letter": "B",
+      "correct_letter": "C",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -1.7841683626174927,
+        "B": -0.6591683626174927,
+        "C": -1.1591683626174927,
+        "D": -6.909168243408203
+      },
+      "softmax_abcd": {
+        "A": 0.16794277919094594,
+        "B": 0.5173001781180723,
+        "C": 0.3137584183034171,
+        "D": 0.0009986243875646599
+      },
+      "max_conf": 0.5173001781180723,
+      "first_token_observed": "B"
+    },
+    {
+      "subject": "college_chemistry",
+      "model": "meta/llama-3.1-70b-instruct",
+      "response": "A",
+      "first_letter": "A",
+      "correct_letter": "C",
+      "is_correct": false,
+      "logprobs_abcd": {
+        "A": -0.10007134079933167,
+        "B": -3.350071430206299,
+        "C": -2.975071430206299,
+        "D": -4.850071430206299
+      },
+      "softmax_abcd": {
+        "A": 0.9059267267180753,
+        "B": 0.035126588041516436,
+        "C": 0.05110888402523679,
+        "D": 0.007837801215171483
+      },
+      "max_conf": 0.9059267267180753,
+      "first_token_observed": "A"
+    }
+  ]
+}

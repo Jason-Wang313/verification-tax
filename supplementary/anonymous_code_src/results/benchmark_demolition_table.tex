@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\caption{Verification floor analysis for major AI benchmarks. $\delta_{\mathrm{floor}} = (L \varepsilon / n)^{1/3}$ with $L{=}1$. Ratio $= \Delta_{\mathrm{typ}} / \delta_{\mathrm{floor}}$; values $<1$ indicate claims below the verification floor.}
+\label{tab:benchmark-demolition}
+\small
+\begin{tabular}{lrrccrc}
+\toprule
+Benchmark & $n$ & $\varepsilon$ & $\delta_{\mathrm{floor}}$ & Typical $\Delta$ & Ratio & Verifiable? \\
+\midrule
+  MMLU (per-subj) & 250 & 0.15 & 0.0843 & 0.02--0.05 & 0.4$\times$ & \textcolor{red}{\ding{55}} \\
+  MMLU (full) & 14,042 & 0.15 & 0.0220 & 0.02--0.05 & 1.6$\times$ & $\sim$ \\
+  TruthfulQA & 817 & 0.40 & 0.0788 & 0.05--0.15 & 1.3$\times$ & $\sim$ \\
+  BBQ (per-cat) & 500 & 0.30 & 0.0843 & 0.03--0.10 & 0.8$\times$ & \textcolor{red}{\ding{55}} \\
+  ToxiGen & 940 & 0.25 & 0.0643 & 0.05--0.12 & 1.3$\times$ & $\sim$ \\
+  HumanEval & 164 & 0.30 & 0.1223 & 0.05--0.20 & 1.0$\times$ & $\sim$ \\
+  SWE-bench Verified & 500 & 0.70 & 0.1119 & 0.05--0.15 & 0.9$\times$ & \textcolor{red}{\ding{55}} \\
+  GPQA Diamond & 198 & 0.50 & 0.1362 & 0.05--0.15 & 0.7$\times$ & \textcolor{red}{\ding{55}} \\
+  WinoGender & 720 & 0.10 & 0.0518 & 0.02--0.08 & 1.0$\times$ & \textcolor{red}{\ding{55}} \\
+  GSM8K & 1,319 & 0.08 & 0.0393 & 0.02--0.05 & 0.9$\times$ & \textcolor{red}{\ding{55}} \\
+  ARC-Challenge & 1,172 & 0.10 & 0.0440 & 0.02--0.05 & 0.8$\times$ & \textcolor{red}{\ding{55}} \\
+\bottomrule
+\end{tabular}
+\end{table}
