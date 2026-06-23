@@ -25,7 +25,7 @@ import string
 import time
 from pathlib import Path
 
-PROJECT_ROOT = Path("C:/Users/wangz/verification tax")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ─────────────────────────── Models ───────────────────────────
 MODELS = [
@@ -55,7 +55,7 @@ _NIM_IDX = [0]
 
 
 def _load_keys(prefix: str) -> list[str]:
-    env = Path("C:/Users/wangz/MIRROR/.env").read_text(encoding="utf-8")
+    env = Path(os.getenv("NIM_ENV_FILE", str(PROJECT_ROOT / ".env"))).read_text(encoding="utf-8")
     return [
         line.split("=", 1)[1].strip()
         for line in env.splitlines()
@@ -69,7 +69,7 @@ def _init_clients() -> None:
     global _NIM_CLIENTS
     keys = _load_keys("NVIDIA_NIM_API_KEY")
     if not keys:
-        raise RuntimeError("No NVIDIA_NIM_API_KEY found in MIRROR/.env")
+        raise RuntimeError("No NVIDIA_NIM_API_KEY found in the configured .env file")
     _NIM_CLIENTS = [
         AsyncOpenAI(api_key=k, base_url="https://integrate.api.nvidia.com/v1")
         for k in keys
@@ -598,3 +598,4 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+

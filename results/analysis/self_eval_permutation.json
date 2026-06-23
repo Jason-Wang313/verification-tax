@@ -1,7 +1,25 @@
 {
-  "description": "Permutation test for self-verification impossibility (Theorem B). Tests whether confidence predicts calibration gap (should NOT be significant) vs accuracy (positive control, should be significant). 10,000 permutations per test.",
-  "per_model": {
-    "LLaMA-3.1-405B": {
+  "description": "Permutation test for self-verification impossibility (Theorem B). Auto-discovers all screened benchmark-model pairs across 5 benchmarks. Tests whether confidence predicts calibration gap (should NOT be significant) vs accuracy (positive control, should be significant). 10,000 permutations per test. BH FDR correction applied. Power analysis against rho=0.5 alternative.",
+  "n_pairs_tested": 13,
+  "n_gap_nonsignificant_raw": 11,
+  "n_gap_nonsignificant_bh": 13,
+  "fraction_nonsignificant_raw": 0.8461538461538461,
+  "fraction_nonsignificant_bh": 1.0,
+  "n_accuracy_significant": 6,
+  "power_by_nbins": {
+    "4": 0.2016,
+    "5": 0.3406,
+    "6": 0.423,
+    "11": 0.998,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0
+  },
+  "per_pair": {
+    "mmlu/llama-3.1-405b-instruct": {
+      "benchmark": "mmlu",
+      "model_id": "llama-3.1-405b-instruct",
       "n_valid": 14042,
       "n_bins": 17,
       "overall_accuracy": 0.8404073493804302,
@@ -13,7 +31,9 @@
         "n_permutations": 10000,
         "significant_at_0.05": false,
         "standard_spearman_r": 0.3872549019607844,
-        "standard_spearman_p": 0.12460639350840541
+        "standard_spearman_p": 0.12460639350840541,
+        "bh_adjusted_p": 0.3016,
+        "significant_bh_0.05": false
       },
       "positive_control_conf_vs_accuracy": {
         "description": "Positive control: confidence should predict accuracy",
@@ -128,16 +148,11 @@
           "n_items": 10949
         }
       ],
-      "null_distribution_stats": {
-        "gap_null_mean": 0.20674607843137255,
-        "gap_null_std": 0.1495027082501362,
-        "gap_null_95th": 0.48774509803921573,
-        "acc_null_mean": 0.20242107843137255,
-        "acc_null_std": 0.14811634651421612,
-        "acc_null_95th": 0.482843137254902
-      }
+      "power_at_rho_0.5": 1.0
     },
-    "LLaMA-4-Maverick": {
+    "mmlu/llama-4-maverick": {
+      "benchmark": "mmlu",
+      "model_id": "llama-4-maverick",
       "n_valid": 14042,
       "n_bins": 15,
       "overall_accuracy": 0.7268195413758723,
@@ -149,7 +164,9 @@
         "n_permutations": 10000,
         "significant_at_0.05": true,
         "standard_spearman_r": 0.5285714285714286,
-        "standard_spearman_p": 0.04279728930945035
+        "standard_spearman_p": 0.04279728930945035,
+        "bh_adjusted_p": 0.24439999999999998,
+        "significant_bh_0.05": false
       },
       "positive_control_conf_vs_accuracy": {
         "description": "Positive control: confidence should predict accuracy",
@@ -252,16 +269,144 @@
           "n_items": 13015
         }
       ],
-      "null_distribution_stats": {
-        "gap_null_mean": 0.21857321428571427,
-        "gap_null_std": 0.15654367502613692,
-        "gap_null_95th": 0.5178571428571428,
-        "acc_null_mean": 0.21763678571428569,
-        "acc_null_std": 0.15742742469077742,
-        "acc_null_95th": 0.5178571428571428
-      }
+      "power_at_rho_0.5": 1.0
     },
-    "Qwen3-Next-80B": {
+    "mmlu/mistral-small-3.1": {
+      "benchmark": "mmlu",
+      "model_id": "mistral-small-3.1",
+      "n_valid": 13259,
+      "n_bins": 17,
+      "overall_accuracy": 0.7771325137642356,
+      "overall_mean_conf": 0.9335724691907382,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.44117647058823534,
+        "permutation_p_value": 0.0784,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.44117647058823534,
+        "standard_spearman_p": 0.07627668292313648,
+        "bh_adjusted_p": 0.25479999999999997,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.9681372549019608,
+        "permutation_p_value": 0.0,
+        "n_permutations": 10000,
+        "significant_at_0.01": true,
+        "standard_spearman_r": 0.9681372549019608,
+        "standard_spearman_p": 1.9909901926022065e-10
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.36589679310344825,
+          "accuracy": 0.3620689655172414,
+          "calibration_gap": 0.0038278275862068667,
+          "n_items": 58
+        },
+        {
+          "mean_conf": 0.4569946812227074,
+          "accuracy": 0.25327510917030566,
+          "calibration_gap": 0.20371957205240177,
+          "n_items": 229
+        },
+        {
+          "mean_conf": 0.5505304826175871,
+          "accuracy": 0.3967280163599182,
+          "calibration_gap": 0.15380246625766886,
+          "n_items": 489
+        },
+        {
+          "mean_conf": 0.6511429395833334,
+          "accuracy": 0.39791666666666664,
+          "calibration_gap": 0.2532262729166667,
+          "n_items": 480
+        },
+        {
+          "mean_conf": 0.7521864476534297,
+          "accuracy": 0.4332129963898917,
+          "calibration_gap": 0.318973451263538,
+          "n_items": 554
+        },
+        {
+          "mean_conf": 0.8263552735294116,
+          "accuracy": 0.5058823529411764,
+          "calibration_gap": 0.3204729205882352,
+          "n_items": 340
+        },
+        {
+          "mean_conf": 0.8765679520383693,
+          "accuracy": 0.5059952038369304,
+          "calibration_gap": 0.37057274820143893,
+          "n_items": 417
+        },
+        {
+          "mean_conf": 0.9048126200000002,
+          "accuracy": 0.51,
+          "calibration_gap": 0.39481262000000017,
+          "n_items": 100
+        },
+        {
+          "mean_conf": 0.9154829199999999,
+          "accuracy": 0.55,
+          "calibration_gap": 0.3654829199999998,
+          "n_items": 100
+        },
+        {
+          "mean_conf": 0.9247591679999999,
+          "accuracy": 0.608,
+          "calibration_gap": 0.3167591679999999,
+          "n_items": 125
+        },
+        {
+          "mean_conf": 0.935247248,
+          "accuracy": 0.552,
+          "calibration_gap": 0.383247248,
+          "n_items": 125
+        },
+        {
+          "mean_conf": 0.9449414814814815,
+          "accuracy": 0.5740740740740741,
+          "calibration_gap": 0.3708674074074074,
+          "n_items": 162
+        },
+        {
+          "mean_conf": 0.9552104083769634,
+          "accuracy": 0.5759162303664922,
+          "calibration_gap": 0.37929417801047116,
+          "n_items": 191
+        },
+        {
+          "mean_conf": 0.9651049356223176,
+          "accuracy": 0.6266094420600858,
+          "calibration_gap": 0.33849549356223174,
+          "n_items": 233
+        },
+        {
+          "mean_conf": 0.9752712101910829,
+          "accuracy": 0.5923566878980892,
+          "calibration_gap": 0.3829145222929937,
+          "n_items": 314
+        },
+        {
+          "mean_conf": 0.9855723528265107,
+          "accuracy": 0.6530214424951267,
+          "calibration_gap": 0.33255091033138395,
+          "n_items": 513
+        },
+        {
+          "mean_conf": 0.9992172654355954,
+          "accuracy": 0.9171859068766285,
+          "calibration_gap": 0.08203135855896693,
+          "n_items": 8827
+        }
+      ],
+      "power_at_rho_0.5": 1.0
+    },
+    "mmlu/qwen3-next-80b": {
+      "benchmark": "mmlu",
+      "model_id": "qwen3-next-80b",
       "n_valid": 14042,
       "n_bins": 16,
       "overall_accuracy": 0.8350662298817833,
@@ -269,11 +414,13 @@
       "primary_test_conf_vs_gap": {
         "description": "H0: calibration gap is independent of confidence",
         "observed_abs_spearman_r": 0.42352941176470593,
-        "permutation_p_value": 0.1045,
+        "permutation_p_value": 0.1063,
         "n_permutations": 10000,
         "significant_at_0.05": false,
         "standard_spearman_r": 0.42352941176470593,
-        "standard_spearman_p": 0.10210932208599745
+        "standard_spearman_p": 0.10210932208599745,
+        "bh_adjusted_p": 0.27638,
+        "significant_bh_0.05": false
       },
       "positive_control_conf_vs_accuracy": {
         "description": "Positive control: confidence should predict accuracy",
@@ -382,14 +529,808 @@
           "n_items": 12096
         }
       ],
-      "null_distribution_stats": {
-        "gap_null_mean": 0.20923735294117646,
-        "gap_null_std": 0.15148881396659927,
-        "gap_null_95th": 0.5,
-        "acc_null_mean": 0.20761823529411763,
-        "acc_null_std": 0.1501709079394191,
-        "acc_null_95th": 0.5
-      }
+      "power_at_rho_0.5": 1.0
+    },
+    "truthfulqa/llama-3.1-405b-instruct": {
+      "benchmark": "truthfulqa",
+      "model_id": "llama-3.1-405b-instruct",
+      "n_valid": 817,
+      "n_bins": 11,
+      "overall_accuracy": 0.7662178702570379,
+      "overall_mean_conf": 0.9573113538023146,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.3181818181818182,
+        "permutation_p_value": 0.3398,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.3181818181818182,
+        "standard_spearman_p": 0.3402976141819036,
+        "bh_adjusted_p": 0.552175,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.6363636363636364,
+        "permutation_p_value": 0.0387,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.6363636363636364,
+        "standard_spearman_p": 0.03528698122006228
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.555484563319209,
+          "accuracy": 0.38095238095238093,
+          "calibration_gap": 0.1745321823668281,
+          "n_items": 21
+        },
+        {
+          "mean_conf": 0.6608052578234991,
+          "accuracy": 0.29411764705882354,
+          "calibration_gap": 0.36668761076467554,
+          "n_items": 17
+        },
+        {
+          "mean_conf": 0.754725552154802,
+          "accuracy": 0.2777777777777778,
+          "calibration_gap": 0.4769477743770242,
+          "n_items": 18
+        },
+        {
+          "mean_conf": 0.8248596570353969,
+          "accuracy": 0.3333333333333333,
+          "calibration_gap": 0.49152632370206356,
+          "n_items": 15
+        },
+        {
+          "mean_conf": 0.8737696078662471,
+          "accuracy": 0.4117647058823529,
+          "calibration_gap": 0.4620049019838942,
+          "n_items": 17
+        },
+        {
+          "mean_conf": 0.9144945124611817,
+          "accuracy": 0.6,
+          "calibration_gap": 0.31449451246118176,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.9544614295666415,
+          "accuracy": 0.2,
+          "calibration_gap": 0.7544614295666414,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.9657921112704656,
+          "accuracy": 0.47058823529411764,
+          "calibration_gap": 0.49520387597634796,
+          "n_items": 17
+        },
+        {
+          "mean_conf": 0.9755165481322,
+          "accuracy": 0.4166666666666667,
+          "calibration_gap": 0.5588498814655334,
+          "n_items": 12
+        },
+        {
+          "mean_conf": 0.9860734777504712,
+          "accuracy": 0.42857142857142855,
+          "calibration_gap": 0.5575020491790426,
+          "n_items": 21
+        },
+        {
+          "mean_conf": 0.9994525064470183,
+          "accuracy": 0.8768,
+          "calibration_gap": 0.1226525064470183,
+          "n_items": 625
+        }
+      ],
+      "power_at_rho_0.5": 0.998
+    },
+    "truthfulqa/llama-4-maverick": {
+      "benchmark": "truthfulqa",
+      "model_id": "llama-4-maverick",
+      "n_valid": 817,
+      "n_bins": 6,
+      "overall_accuracy": 0.34394124847001223,
+      "overall_mean_conf": 0.973216467871292,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.3714285714285715,
+        "permutation_p_value": 0.4998,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.3714285714285715,
+        "standard_spearman_p": 0.46847813411078715,
+        "bh_adjusted_p": 0.6497400000000001,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.4285714285714286,
+        "permutation_p_value": 0.4272,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.4285714285714286,
+        "standard_spearman_p": 0.39650145772594736
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.637285412028318,
+          "accuracy": 0.07692307692307693,
+          "calibration_gap": 0.5603623351052411,
+          "n_items": 13
+        },
+        {
+          "mean_conf": 0.7443293438048078,
+          "accuracy": 0.058823529411764705,
+          "calibration_gap": 0.685505814393043,
+          "n_items": 17
+        },
+        {
+          "mean_conf": 0.8713770715043406,
+          "accuracy": 0.05,
+          "calibration_gap": 0.8213770715043406,
+          "n_items": 20
+        },
+        {
+          "mean_conf": 0.9636719597057336,
+          "accuracy": 0.0,
+          "calibration_gap": 0.9636719597057336,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.9852182542455236,
+          "accuracy": 0.09523809523809523,
+          "calibration_gap": 0.8899801590074283,
+          "n_items": 21
+        },
+        {
+          "mean_conf": 0.9996749019705897,
+          "accuracy": 0.402046783625731,
+          "calibration_gap": 0.5976281183448587,
+          "n_items": 684
+        }
+      ],
+      "power_at_rho_0.5": 0.423
+    },
+    "truthfulqa/mistral-small-3.1": {
+      "benchmark": "truthfulqa",
+      "model_id": "mistral-small-3.1",
+      "n_valid": 774,
+      "n_bins": 11,
+      "overall_accuracy": 0.7713178294573644,
+      "overall_mean_conf": 0.9314545167958656,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.08181818181818183,
+        "permutation_p_value": 0.8151,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": -0.08181818181818183,
+        "standard_spearman_p": 0.8109903943000458,
+        "bh_adjusted_p": 0.8830250000000001,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.8181818181818182,
+        "permutation_p_value": 0.0037,
+        "n_permutations": 10000,
+        "significant_at_0.01": true,
+        "standard_spearman_r": 0.8181818181818182,
+        "standard_spearman_p": 0.0020831448404786904
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.4747770769230769,
+          "accuracy": 0.38461538461538464,
+          "calibration_gap": 0.09016169230769228,
+          "n_items": 13
+        },
+        {
+          "mean_conf": 0.5505224571428572,
+          "accuracy": 0.2857142857142857,
+          "calibration_gap": 0.2648081714285715,
+          "n_items": 35
+        },
+        {
+          "mean_conf": 0.6506091538461539,
+          "accuracy": 0.23076923076923078,
+          "calibration_gap": 0.41983992307692314,
+          "n_items": 26
+        },
+        {
+          "mean_conf": 0.7508897647058824,
+          "accuracy": 0.23529411764705882,
+          "calibration_gap": 0.5155956470588237,
+          "n_items": 34
+        },
+        {
+          "mean_conf": 0.82503325,
+          "accuracy": 0.3333333333333333,
+          "calibration_gap": 0.49169991666666674,
+          "n_items": 12
+        },
+        {
+          "mean_conf": 0.8742158,
+          "accuracy": 0.5,
+          "calibration_gap": 0.3742158,
+          "n_items": 20
+        },
+        {
+          "mean_conf": 0.9447798181818182,
+          "accuracy": 0.36363636363636365,
+          "calibration_gap": 0.5811434545454546,
+          "n_items": 11
+        },
+        {
+          "mean_conf": 0.9655303076923077,
+          "accuracy": 0.5384615384615384,
+          "calibration_gap": 0.4270687692307693,
+          "n_items": 13
+        },
+        {
+          "mean_conf": 0.9752220869565218,
+          "accuracy": 0.6086956521739131,
+          "calibration_gap": 0.3665264347826087,
+          "n_items": 23
+        },
+        {
+          "mean_conf": 0.9854114137931034,
+          "accuracy": 0.6551724137931034,
+          "calibration_gap": 0.33023899999999995,
+          "n_items": 29
+        },
+        {
+          "mean_conf": 0.9992434748062016,
+          "accuracy": 0.9437984496124031,
+          "calibration_gap": 0.05544502519379846,
+          "n_items": 516
+        }
+      ],
+      "power_at_rho_0.5": 0.998
+    },
+    "truthfulqa/qwen3-next-80b": {
+      "benchmark": "truthfulqa",
+      "model_id": "qwen3-next-80b",
+      "n_valid": 817,
+      "n_bins": 6,
+      "overall_accuracy": 0.7503059975520195,
+      "overall_mean_conf": 0.9726863331178691,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.4285714285714286,
+        "permutation_p_value": 0.4127,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": -0.4285714285714286,
+        "standard_spearman_p": 0.39650145772594736,
+        "bh_adjusted_p": 0.5961222222222222,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.8857142857142858,
+        "permutation_p_value": 0.0302,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.8857142857142858,
+        "standard_spearman_p": 0.01884548104956266
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.6597759728716531,
+          "accuracy": 0.25,
+          "calibration_gap": 0.4097759728716531,
+          "n_items": 16
+        },
+        {
+          "mean_conf": 0.753297194252106,
+          "accuracy": 0.2222222222222222,
+          "calibration_gap": 0.5310749720298837,
+          "n_items": 18
+        },
+        {
+          "mean_conf": 0.871769332555994,
+          "accuracy": 0.3076923076923077,
+          "calibration_gap": 0.5640770248636863,
+          "n_items": 13
+        },
+        {
+          "mean_conf": 0.9739642332730902,
+          "accuracy": 0.29411764705882354,
+          "calibration_gap": 0.6798465862142666,
+          "n_items": 17
+        },
+        {
+          "mean_conf": 0.986480592064331,
+          "accuracy": 0.5833333333333334,
+          "calibration_gap": 0.40314725873099766,
+          "n_items": 24
+        },
+        {
+          "mean_conf": 0.9995912381938429,
+          "accuracy": 0.8456973293768546,
+          "calibration_gap": 0.15389390881698828,
+          "n_items": 674
+        }
+      ],
+      "power_at_rho_0.5": 0.423
+    },
+    "arc_challenge/llama-3.1-405b-instruct": {
+      "benchmark": "arc_challenge",
+      "model_id": "llama-3.1-405b-instruct",
+      "n_valid": 1171,
+      "n_bins": 4,
+      "overall_accuracy": 0.9470538001707942,
+      "overall_mean_conf": 0.9864992800906066,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.39999999999999997,
+        "permutation_p_value": 0.7505,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": -0.39999999999999997,
+        "standard_spearman_p": 0.6,
+        "bh_adjusted_p": 0.8830250000000001,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.7999999999999999,
+        "permutation_p_value": 0.3339,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.7999999999999999,
+        "standard_spearman_p": 0.20000000000000007
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.6510660568618053,
+          "accuracy": 0.6,
+          "calibration_gap": 0.05106605686180532,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.8334066428334906,
+          "accuracy": 0.5,
+          "calibration_gap": 0.33340664283349064,
+          "n_items": 12
+        },
+        {
+          "mean_conf": 0.98482075,
+          "accuracy": 0.6875,
+          "calibration_gap": 0.29732075,
+          "n_items": 16
+        },
+        {
+          "mean_conf": 0.9997949132462686,
+          "accuracy": 0.9776119402985075,
+          "calibration_gap": 0.02218297294776106,
+          "n_items": 1072
+        }
+      ],
+      "power_at_rho_0.5": 0.2016
+    },
+    "arc_challenge/mistral-small-3.1": {
+      "benchmark": "arc_challenge",
+      "model_id": "mistral-small-3.1",
+      "n_valid": 1110,
+      "n_bins": 5,
+      "overall_accuracy": 0.9396396396396396,
+      "overall_mean_conf": 0.9832490054054055,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.09999999999999999,
+        "permutation_p_value": 0.951,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": -0.09999999999999999,
+        "standard_spearman_p": 0.8728885715695383,
+        "bh_adjusted_p": 0.951,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.7,
+        "permutation_p_value": 0.2408,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.7,
+        "standard_spearman_p": 0.1881204043741873
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.5448426,
+          "accuracy": 0.6,
+          "calibration_gap": 0.05515740000000002,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.6498696666666667,
+          "accuracy": 0.5,
+          "calibration_gap": 0.14986966666666668,
+          "n_items": 12
+        },
+        {
+          "mean_conf": 0.7658305714285715,
+          "accuracy": 0.5238095238095238,
+          "calibration_gap": 0.24202104761904764,
+          "n_items": 21
+        },
+        {
+          "mean_conf": 0.986531,
+          "accuracy": 0.75,
+          "calibration_gap": 0.23653100000000005,
+          "n_items": 20
+        },
+        {
+          "mean_conf": 0.9996545855855856,
+          "accuracy": 0.972972972972973,
+          "calibration_gap": 0.026681612612612593,
+          "n_items": 999
+        }
+      ],
+      "power_at_rho_0.5": 0.3406
+    },
+    "hellaswag/mistral-small-3.1": {
+      "benchmark": "hellaswag",
+      "model_id": "mistral-small-3.1",
+      "n_valid": 9486,
+      "n_bins": 16,
+      "overall_accuracy": 0.9311617119966266,
+      "overall_mean_conf": 0.9776134629981026,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.3323529411764706,
+        "permutation_p_value": 0.207,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.3323529411764706,
+        "standard_spearman_p": 0.2084998279822084,
+        "bh_adjusted_p": 0.3844285714285714,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.823529411764706,
+        "permutation_p_value": 0.0002,
+        "n_permutations": 10000,
+        "significant_at_0.01": true,
+        "standard_spearman_r": 0.823529411764706,
+        "standard_spearman_p": 8.839139363842145e-05
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.46818036363636373,
+          "accuracy": 0.5909090909090909,
+          "calibration_gap": 0.12272872727272721,
+          "n_items": 22
+        },
+        {
+          "mean_conf": 0.5460529259259259,
+          "accuracy": 0.49074074074074076,
+          "calibration_gap": 0.05531218518518516,
+          "n_items": 108
+        },
+        {
+          "mean_conf": 0.6513895,
+          "accuracy": 0.5149253731343284,
+          "calibration_gap": 0.13646412686567155,
+          "n_items": 134
+        },
+        {
+          "mean_conf": 0.7530894102564103,
+          "accuracy": 0.6217948717948718,
+          "calibration_gap": 0.1312945384615385,
+          "n_items": 156
+        },
+        {
+          "mean_conf": 0.8243966880733946,
+          "accuracy": 0.6238532110091743,
+          "calibration_gap": 0.20054347706422027,
+          "n_items": 109
+        },
+        {
+          "mean_conf": 0.8775837251908397,
+          "accuracy": 0.6106870229007634,
+          "calibration_gap": 0.26689670229007634,
+          "n_items": 131
+        },
+        {
+          "mean_conf": 0.9055024,
+          "accuracy": 0.6285714285714286,
+          "calibration_gap": 0.2769309714285715,
+          "n_items": 35
+        },
+        {
+          "mean_conf": 0.9155971724137932,
+          "accuracy": 0.6206896551724138,
+          "calibration_gap": 0.2949075172413794,
+          "n_items": 29
+        },
+        {
+          "mean_conf": 0.9251471944444444,
+          "accuracy": 0.7222222222222222,
+          "calibration_gap": 0.20292497222222217,
+          "n_items": 36
+        },
+        {
+          "mean_conf": 0.9353613829787234,
+          "accuracy": 0.5957446808510638,
+          "calibration_gap": 0.3396167021276596,
+          "n_items": 47
+        },
+        {
+          "mean_conf": 0.9450276,
+          "accuracy": 0.7777777777777778,
+          "calibration_gap": 0.16724982222222218,
+          "n_items": 45
+        },
+        {
+          "mean_conf": 0.9549549836065573,
+          "accuracy": 0.7049180327868853,
+          "calibration_gap": 0.25003695081967203,
+          "n_items": 61
+        },
+        {
+          "mean_conf": 0.9651291011235955,
+          "accuracy": 0.7191011235955056,
+          "calibration_gap": 0.24602797752808991,
+          "n_items": 89
+        },
+        {
+          "mean_conf": 0.9753615689655171,
+          "accuracy": 0.6724137931034483,
+          "calibration_gap": 0.3029477758620688,
+          "n_items": 116
+        },
+        {
+          "mean_conf": 0.9853399739130435,
+          "accuracy": 0.7695652173913043,
+          "calibration_gap": 0.21577475652173916,
+          "n_items": 230
+        },
+        {
+          "mean_conf": 0.9995989258758452,
+          "accuracy": 0.9787338660110633,
+          "calibration_gap": 0.020865059864781932,
+          "n_items": 8135
+        }
+      ],
+      "power_at_rho_0.5": 1.0
+    },
+    "hellaswag/qwen3-next-80b": {
+      "benchmark": "hellaswag",
+      "model_id": "qwen3-next-80b",
+      "n_valid": 9447,
+      "n_bins": 14,
+      "overall_accuracy": 0.9030380014819519,
+      "overall_mean_conf": 0.9863717621694646,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.5296703296703297,
+        "permutation_p_value": 0.0564,
+        "n_permutations": 10000,
+        "significant_at_0.05": false,
+        "standard_spearman_r": 0.5296703296703297,
+        "standard_spearman_p": 0.05141659813787076,
+        "bh_adjusted_p": 0.24439999999999998,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.7898794658716012,
+        "permutation_p_value": 0.0012,
+        "n_permutations": 10000,
+        "significant_at_0.01": true,
+        "standard_spearman_r": 0.7898794658716012,
+        "standard_spearman_p": 0.000776762963609516
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.489719630034693,
+          "accuracy": 0.2777777777777778,
+          "calibration_gap": 0.2119418522569152,
+          "n_items": 36
+        },
+        {
+          "mean_conf": 0.5598745492161973,
+          "accuracy": 0.42857142857142855,
+          "calibration_gap": 0.13130312064476873,
+          "n_items": 35
+        },
+        {
+          "mean_conf": 0.6456926232423331,
+          "accuracy": 0.5063291139240507,
+          "calibration_gap": 0.13936350931828245,
+          "n_items": 79
+        },
+        {
+          "mean_conf": 0.755421752008426,
+          "accuracy": 0.4270833333333333,
+          "calibration_gap": 0.32833841867509267,
+          "n_items": 96
+        },
+        {
+          "mean_conf": 0.8197852750700602,
+          "accuracy": 0.4918032786885246,
+          "calibration_gap": 0.3279819963815356,
+          "n_items": 61
+        },
+        {
+          "mean_conf": 0.8717944110010695,
+          "accuracy": 0.5360824742268041,
+          "calibration_gap": 0.33571193677426536,
+          "n_items": 97
+        },
+        {
+          "mean_conf": 0.9043940434646967,
+          "accuracy": 0.4864864864864865,
+          "calibration_gap": 0.41790755697821014,
+          "n_items": 37
+        },
+        {
+          "mean_conf": 0.9240758250833819,
+          "accuracy": 0.5833333333333334,
+          "calibration_gap": 0.34074249175004856,
+          "n_items": 36
+        },
+        {
+          "mean_conf": 0.9389256525894377,
+          "accuracy": 0.5121951219512195,
+          "calibration_gap": 0.4267305306382182,
+          "n_items": 41
+        },
+        {
+          "mean_conf": 0.9531177103852888,
+          "accuracy": 0.5833333333333334,
+          "calibration_gap": 0.36978437705195544,
+          "n_items": 36
+        },
+        {
+          "mean_conf": 0.9628254737706495,
+          "accuracy": 0.6170212765957447,
+          "calibration_gap": 0.34580419717490485,
+          "n_items": 47
+        },
+        {
+          "mean_conf": 0.9743972796739337,
+          "accuracy": 0.5256410256410257,
+          "calibration_gap": 0.4487562540329081,
+          "n_items": 78
+        },
+        {
+          "mean_conf": 0.9854707605462304,
+          "accuracy": 0.5203252032520326,
+          "calibration_gap": 0.4651455572941978,
+          "n_items": 123
+        },
+        {
+          "mean_conf": 0.9997806318527962,
+          "accuracy": 0.9412446401668791,
+          "calibration_gap": 0.058535991685917055,
+          "n_items": 8629
+        }
+      ],
+      "power_at_rho_0.5": 1.0
+    },
+    "winogrande/mistral-small-3.1": {
+      "benchmark": "winogrande",
+      "model_id": "mistral-small-3.1",
+      "n_valid": 1199,
+      "n_bins": 14,
+      "overall_accuracy": 0.7798165137614679,
+      "overall_mean_conf": 0.9592332293577981,
+      "primary_test_conf_vs_gap": {
+        "description": "H0: calibration gap is independent of confidence",
+        "observed_abs_spearman_r": 0.6351648351648352,
+        "permutation_p_value": 0.0172,
+        "n_permutations": 10000,
+        "significant_at_0.05": true,
+        "standard_spearman_r": 0.6351648351648352,
+        "standard_spearman_p": 0.01465788132728914,
+        "bh_adjusted_p": 0.2236,
+        "significant_bh_0.05": false
+      },
+      "positive_control_conf_vs_accuracy": {
+        "description": "Positive control: confidence should predict accuracy",
+        "observed_abs_spearman_r": 0.3049770303006261,
+        "permutation_p_value": 0.2929,
+        "n_permutations": 10000,
+        "significant_at_0.01": false,
+        "standard_spearman_r": 0.3049770303006261,
+        "standard_spearman_p": 0.289028928844622
+      },
+      "bin_details": [
+        {
+          "mean_conf": 0.5553811428571429,
+          "accuracy": 0.5,
+          "calibration_gap": 0.055381142857142907,
+          "n_items": 14
+        },
+        {
+          "mean_conf": 0.6563857021276596,
+          "accuracy": 0.5531914893617021,
+          "calibration_gap": 0.10319421276595742,
+          "n_items": 47
+        },
+        {
+          "mean_conf": 0.751175896551724,
+          "accuracy": 0.5517241379310345,
+          "calibration_gap": 0.19945175862068953,
+          "n_items": 29
+        },
+        {
+          "mean_conf": 0.8224881599999999,
+          "accuracy": 0.64,
+          "calibration_gap": 0.1824881599999999,
+          "n_items": 25
+        },
+        {
+          "mean_conf": 0.8768359148936171,
+          "accuracy": 0.574468085106383,
+          "calibration_gap": 0.3023678297872341,
+          "n_items": 47
+        },
+        {
+          "mean_conf": 0.9163048,
+          "accuracy": 0.8,
+          "calibration_gap": 0.11630479999999999,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.9242231000000001,
+          "accuracy": 0.7,
+          "calibration_gap": 0.22422310000000012,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.9354903000000002,
+          "accuracy": 0.7,
+          "calibration_gap": 0.23549030000000026,
+          "n_items": 10
+        },
+        {
+          "mean_conf": 0.94597475,
+          "accuracy": 0.6875,
+          "calibration_gap": 0.25847475,
+          "n_items": 16
+        },
+        {
+          "mean_conf": 0.9555547727272728,
+          "accuracy": 0.5,
+          "calibration_gap": 0.45555477272727285,
+          "n_items": 22
+        },
+        {
+          "mean_conf": 0.9655138928571427,
+          "accuracy": 0.5,
+          "calibration_gap": 0.46551389285714273,
+          "n_items": 28
+        },
+        {
+          "mean_conf": 0.9746046279069769,
+          "accuracy": 0.5813953488372093,
+          "calibration_gap": 0.39320927906976755,
+          "n_items": 43
+        },
+        {
+          "mean_conf": 0.985615357142857,
+          "accuracy": 0.6,
+          "calibration_gap": 0.385615357142857,
+          "n_items": 70
+        },
+        {
+          "mean_conf": 0.9987106166056167,
+          "accuracy": 0.8681318681318682,
+          "calibration_gap": 0.1305787484737485,
+          "n_items": 819
+        }
+      ],
+      "power_at_rho_0.5": 1.0
     }
   }
 }

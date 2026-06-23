@@ -6,3 +6,17 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# Python and package build artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Local run logs and downloaded model weights
+logs/
+models/*.gguf
+models/*.bin
+models/*.safetensors

@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Confidence-quality audit for high-coverage pairs excluded from the headline set. These runs retain usable accuracy information but their confidence traces are too degenerate for calibration-shape claims.}
+\label{tab:confidence-quality}
+\footnotesize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1.8cm}p{2.6cm}rrp{1.2cm}p{2.0cm}p{4.6cm}}
+\toprule
+Benchmark & Model & $m$ & Std(conf.) & Unique$_{0.001}$ & Dominant share & Exclusion reason \\
+\midrule
+MMLU & Deepseek R1 Qwen 32B & 13,128 & 0.000 & 1 & 100\% @ 0.25 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+MMLU & Qwen2.5 7B & 13,265 & 0.009 & 2 & 100\% @ 1.00 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+TruthfulQA & Deepseek R1 Qwen 32B & 771 & 0.089 & 12 & 27\% @ 0.25 & unique<20 \\
+TruthfulQA & Qwen2.5 7B & 774 & 0.000 & 1 & 100\% @ 1.00 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+ARC-Challenge & Deepseek R1 Qwen 32B & 1,107 & 0.005 & 3 & 99\% @ 0.25 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+ARC-Challenge & Qwen2.5 7B & 1,110 & 0.023 & 2 & 100\% @ 1.00 & unique<20; dominant>95pct; fallback>95pct \\
+HellaSwag & Deepseek R1 Qwen 32B & 9,467 & 0.000 & 1 & 100\% @ 0.25 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+HellaSwag & Qwen2.5 7B & 9,487 & 0.000 & 1 & 100\% @ 1.00 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+WinoGrande & Deepseek R1 Qwen 32B & 1,194 & 0.000 & 1 & 100\% @ 0.50 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+WinoGrande & Qwen2.5 7B & 1,199 & 0.000 & 1 & 100\% @ 1.00 & std<0.02; unique<20; dominant>95pct; fallback>95pct \\
+\bottomrule
+\end{tabular}}
+\end{table*}

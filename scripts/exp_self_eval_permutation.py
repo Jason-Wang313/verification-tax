@@ -2,7 +2,7 @@
 """
 exp_self_eval_permutation.py  --  Permutation test for self-eval impossibility
 
-Strengthens the self-eval=zero claim (Theorem B) with a proper permutation test,
+Strengthens the self-eval claim (Theorem B) with a proper permutation test,
 not just Spearman correlation.
 
 Key test:
@@ -11,12 +11,10 @@ Key test:
 
 Positive control: |Spearman(mean_conf, accuracy)| should be significant.
 
-Expected result:
-  - p-value for conf -> gap:      > 0.05 (non-significant)
-  - p-value for conf -> accuracy:  < 0.01 (significant)
-  This contrast validates Theorem B.
-
-Data: 3 MMLU JSONL files (Llama-405B, Llama-4-Maverick, Qwen3-Next-80B).
+Auto-discovers all results_*.jsonl files across all 5 benchmark directories.
+Applies the same confidence-quality screen as analyze_screened_roster.py.
+Applies Benjamini-Hochberg FDR correction across all p-values.
+Computes post-hoc power analysis against rho=0.5 alternative.
 
 Outputs:
   results/analysis/self_eval_permutation.json
@@ -26,30 +24,35 @@ Outputs:
 import json
 import os
 import sys
+import glob
 import numpy as np
 from scipy import stats
 
 np.random.seed(42)
 
 # ===================================================================
-# Paths (all absolute)
+# Paths
 # ===================================================================
-BASE = r"C:\Users\wangz\verification tax"
-DATA_DIR = os.path.join(BASE, "data", "mmlu")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = PROJECT_ROOT
+DATA_DIR = os.path.join(BASE, "data")
 RES_DIR = os.path.join(BASE, "results", "analysis")
 os.makedirs(RES_DIR, exist_ok=True)
 
-MODEL_FILES = {
-    "LLaMA-3.1-405B":   "results_llama-3.1-405b-instruct.jsonl",
-    "LLaMA-4-Maverick":  "results_llama-4-maverick.jsonl",
-    "Qwen3-Next-80B":    "results_qwen3-next-80b.jsonl",
-}
+BENCHMARKS = ["mmlu", "truthfulqa", "arc_challenge", "hellaswag", "winogrande"]
+
+# ===================================================================
+# Confidence-quality screen (matches analyze_screened_roster.py)
+# ===================================================================
+MIN_VALID = 100
+HIGH_COVERAGE = 0.70
+STD_MIN = 0.02
+UNIQUE_MIN = 20
+FALLBACK_SHARE_MAX = 0.95
+FALLBACK_VALUES = (0.25, 0.50, 1.00)
 
 # ===================================================================
 # Adaptive bin edges (same as exp_self_eval_zero.py)
-#   5 bins in [0, 0.5]:    0, 0.1, 0.2, 0.3, 0.4, 0.5
-#   5 bins in [0.5, 0.9]:  0.5, 0.6, 0.7, 0.8, 0.85, 0.9
-#  10 bins in [0.9, 1.0]:  0.9, 0.91, ..., 0.99, 1.0
 # ===================================================================
 BIN_EDGES = np.array([
     0.0, 0.1, 0.2, 0.3, 0.4, 0.5,
@@ -73,7 +76,11 @@ def load_model(filepath):
             line = line.strip()
             if not line:
                 continue
-            obj = json.loads(line)
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                n_skipped += 1
+                continue
             if "error" in obj:
                 n_skipped += 1
                 continue
@@ -83,6 +90,63 @@ def load_model(filepath):
             confs.append(float(obj["max_conf"]))
             corrects.append(float(obj["is_correct"]))
     return np.array(confs), np.array(corrects), n_skipped
+
+
+def load_total_items(benchmark):
+    """Load total items for a benchmark to compute coverage."""
+    items_path = os.path.join(DATA_DIR, benchmark, "all_items.json")
+    if not os.path.exists(items_path):
+        return None
+    with open(items_path, "r", encoding="utf-8") as fh:
+        return len(json.load(fh))
+
+
+def passes_screen(confs, total_items):
+    """Apply confidence-quality screen matching analyze_screened_roster.py."""
+    n = len(confs)
+    if n < MIN_VALID:
+        return False, "n<100"
+    if total_items and n / total_items < HIGH_COVERAGE:
+        return False, "coverage<70%"
+    if np.std(confs) < STD_MIN:
+        return False, "std<0.02"
+    rounded = np.round(confs, 2)
+    if len(np.unique(rounded)) < UNIQUE_MIN:
+        return False, "unique<20"
+    for fv in FALLBACK_VALUES:
+        if np.mean(np.abs(confs - fv) < 0.005) > FALLBACK_SHARE_MAX:
+            return False, f"fallback={fv}"
+    return True, ""
+
+
+# ===================================================================
+# Auto-discover all screened benchmark-model pairs
+# ===================================================================
+def discover_pairs():
+    """Find all results_*.jsonl across benchmarks, apply screen."""
+    pairs = []
+    for bench in BENCHMARKS:
+        bench_dir = os.path.join(DATA_DIR, bench)
+        if not os.path.isdir(bench_dir):
+            continue
+        total = load_total_items(bench)
+        for path in sorted(glob.glob(os.path.join(bench_dir, "results_*.jsonl"))):
+            fname = os.path.basename(path)
+            model_id = fname.replace("results_", "").replace(".jsonl", "")
+            confs, corrects, n_skip = load_model(path)
+            if len(confs) == 0:
+                continue
+            ok, reason = passes_screen(confs, total)
+            if ok:
+                pairs.append({
+                    "benchmark": bench,
+                    "model_id": model_id,
+                    "path": path,
+                    "confs": confs,
+                    "corrects": corrects,
+                    "n_valid": len(confs),
+                })
+    return pairs
 
 
 # ===================================================================
@@ -153,64 +217,115 @@ def permutation_test(x, y, n_perms=10000):
 
 
 # ===================================================================
+# Benjamini-Hochberg FDR correction
+# ===================================================================
+def benjamini_hochberg(p_values, alpha=0.05):
+    """Apply BH correction. Returns adjusted p-values."""
+    p = np.array(p_values)
+    n = len(p)
+    if n == 0:
+        return np.array([])
+    sorted_idx = np.argsort(p)
+    sorted_p = p[sorted_idx]
+    adjusted = np.empty(n)
+    adjusted[sorted_idx[-1]] = sorted_p[-1]
+    for i in range(n - 2, -1, -1):
+        adjusted[sorted_idx[i]] = min(
+            adjusted[sorted_idx[i + 1]],
+            sorted_p[i] * n / (i + 1)
+        )
+    return np.clip(adjusted, 0, 1)
+
+
+# ===================================================================
+# Power analysis via Monte Carlo
+# ===================================================================
+def power_analysis(n_bins, rho_alt=0.5, alpha=0.05, n_sims=5000):
+    """
+    Estimate power of the Spearman test to detect rho = rho_alt.
+
+    Uses scipy's Spearman p-value (exact for small n, approximation for large n)
+    rather than nested permutation tests, which is much faster.
+    """
+    if n_bins < 3:
+        return float("nan")
+
+    rejections = 0
+    for _ in range(n_sims):
+        x = np.arange(n_bins, dtype=float)
+        noise = np.random.randn(n_bins)
+        y = rho_alt * x + np.sqrt(1 - rho_alt**2) * noise
+        r, p = stats.spearmanr(x, y)
+        # Two-sided test, but we use |r| so halve the threshold
+        if p <= alpha:
+            rejections += 1
+
+    return rejections / n_sims
+
+
+# ===================================================================
 # Main
 # ===================================================================
 def main():
     print("=" * 70)
     print("Permutation Test for Self-Verification Impossibility (Theorem B)")
+    print("  Auto-discovers all screened benchmark-model pairs")
+    print("  Applies BH correction + power analysis")
     print("=" * 70)
     print(f"  Permutations:  10,000")
     print(f"  Bins:          adaptive ({len(BIN_EDGES)-1} edges, min {MIN_BIN_COUNT}/bin)")
     print()
     sys.stdout.flush()
 
-    results = {}
+    pairs = discover_pairs()
+    print(f"Discovered {len(pairs)} screened benchmark-model pairs")
+    for p in pairs:
+        print(f"  {p['benchmark']}/{p['model_id']} ({p['n_valid']:,} items)")
+    print()
+    sys.stdout.flush()
 
-    for name, fname in MODEL_FILES.items():
+    results = {}
+    all_gap_pvalues = []
+    pair_names = []
+
+    for pair in pairs:
+        name = f"{pair['benchmark']}/{pair['model_id']}"
         print(f"--- {name} ---")
         sys.stdout.flush()
 
-        path = os.path.join(DATA_DIR, fname)
-        confs, corrects, n_skip = load_model(path)
-        print(f"  Loaded {len(confs):,} valid records ({n_skip:,} skipped)")
+        confs = pair["confs"]
+        corrects = pair["corrects"]
 
         # Compute bin stats
         mean_confs, accuracies, cal_gaps, n_items = compute_bin_stats(confs, corrects)
         n_bins = len(mean_confs)
-        print(f"  Bins used: {n_bins}")
+        print(f"  Items: {len(confs):,}, Bins used: {n_bins}")
 
         if n_bins < 3:
             print(f"  WARNING: Too few bins ({n_bins}). Skipping.")
-            results[name] = {"error": "too few bins"}
+            results[name] = {"error": "too few bins", "n_bins": n_bins}
             continue
 
         # --- PRIMARY TEST: conf -> calibration gap ---
-        print(f"\n  PRIMARY TEST: |Spearman(conf, |cal_gap|)|")
-        sys.stdout.flush()
         obs_r_gap, p_gap, null_gap = permutation_test(mean_confs, cal_gaps, n_perms=10000)
-        print(f"    Observed |r| = {obs_r_gap:.4f}")
-        print(f"    Permutation p-value = {p_gap:.4f}")
-        if p_gap > 0.05:
-            print(f"    -> NOT SIGNIFICANT (p > 0.05): consistent with Theorem B")
-        else:
-            print(f"    -> Significant (p <= 0.05): unexpectedly significant")
+        sig_gap = "SIG" if p_gap <= 0.05 else "ns"
+        print(f"  Gap test:  |r|={obs_r_gap:.4f}  p={p_gap:.4f}  [{sig_gap}]")
 
         # --- POSITIVE CONTROL: conf -> accuracy ---
-        print(f"\n  POSITIVE CONTROL: |Spearman(conf, accuracy)|")
-        sys.stdout.flush()
         obs_r_acc, p_acc, null_acc = permutation_test(mean_confs, accuracies, n_perms=10000)
-        print(f"    Observed |r| = {obs_r_acc:.4f}")
-        print(f"    Permutation p-value = {p_acc:.4f}")
-        if p_acc < 0.01:
-            print(f"    -> SIGNIFICANT (p < 0.01): confidence predicts accuracy")
-        else:
-            print(f"    -> Not significant (p >= 0.01): unexpected")
+        sig_acc = "SIG" if p_acc <= 0.01 else "ns"
+        print(f"  Acc ctrl:  |r|={obs_r_acc:.4f}  p={p_acc:.4f}  [{sig_acc}]")
 
-        # Also compute standard Spearman for reference
+        # Standard Spearman for reference
         r_gap_std, p_gap_std = stats.spearmanr(mean_confs, cal_gaps)
         r_acc_std, p_acc_std = stats.spearmanr(mean_confs, accuracies)
 
+        all_gap_pvalues.append(p_gap)
+        pair_names.append(name)
+
         results[name] = {
+            "benchmark": pair["benchmark"],
+            "model_id": pair["model_id"],
             "n_valid": int(len(confs)),
             "n_bins": int(n_bins),
             "overall_accuracy": float(corrects.mean()),
@@ -242,63 +357,105 @@ def main():
                 }
                 for i in range(n_bins)
             ],
-            "null_distribution_stats": {
-                "gap_null_mean": float(null_gap.mean()) if len(null_gap) > 0 else None,
-                "gap_null_std": float(null_gap.std()) if len(null_gap) > 0 else None,
-                "gap_null_95th": float(np.percentile(null_gap, 95)) if len(null_gap) > 0 else None,
-                "acc_null_mean": float(null_acc.mean()) if len(null_acc) > 0 else None,
-                "acc_null_std": float(null_acc.std()) if len(null_acc) > 0 else None,
-                "acc_null_95th": float(np.percentile(null_acc, 95)) if len(null_acc) > 0 else None,
-            },
         }
         print()
         sys.stdout.flush()
 
     # ------------------------------------------------------------------
+    # Benjamini-Hochberg FDR correction
+    # ------------------------------------------------------------------
+    if all_gap_pvalues:
+        raw_p = np.array(all_gap_pvalues)
+        adjusted_p = benjamini_hochberg(raw_p, alpha=0.05)
+
+        for i, name in enumerate(pair_names):
+            if name in results and "error" not in results[name]:
+                results[name]["primary_test_conf_vs_gap"]["bh_adjusted_p"] = float(adjusted_p[i])
+                results[name]["primary_test_conf_vs_gap"]["significant_bh_0.05"] = bool(adjusted_p[i] <= 0.05)
+
+    # ------------------------------------------------------------------
+    # Power analysis (for representative bin counts)
+    # ------------------------------------------------------------------
+    print("=" * 70)
+    print("POWER ANALYSIS (rho_alt=0.5, alpha=0.05, 5k sims)")
+    print("=" * 70)
+    sys.stdout.flush()
+
+    bin_counts_seen = set()
+    power_results = {}
+    for name in pair_names:
+        if name in results and "error" not in results[name]:
+            nb = results[name]["n_bins"]
+            bin_counts_seen.add(nb)
+
+    for nb in sorted(bin_counts_seen):
+        print(f"  Computing power for n_bins={nb}...", end=" ", flush=True)
+        pwr = power_analysis(nb, rho_alt=0.5, alpha=0.05, n_sims=5000)
+        power_results[nb] = pwr
+        print(f"power = {pwr:.3f}")
+
+    # Attach power to each result
+    for name in pair_names:
+        if name in results and "error" not in results[name]:
+            nb = results[name]["n_bins"]
+            results[name]["power_at_rho_0.5"] = power_results.get(nb, float("nan"))
+
+    # ------------------------------------------------------------------
     # Summary table
     # ------------------------------------------------------------------
+    print()
     print("=" * 70)
     print("SUMMARY TABLE")
     print("=" * 70)
     print()
-    hdr = (f"  {'Model':<25s} "
-           f"{'|r|(gap)':>10s} {'p(gap)':>10s} {'sig?':>6s} "
-           f"{'|r|(acc)':>10s} {'p(acc)':>10s} {'sig?':>6s}")
+    hdr = (f"  {'Pair':<40s} {'bins':>4s} "
+           f"{'|r|(gap)':>8s} {'p(gap)':>8s} {'p(BH)':>8s} {'sig?':>5s} "
+           f"{'|r|(acc)':>8s} {'p(acc)':>8s} {'power':>6s}")
     print(hdr)
-    print(f"  {'-'*25} {'-'*10} {'-'*10} {'-'*6} {'-'*10} {'-'*10} {'-'*6}")
+    print(f"  {'-'*40} {'-'*4} {'-'*8} {'-'*8} {'-'*8} {'-'*5} {'-'*8} {'-'*8} {'-'*6}")
 
-    all_pass = True
-    for name in MODEL_FILES:
+    n_tested = 0
+    n_gap_nonsig_raw = 0
+    n_gap_nonsig_bh = 0
+    n_acc_sig = 0
+
+    for name in pair_names:
         if name not in results or "error" in results[name]:
-            print(f"  {name:<25s}   (skipped)")
-            all_pass = False
+            print(f"  {name:<40s}   (skipped)")
             continue
         r = results[name]
+        n_tested += 1
         rg = r["primary_test_conf_vs_gap"]["observed_abs_spearman_r"]
         pg = r["primary_test_conf_vs_gap"]["permutation_p_value"]
-        sg = "YES" if pg <= 0.05 else "no"
+        pbh = r["primary_test_conf_vs_gap"].get("bh_adjusted_p", float("nan"))
+        sg = "BH" if pbh <= 0.05 else ("raw" if pg <= 0.05 else "no")
         ra = r["positive_control_conf_vs_accuracy"]["observed_abs_spearman_r"]
         pa = r["positive_control_conf_vs_accuracy"]["permutation_p_value"]
-        sa = "YES" if pa <= 0.01 else "no"
-        print(f"  {name:<25s} {rg:>10.4f} {pg:>10.4f} {sg:>6s} "
-              f"{ra:>10.4f} {pa:>10.4f} {sa:>6s}")
+        pwr = r.get("power_at_rho_0.5", float("nan"))
+        nb = r["n_bins"]
 
-        # Check expected pattern
-        gap_ok = pg > 0.05
-        acc_ok = pa < 0.01
-        if not (gap_ok and acc_ok):
-            all_pass = False
+        if pg > 0.05:
+            n_gap_nonsig_raw += 1
+        if pbh > 0.05:
+            n_gap_nonsig_bh += 1
+        if pa <= 0.01:
+            n_acc_sig += 1
+
+        print(f"  {name:<40s} {nb:>4d} "
+              f"{rg:>8.4f} {pg:>8.4f} {pbh:>8.4f} {sg:>5s} "
+              f"{ra:>8.4f} {pa:>8.4f} {pwr:>6.3f}")
 
     print()
-    print("  Expected pattern (Theorem B):")
-    print("    conf -> |gap|:    NOT significant (p > 0.05)")
-    print("    conf -> accuracy: SIGNIFICANT (p < 0.01)")
+    frac_raw = n_gap_nonsig_raw / n_tested if n_tested > 0 else 0
+    frac_bh = n_gap_nonsig_bh / n_tested if n_tested > 0 else 0
+    print(f"  Tested: {n_tested}")
+    print(f"  Gap non-significant (raw p>0.05):  {n_gap_nonsig_raw}/{n_tested} = {frac_raw:.1%}")
+    print(f"  Gap non-significant (BH p>0.05):   {n_gap_nonsig_bh}/{n_tested} = {frac_bh:.1%}")
+    print(f"  Accuracy significant (p<0.01):     {n_acc_sig}/{n_tested}")
     print()
-    if all_pass:
-        print("  RESULT: All models match expected pattern. Theorem B validated.")
-    else:
-        print("  RESULT: Some models deviate from expected pattern.")
-        print("          See per-model details above.")
+    print(f"  Power analysis: power to detect rho=0.5")
+    for nb, pwr in sorted(power_results.items()):
+        print(f"    n_bins={nb}: power = {pwr:.3f}")
     print("=" * 70)
 
     # ------------------------------------------------------------------
@@ -307,11 +464,20 @@ def main():
     output = {
         "description": (
             "Permutation test for self-verification impossibility (Theorem B). "
+            "Auto-discovers all screened benchmark-model pairs across 5 benchmarks. "
             "Tests whether confidence predicts calibration gap (should NOT be "
             "significant) vs accuracy (positive control, should be significant). "
-            "10,000 permutations per test."
+            "10,000 permutations per test. BH FDR correction applied. "
+            "Power analysis against rho=0.5 alternative."
         ),
-        "per_model": results,
+        "n_pairs_tested": n_tested,
+        "n_gap_nonsignificant_raw": n_gap_nonsig_raw,
+        "n_gap_nonsignificant_bh": n_gap_nonsig_bh,
+        "fraction_nonsignificant_raw": frac_raw,
+        "fraction_nonsignificant_bh": frac_bh,
+        "n_accuracy_significant": n_acc_sig,
+        "power_by_nbins": {str(k): v for k, v in power_results.items()},
+        "per_pair": results,
     }
 
     json_path = os.path.join(RES_DIR, "self_eval_permutation.json")

@@ -14,13 +14,15 @@ Outputs:
   - Console: summary table + gasp statistic
 """
 
+import csv
 import json
 import math
 import os
 import itertools
 
 # ── Paths (absolute) ─────────────────────────────────────────────────────────
-BASE_DIR = r"C:\Users\wangz\verification tax"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = PROJECT_ROOT
 RESULTS_DIR = os.path.join(BASE_DIR, "results")
 ANALYSIS_DIR = os.path.join(RESULTS_DIR, "analysis")
 
@@ -72,6 +74,80 @@ PUBLISHED_SCORES = {
         }
     },
 }
+
+# ── Leaderboard snapshots (additional public-score data) ────────────────────
+# Each new benchmark lives alongside PUBLISHED_SCORES and is tagged with its
+# originating leaderboard. Sources are public snapshots; values are rounded
+# to the nearest percentage point and are meant to illustrate the verification
+# floor across leaderboards, not to be authoritative rankings.
+LEADERBOARD_SNAPSHOTS = {
+    "MMLU-Pro": {
+        "n": 12032,
+        "leaderboard": "Open LLM Leaderboard v2",
+        "source": "Hugging Face Open LLM Leaderboard v2 (snapshot 2025)",
+        "models": {
+            "DeepSeek-V3": {"acc": 0.650},
+            "Llama-3.3-70B-Instruct": {"acc": 0.599},
+            "Qwen2.5-72B-Instruct": {"acc": 0.561},
+            "Llama-3.1-70B-Instruct": {"acc": 0.540},
+            "Mistral-Large-2": {"acc": 0.557},
+        },
+    },
+    "AlpacaEval-2.0-LC": {
+        "n": 805,
+        "leaderboard": "AlpacaEval 2.0 (length-controlled)",
+        "source": "tatsu-lab/alpaca_eval leaderboard (snapshot 2025)",
+        "models": {
+            "GPT-4o": {"acc": 0.573},           # LC win rate vs GPT-4 Preview
+            "GPT-4 Turbo": {"acc": 0.550},
+            "Claude 3 Opus": {"acc": 0.404},
+            "Llama-3-70B-Instruct": {"acc": 0.348},
+        },
+    },
+    "HELM-MMLU": {
+        "n": 14042,
+        "leaderboard": "HELM (Stanford CRFM)",
+        "source": "HELM lite leaderboard (snapshot 2025)",
+        "models": {
+            "GPT-4o": {"acc": 0.887},
+            "Claude 3.5 Sonnet": {"acc": 0.887},
+            "Gemini 1.5 Pro": {"acc": 0.859},
+            "Llama-3.1-405B-Instruct": {"acc": 0.870},
+            "Mistral-Large-2": {"acc": 0.839},
+        },
+    },
+    "Arena-Hard": {
+        "n": 500,
+        "leaderboard": "Chatbot Arena (Arena-Hard-Auto)",
+        "source": "lmsys/arena-hard-auto leaderboard (snapshot 2025)",
+        "models": {
+            "GPT-4 Turbo": {"acc": 0.780},      # win rate vs GPT-4-0314 baseline
+            "Claude 3 Opus": {"acc": 0.601},
+            "Llama-3-70B-Instruct": {"acc": 0.463},
+            "GPT-4o": {"acc": 0.798},
+        },
+    },
+}
+
+# Tag the existing technical-report benchmarks.
+BENCHMARK_LEADERBOARD_TAGS = {
+    "MMLU": "Tech reports / HELM",
+    "TruthfulQA": "Tech reports / HELM",
+    "HumanEval": "Tech reports",
+    "GPQA Diamond": "Tech reports",
+}
+# New snapshots inherit their leaderboard tag from the entry itself.
+for _bench, _data in LEADERBOARD_SNAPSHOTS.items():
+    BENCHMARK_LEADERBOARD_TAGS[_bench] = _data["leaderboard"]
+
+# Merge snapshots into the main benchmark dict so the rest of the pipeline
+# treats them uniformly.
+for _bench, _data in LEADERBOARD_SNAPSHOTS.items():
+    _models_with_source = {
+        m: {"acc": d["acc"], "source": _data["source"]}
+        for m, d in _data["models"].items()
+    }
+    PUBLISHED_SCORES[_bench] = {"n": _data["n"], "models": _models_with_source}
 
 L = 1  # Lipschitz constant
 
@@ -322,6 +398,71 @@ def main():
 
     print("JSON data written to:   {}".format(json_path))
 
+    # ── Leaderboard floors CSV ──────────────────────────────────────────────
+    csv_path = os.path.join(RESULTS_DIR, "leaderboard_floors.csv")
+    with open(csv_path, "w", newline="", encoding="utf-8") as fh:
+        writer = csv.writer(fh)
+        writer.writerow([
+            "leaderboard", "benchmark", "model_A", "model_B",
+            "reported_gap", "n", "eps_A", "eps_B",
+            "accuracy_floor", "ece_floor", "verdict",
+        ])
+        for c in all_comparisons:
+            leaderboard = BENCHMARK_LEADERBOARD_TAGS.get(c["benchmark"], "Unknown")
+            writer.writerow([
+                leaderboard, c["benchmark"], c["model_a"], c["model_b"],
+                f"{c['gap']:.4f}", c["n"],
+                f"{1-c['acc_a']:.4f}", f"{1-c['acc_b']:.4f}",
+                f"{c['delta_acc']:.4f}", f"{c['delta_floor_ece']:.4f}",
+                c["verdict"],
+            ])
+    print("Leaderboard CSV:        {}".format(csv_path))
+
+    # ── Per-leaderboard summary ─────────────────────────────────────────────
+    leaderboard_groups: dict[str, list[dict]] = {}
+    for c in all_comparisons:
+        leaderboard = BENCHMARK_LEADERBOARD_TAGS.get(c["benchmark"], "Unknown")
+        leaderboard_groups.setdefault(leaderboard, []).append(c)
+
+    print("\n" + "=" * 78)
+    print("PER-LEADERBOARD RESOLUTION ANALYSIS")
+    print("=" * 78)
+    print("{:<42s} {:>6s} {:>10s} {:>10s} {:>10s}".format(
+        "Leaderboard", "Pairs", "Unverif%", "Margin%", "Verif%"))
+    print("-" * 80)
+    leaderboard_rows = []
+    for lb, comps in sorted(leaderboard_groups.items()):
+        total = len(comps)
+        u = sum(1 for c in comps if c["verdict"] == "NO")
+        m = sum(1 for c in comps if c["verdict"] == "Marginal")
+        v = total - u - m
+        row = {
+            "leaderboard": lb, "pairs": total,
+            "unverifiable_pct": round(100 * u / total, 1) if total else 0.0,
+            "marginal_pct": round(100 * m / total, 1) if total else 0.0,
+            "verifiable_pct": round(100 * v / total, 1) if total else 0.0,
+        }
+        leaderboard_rows.append(row)
+        print("{:<42s} {:>6d} {:>9.1f}% {:>9.1f}% {:>9.1f}%".format(
+            lb, total, row["unverifiable_pct"], row["marginal_pct"], row["verifiable_pct"]))
+
+    # LaTeX summary table for the main text.
+    tex_path2 = os.path.join(RESULTS_DIR, "leaderboard_floor_summary_table.tex")
+    with open(tex_path2, "w", encoding="utf-8") as fh:
+        fh.write("% Auto-generated by exp_named_model_comparison.py\n")
+        fh.write("\\begin{table}[t]\n\\centering\n")
+        fh.write("\\caption{Share of published pairwise comparisons that fall below the accuracy floor, by leaderboard. "
+                 "Based on snapshot scores; see \\texttt{results/leaderboard\\_floors.csv} for full data.}\n")
+        fh.write("\\label{tab:leaderboard-floors}\n\\small\n")
+        fh.write("\\begin{tabular}{lrrrr}\n\\toprule\n")
+        fh.write("Leaderboard & Pairs & Unverifiable & Marginal & Verifiable \\\\\n\\midrule\n")
+        for row in leaderboard_rows:
+            lb = row["leaderboard"].replace("&", "\\&")
+            fh.write("{} & {} & {:.0f}\\% & {:.0f}\\% & {:.0f}\\% \\\\\n".format(
+                lb, row["pairs"], row["unverifiable_pct"], row["marginal_pct"], row["verifiable_pct"]))
+        fh.write("\\bottomrule\n\\end{tabular}\n\\end{table}\n")
+    print("Summary table:          {}".format(tex_path2))
+
     # ── Final summary for the main text ──────────────────────────────────────
     print("\n\n" + "=" * 78)
     print("SUMMARY FOR MAIN TEXT")
@@ -358,3 +499,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

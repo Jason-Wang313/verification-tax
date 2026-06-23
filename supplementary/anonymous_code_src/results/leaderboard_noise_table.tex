@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\caption{Per-subject MMLU rankings for the 20 largest subjects. $\delta_{\mathrm{floor}}$ is the verification floor; gaps below $\delta_{\mathrm{floor}}$ are noise (marked \ding{55}). Instability = fraction of 200 bootstraps where ranking changes.}
+\label{tab:leaderboard-noise}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrccccccc}
+\toprule
+Subject & $n$ & L405B & L4-Mav & Q3-80B & Max gap & $\delta_{\mathrm{floor}}$ & Verif. & Instab. \\
+\midrule
+Professional Law & 1534 & 0.72 & 0.68 & 0.68 & 0.040 & 0.175 & \ding{55} & 0.15 \\
+Moral Scenarios & 895 & 0.87 & 0.47 & 0.67 & 0.402 & 0.179 & \ding{51} & 0.00 \\
+Miscellaneous & 783 & 0.92 & 0.92 & 0.94 & 0.018 & 0.108 & \ding{55} & 0.44 \\
+Professional Psychology & 612 & 0.87 & 0.86 & 0.87 & 0.005 & 0.133 & \ding{55} & 0.73 \\
+High School Psychology & 545 & 0.93 & 0.92 & 0.96 & 0.037 & 0.104 & \ding{55} & 0.02 \\
+High School Macroeconomics & 390 & 0.88 & 0.78 & 0.89 & 0.108 & 0.137 & \ding{55} & 0.27 \\
+Elementary Mathematics & 378 & 0.79 & 0.68 & 0.89 & 0.214 & 0.155 & \ding{51} & 0.00 \\
+Moral Disputes & 346 & 0.85 & 0.86 & 0.85 & 0.003 & 0.137 & \ding{55} & 0.80 \\
+Prehistory & 324 & 0.91 & 0.90 & 0.92 & 0.019 & 0.116 & \ding{55} & 0.46 \\
+Philosophy & 311 & 0.86 & 0.85 & 0.85 & 0.016 & 0.136 & \ding{55} & 0.53 \\
+High School Biology & 310 & 0.95 & 0.80 & 0.95 & 0.155 & 0.121 & \ding{51} & 0.28 \\
+Nutrition & 306 & 0.92 & 0.87 & 0.88 & 0.046 & 0.126 & \ding{55} & 0.43 \\
+Professional Accounting & 282 & 0.74 & 0.70 & 0.74 & 0.046 & 0.168 & \ding{55} & 0.48 \\
+Professional Medicine & 272 & 0.92 & 0.88 & 0.92 & 0.048 & 0.118 & \ding{55} & 0.47 \\
+High School Mathematics & 270 & 0.57 & 0.07 & 0.65 & 0.581 & 0.215 & \ding{51} & 0.00 \\
+Clinical Knowledge & 265 & 0.90 & 0.84 & 0.90 & 0.060 & 0.129 & \ding{55} & 0.36 \\
+Security Studies & 245 & 0.79 & 0.81 & 0.81 & 0.020 & 0.151 & \ding{55} & 0.55 \\
+High School Microeconomics & 238 & 0.95 & 0.89 & 0.95 & 0.063 & 0.107 & \ding{55} & 0.10 \\
+High School World History & 237 & 0.92 & 0.93 & 0.93 & 0.008 & 0.108 & \ding{55} & 0.80 \\
+Conceptual Physics & 235 & 0.86 & 0.64 & 0.90 & 0.255 & 0.152 & \ding{51} & 0.00 \\
+\bottomrule
+\end{tabular}}
+\end{table}

@@ -1,0 +1,85 @@
+\section*{NeurIPS Paper Checklist}
+
+\begin{enumerate}
+
+\item {\bf Claims}
+    \item[] Question: Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The abstract and introduction state the four main claims of the paper, and the body and appendix support them with theorems, proof sketches, full proofs, and empirical validation. Scope limits are also stated through the discussion of assumptions and the limitations paragraph near the end of the paper.
+
+\item {\bf Limitations}
+    \item[] Question: Does the paper discuss the limitations of the work performed by the authors?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The paper includes an explicit ``Limitations and open problems'' paragraph in the conclusion and also notes assumptions and caveats throughout the theory and empirical sections, including Lipschitz assumptions, composition caveats, benchmark-size constraints, and the limitations of provider-managed inference access.
+
+\item {\bf Theory assumptions and proofs}
+    \item[] Question: For each theoretical result, does the paper provide the full set of assumptions and a complete (and correct) proof?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Theorems in the main text state their assumptions, the main paper provides proof sketches for intuition, and the appendix contains full proofs for the theoretical claims, including the lower bounds, upper bounds, active-verification result, and compositional-verification result.
+
+\item {\bf Experimental result reproducibility}
+    \item[] Question: Does the paper fully disclose all the information needed to reproduce the main experimental results of the paper to the extent that it affects the main claims and/or conclusions of the paper (regardless of whether the code and data are provided or not)?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The paper specifies the benchmark suite, model roster, prompt and confidence-extraction procedure, finite-difference Lipschitz estimation, bootstrap protocol, permutation tests, and synthetic-experiment setup. The supplementary artifact provides anonymized analysis scripts, derived per-item outputs, saved analysis JSONs, and exact commands for regenerating the main tables and figures from saved outputs.
+
+\item {\bf Open access to data and code}
+    \item[] Question: Does the paper provide open access to the data and code, with sufficient instructions to faithfully reproduce the main experimental results, as described in supplemental material?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The submission includes an anonymized supplementary artifact with analysis scripts, derived raw result files, saved summaries, and a README containing environment setup and exact reproduction commands. The paper also states explicitly what is included in that anonymous supplementary artifact and what is intentionally excluded.
+
+\item {\bf Experimental setting/details}
+    \item[] Question: Does the paper specify all the training and test details (e.g., data splits, hyperparameters, how they were chosen, type of optimizer) necessary to understand the results?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The paper documents the benchmark sizes, model families, prompt protocol, score extraction, filtering of API failures, binning procedure for $\hat{\Lip}$, bootstrap setup, permutation testing, and synthetic-data construction. Because the paper studies evaluation rather than training a new model, there are no optimizer or training-hyperparameter choices for a newly trained system to report.
+
+\item {\bf Experiment statistical significance}
+    \item[] Question: Does the paper report error bars suitably and correctly defined or other appropriate information about the statistical significance of the experiments?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The empirical sections report 95\% bootstrap confidence intervals and permutation tests, and the appendix explains the bootstrap and testing procedures used for the core validation claims.
+
+\item {\bf Experiments compute resources}
+    \item[] Question: For each experiment, does the paper provide sufficient information on the computer resources (type of compute workers, memory, time of execution) needed to reproduce the experiments?
+    \item[] Answer: \answerNo{}
+    \item[] Justification: The paper now discloses that hosted-model inference was run through a provider-managed NIM API and that exact server-side GPU type, memory, and total runtime are not observable through that interface. Because those hardware details are not available for every run, we answer conservatively rather than overstating compute reproducibility.
+
+\item {\bf Code of ethics}
+    \item[] Question: Does the research conducted in the paper conform, in every respect, with the NeurIPS Code of Ethics \url{https://neurips.cc/public/EthicsGuidelines}?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The work is theoretical and evaluative in nature, focuses on auditing limitations in model verification, and does not introduce a new deployed model or unsafe data-collection procedure. We are not aware of any aspect of the work that conflicts with the NeurIPS Code of Ethics.
+
+\item {\bf Broader impacts}
+    \item[] Question: Does the paper discuss both potential positive societal impacts and negative societal impacts of the work performed?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The conclusion now includes a dedicated broader-impacts paragraph covering both positive impacts (more honest benchmarking and safer auditing practice) and negative or misuse pathways (using the theory to rationalize weak evaluation or deployment decisions), along with the intended mitigation message.
+
+\item {\bf Safeguards}
+    \item[] Question: Does the paper describe safeguards that have been put in place for responsible release of data or models that have a high risk for misuse (e.g., pre-trained language models, image generators, or scraped datasets)?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: The submission presents theory, evaluation methodology, and lightweight verification utilities; it does not release a new generative model or a high-risk scraped dataset.
+
+\item {\bf Licenses for existing assets}
+    \item[] Question: Are the creators or original owners of assets (e.g., code, data, models), used in the paper, properly credited and are the license and terms of use explicitly mentioned and properly respected?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The paper cites the benchmark and model sources used in the empirical study, and the manuscript now states that the supplementary artifact redistributes only our code and derived evaluation outputs, not benchmark question text or model weights. This is the main license-sensitive design choice in the submission.
+
+\item {\bf New assets}
+    \item[] Question: Are new assets introduced in the paper well documented and is the documentation provided alongside the assets?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The supplementary artifact includes a README with environment setup, exact reproduction commands, artifact contents, and limitations, together with the anonymized scripts and derived outputs needed to verify the paper's main empirical claims.
+
+\item {\bf Crowdsourcing and research with human subjects}
+    \item[] Question: For crowdsourcing experiments and research with human subjects, does the paper include the full text of instructions given to participants and screenshots, if applicable, as well as details about compensation (if any)?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: The paper does not report crowdsourcing experiments or research with human subjects.
+
+\item {\bf Institutional review board (IRB) approvals or equivalent for research with human subjects}
+    \item[] Question: Does the paper describe potential risks incurred by study participants, whether such risks were disclosed to the subjects, and whether Institutional Review Board (IRB) approvals (or an equivalent approval/review based on the requirements of your country or institution) were obtained?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: The paper does not involve human-subject research.
+
+\item {\bf Declaration of LLM usage}
+    \item[] Question: Does the paper describe the usage of LLMs if it is an important, original, or non-standard component of the core methods in this research? Note that if the LLM is used only for writing, editing, or formatting purposes and does \emph{not} impact the core methodology, scientific rigor, or originality of the research, declaration is not required.
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The empirical portion of the paper evaluates multiple LLMs directly and describes the hosted-model protocol, prompt format, confidence extraction from logprobs, and benchmark coverage. These details appear in the main empirical sections and the appendix's real-model protocol.
+
+\end{enumerate}

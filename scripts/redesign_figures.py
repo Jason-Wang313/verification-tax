@@ -72,7 +72,8 @@ MODEL_DISPLAY = {
 }
 
 # Paths
-BASE = r'C:\Users\wangz\verification tax'
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE = PROJECT_ROOT
 RESULTS = os.path.join(BASE, 'results', 'analysis')
 FIGURES = os.path.join(BASE, 'figures')
 os.makedirs(FIGURES, exist_ok=True)
@@ -477,3 +478,4 @@ if __name__ == '__main__':
     print("=" * 60)
     print("All figures generated successfully.")
     print("=" * 60)
+

@@ -4,7 +4,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-OUT = "C:/Users/wangz/verification tax/figures"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(PROJECT_ROOT, 'figures')
 os.makedirs(OUT, exist_ok=True)
 
 plt.rcParams.update({
@@ -16,7 +17,7 @@ plt.rcParams.update({
 C = ['#648FFF', '#DC267F', '#FE6100']
 
 # ====== FIG 2: Leaderboard noise — BIGGER right panel ======
-data = json.load(open('C:/Users/wangz/verification tax/results/analysis/leaderboard_noise.json'))
+data = json.load(open(os.path.join(PROJECT_ROOT, 'results', 'analysis', 'leaderboard_noise.json')))
 gaps_below = [g['gap'] for g in data['all_pairwise_gaps'] if not g['verifiable']]
 gaps_above = [g['gap'] for g in data['all_pairwise_gaps'] if g['verifiable']]
 median_floor = data['summary']['median_delta_floor']
@@ -42,7 +43,7 @@ plt.savefig(f'{OUT}/fig_leaderboard_noise.png', dpi=300, bbox_inches='tight')
 plt.close(); print('Fig 2 done')
 
 # ====== FIG 3: Active real — L-hat in x-labels, not floating ======
-data = json.load(open('C:/Users/wangz/verification tax/results/analysis/active_real_results.json'))
+data = json.load(open(os.path.join(PROJECT_ROOT, 'results', 'analysis', 'active_real_results.json')))
 ms_list = data['m_values']; md = data['models']; mnames = list(md.keys())
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
@@ -119,7 +120,7 @@ plt.savefig(f'{OUT}/fig_sun_comparison.png', dpi=300, bbox_inches='tight')
 plt.close(); print('Fig 5 done')
 
 # ====== FIG 6: All benchmarks — NO value labels, NO "floor>0.05" text ======
-summary = json.load(open('C:/Users/wangz/verification tax/results/analysis/all_benchmarks_summary.json'))
+summary = json.load(open(os.path.join(PROJECT_ROOT, 'results', 'analysis', 'all_benchmarks_summary.json')))
 bf = summary['mean_verification_floor_per_benchmark']
 names = list(bf.keys()); floors = [bf[n] for n in names]
 colors_bar = ['#648FFF', '#FE6100', '#1E8449', '#785EF0', '#DC267F']
@@ -137,7 +138,7 @@ plt.savefig(f'{OUT}/fig_all_benchmarks.png', dpi=300, bbox_inches='tight')
 plt.close(); print('Fig 6 done')
 
 # ====== FIG 8: Pipeline — CLEAN, no value annotations ======
-pd = json.load(open('C:/Users/wangz/verification tax/results/analysis/pipeline_real_results.json'))
+pd = json.load(open(os.path.join(PROJECT_ROOT, 'results', 'analysis', 'pipeline_real_results.json')))
 sub = pd['subsampling']
 ms = [m for m in sub.get('m_values', [100,200,500,1000,2000,5000,10000]) if str(m) in sub['pipeline']]
 pe = [sub['pipeline'][str(m)]['mean_abs_error'] for m in ms]
@@ -199,3 +200,4 @@ plt.savefig(f'{OUT}/fig_pipeline_real_lipschitz.png', dpi=300, bbox_inches='tigh
 plt.close(fig_lip)
 
 print('\nALL 5 FIGURES FIXED')
+
